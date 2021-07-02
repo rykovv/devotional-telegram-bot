@@ -123,7 +123,7 @@ def devotional(update: Update, context: CallbackContext) -> int:
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Es correcto?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Sí?'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
         ),
     )
 
@@ -147,7 +147,10 @@ def confirmation(update: Update, context: CallbackContext) -> int:
 
     if update.message.text == 'Sí':
         update.message.reply_text(
-            '¡Ya está todo configurado! Usted puede cambiar sus ajustes en cualquier momento marcando /ajustar. '
+            '¡Ya está todo configurado! Puede siempre marcar lo siguiente:\n'
+            '/ajustar para ajustar su suscripción,\n'
+            '/estado para ver el estado de su suscripción,\n'
+            '/ayuda para obtener ayuda.\n\n'
             '¡Muchas gracias y esperamos que sea para su gran bendición!'
         )
     elif update.message.text == 'No':
@@ -213,7 +216,7 @@ def change(update: Update, context: CallbackContext) -> int:
             f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
             '¿Es correcto?',
             reply_markup=ReplyKeyboardMarkup(
-                confirmation_reply_keyboard, one_time_keyboard=True, input_field_placeholder='Sí?'
+                confirmation_reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
             ),
         )
         return CONFIRMATION
@@ -241,49 +244,111 @@ def change_country(update: Update, context: CallbackContext) -> int:
     return CHANGE
 
 def change_preferred_time(update: Update, context: CallbackContext) -> int:
+    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
+    wrong_reply_keyboard = [['12am', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
+                            ['12pm', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
+    user = update.message.from_user
 
-
-    pattern = '^(País|Hora|Devocional|Nada)$'
+    pattern = '^\d(\d)?(a|p)+m$'
     if not re.match(pattern, update.message.text):
         update.message.reply_text(
-            f'Disculpe {user.first_name}, no le he entendido.'
-            'Por favor, indíqueme lo que tengo que cambiar.',
+            f'Disculpe {user.first_name}, no le he entendido. '
+            'Por favor, elija la hora de selección.',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
-            ),
-        )
-        return CHANGE
-
-    if update.message.text == 'País':
-        update.message.reply_text(
-            f'{user.first_name}, hasta encontes sabía que Usted era de {buffer_dict[user.id]["country"]}.\n\n'
-            '¿A qué país querría cambiar?',
-            reply_markup=ReplyKeyboardRemove(),
-        )
-        return CHANGE_COUNTRY
-    elif update.message.text == 'Hora':
-        update.message.reply_text(
-            f'{user.first_name}, hasta encontes sabía que Usted quería recibir el devocional a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
-            '¿A qué hora quiere cambiar?',
-            reply_markup=ReplyKeyboardMarkup(
-                time_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿A qué hora?'
+                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué hora apunto?'
             ),
         )
         return CHANGE_PREFERRED_TIME
-    elif update.message.text == 'Devocional':
+
+    buffer_dict[user.id]['preferred_time'] = update.message.text
+
+    update.message.reply_text(
+        f'¡Bien! Con ese cambio sabemos que Usted es de {buffer_dict[user.id]["country"]}, '
+        f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
+        f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
+        '¿Desear realizar algún cambio más?',
+        reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+        ),
+    )
+
+    return CHANGE
+
+def change_devotional(update: Update, context: CallbackContext) -> int:
+    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
+    wrong_reply_keyboard = [['¡Maranata: El Señor Viene!']]
+    user = update.message.from_user
+
+    pattern = '^(¡Maranata: El Señor Viene!)$'
+    if not re.match(pattern, update.message.text):
         update.message.reply_text(
-            f'{user.first_name}, hasta encontes sabía que Usted quería recibir el devocional {buffer_dict[user.id]["devotional"]}.\n\n'
-            '¿A qué devocional quiere cambiar?',
+            f'Disculpe {user.first_name}, no le he entendido.'
+            'Por favor, seleccione algún devocional disponible.',
             reply_markup=ReplyKeyboardMarkup(
-                devotional_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
+                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué devocional apunto ahora?'
             ),
         )
         return CHANGE_DEVOTIONAL
-    # unreachable return
+
+    buffer_dict[user.id]['devotional'] = update.message.text
+
+    update.message.reply_text(
+        f'¡Bien! Actualmente sabemos que Usted es de {buffer_dict[user.id]["country"]}, '
+        f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
+        f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
+        '¿Desea cambiar algo más?',
+        reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+        ),
+    )
+
+    return CHANGE
+
+def make_adjustments(update: Update, context: CallbackContext) -> int:
+    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Nada']]
+    user = update.message.from_user
+
+    update.message.reply_text(
+        'Lo que teníamos hasta ahora es que \n' 
+        f'Usted es de {buffer_dict[user.id]["country"]} y '
+        f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
+        f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
+        '¿Qué le gustaría cambiar en esta ocasión?',
+        reply_markup=ReplyKeyboardMarkup(
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+        ),
+    )
+
+    return CHANGE
+
+def get_status(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    update.message.reply_text(
+        'Aquí tiene el estado de su suscripción. \n' 
+        f'Usted es de {buffer_dict[user.id]["country"]} y '
+        f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
+        f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
+        'Para hacer algún cambio marque /ajustar.'
+    )
+
     return ConversationHandler.END
 
-def change_devotional(update: Update, context: CallbackContext) -> int:
-    pass
+def get_help(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    update.message.reply_text(
+        'Aquí tiene el estado de su suscripción. \n' 
+        f'Usted es de {buffer_dict[user.id]["country"]} y '
+        f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
+        f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
+        'Puede marcar lo siguiente:\n'
+        '/ajustar para ajustar su suscripción,\n'
+        '/estado para ver el estado de su suscripción.\n\n'
+    )
+
+    return ConversationHandler.END
+
 
 def cancelar(update: Update, context: CallbackContext) -> int:
     """Cancels and ends the conversation."""
@@ -313,7 +378,11 @@ def main() -> None:
 
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
     conv_handler = ConversationHandler(
-        entry_points=[CommandHandler('start', start)],
+        entry_points=[
+            CommandHandler('start', start), 
+            CommandHandler('ajustar', make_adjustments), 
+            CommandHandler('estado', get_status),
+            CommandHandler('ayuda', get_help)],
         states={
             COUNTRY: [MessageHandler(Filters.text & ~Filters.command, country)],
             PREFERRED_TIME: [MessageHandler(Filters.text & ~Filters.command, preferred_time)], #Filters.regex('\d\d*{am,pm}+')
@@ -326,27 +395,6 @@ def main() -> None:
         },
         fallbacks=[CommandHandler('cancelar', cancelar)],
     )
-    # conv_handler = ConversationHandler(
-    #     entry_points=[CommandHandler('start', start)],
-    #     states={
-    #         CHOOSING: [
-    #             MessageHandler(
-    #                 Filters.regex('^(País|Hora|Devocional)$'), regular_choice
-    #             )],
-    #         TYPING_CHOICE: [
-    #             MessageHandler(
-    #                 Filters.text & ~(Filters.command | Filters.regex('^Hecho!$')), regular_choice
-    #             )
-    #         ],
-    #         TYPING_REPLY: [
-    #             MessageHandler(
-    #                 Filters.text & ~(Filters.command | Filters.regex('^Hecho!$')),
-    #                 received_information,
-    #             )
-    #         ],
-    #     },
-    #     fallbacks=[MessageHandler(Filters.regex('^Hecho!$'), done)],
-    # )
 
     dispatcher.add_handler(conv_handler)
 
@@ -371,87 +419,3 @@ def test() -> None:
 if __name__ == '__main__':
     main()
     #test()
-
-
-
-
-
-
-
-
-# CHOOSING, TYPING_REPLY, TYPING_CHOICE = range(3)
-
-# reply_keyboard = [
-#     ['País', 'Hora'],
-#     ['Devocional'],
-#     ['Hecho!'],
-# ]
-# markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
-
-
-# def facts_to_str(user_data: Dict[str, str]) -> str:
-#     """Helper function for formatting the gathered user info."""
-#     facts = [f'{key} - {value}' for key, value in user_data.items()]
-#     return "\n".join(facts).join(['\n', '\n'])
-
-
-# def start(update: Update, context: CallbackContext) -> int:
-#     """Start the conversation and ask user for input."""
-#     update.message.reply_text(
-#         "Hi! My name is Doctor Botter. I will hold a more complex conversation with you. "
-#         "Why don't you tell me something about yourself?",
-#         reply_markup=markup,
-#     )
-
-#     return CHOOSING
-
-
-# def regular_choice(update: Update, context: CallbackContext) -> int:
-#     """Ask the user for info about the selected predefined choice."""
-#     text = update.message.text
-#     context.user_data['choice'] = text
-#     update.message.reply_text(f'Your {text.lower()}? Yes, I would love to hear about that!')
-
-#     return TYPING_REPLY
-
-
-# def custom_choice(update: Update, context: CallbackContext) -> int:
-#     """Ask the user for a description of a custom category."""
-#     update.message.reply_text(
-#         'Alright, please send me the category first, for example "Most impressive skill"'
-#     )
-
-#     return TYPING_CHOICE
-
-
-# def received_information(update: Update, context: CallbackContext) -> int:
-#     """Store info provided by user and ask for the next category."""
-#     user_data = context.user_data
-#     text = update.message.text
-#     category = user_data['choice']
-#     user_data[category] = text
-#     del user_data['choice']
-
-#     update.message.reply_text(
-#         "Neat! Just so you know, this is what you already told me:"
-#         f"{facts_to_str(user_data)} You can tell me more, or change your opinion"
-#         " on something.",
-#         reply_markup=markup,
-#     )
-
-#     return CHOOSING
-
-
-# def done(update: Update, context: CallbackContext) -> int:
-#     """Display the gathered info and end the conversation."""
-#     user_data = context.user_data
-#     if 'choice' in user_data:
-#         del user_data['choice']
-
-#     update.message.reply_text(
-#         f"I learned these facts about you: {facts_to_str(user_data)}Until next time!",
-#         reply_markup=ReplyKeyboardRemove(),
-#     )
-
-#     user_data.clear()
-#     return ConversationHandler.END
