@@ -4,6 +4,10 @@ import re
 import logging
 from typing import Dict
 
+from timezonefinder import TimezoneFinder
+import pytz
+import datetime
+
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.ext import (
     Updater,
@@ -23,12 +27,14 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-COUNTRY, PREFERRED_TIME, DEVOTIONAL, CONFIRMATION, CHANGE, CHANGE_COUNTRY, CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL = range(8)
+TIME_ZONE, PREFERRED_TIME, DEVOTIONAL, CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL = range(8)
 
 buffer_dict = {}
 
+tf = TimezoneFinder()
+
 def start(update: Update, context: CallbackContext) -> int:
-    """Starts the conversation and asks the user about their country."""
+    """Starts the conversation and asks the user about their time_zone."""
     user = update.message.from_user    
     buffer_dict[user.id] = { "first_name" : user.first_name }
 
@@ -38,23 +44,43 @@ def start(update: Update, context: CallbackContext) -> int:
         'Vamos a tener una pequeña conversación para apuntar el devocional de su elección y su hora preferida. '
         'Si desea cancelar este proceso simplemente marque /cancelar.\n\n'
         
-        '¿De dónde es Usted? Lo necesitamos para saber su hora.\nPor ejemplo, Estados Unidos, Chile...',
+        #'¿De dónde es Usted? Lo necesitamos para saber su hora.\nPor ejemplo, Estados Unidos, Chile...',
+        '¿De dónde es Usted? Envíenos su geolocalización, '
+        'la necesitamos solo para saber su zona horaria para enviar las matutinas a su hora.\n'
+        'Nosotros no guardamos sus datos, solo extraemos la zona horaria.\n'
+        'Si no quiere hacerlo marque /saltar, pero su matutina llegaría a las 10pm de PST.',
         reply_markup=ReplyKeyboardRemove(),
     )
 
-    return COUNTRY
+    return TIME_ZONE
 
-def country(update: Update, context: CallbackContext) -> int:
+def time_zone(update: Update, context: CallbackContext) -> int:
     reply_keyboard = [  ['12am', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
                         ['12pm', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
 
     user = update.message.from_user
-    buffer_dict[user.id]['country'] = update.message.text
-    print(f'Country of {user.first_name}: {update.message.text}')
+    user_location = update.message.location
+    if user_location == None:
+        update.message.reply_text(
+            f'Disculpe {user.first_name}, no le he entendido.'
+            'Envíenos su geolocalización o salte este paso marcando /saltar.',
+            reply_markup=ReplyKeyboardRemove()
+        )
+        return TIME_ZONE
+
+    buffer_dict[user.id]['time_zone'] = tf.timezone_at(lat=user_location.latitude, lng=user_location.longitude)
+    print(f'User time zone is {buffer_dict[user.id]["time_zone"]}')
+    
+    now_utc = pytz.utc.localize(datetime.datetime.utcnow())
+    now_user = now_utc.astimezone(pytz.timezone(buffer_dict[user.id]['time_zone']))
+    
+    buffer_dict[user.id]['utc_offset'] = now_user.isoformat()[-6:]
+
+    print(f'UTC offset of {user.first_name}: {buffer_dict[user.id]["utc_offset"]}')
     # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     update.message.reply_text(
-        f'¡Estupendo! Ya sabemos que Usted es de {update.message.text}.\n\n'
+        f'¡Estupendo! Ya sabemos que su zona horaria es {buffer_dict[user.id]["time_zone"]}.\n\n'
         '¿A qué hora querría recibir el devocional?',
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Cuál es su hora preferida?'
@@ -88,7 +114,7 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         f'¡{buffer_dict[user.id]["first_name"]}, nos queda un paso para terminar! '
-        f'Ya sabemos que Usted es de {buffer_dict[user.id]["country"]} y '
+        f'Ya sabemos que su zona horaria es {buffer_dict[user.id]["time_zone"]} y '
         f'quiere recibir el devocional a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
         reply_markup=ReplyKeyboardMarkup(
@@ -117,8 +143,8 @@ def devotional(update: Update, context: CallbackContext) -> int:
     buffer_dict[user.id]['devotional'] = update.message.text
 
     update.message.reply_text(
-        '¡Ya estamos listos! Ya sabemos que\n' 
-        f'Usted es de {buffer_dict[user.id]["country"]} y '
+        '¡Ya estamos listos! Ya sabemos que ' 
+        f'su zona horaria es {buffer_dict[user.id]["time_zone"]} y '
         f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Es correcto?',
@@ -185,11 +211,11 @@ def change(update: Update, context: CallbackContext) -> int:
 
     if update.message.text == 'País':
         update.message.reply_text(
-            f'{user.first_name}, hasta encontes sabía que Usted era de {buffer_dict[user.id]["country"]}.\n\n'
-            '¿A qué país querría cambiar?',
+            f'{user.first_name}, hasta encontes sabía que su zona horaria era {buffer_dict[user.id]["time_zone"]}.\n\n'
+            'Mándenos de nuevo su geolocalización o marque /saltar para eliminar la información actual.',
             reply_markup=ReplyKeyboardRemove(),
         )
-        return CHANGE_COUNTRY
+        return CHANGE_TIME_ZONE
     elif update.message.text == 'Hora':
         update.message.reply_text(
             f'{user.first_name}, hasta encontes sabía que Usted quería recibir el devocional a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
@@ -211,7 +237,7 @@ def change(update: Update, context: CallbackContext) -> int:
     elif update.message.text == 'Nada' or update.message.text == 'Listo':
         update.message.reply_text(
             '¡Muy bien, recapitulemos!\n' 
-            f'Usted es de {buffer_dict[user.id]["country"]} y '
+            f'Su zona horaria es {buffer_dict[user.id]["time_zone"]} y '
             f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
             f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
             '¿Es correcto?',
@@ -223,16 +249,31 @@ def change(update: Update, context: CallbackContext) -> int:
     # unreachable return
     return ConversationHandler.END
 
-def change_country(update: Update, context: CallbackContext) -> int:
+def change_time_zone(update: Update, context: CallbackContext) -> int:
     reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
     user = update.message.from_user
+    user_location = update.message.location
 
-    buffer_dict[user.id]['country'] = update.message.text
-    print(f'Country of {user.first_name}: {update.message.text}')
+    if user_location == None:
+        update.message.reply_text(
+            f'Disculpe {user.first_name}, no le he entendido.'
+            'Envíenos su geolocalización o salte este paso marcando /saltar.',
+            reply_markup=ReplyKeyboardRemove()
+        )
+        return TIME_ZONE
+
+    buffer_dict[user.id]['time_zone'] = tf.timezone_at(lat=user_location.latitude, lng=user_location.longitude)
+    print(f'User time zone is {buffer_dict[user.id]["time_zone"]}')
+    
+    now_utc = pytz.utc.localize(datetime.datetime.utcnow())
+    now_user = now_utc.astimezone(pytz.timezone(buffer_dict[user.id]['time_zone']))
+    
+    buffer_dict[user.id]['utc_offset'] = now_user.isoformat()[-6:]
+
     # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     update.message.reply_text(
-        f'¡Estupendo! A partir de ahora sabemos que Usted es de {update.message.text}, '
+        f'¡Estupendo! A partir de ahora sabemos que su zona horaria es {buffer_dict[user.id]["time_zone"]}, '
         f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Quiere cambiar algo más?',
@@ -263,7 +304,7 @@ def change_preferred_time(update: Update, context: CallbackContext) -> int:
     buffer_dict[user.id]['preferred_time'] = update.message.text
 
     update.message.reply_text(
-        f'¡Bien! Con ese cambio sabemos que Usted es de {buffer_dict[user.id]["country"]}, '
+        f'¡Bien! Con ese cambio sabemos que su zona horaria es {buffer_dict[user.id]["time_zone"]}, '
         f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Desear realizar algún cambio más?',
@@ -293,7 +334,7 @@ def change_devotional(update: Update, context: CallbackContext) -> int:
     buffer_dict[user.id]['devotional'] = update.message.text
 
     update.message.reply_text(
-        f'¡Bien! Actualmente sabemos que Usted es de {buffer_dict[user.id]["country"]}, '
+        f'¡Bien! Actualmente sabemos que su zona horaria es {buffer_dict[user.id]["time_zone"]}, '
         f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Desea cambiar algo más?',
@@ -310,7 +351,7 @@ def make_adjustments(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         'Lo que teníamos hasta ahora es que \n' 
-        f'Usted es de {buffer_dict[user.id]["country"]} y '
+        f'su zona horaria es {buffer_dict[user.id]["time_zone"]} y '
         f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Qué le gustaría cambiar en esta ocasión?',
@@ -326,7 +367,7 @@ def get_status(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         'Aquí tiene el estado de su suscripción. \n' 
-        f'Usted es de {buffer_dict[user.id]["country"]} y '
+        f'Su zona horaria es {buffer_dict[user.id]["time_zone"]} y '
         f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         'Para hacer algún cambio marque /ajustar.'
@@ -339,7 +380,7 @@ def get_help(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         'Aquí tiene el estado de su suscripción. \n' 
-        f'Usted es de {buffer_dict[user.id]["country"]} y '
+        f'Su zona horaria es {buffer_dict[user.id]["time_zone"]} y '
         f'quiere recibir el devocional {buffer_dict[user.id]["devotional"]} '
         f'cada día a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         'Puede marcar lo siguiente:\n'
@@ -384,12 +425,12 @@ def main() -> None:
             CommandHandler('estado', get_status),
             CommandHandler('ayuda', get_help)],
         states={
-            COUNTRY: [MessageHandler(Filters.text & ~Filters.command, country)],
+            TIME_ZONE: [MessageHandler((Filters.text & ~Filters.command) | Filters.location, time_zone)],
             PREFERRED_TIME: [MessageHandler(Filters.text & ~Filters.command, preferred_time)], #Filters.regex('\d\d*{am,pm}+')
             DEVOTIONAL: [MessageHandler(Filters.text & ~Filters.command, devotional)], #Filters.regex('^(¡Maranata: El Señor Viene!)$')
             CONFIRMATION: [MessageHandler(Filters.text & ~Filters.command, confirmation)],
             CHANGE: [MessageHandler(Filters.text & ~Filters.command, change)],
-            CHANGE_COUNTRY: [MessageHandler(Filters.text & ~Filters.command, change_country)],
+            CHANGE_TIME_ZONE: [MessageHandler((Filters.text & ~Filters.command) | Filters.location, change_time_zone)],
             CHANGE_PREFERRED_TIME: [MessageHandler(Filters.text & ~Filters.command, change_preferred_time)],
             CHANGE_DEVOTIONAL: [MessageHandler(Filters.text & ~Filters.command, change_devotional)],
         },
