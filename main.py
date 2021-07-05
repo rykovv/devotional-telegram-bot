@@ -18,7 +18,11 @@ from telegram.ext import (
     CallbackContext,
 )
 
+# Setup the config
 CONFIG_FILE_NAME = 'config.ini'
+
+config = ConfigParser()
+config.read(CONFIG_FILE_NAME)
 
 # Enable logging
 logging.basicConfig(
@@ -32,6 +36,7 @@ START_CONVERSATION, TIME_ZONE, PREFERRED_TIME, DEVOTIONAL, CONFIRMATION, CHANGE,
 buffer_dict = {}
 
 tf = TimezoneFinder()
+
 
 def start(update: Update, context: CallbackContext) -> int:
     """Starts the conversation and asks the user about their time_zone."""
@@ -70,7 +75,7 @@ def start_conversation(update: Update, context: CallbackContext) -> int:
         update.message.reply_text(
             #'¿De dónde es Usted? Lo necesitamos para saber su hora.\nPor ejemplo, Estados Unidos, Chile...',
             'Para enviar las matutinas a su hora de preferencia, necesitamos saber su zona horaria. '
-            'Para ello me puede enviar su geolocalización. '
+            'Para ello me puede enviar su ubicación. '
             'Nosotros no guardamos sus datos, solo extraemos la zona horaria.\n\n'
             'Si no quiere hacerlo marque /saltar. En tal caso su matutina le llegaría a las 10pm PST.',
             reply_markup=ReplyKeyboardRemove(),
@@ -97,7 +102,7 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     #logger.info("User %s did not send a location.", user.first_name)
     
     update.message.reply_text(
-        f'¡{buffer_dict[user.id]["first_name"]}, no hay problema. Usted recibirá la matutina a las 10pm PST cada día. '
+        f'¡{user.first_name}, no hay problema. Usted recibirá la matutina a las 10pm PST cada día. '
         'Nos queda un paso para terminar!\n\n'
         '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
         reply_markup=ReplyKeyboardMarkup(
@@ -117,7 +122,7 @@ def time_zone(update: Update, context: CallbackContext) -> int:
     if user_location == None:
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido. '
-            'Envíenos su geolocalización o salte este paso marcando /saltar.',
+            'Envíenos su ubicación o salte este paso marcando /saltar.',
             reply_markup=ReplyKeyboardRemove()
         )
         return TIME_ZONE
@@ -177,7 +182,7 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
     # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     update.message.reply_text(
-        f'¡{buffer_dict[user.id]["first_name"]}, nos queda un paso para terminar! '
+        f'¡{user.first_name}, nos queda un paso para terminar! '
         f'Ya sabemos que su zona horaria es {buffer_dict[user.id]["time_zone"]} y '
         f'quiere recibir el devocional a la(s) {buffer_dict[user.id]["preferred_time"]}.\n\n'
         '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
@@ -287,13 +292,13 @@ def change(update: Update, context: CallbackContext) -> int:
         if buffer_dict[user.id]['time_zone'] != 'skipped':
             update.message.reply_text(
                 f'{user.first_name}, hasta encontes sabía que su zona horaria era {buffer_dict[user.id]["time_zone"]}.\n\n'
-                'Mándenos de nuevo su geolocalización o marque /eliminar para eliminar la información actual.',
+                'Mándenos de nuevo su ubicación o marque /eliminar para eliminar la información actual.',
                 reply_markup=ReplyKeyboardRemove(),
             )
         else:
             update.message.reply_text(
                 f'{user.first_name}, hasta encontes sabía que Usted iba a recibir las matutinas a las 10pm PST.\n\n'
-                'Mándenos de nuevo su geolocalización si quiere recibir el devocional a su hora de preferencia.',
+                'Mándenos de nuevo su ubicación si quiere recibir el devocional a su hora de preferencia.',
                 reply_markup=ReplyKeyboardRemove(),
             )
         return CHANGE_TIME_ZONE
@@ -308,7 +313,7 @@ def change(update: Update, context: CallbackContext) -> int:
             )
         else:
             update.message.reply_text(
-                f'{user.first_name}, para cambiar la hora Usted me tiene que enviar su geolocalización pinchando \'País\'. '
+                f'{user.first_name}, para cambiar la hora Usted me tiene que enviar su ubicación pinchando \'País\'. '
                 'De otro modo no puedo saber cuál es su zona horaria para enviarle el devocional a su hora.\n\n',
                 reply_markup=ReplyKeyboardMarkup(
                     wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
@@ -358,7 +363,7 @@ def change_time_zone(update: Update, context: CallbackContext) -> int:
     if user_location == None:
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
-            'Envíenos su geolocalización o elimine su información actual marcando /eliminar.',
+            'Envíenos su ubicación o elimine su información actual marcando /eliminar.',
             reply_markup=ReplyKeyboardRemove()
         )
         return TIME_ZONE
@@ -548,10 +553,6 @@ def cancelar(update: Update, context: CallbackContext) -> int:
 
 def main() -> None:
     """Run the bot."""
-
-    # Setup the config file
-    config = ConfigParser()
-    config.read(CONFIG_FILE_NAME)
 
     # Create the Updater and pass it your bot's token.
     updater = Updater(config['bot']['token'])
