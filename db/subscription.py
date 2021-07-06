@@ -22,7 +22,8 @@ class Subscription(Base):
     # subscription creation time in UTC
     creation_utc = Column('creation_utc', Numeric)
 
-    def __init__(self, subscriber_id, devotional_name=None, preferred_time=None, creation_utc=None):
+
+    def __init__(self, subscriber_id, devotional_name=None, preferred_time=None, creation_utc=get_epoch()):
         self.subscriber_id = subscriber_id
         self.devotional_name = devotional_name
         self.preferred_time = preferred_time
@@ -31,7 +32,6 @@ class Subscription(Base):
     def persist(self):
         session = Session()
         session.add(self)
-        self.creation_utc = get_epoch()
         session.commit()
         session.close()
 

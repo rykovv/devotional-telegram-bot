@@ -22,9 +22,9 @@ class Subscriber(Base):
 
     # foreign key relationship with subscriptions. on subscriber delete, 
     #   delete subscriptions in a cascade manner
-    subscriptions = relationship('Subscription', cascade='all, delete, delete-orphan')
+    subscriptions = relationship('Subscription', cascade='all, delete, delete-orphan', lazy='joined')
 
-    def __init__(self, id, first_name=None, time_zone=None, utc_offset=None, creation_utc=None):
+    def __init__(self, id, first_name=None, time_zone=None, utc_offset=None, creation_utc=get_epoch()):
         self.id = id
         self.first_name = first_name
         self.time_zone = time_zone
@@ -36,7 +36,6 @@ class Subscriber(Base):
 
     def persist(self):
         session = Session()
-        self.creation_utc = get_epoch()
         session.add(self)
         session.commit()
         session.close()
