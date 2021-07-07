@@ -136,8 +136,8 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     return DEVOTIONAL
 
 def time_zone(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [  ['12am', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                        ['12pm', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
+    reply_keyboard = [  ['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
+                        ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
     geo_skipped_keyboard = [['¡Maranata: El Señor Viene!']]
 
     user = update.message.from_user
@@ -184,8 +184,8 @@ def time_zone(update: Update, context: CallbackContext) -> int:
 
 def preferred_time(update: Update, context: CallbackContext) -> int:
     reply_keyboard = [['¡Maranata: El Señor Viene!']]
-    wrong_reply_keyboard = [['12am', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                            ['12pm', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
+    wrong_reply_keyboard = [['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
+                            ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
 
     user = update.message.from_user
 
@@ -298,8 +298,8 @@ def confirmation(update: Update, context: CallbackContext) -> int:
 
 def change(update: Update, context: CallbackContext) -> int:
     wrong_reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Nada']]
-    time_reply_keyboard = [ ['12am', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                            ['12pm', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
+    time_reply_keyboard = [ ['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
+                            ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
     devotional_reply_keyboard = [['¡Maranata: El Señor Viene!']]
     confirmation_reply_keyboard = [['Sí'],['No']]
 
@@ -447,8 +447,8 @@ def geo_remove(update: Update, context: CallbackContext) -> int:
 
 def change_preferred_time(update: Update, context: CallbackContext) -> int:
     reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
-    wrong_reply_keyboard = [['12am', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                            ['12pm', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
+    wrong_reply_keyboard = [['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
+                            ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
     user = update.message.from_user
 
     pattern = '^\d(\d)?(a|p)+m$'
