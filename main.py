@@ -18,6 +18,10 @@ from telegram.ext import (
     CallbackContext,
 )
 
+import threading
+import schedule
+import time
+
 from db.devotional import Devotional
 from db.subscriber import Subscriber
 from db.subscription import Subscription
@@ -27,6 +31,7 @@ from db.base import Session, engine, Base
 from utils.utils import get_epoch, utc_offset_to_int
 from utils.helpers import fetch_subscriber
 import utils.buffer as buffer
+import utils.sender as sender
 
 # Setup the config
 CONFIG_FILE_NAME = 'config.ini'
@@ -651,6 +656,7 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
 
     return ConversationHandler.END
 
+
 def main() -> None:
     """Run the bot."""
     # Deploy database schema if not done
@@ -696,20 +702,21 @@ def main() -> None:
     # Start the Bot
     updater.start_polling()
 
+    # Start running sender in background 
+    sender.run(send_devotionals)
+    
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
-def test() -> None:
-    pattern = '^\d(\d)?(a|p)+m$'
-    test_string = '5pm'
-    result = re.match(pattern, test_string)
+    # kill devotional sender
+    sender.stop()
 
-    if result:
-        print("Search successful.")
-    else:
-        print("Search unsuccessful.")
+
+def send_devotionals():
+    print(f'devotionals sent at {time.ctime()}')
+
 
 def _persist_buffer(userid):
     if userid in buffer.subscribers:
@@ -723,6 +730,46 @@ def _clean_db(userid):
     if userid in buffer.subscribers:
         buffer.subscribers[userid].delete()
 
+def __test() -> None:
+    pattern = '^\d(\d)?(a|p)+m$'
+    test_string = '5pm'
+    result = re.match(pattern, test_string)
+
+    if result:
+        print("Search successful.")
+    else:
+        print("Search unsuccessful.")
+
+# def run_continuously(interval=1):
+#     """Continuously run, while executing pending jobs at each
+#     elapsed time interval.
+#     @return cease_continuous_run: threading. Event which can
+#     be set to cease continuous run. Please note that it is
+#     *intended behavior that run_continuously() does not run
+#     missed jobs*. For example, if you've registered a job that
+#     should run every minute and you set a continuous run
+#     interval of one hour then your job won't be run 60 times
+#     at each interval but only once.
+#     """
+#     cease_continuous_run = threading.Event()
+
+#     class ScheduleThread(threading.Thread):
+#         @classmethod
+#         def run(cls):
+#             while not cease_continuous_run.is_set():
+#                 schedule.run_pending()
+#                 time.sleep(interval)
+
+#     continuous_thread = ScheduleThread()
+#     continuous_thread.start()
+#     return cease_continuous_run
+
+# def send_devotionals():
+#     print(f'devotionals sent at {time.ctime()}')
+
+# Start the background thread
+# stop_run_continuously = run_continuously()
+
 if __name__ == '__main__':
     main()
-    #test()
+    #__test()
