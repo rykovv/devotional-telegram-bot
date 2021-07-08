@@ -31,13 +31,14 @@ from db.base import Session, engine, Base
 from utils.utils import get_epoch, utc_offset_to_int, shift_12h_tf
 from utils.helpers import fetch_subscriber
 import utils.buffer as buffer
-import utils.sender as sender
+import utils.consts as consts
+
+import actors.scheduler as scheduler
+import actors.sender as sender
 
 # Setup the config
-CONFIG_FILE_NAME = 'config.ini'
-
 config = ConfigParser()
-config.read(CONFIG_FILE_NAME)
+config.read(consts.CONFIG_FILE_NAME)
 
 # Enable logging
 logging.basicConfig(
@@ -701,20 +702,16 @@ def main() -> None:
     # Start the Bot
     updater.start_polling()
 
-    # Start running sender in background 
-    sender.run(send_devotionals)
+    # Start running scheduler in background 
+    scheduler.run(sender.send)
     
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
-    # kill devotional sender
-    sender.stop()
-
-
-def send_devotionals():
-    print(f'devotionals sent at {time.ctime()}')
+    # kill devotional scheduler
+    scheduler.stop()
 
 
 def _persist_buffer(userid):
@@ -732,7 +729,7 @@ def _clean_db(userid):
 def __test():
     from utils.consts import TF_24TO12
     for i in range(24):
-        print(shift_12h_tf(TF_24TO12[i], -700))
+        print(TF_24TO12[i], shift_12h_tf(TF_24TO12[i], -700))
 
 def __regex_test() -> None:
     pattern = '^\d(\d)?(a|p)+m$'

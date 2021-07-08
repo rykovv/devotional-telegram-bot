@@ -32,16 +32,22 @@ class Subscription(Base):
         self.devotional_name = devotional_name
         self.preferred_time_local = preferred_time_local
         self.utc_offset = utc_offset
-        self.preferred_time_utc = shift_12h_tf(preferred_time, utc_offset)
+        self.preferred_time_utc = shift_12h_tf(preferred_time_local, utc_offset)
         self.creation_utc = creation_utc
 
     def update_utc_offset(self, offset):
+        session = Session()
         self.utc_offset = offset
         self.preferred_time_utc = shift_12h_tf(self.preferred_time_local, self.utc_offset)
+        session.commit()
+        session.close()
 
     def update_preferred_time_local(self, new_time):
+        session = Session()
         self.preferred_time_local = new_time
         self.preferred_time_utc = shift_12h_tf(self.preferred_time_local, self.utc_offset)
+        session.commit()
+        session.close()
 
     def persist(self):
         session = Session()

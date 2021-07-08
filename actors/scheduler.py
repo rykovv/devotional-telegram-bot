@@ -16,7 +16,6 @@ def run_continuously(interval=1):
     interval of one hour then your job won't be run 60 times
     at each interval but only once.
     """
-    # cease_continuous_run = threading.Event()
 
     class ScheduleThread(threading.Thread):
         @classmethod
@@ -28,20 +27,16 @@ def run_continuously(interval=1):
     continuous_thread = ScheduleThread()
     continuous_thread.start()
 
+# Start the background thread
 def run(task, interval=1):
     # Schedule devotional sending every hour at 00th minute
-    schedule.every().minute.at(':00').do(task)
-    # schedule.every().second.do(task)
+    # schedule.every().minute.at(':00').do(task)
+    schedule.every(2).seconds.do(task)
     run_continuously(interval)
 
 
 # Stop the background thread
 def stop():
     cease_continuous_run.set()
-
-# Start the background thread
-
-
-
 
 

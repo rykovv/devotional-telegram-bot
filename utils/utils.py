@@ -1,4 +1,5 @@
 import time
+import datetime as dt
 
 import utils.consts as consts
 
@@ -18,15 +19,17 @@ def shift_12h_tf(tfrom, offset):
                     -730 means 7-hours 30-minutes negative shift.
     @return         The shifted time in 12-hour format.
     """
-
     hours = int(offset/100)
     minutes = abs(offset)%100
-    shifted_time_idx = (consts.TF_24TO12.index(tfrom)+hours) % 24
+    shifted_time_idx = (consts.TF_24TO12.index(tfrom)-hours) % 24
     
     if minutes != 0:
         if offset > 0:
-            shifted_time_idx = (shifted_time_idx + 1) % 24
-        else:
             shifted_time_idx = (shifted_time_idx - 1) % 24
+        else:
+            shifted_time_idx = (shifted_time_idx + 1) % 24
             
     return consts.TF_24TO12[shifted_time_idx]
+
+def get_current_utc_hour():
+    return dt.datetime.utcnow().hour
