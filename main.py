@@ -28,7 +28,7 @@ from db.subscription import Subscription
 
 from db.base import Session, engine, Base
 
-from utils.utils import get_epoch, utc_offset_to_int
+from utils.utils import get_epoch, utc_offset_to_int, shift_12h_tf
 from utils.helpers import fetch_subscriber
 import utils.buffer as buffer
 import utils.sender as sender
@@ -62,7 +62,7 @@ def start(update: Update, context: CallbackContext) -> int:
     subscriber = fetch_subscriber(user.id)
 
     if subscriber == None:
-        buffer.add_subscriber(Subscriber(id=user.id, first_name=user.first_name))
+        buffer.add_subscriber(Subscriber(id=user.id))
 
         update.message.reply_text(
             f'¡Hola, {user.first_name}! Soy el bot del ministerio Una Mirada de Fe y Esperanza. '
@@ -119,8 +119,8 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     
     buffer.subscribers[user.id].time_zone = 'skipped'
-    buffer.subscribers[user.id].utc_offset = -700 # -07:00 -> -0700 -> -700
-    buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time='10pm'))
+    # -07:00 -> -0700 -> -700
+    buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700))
 
     # logger.info("User %s did not send a location.", user.first_name)
     
@@ -157,9 +157,9 @@ def time_zone(update: Update, context: CallbackContext) -> int:
     now_utc = pytz.utc.localize(datetime.datetime.utcnow())
     now_user = now_utc.astimezone(pytz.timezone(buffer.subscribers[user.id].time_zone))
     
-    buffer.subscribers[user.id].utc_offset = utc_offset_to_int(now_user.isoformat()[-6:])
+    buffer.add_subscription(Subscription(subscriber_id=user.id, utc_offset=utc_offset_to_int(now_user.isoformat()[-6:])))
 
-    print(f'UTC offset of {user.first_name}: {buffer.subscribers[user.id].utc_offset}')
+    print(f'UTC offset of {user.first_name}: {buffer.subscriptions[user.id].utc_offset}')
     # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     if not buffer.subscribers[user.id].skipped_timezone():
@@ -200,15 +200,15 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
         )
         return PREFERRED_TIME
 
-    buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time=update.message.text))
+    buffer.subscriptions[user.id].update_preferred_time_local(update.message.text)
     
-    print(f'Preferred time of {user.first_name}: {buffer.subscriptions[user.id].preferred_time}')
+    print(f'Preferred time of {user.first_name}: {buffer.subscriptions[user.id].preferred_time_local}')
     # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     update.message.reply_text(
         f'¡{user.first_name}, nos queda un paso para terminar! '
         f'Ya sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone} y '
-        f'quiere recibir el devocional a la(s) {buffer.subscriptions[user.id].preferred_time}.\n\n'
+        f'quiere recibir el devocional a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
         '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
@@ -240,7 +240,7 @@ def devotional(update: Update, context: CallbackContext) -> int:
             '¡Ya estamos listos! Ya sabemos que ' 
             f'su zona horaria es {buffer.subscribers[user.id].time_zone} y '
             f'quiere recibir el devocional {buffer.subscriptions[user.id].devotional_name} '
-            f'cada día a la(s) {buffer.subscriptions[user.id].preferred_time}.\n\n'
+            f'cada día a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
             '¿Es correcto?',
             reply_markup=ReplyKeyboardMarkup(
                 reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
@@ -335,7 +335,7 @@ def change(update: Update, context: CallbackContext) -> int:
         if not buffer.subscribers[user.id].skipped_timezone():
             subscriptions = buffer.subscriptions[user.id]
             update.message.reply_text(
-                f'{user.first_name}, hasta encontes sabía que Usted quería recibir el devocional a la(s) {subscriptions.preferred_time}.\n\n'
+                f'{user.first_name}, hasta encontes sabía que Usted quería recibir el devocional a la(s) {subscriptions.preferred_time_local}.\n\n'
                 '¿A qué hora quiere cambiar?',
                 reply_markup=ReplyKeyboardMarkup(
                     time_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿A qué hora?'
@@ -368,7 +368,7 @@ def change(update: Update, context: CallbackContext) -> int:
                 '¡Muy bien, recapitulemos!\n' 
                 f'Su zona horaria es {buffer.subscribers[user.id].time_zone} y '
                 f'quiere recibir el devocional {subscriptions.devotional_name} '
-                f'cada día a la(s) {subscriptions.preferred_time}.\n\n'
+                f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
                 '¿Es correcto?',
                 reply_markup=ReplyKeyboardMarkup(
                     confirmation_reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
@@ -406,16 +406,15 @@ def change_time_zone(update: Update, context: CallbackContext) -> int:
     now_utc = pytz.utc.localize(datetime.datetime.utcnow())
     now_user = now_utc.astimezone(pytz.timezone(buffer.subscribers[user.id].time_zone))
     
-    buffer.subscribers[user.id].utc_offset = utc_offset_to_int(now_user.isoformat()[-6:])
-
     subscriptions = buffer.subscriptions[user.id]
+    subscriptions.update_utc_offset(utc_offset_to_int(now_user.isoformat()[-6:]))
 
     # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     update.message.reply_text(
         f'¡Estupendo! A partir de ahora sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone}, '
         f'quiere recibir el devocional {subscriptions.devotional_name} '
-        f'cada día a la(s) {subscriptions.preferred_time}.\n\n'
+        f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
         '¿Quiere cambiar algo más?',
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
@@ -429,10 +428,10 @@ def geo_remove(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
     buffer.subscribers[user.id].time_zone = 'skipped'
-    buffer.subscribers[user.id].utc_offset = -700
 
     subscriptions = buffer.subscriptions[user.id]
-    subscriptions.preferred_time = '10pm'
+    subscriptions.update_preferred_time_local('10pm')
+    subscriptions.update_utc_offset(-700)
 
     update.message.reply_text(
         f'¡Hecho! He eliminado su zona horaria. A partir de ahora recibirá el devocional a las 10pm PST del día anterior.\n\n'
@@ -463,12 +462,12 @@ def change_preferred_time(update: Update, context: CallbackContext) -> int:
         return CHANGE_PREFERRED_TIME
 
     subscriptions = buffer.subscriptions[user.id]
-    subscriptions.preferred_time = update.message.text
+    subscriptions.update_preferred_time_local(update.message.text)
 
     update.message.reply_text(
         f'¡Bien! Con ese cambio sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone}, '
         f'quiere recibir el devocional {subscriptions.devotional_name} '
-        f'cada día a la(s) {subscriptions.preferred_time}.\n\n'
+        f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
         '¿Desear realizar algún cambio más?',
         reply_markup=ReplyKeyboardMarkup(
             reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
@@ -500,7 +499,7 @@ def change_devotional(update: Update, context: CallbackContext) -> int:
         update.message.reply_text(
             f'¡Bien! Actualmente sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone}, '
             f'quiere recibir el devocional {subscriptions.devotional_name} '
-            f'cada día a la(s) {subscriptions.preferred_time}.\n\n'
+            f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
             '¿Desea cambiar algo más?',
             reply_markup=ReplyKeyboardMarkup(
                 reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
@@ -554,7 +553,7 @@ def get_status(update: Update, context: CallbackContext) -> int:
                 'Aquí tiene el estado de su suscripción.\n'
                 f'Su zona horaria es {subscriber.time_zone} y '
                 f'quiere recibir el devocional {subscriptions.devotional_name} '
-                f'cada día a la(s) {subscriptions.preferred_time}.\n\n'
+                f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
                 'Para hacer algún cambio marque /ajustar.'
             )
         else:
@@ -730,7 +729,12 @@ def _clean_db(userid):
     if userid in buffer.subscribers:
         buffer.subscribers[userid].delete()
 
-def __test() -> None:
+def __test():
+    from utils.consts import TF_24TO12
+    for i in range(24):
+        print(shift_12h_tf(TF_24TO12[i], -700))
+
+def __regex_test() -> None:
     pattern = '^\d(\d)?(a|p)+m$'
     test_string = '5pm'
     result = re.match(pattern, test_string)
@@ -740,36 +744,6 @@ def __test() -> None:
     else:
         print("Search unsuccessful.")
 
-# def run_continuously(interval=1):
-#     """Continuously run, while executing pending jobs at each
-#     elapsed time interval.
-#     @return cease_continuous_run: threading. Event which can
-#     be set to cease continuous run. Please note that it is
-#     *intended behavior that run_continuously() does not run
-#     missed jobs*. For example, if you've registered a job that
-#     should run every minute and you set a continuous run
-#     interval of one hour then your job won't be run 60 times
-#     at each interval but only once.
-#     """
-#     cease_continuous_run = threading.Event()
-
-#     class ScheduleThread(threading.Thread):
-#         @classmethod
-#         def run(cls):
-#             while not cease_continuous_run.is_set():
-#                 schedule.run_pending()
-#                 time.sleep(interval)
-
-#     continuous_thread = ScheduleThread()
-#     continuous_thread.start()
-#     return cease_continuous_run
-
-# def send_devotionals():
-#     print(f'devotionals sent at {time.ctime()}')
-
-# Start the background thread
-# stop_run_continuously = run_continuously()
-
 if __name__ == '__main__':
     main()
-    #__test()
+    # __test()
