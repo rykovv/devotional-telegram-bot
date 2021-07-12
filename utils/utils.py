@@ -33,3 +33,6 @@ def shift_12h_tf(tfrom, offset):
 
 def get_current_utc_hour():
     return dt.datetime.utcnow().hour
+
+def get_today_month_day():
+    return (dt.datetime.utcnow().month, dt.datetime.utcnow().day)

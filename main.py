@@ -26,6 +26,8 @@ from db.devotional import Devotional
 from db.subscriber import Subscriber
 from db.subscription import Subscription
 
+# import db.populate
+
 from db.base import Session, engine, Base
 
 from utils.utils import get_epoch, utc_offset_to_int, shift_12h_tf
