@@ -5,6 +5,7 @@ import uuid
 
 from sqlalchemy import Column, String, Numeric
 from sqlalchemy.orm import relationship
+from sqlalchemy.types import JSON
 
 class Devotional(Base):
     __tablename__ = 'devotionals'
@@ -15,20 +16,28 @@ class Devotional(Base):
     name = Column('name', String(128))
 
     # month and day corresponding to the devotional
-    month = Column('month', Numeric)
-    day = Column('day', Numeric)
-    
+    title_date = Column('title_day', String(512))
+    title = Column('title', String(768))
+    date = Column('date', String(128))
+    month = Column('month', String(3))
+    day = Column('day', String(3))
+    verse = Column('verse', String(1024))
+    paragraphs_count = Column('paragraphs_count', Numeric)
+    paragraphs = Column('paragraphs', JSON)
+    year_day = Column('year_day', Numeric)
+
     # youtube link to that devotional
-    link = Column('link', String(256))
+    url = Column('url', String(256))
 
-    # title and text for that day
-    title = Column('title', String(200))
-    text = Column('text', String(5000))
-
-    def __init__(self, name, month, day, link, text, title):
+    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, year_day):
         self.name = name
+        self.title_date = title_date
+        self.title = title
+        self.date = date
         self.month = month
         self.day = day
-        self.link = link
-        self.text = text
-        self.title = title
+        self.verse = verse
+        self.paragraphs_count = paragraphs_count
+        self.paragraphs = paragraphs
+        self.url = url
+        self.year_day = year_day
