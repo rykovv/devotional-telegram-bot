@@ -1,0 +1,6 @@
+Version Scheme
+Release x.y.z
+
+x - Version of the whole application
+y - Actors changes within the application
+z - Module changes using by the application
