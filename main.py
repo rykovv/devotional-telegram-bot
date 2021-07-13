@@ -26,7 +26,7 @@ from db.devotional import Devotional
 from db.subscriber import Subscriber
 from db.subscription import Subscription
 
-# import db.populate
+import db.populate
 
 from db.base import Session, engine, Base
 
