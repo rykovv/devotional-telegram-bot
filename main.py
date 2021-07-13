@@ -124,8 +124,6 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     buffer.subscribers[user.id].time_zone = 'skipped'
     # -07:00 -> -0700 -> -700
     buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700))
-
-    # logger.info("User %s did not send a location.", user.first_name)
     
     update.message.reply_text(
         f'¡{user.first_name}, no hay problema. Usted recibirá la matutina a las 10pm PST del día anterior. '
@@ -161,9 +159,6 @@ def time_zone(update: Update, context: CallbackContext) -> int:
     now_user = now_utc.astimezone(pytz.timezone(buffer.subscribers[user.id].time_zone))
     
     buffer.add_subscription(Subscription(subscriber_id=user.id, utc_offset=utc_offset_to_int(now_user.isoformat()[-6:])))
-
-    print(f'UTC offset of {user.first_name}: {buffer.subscriptions[user.id].utc_offset}')
-    # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     if not buffer.subscribers[user.id].skipped_timezone():
         update.message.reply_text(
@@ -204,9 +199,6 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
         return PREFERRED_TIME
 
     buffer.subscriptions[user.id].update_preferred_time_local(update.message.text)
-    
-    print(f'Preferred time of {user.first_name}: {buffer.subscriptions[user.id].preferred_time_local}')
-    # logger.info("Country of %s: %s", user.first_name, update.message.text)
 
     update.message.reply_text(
         f'¡{user.first_name}, nos queda un paso para terminar! '
@@ -412,8 +404,6 @@ def change_time_zone(update: Update, context: CallbackContext) -> int:
     subscriptions = buffer.subscriptions[user.id]
     subscriptions.update_utc_offset(utc_offset_to_int(now_user.isoformat()[-6:]))
 
-    # logger.info("Country of %s: %s", user.first_name, update.message.text)
-
     update.message.reply_text(
         f'¡Estupendo! A partir de ahora sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone}, '
         f'quiere recibir el devocional {subscriptions.devotional_name} '
@@ -590,7 +580,6 @@ def get_help(update: Update, context: CallbackContext) -> int:
 def cancelar(update: Update, context: CallbackContext) -> int:
     """Cancels and ends the conversation."""
     user = update.message.from_user
-    logger.info("User %s canceled the conversation.", user.first_name)
 
     buffer.clean(user.id)
 
@@ -744,5 +733,8 @@ def __regex_test() -> None:
         print("Search unsuccessful.")
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        sender.report_exception(e)
     # __test()

@@ -1,8 +1,12 @@
 from db.devotional import Devotional
 from db.base import Session
 import json
+from configparser import ConfigParser
 
-MARANATHA_FILE = 'files/json/es_MSV76.json'
+config = ConfigParser()
+config.read(consts.CONFIG_FILE_NAME)
+
+MARANATHA_FILE = f'{config['content']['folder']}/json/es_MSV76.json'
 
 session = Session()
 

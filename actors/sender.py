@@ -26,3 +26,8 @@ def send():
         bot.send_message(chat_id=str(subscription.subscriber_id), text=msg, parse_mode='html')
 
     print(f'devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]}')
+
+def report_exception(exception):
+    bot = telegram.Bot(token=config['bot']['token'])
+    bot.send_message(chat_id=config['admin']['chat_id'], text=exception, parse_mode='html')
+    

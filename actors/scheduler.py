@@ -30,8 +30,8 @@ def run_continuously(interval=1):
 # Start the background thread
 def run(task, interval=1):
     # Schedule devotional sending every hour at 00th minute
-    # schedule.every().minute.at(':00').do(task)
-    schedule.every(10).seconds.do(task)
+    schedule.every().hour.at(':00').do(task)
+    # schedule.every(30).seconds.do(task)
     run_continuously(interval)
 
 
