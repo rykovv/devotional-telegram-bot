@@ -24,6 +24,7 @@ for k, v in devotionals.items():
             paragraphs_count=v['paragraphs_count'], \
             paragraphs=v['paragraphs'], \
             url=v['url'], \
+            audio_file_id=v['audio_file_id'], \
             year_day=k
         )
     )

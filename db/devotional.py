@@ -28,8 +28,10 @@ class Devotional(Base):
 
     # youtube link to that devotional
     url = Column('url', String(256))
+    # telegram file_id for instant sending
+    audio_file_id = Column('audio_file_id', String(128))
 
-    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, year_day):
+    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, audio_file_id, year_day):
         self.name = name
         self.title_date = title_date
         self.title = title
@@ -40,4 +42,5 @@ class Devotional(Base):
         self.paragraphs_count = paragraphs_count
         self.paragraphs = paragraphs
         self.url = url
+        self.audio_file_id = audio_file_id
         self.year_day = year_day

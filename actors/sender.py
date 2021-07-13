@@ -21,8 +21,8 @@ def send():
     now = get_today_month_day()
 
     for subscription in subscriptions:
-        msg, title = composer.compose(subscription.devotional_name, now[0], now[1])
+        msg, title, file_id = composer.compose(subscription.devotional_name, now[0], now[1])
+        bot.send_document(chat_id=str(subscription.subscriber_id), document=file_id)
         bot.send_message(chat_id=str(subscription.subscriber_id), text=msg, parse_mode='html')
-        bot.send_audio(chat_id=str(subscription.subscriber_id), audio=open(f'files/mp3/maranata/{now[0]}/{now[1]}.mp3', 'rb'), title=title, timeout=300)
 
     print(f'devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]}')
