@@ -22,17 +22,32 @@ def shift_12h_tf(tfrom, offset):
     hours = int(offset/100)
     minutes = abs(offset)%100
     shifted_time_idx = (consts.TF_24TO12.index(tfrom)-hours) % 24
-    
+
     if minutes != 0:
         if offset > 0:
             shifted_time_idx = (shifted_time_idx - 1) % 24
         else:
             shifted_time_idx = (shifted_time_idx + 1) % 24
             
-    return consts.TF_24TO12[shifted_time_idx]
+    sh = ''
+    if hours > 0:
+        if shifted_time_idx > consts.TF_24TO12.index(tfrom):
+            sh = '+'
+    else:
+        if shifted_time_idx < consts.TF_24TO12.index(tfrom):
+            sh = '-'
+        
+    return (consts.TF_24TO12[shifted_time_idx]+sh)
 
 def get_current_utc_hour():
     return dt.datetime.utcnow().hour
 
-def get_today_month_day():
-    return (dt.datetime.utcnow().month, dt.datetime.utcnow().day)
+def get_send_month_day(preferred_time):
+    sendutc = dt.datetime.utcnow()
+    
+    if preferred_time[-1] == '-':
+        sendutc -= dt.timedelta(days=1)
+    elif preferred_time[-1] == '+':
+        sendutc += dt.timedelta(days=1)
+
+    return {'month':sendutc.month, 'day':sendutc.day}
