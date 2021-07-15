@@ -1,0 +1,21 @@
+version: '3'
+services:
+    app:
+        restart: always
+        dockerfile: ./Dockerfile
+        depends_on:
+            - postgres
+        volumes:
+            - ./config.ini:/devotional-telegram-bot/config.ini
+
+    postgres:
+        restart: always
+        image: postgres:10
+        environment:
+            - POSTGRES_USER=devocionales
+            - POSTGRES_PASSWORD=1pedro2:9
+            - POSTGRES_DB=devocionales_db
+        volumes:
+            - ./postgres/data:/var/lib/postgresql/data
+        ports:
+            - 5432
