@@ -1,7 +1,13 @@
 import threading
 import time
 
+from configparser import ConfigParser
+
 import schedule
+import utils.consts as consts
+
+config = ConfigParser()
+config.read(consts.CONFIG_FILE_NAME)
 
 cease_continuous_run = threading.Event()
 
@@ -30,8 +36,11 @@ def run_continuously(interval=1):
 # Start the background thread
 def run(task, interval=1):
     # Schedule devotional sending every hour at 00th minute
-    schedule.every().hour.at(':00').do(task)
-    # schedule.every(30).seconds.do(task)
+    if config['deployment']['build'] == 'production':
+        schedule.every().hour.at(':00').do(task)
+    elif config['deployment']['build'] == 'test':
+        schedule.every(30).seconds.do(task)
+        
     run_continuously(interval)
 
 
