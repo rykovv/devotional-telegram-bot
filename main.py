@@ -28,8 +28,6 @@ from db.subscription import Subscription
 
 import db.populate
 
-from db.base import Session, engine, Base
-
 from utils.utils import get_epoch, utc_offset_to_int, shift_12h_tf
 from utils.helpers import fetch_subscriber
 import utils.buffer as buffer
@@ -650,9 +648,6 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
 
 def main() -> None:
     """Run the bot."""
-    # Deploy database schema if not done
-    Base.metadata.create_all(engine)
-
     # Create the Updater and pass it your bot's token.
     updater = Updater(config['bot']['token'])
 
