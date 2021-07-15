@@ -1,10 +1,19 @@
 import time
 import datetime as dt
+import logging
 
 import utils.consts as consts
 
+# Enable logging
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
+)
+
 def get_epoch():
     return int(time.time())
+
+def epoch_to_date(epoch):
+    return time.strftime('%Y/%m/%d %H:%M:%S', time.localtime(epoch))
 
 # -07:00 -> -700
 def utc_offset_to_int(offset):
@@ -51,3 +60,6 @@ def get_send_month_day(preferred_time):
         sendutc += dt.timedelta(days=1)
 
     return {'month':sendutc.month, 'day':sendutc.day}
+
+def get_logger():
+    return logging.getLogger(__name__)

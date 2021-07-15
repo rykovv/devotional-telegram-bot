@@ -3,7 +3,9 @@ from db.base import Session, engine, Base
 import json
 from configparser import ConfigParser
 import utils.consts as consts
-from main import logger
+from utils.utils import get_logger
+
+logger = get_logger()
 
 # Deploy database schema if not done
 Base.metadata.create_all(engine)

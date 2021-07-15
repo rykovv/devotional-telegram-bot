@@ -1,7 +1,6 @@
 from configparser import ConfigParser
 import re
 
-import logging
 from typing import Dict
 
 from timezonefinder import TimezoneFinder
@@ -25,10 +24,17 @@ import time
 from db.devotional import Devotional
 from db.subscriber import Subscriber
 from db.subscription import Subscription
+from db.statistics import Statistics
 
 import db.populate
 
-from utils.utils import get_epoch, utc_offset_to_int, shift_12h_tf
+from utils.utils import (
+    get_epoch, 
+    utc_offset_to_int, 
+    shift_12h_tf, 
+    epoch_to_date,
+    get_logger,
+)
 from utils.helpers import fetch_subscriber
 import utils.buffer as buffer
 import utils.consts as consts
@@ -37,16 +43,12 @@ import actors.scheduler as scheduler
 import actors.sender as sender
 import actors.actuary as actuary
 
+
 # Setup the config
 config = ConfigParser()
 config.read(consts.CONFIG_FILE_NAME)
 
-# Enable logging
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
-)
-
-logger = logging.getLogger(__name__)
+logger = get_logger()
 
 START_CONVERSATION, TIME_ZONE, PREFERRED_TIME, \
 DEVOTIONAL, CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, \
@@ -606,6 +608,7 @@ def unsubscribe(update: Update, context: CallbackContext) -> int:
                 reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿No?'
             ),
         )
+        actuary.add_unsubscribed()
         return UNSUBSCRIPTION_CONFIRMATION
     else:
         update.message.reply_text(
@@ -646,17 +649,32 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
     return ConversationHandler.END
 
 def get_statistics(update: Update, context: CallbackContext) -> int:
-    by_devotional = ''
-    sbd = actuary.subscriptions_by_devotional()
-    for s, c in sbd.items():
-        by_devotional += f'  {s} : {c}\n'
-    update.message.reply_text(
-        f'Suscriptores : {actuary.subscribers()}\n'
-        f'Suscripciones : {actuary.subscriptions()}\n'
-        f'{by_devotional}'
-        f'Geo-skipped : {actuary.geo_skipped()}',
-        reply_markup=ReplyKeyboardRemove()
-    )
+    user = update.message.from_user
+    subscriber = fetch_subscriber(user.id)
+    if subscriber != None:
+        by_devotional = ''
+        sbd = actuary.subscriptions_by_devotional()
+        stats = actuary.statistics()
+        for s, c in sbd.items():
+            by_devotional += f'  {s} : {c}\n'
+        update.message.reply_text(
+            f'Suscriptores : {actuary.subscribers()}\n'
+            f'Suscripciones : {actuary.subscriptions()}\n'
+            f'{by_devotional}'
+            f'Sin ubicación : {actuary.geo_skipped()}\n'
+            f'Enviado : {stats.sent}\n'
+            f'Dieron de baja : {stats.unsubscribed}\n'
+            f'Último registrado : {epoch_to_date(stats.last_registered)}\n'
+            f'Último suscrito : {epoch_to_date(stats.last_subscribed)}',
+            reply_markup=ReplyKeyboardRemove()
+        )
+    else:
+        update.message.reply_text(
+            f'Lo sentimos, {user.first_name}, solo usuarios registrados '
+            'pueden ver las estadisticas.\n\n'
+            'Marque /start para suscribirse.',
+            reply_markup=ReplyKeyboardRemove()
+        )
 
     return ConversationHandler.END
 
@@ -718,8 +736,10 @@ def main() -> None:
 def _persist_buffer(userid):
     if userid in buffer.subscribers:
         buffer.subscribers[userid].persist()
+        actuary.set_last_registered()
     if userid in buffer.subscriptions:
         buffer.subscriptions[userid].persist()
+        actuary.set_last_subscribed()
 
 def _clean_db(userid):
     if userid in buffer.subscriptions:
