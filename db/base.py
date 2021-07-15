@@ -13,6 +13,3 @@ engine = create_engine(f'postgresql://{config["database"]["user"]}:{config["data
 Session = sessionmaker(bind = engine)
 
 Base = declarative_base()
-
-# Deploy database schema if not done
-Base.metadata.create_all(engine)

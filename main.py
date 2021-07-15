@@ -35,6 +35,7 @@ import utils.consts as consts
 
 import actors.scheduler as scheduler
 import actors.sender as sender
+import actors.actuary as actuary
 
 # Setup the config
 config = ConfigParser()
@@ -53,7 +54,6 @@ CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION = range(10
 
 tf = TimezoneFinder()
 
-
 def start(update: Update, context: CallbackContext) -> int:
     """Starts the conversation and asks the user about their time_zone."""
     reply_keyboard = [['Sí'],['No']]
@@ -67,7 +67,7 @@ def start(update: Update, context: CallbackContext) -> int:
 
         update.message.reply_text(
             f'¡Hola, {user.first_name}! Soy el bot del ministerio Una Mirada de Fe y Esperanza. '
-            'Mi functión es enviar devocionales de su elección a su hora preferida. '
+            'Mi función es enviar devocionales de su elección a su hora preferida. '
             'Vamos a tener una pequeña conversación para apuntar el devocional de su elección y su hora preferida.\n\n'
             '¿Quere recibir las matutinas?',
             reply_markup=ReplyKeyboardMarkup(
@@ -122,7 +122,7 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     buffer.subscribers[user.id].time_zone = 'skipped'
     # -07:00 -> -0700 -> -700
     buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700))
-    
+
     update.message.reply_text(
         f'¡{user.first_name}, no hay problema. Usted recibirá la matutina a las 10pm PST del día anterior. '
         '¡Nos queda un paso para terminar!\n\n'
@@ -645,6 +645,20 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
 
     return ConversationHandler.END
 
+def get_statistics(update: Update, context: CallbackContext) -> int:
+    by_devotional = ''
+    sbd = actuary.subscriptions_by_devotional()
+    for s, c in sbd.items():
+        by_devotional += f'  {s} : {c}\n'
+    update.message.reply_text(
+        f'Suscriptores : {actuary.subscribers()}\n'
+        f'Suscripciones : {actuary.subscriptions()}\n'
+        f'{by_devotional}'
+        f'Geo-skipped : {actuary.geo_skipped()}',
+        reply_markup=ReplyKeyboardRemove()
+    )
+
+    return ConversationHandler.END
 
 def main() -> None:
     """Run the bot."""
@@ -661,7 +675,8 @@ def main() -> None:
             CommandHandler('ajustar', make_adjustments),
             CommandHandler('estado', get_status),
             CommandHandler('ayuda', get_help),
-            CommandHandler('baja', unsubscribe)],
+            CommandHandler('baja', unsubscribe),
+            CommandHandler('stats', get_statistics)],
         states={
             START_CONVERSATION: [MessageHandler(Filters.text & ~Filters.command, start_conversation)],
             TIME_ZONE: [
