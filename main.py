@@ -529,7 +529,8 @@ def make_adjustments(update: Update, context: CallbackContext) -> int:
         return CHANGE
     else:
         update.message.reply_text(
-            f'Lo sentimos, pero usted tiene que suscribirse primero para hacer ajustes. Marque /start para suscribirse.',
+            f'Lo sentimos, pero usted tiene que suscribirse primero para hacer ajustes.\n\n'
+            'Marque /start para suscribirse.',
             reply_markup=ReplyKeyboardRemove()
         )
     return ConversationHandler.END
@@ -557,7 +558,8 @@ def get_status(update: Update, context: CallbackContext) -> int:
             )
     else:
         update.message.reply_text(
-            f'Lo sentimos, pero usted tiene que suscribirse primero para hacer ajustes. Marque /start para suscribirse.',
+            f'Lo sentimos, pero usted tiene que suscribirse primero para ver su estado.\n\n'
+            'Marque /start para suscribirse.',
             reply_markup=ReplyKeyboardRemove()
         )
     return ConversationHandler.END
@@ -570,7 +572,9 @@ def get_help(update: Update, context: CallbackContext) -> int:
         '/estado para ver el estado de su suscripción,\n'
         '/ajustar para ajustar su suscripción,\n'
         '/baja para dejar de recibir los devocionales,\n'
-        '/ayuda para recibir ayuda.',
+        '/ayuda para recibir ayuda,\n'
+        '/contacto para contactarse con nosotros,\n'
+        '/stats para ver las estadisticas.',
         reply_markup=ReplyKeyboardRemove()
     )
 
@@ -678,6 +682,19 @@ def get_statistics(update: Update, context: CallbackContext) -> int:
 
     return ConversationHandler.END
 
+def contact(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    update.message.reply_text(
+        f'{user.first_name}, para contactar con el responsable '
+        'de esta iniciativa y su soporte técnico escriba a '
+        '@vrykov y le antenderá personalmente.\n\n'
+        '¡Muchas gracias!',
+        reply_markup=ReplyKeyboardRemove()
+    )
+
+    return ConversationHandler.END
+
 def main() -> None:
     """Run the bot."""
     # Create the Updater and pass it your bot's token.
@@ -694,6 +711,7 @@ def main() -> None:
             CommandHandler('estado', get_status),
             CommandHandler('ayuda', get_help),
             CommandHandler('baja', unsubscribe),
+            CommandHandler('contacto', contact),
             CommandHandler('stats', get_statistics)],
         states={
             START_CONVERSATION: [MessageHandler(Filters.text & ~Filters.command, start_conversation)],
