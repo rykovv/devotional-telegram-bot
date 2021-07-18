@@ -733,6 +733,12 @@ def main() -> None:
     # kill devotional scheduler
     scheduler.stop()
 
+def special_send():
+    sender.send_global_message(
+        'Queridos hermanos, \n\nPedimos disculpas por la demora en el envío de la matutina de hoy. '
+        'Hemos corregido este error y estamos constantemente mejorando nuestra aplicación.\n\n'
+        'El equipo de Una Mirada de Fe y Esperanza')
+    sender.send(True)
 
 def _persist_buffer(userid):
     if userid in buffer.subscribers:
@@ -766,6 +772,7 @@ def __regex_test() -> None:
 if __name__ == '__main__':
     try:
         main()
+        #special_send()
     except Exception as e:
         sender.report_exception(e)
     # __test()

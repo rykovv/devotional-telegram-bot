@@ -20,16 +20,21 @@ config.read(consts.CONFIG_FILE_NAME)
 
 logger = get_logger()
 
-def send():
+
+def send(all=False):
     session = Session()
-    current_hour = consts.TF_24TO12[get_current_utc_hour()]
-    subscriptions = session.query(Subscription).filter(Subscription.preferred_time_utc.ilike(f'{current_hour}%')).all()
+    if not all:
+        current_hour = consts.TF_24TO12[get_current_utc_hour()]
+        subscriptions = session.query(Subscription).filter(Subscription.preferred_time_utc.ilike(f'{current_hour}%')).all()
+    else:
+        subscriptions = session.query(Subscription).all()
     session.close()
 
     bot = telegram.Bot(token=config['bot']['token'])
     
     sent = 0
     retries = 0
+    # must assure max sending of 30 messages per second, that's 33.33ms per message
     for subscription in subscriptions:
         done = False
         while not done:
@@ -48,7 +53,38 @@ def send():
     if sent > 0:
         actuary.add_sent(sent)
 
-    logger.info(f'Devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+    if not all:
+        logger.info(f'Devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+    else:
+        logger.info(f'Devotionals have been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+
+
+def send_global_message(msg):
+    session = Session()
+    subscriptions = session.query(Subscription).all()
+    session.close()
+
+    bot = telegram.Bot(token=config['bot']['token'])
+    
+    sent = 0
+    retries = 0
+    # must assure max sending of 30 messages per second, that's 33.33ms per message
+    for subscription in subscriptions:
+        done = False
+        while not done:
+            try:
+                bot.send_message(chat_id=str(subscription.subscriber_id), text=msg, parse_mode='html')
+                sent += 1
+                done = True
+            except Exception as e:
+                report_exception(f'{e} sending at {get_current_utc_hour()} to {str(subscription.subscriber_id)}')
+                retries += 1
+
+    if sent > 0:
+        actuary.add_sent(sent)
+
+    logger.info(f'Devotionals have been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+
 
 def report_exception(exception):
     bot = telegram.Bot(token=config['bot']['token'])
