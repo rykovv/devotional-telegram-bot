@@ -8,5 +8,6 @@ def compose(name, month, day):
     for k, v in devotional.paragraphs.items():
         message += (v + '\n\n')
     message += f'{devotional.url}'
+    session.close()
 
     return (message, devotional.title_date, devotional.audio_file_id)

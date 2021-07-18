@@ -58,8 +58,6 @@ tf = TimezoneFinder()
 
 def start(update: Update, context: CallbackContext) -> int:
     """Starts the conversation and asks the user about their time_zone."""
-    reply_keyboard = [['Sí'],['No']]
-    
     user = update.message.from_user
 
     subscriber = fetch_subscriber(user.id)
@@ -73,7 +71,7 @@ def start(update: Update, context: CallbackContext) -> int:
             'Vamos a tener una pequeña conversación para apuntar el devocional de su elección y su hora preferida.\n\n'
             '¿Quere recibir las matutinas?',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
             ),
         )
         return START_CONVERSATION
@@ -83,16 +81,14 @@ def start(update: Update, context: CallbackContext) -> int:
         
 
 def start_conversation(update: Update, context: CallbackContext) -> int:
-    wrong_reply_keyboard = [['Sí'],['No']]
     user = update.message.from_user
 
-    pattern = '^(Sí|No)$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.YES_NO_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
             '¿Quere recibir las matutinas? (Sí/No)',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
             ),
         )
         return START_CONVERSATION
@@ -117,8 +113,6 @@ def start_conversation(update: Update, context: CallbackContext) -> int:
 
 def geo_skip(update: Update, context: CallbackContext) -> int:
     """Skips the location and asks for info about the user."""
-    reply_keyboard = [['¡Maranata: El Señor Viene!']]
-
     user = update.message.from_user
     
     buffer.subscribers[user.id].time_zone = 'skipped'
@@ -130,17 +124,13 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
         '¡Nos queda un paso para terminar!\n\n'
         '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
+            consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
         ),
     )
 
     return DEVOTIONAL
 
 def time_zone(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [  ['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                        ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
-    geo_skipped_keyboard = [['¡Maranata: El Señor Viene!']]
-
     user = update.message.from_user
     user_location = update.message.location
 
@@ -165,7 +155,7 @@ def time_zone(update: Update, context: CallbackContext) -> int:
             f'¡Estupendo! Ya sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone}.\n\n'
             '¿A qué hora querría recibir el devocional? (am - mañana, pm - tarde)',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Cuál es su hora preferida?'
+                consts.HOUR_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Cuál es su hora preferida?'
             ),
         )
     else:
@@ -173,7 +163,7 @@ def time_zone(update: Update, context: CallbackContext) -> int:
             '¡Estupendo! Usted recibirá las matutinas a las 10pm PST del día anterior.\n\n'
             '¿Qué devocional querría recibir?',
             reply_markup=ReplyKeyboardMarkup(
-                geo_skipped_keyboard, one_time_keyboard=True, input_field_placeholder='¿Maranata?'
+                consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Maranata?'
             ),
         )
         return DEVOTIONAL
@@ -181,19 +171,14 @@ def time_zone(update: Update, context: CallbackContext) -> int:
     return PREFERRED_TIME
 
 def preferred_time(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['¡Maranata: El Señor Viene!']]
-    wrong_reply_keyboard = [['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                            ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
-
     user = update.message.from_user
 
-    pattern = '^\d(\d)?(a|p)+m$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.HOUR_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
             '¿A qué hora querría recibir el devocional? (am - mañana, pm - tarde)',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Cuál es su hora preferida?'
+                consts.HOUR_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Cuál es su hora preferida?'
             ),
         )
         return PREFERRED_TIME
@@ -206,24 +191,21 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
         f'quiere recibir el devocional a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
         '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
+            consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
         ),
     )
 
     return DEVOTIONAL
 
 def devotional(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['Sí'],['No']]
-    wrong_reply_keyboard = [['¡Maranata: El Señor Viene!']]
     user = update.message.from_user
 
-    pattern = '^(¡Maranata: El Señor Viene!)$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.DEVOTIONALS_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
             '¿Qué devocional querría recibir?',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
+                consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
             ),
         )
         return DEVOTIONAL
@@ -238,7 +220,7 @@ def devotional(update: Update, context: CallbackContext) -> int:
             f'cada día a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
             '¿Es correcto?',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Sí?'
             ),
         )
     else:
@@ -247,24 +229,21 @@ def devotional(update: Update, context: CallbackContext) -> int:
             f'Usted quiere recibir el devocional {buffer.subscriptions[user.id].devotional_name} a las 10pm PST (Pacific Standard Time) del día anterior.\n\n'
             '¿Es correcto?',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Sí?'
             ),
         )
 
     return CONFIRMATION
 
 def confirmation(update: Update, context: CallbackContext) -> int:
-    no_reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Nada']]
-    wrong_reply_keyboard = [['Sí'],['No']]
     user = update.message.from_user
 
-    pattern = '^(Sí|No)$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.YES_NO_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.\n\n'
             '¿Está de acuerdo?',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
             ),
         )
         return CONFIRMATION
@@ -284,7 +263,7 @@ def confirmation(update: Update, context: CallbackContext) -> int:
         update.message.reply_text(
             'Por favor, indíqueme lo que tengo que cambiar. Para cancelar el proceso marque /cancelar',
             reply_markup=ReplyKeyboardMarkup(
-                no_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
+                consts.PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
             ),
         )
         return CHANGE
@@ -292,21 +271,14 @@ def confirmation(update: Update, context: CallbackContext) -> int:
     return ConversationHandler.END
 
 def change(update: Update, context: CallbackContext) -> int:
-    wrong_reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Nada']]
-    time_reply_keyboard = [ ['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                            ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
-    devotional_reply_keyboard = [['¡Maranata: El Señor Viene!']]
-    confirmation_reply_keyboard = [['Sí'],['No']]
-
     user = update.message.from_user
 
-    pattern = '^(País|Hora|Devocional|Nada|Listo)$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.PREFERENCE_CHANGE_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.\n\n'
             'Por favor, indíqueme lo que tengo que cambiar.',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
+                consts.PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
             ),
         )
         return CHANGE
@@ -333,7 +305,7 @@ def change(update: Update, context: CallbackContext) -> int:
                 f'{user.first_name}, hasta encontes sabía que Usted quería recibir el devocional a la(s) {subscriptions.preferred_time_local}.\n\n'
                 '¿A qué hora quiere cambiar?',
                 reply_markup=ReplyKeyboardMarkup(
-                    time_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿A qué hora?'
+                    consts.HOUR_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿A qué hora?'
                 ),
             )
         else:
@@ -341,7 +313,7 @@ def change(update: Update, context: CallbackContext) -> int:
                 f'{user.first_name}, para cambiar la hora Usted me tiene que enviar su ubicación pinchando \'País\'. '
                 'De otro modo no puedo saber cuál es su zona horaria para enviarle el devocional a su hora.\n\n',
                 reply_markup=ReplyKeyboardMarkup(
-                    wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
+                    consts.PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Qué cambio?'
                 ),
             )
             return CHANGE
@@ -352,7 +324,7 @@ def change(update: Update, context: CallbackContext) -> int:
             f'{user.first_name}, hasta encontes sabía que Usted quería recibir el devocional {subscriptions.devotional_name}\n\n'
             '¿A qué devocional quiere cambiar?',
             reply_markup=ReplyKeyboardMarkup(
-                devotional_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
+                consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
             ),
         )
         return CHANGE_DEVOTIONAL
@@ -366,7 +338,7 @@ def change(update: Update, context: CallbackContext) -> int:
                 f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
                 '¿Es correcto?',
                 reply_markup=ReplyKeyboardMarkup(
-                    confirmation_reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
+                    consts.YES_NO_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Sí?'
                 ),
             )
         else:
@@ -375,7 +347,7 @@ def change(update: Update, context: CallbackContext) -> int:
                 f'Usted va a recibir el devocional {subscriptions.devotional_name} a las 10pm PST del día anterior.\n\n'
                 '¿Es correcto?',
                 reply_markup=ReplyKeyboardMarkup(
-                    confirmation_reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Sí?'
+                    consts.YES_NO_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Sí?'
                 ),
             )
         return CONFIRMATION
@@ -383,7 +355,6 @@ def change(update: Update, context: CallbackContext) -> int:
     return ConversationHandler.END
 
 def change_time_zone(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
     user = update.message.from_user
     user_location = update.message.location
 
@@ -410,14 +381,13 @@ def change_time_zone(update: Update, context: CallbackContext) -> int:
         f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
         '¿Quiere cambiar algo más?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+            consts.CONT_PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
         ),
     )
 
     return CHANGE
 
 def geo_remove(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
     user = update.message.from_user
 
     buffer.subscribers[user.id].time_zone = 'skipped'
@@ -430,7 +400,7 @@ def geo_remove(update: Update, context: CallbackContext) -> int:
         f'¡Hecho! He eliminado su zona horaria. A partir de ahora recibirá el devocional a las 10pm PST del día anterior.\n\n'
         '¿Qué más querría cambiar?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+            consts.CONT_PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
         ),
     )
 
@@ -438,18 +408,14 @@ def geo_remove(update: Update, context: CallbackContext) -> int:
 
 
 def change_preferred_time(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
-    wrong_reply_keyboard = [['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
-                            ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
     user = update.message.from_user
 
-    pattern = '^\d(\d)?(a|p)+m$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.HOUR_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido. '
             'Por favor, elija la hora de selección.',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué hora apunto?'
+                consts.HOUR_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Qué hora apunto?'
             ),
         )
         return CHANGE_PREFERRED_TIME
@@ -463,24 +429,21 @@ def change_preferred_time(update: Update, context: CallbackContext) -> int:
         f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
         '¿Desear realizar algún cambio más?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+            consts.CONT_PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
         ),
     )
 
     return CHANGE
 
 def change_devotional(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Listo']]
-    wrong_reply_keyboard = [['¡Maranata: El Señor Viene!']]
     user = update.message.from_user
 
-    pattern = '^(¡Maranata: El Señor Viene!)$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.DEVOTIONALS_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
             'Por favor, seleccione algún devocional disponible.',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿Qué devocional apunto ahora?'
+                consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Qué devocional apunto ahora?'
             ),
         )
         return CHANGE_DEVOTIONAL
@@ -495,7 +458,7 @@ def change_devotional(update: Update, context: CallbackContext) -> int:
             f'cada día a la(s) {subscriptions.preferred_time_local}.\n\n'
             '¿Desea cambiar algo más?',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+                consts.CONT_PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
             ),
         )
     else:
@@ -504,14 +467,13 @@ def change_devotional(update: Update, context: CallbackContext) -> int:
             ' las 10pm PST del día anterior.\n\n'
             '¿Desea cambiar algo más?',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+                consts.CONT_PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
             ),
         )
 
     return CHANGE
 
 def make_adjustments(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['País'], ['Hora'], ['Devocional'], ['Nada']]
     user = update.message.from_user
 
     subscriber = fetch_subscriber(user.id)
@@ -523,7 +485,7 @@ def make_adjustments(update: Update, context: CallbackContext) -> int:
         update.message.reply_text(
             f'{user.first_name}, ¿qué le gustaría cambiar en esta ocasión?',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+                consts.PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
             ),
         )
         return CHANGE
@@ -595,8 +557,6 @@ def cancelar(update: Update, context: CallbackContext) -> int:
     return ConversationHandler.END
 
 def unsubscribe(update: Update, context: CallbackContext) -> int:
-    reply_keyboard = [['Sí'],['No']]
-
     user = update.message.from_user
 
     subscriber = fetch_subscriber(user.id)
@@ -609,7 +569,7 @@ def unsubscribe(update: Update, context: CallbackContext) -> int:
             f'{user.first_name}, nos da mucha lástima que se vaya...\n\n'
             '¿Está completamente seguro?',
             reply_markup=ReplyKeyboardMarkup(
-                reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿No?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿No?'
             ),
         )
         actuary.add_unsubscribed()
@@ -622,17 +582,14 @@ def unsubscribe(update: Update, context: CallbackContext) -> int:
         return ConversationHandler.END
 
 def unsubscription_confirmation(update: Update, context: CallbackContext) -> int:
-    wrong_reply_keyboard = [['Sí'],['No']]
-
     user = update.message.from_user
 
-    pattern = '^(Sí|No)$'
-    if not re.match(pattern, update.message.text):
+    if not re.match(consts.YES_NO_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
             '¿Está completamante de acuedro?',
             reply_markup=ReplyKeyboardMarkup(
-                wrong_reply_keyboard, one_time_keyboard=False, input_field_placeholder='¿No?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿No?'
             ),
         )
         return UNSUBSCRIPTION_CONFIRMATION
@@ -653,6 +610,31 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
     return ConversationHandler.END
 
 def get_statistics(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    subscriber = fetch_subscriber(user.id)
+    if subscriber != None:
+        by_devotional = ''
+        sbd = actuary.subscriptions_by_devotional()
+        stats = actuary.statistics()
+        for s, c in sbd.items():
+            by_devotional += f'  {s} : {c}\n'
+        update.message.reply_text(
+            f'Suscripciones : {actuary.subscriptions()}\n'
+            f'{by_devotional}'
+            f'Enviado : {stats.sent}',
+            reply_markup=ReplyKeyboardRemove()
+        )
+    else:
+        update.message.reply_text(
+            f'Lo sentimos, {user.first_name}, solo usuarios registrados '
+            'pueden ver las estadisticas.\n\n'
+            'Marque /start para suscribirse.',
+            reply_markup=ReplyKeyboardRemove()
+        )
+
+    return ConversationHandler.END
+
+def get_admin_statistics(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     subscriber = fetch_subscriber(user.id)
     if subscriber != None:
@@ -712,7 +694,8 @@ def main() -> None:
             CommandHandler('ayuda', get_help),
             CommandHandler('baja', unsubscribe),
             CommandHandler('contacto', contact),
-            CommandHandler('stats', get_statistics)],
+            CommandHandler('stats', get_statistics,
+            CommandHandler('admin_stats', get_admin_statistics)],
         states={
             START_CONVERSATION: [MessageHandler(Filters.text & ~Filters.command, start_conversation)],
             TIME_ZONE: [
