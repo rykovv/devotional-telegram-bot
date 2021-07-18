@@ -65,7 +65,7 @@ def start(update: Update, context: CallbackContext) -> int:
     subscriber = fetch_subscriber(user.id)
 
     if subscriber == None:
-        buffer.add_subscriber(Subscriber(id=user.id))
+        buffer.add_subscriber(Subscriber(id=user.id, creation_utc=get_epoch()))
 
         update.message.reply_text(
             f'¡Hola, {user.first_name}! Soy el bot del ministerio Una Mirada de Fe y Esperanza. '
@@ -123,7 +123,7 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     
     buffer.subscribers[user.id].time_zone = 'skipped'
     # -07:00 -> -0700 -> -700
-    buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700))
+    buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700, creation_utc=get_epoch()))
 
     update.message.reply_text(
         f'¡{user.first_name}, no hay problema. Usted recibirá la matutina a las 10pm PST del día anterior. '
@@ -158,7 +158,7 @@ def time_zone(update: Update, context: CallbackContext) -> int:
     now_utc = pytz.utc.localize(datetime.datetime.utcnow())
     now_user = now_utc.astimezone(pytz.timezone(buffer.subscribers[user.id].time_zone))
     
-    buffer.add_subscription(Subscription(subscriber_id=user.id, utc_offset=utc_offset_to_int(now_user.isoformat()[-6:])))
+    buffer.add_subscription(Subscription(subscriber_id=user.id, utc_offset=utc_offset_to_int(now_user.isoformat()[-6:]), creation_utc=get_epoch()))
 
     if not buffer.subscribers[user.id].skipped_timezone():
         update.message.reply_text(
