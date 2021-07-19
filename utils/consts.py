@@ -27,3 +27,6 @@ PREFERENCE_CHANGE_KEYBOARD = [['País'], ['Hora'], ['Devocional'], ['Nada']]
 CONT_PREFERENCE_CHANGE_KEYBOARD = [['País'], ['Hora'], ['Devocional'], ['Listo']]
 ### Preference pickup and change pattern
 PREFERENCE_CHANGE_RE_PATTERN = '^(País|Hora|Devocional|Nada|Listo)$'
+
+## Max message send retries
+MAX_SEND_RETRIES = 20

@@ -15,6 +15,8 @@ from db.subscription import Subscription
 import actors.composer as composer
 import actors.actuary as actuary
 
+import time
+
 config = ConfigParser()
 config.read(consts.CONFIG_FILE_NAME)
 
@@ -57,16 +59,25 @@ def send(all=False, month=None, day=None):
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}')
+                time.sleep(pow(2, retries) if retries < 9 else pow(2, 8))
                 retries += 1
+                done = retries > MAX_SEND_RETRIES
 
     if sent > 0:
         actuary.add_sent(sent)
 
-    if not all:
-        logger.info(f'Devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+    if retries > MAX_SEND_RETRIES:
+        if not all:
+            report_exception(f'Devotionals NOT sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+            logger.error(f'Devotionals NOT sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+        else:
+            logger.error(f'Devotionals have NOT been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
     else:
-        logger.info(f'Devotionals have been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
-
+        if not all:
+            logger.info(f'Devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+        else:
+            logger.info(f'Devotionals have been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+        
 
 def send_global_message(msg):
     session = Session()
@@ -87,13 +98,21 @@ def send_global_message(msg):
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {get_current_utc_hour()} to {str(subscription.subscriber_id)}')
+                time.sleep(pow(2, retries) if retries < 9 else pow(2, 8))
                 retries += 1
+                done = retries > MAX_SEND_RETRIES
 
     if sent > 0:
         actuary.add_sent(sent)
 
-    logger.warn(f'Global message has been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} '
-    'with {retries} retries.\n\nMessage content: {msg}.')
+    if retries > MAX_SEND_RETRIES:
+        report_exception(f'Global message has NOT been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} '
+                         f'with {retries} retries.\n\nMessage content: {msg}.')
+        logger.error(f'Global message has NOT been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} '
+                    f'with {retries} retries.\n\nMessage content: {msg}.')
+    else:
+        logger.warn(f'Global message has been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} '
+                    f'with {retries} retries.\n\nMessage content: {msg}.')
 
 
 def report_exception(exception):
