@@ -22,7 +22,7 @@ config = ConfigParser()
 config.read(consts.CONFIG_FILE_NAME)
 
 logger = get_logger()
-
+_last_send_timestamp = dt.datetime.utcnow()
 
 def send(all=False, month=None, day=None):
     session = Session()
@@ -123,13 +123,13 @@ def report_exception(exception):
 
 def _send_document(bot, subscriber_id, file_id, least_ms):
     if file_id != None:
-        before = dt.datetime.utcnow()
-        bot.send_document(chat_id=str(subscriber_id), document=file_id)
-        while (dt.datetime.utcnow() - before) < dt.timedelta(milliseconds=least_ms):
+        while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
             pass
+        bot.send_document(chat_id=str(subscriber_id), document=file_id)
+        _last_send_timestamp = dt.datetime.utcnow()
 
 def _send_message(bot, subscriber_id, msg, least_ms):
-    before = dt.datetime.utcnow()
-    bot.send_message(chat_id=str(subscriber_id), text=msg, parse_mode='html')
-    while (dt.datetime.utcnow() - before) < dt.timedelta(milliseconds=least_ms):
+    while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
         pass
+    bot.send_message(chat_id=str(subscriber_id), text=msg, parse_mode='html')
+    _last_send_timestamp = dt.datetime.utcnow()
