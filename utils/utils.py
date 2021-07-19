@@ -1,8 +1,13 @@
+from configparser import ConfigParser
+
 import time
 import datetime as dt
 import logging
 
 import utils.consts as consts
+
+config = ConfigParser()
+config.read(consts.CONFIG_FILE_NAME)
 
 # Enable logging
 logging.basicConfig(
@@ -63,3 +68,18 @@ def get_send_month_day(preferred_time):
 
 def get_logger():
     return logging.getLogger(__name__)
+
+def is_admin(chat_id):
+    return (str(chat_id) == config['admin']['chat_id'])
+
+def admin_message_formatter(msg):
+    """! Formats received message into human-readable format.
+    @param msg      Received unformatted text.
+    @return         Well-formatted and prepared for further
+                    sending message.
+    @note           '#' for new line
+                    '-' for list
+    """
+    formatted_msg = msg.replace('#', '\n')
+    formatted_msg = formatted_msg.replace(' - ', '\n - ')
+    return formatted_msg

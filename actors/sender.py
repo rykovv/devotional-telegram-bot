@@ -21,7 +21,7 @@ config.read(consts.CONFIG_FILE_NAME)
 logger = get_logger()
 
 
-def send(all=False):
+def send(all=False, month=None, day=None):
     session = Session()
     if not all:
         current_hour = consts.TF_24TO12[get_current_utc_hour()]
@@ -39,11 +39,20 @@ def send(all=False):
         done = False
         while not done:
             try:
-                date = get_send_month_day(subscription.preferred_time_utc)
+                if month == None and day == None:
+                    date = get_send_month_day(subscription.preferred_time_utc)
+                else:
+                    date = {'month':month, 'day':day}
+                    
+                # compose a formatted message
                 msg, title, file_id = composer.compose(subscription.devotional_name, date['month'], date['day'])
+
+                # send files if available
                 if file_id != None:
                     bot.send_document(chat_id=str(subscription.subscriber_id), document=file_id)
+                # send text next to the files
                 bot.send_message(chat_id=str(subscription.subscriber_id), text=msg, parse_mode='html')
+                
                 sent += 1
                 done = True
             except Exception as e:
@@ -83,7 +92,8 @@ def send_global_message(msg):
     if sent > 0:
         actuary.add_sent(sent)
 
-    logger.info(f'Devotionals have been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+    logger.warn(f'Global message has been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} '
+    'with {retries} retries.\n\nMessage content: {msg}.')
 
 
 def report_exception(exception):

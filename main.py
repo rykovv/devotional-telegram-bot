@@ -34,6 +34,8 @@ from utils.utils import (
     shift_12h_tf, 
     epoch_to_date,
     get_logger,
+    is_admin,
+    admin_message_formatter,
 )
 from utils.helpers import fetch_subscriber
 import utils.buffer as buffer
@@ -253,8 +255,10 @@ def confirmation(update: Update, context: CallbackContext) -> int:
             '¡Ya está todo configurado! Puede siempre marcar lo siguiente:\n'
             '/ajustar para ajustar su suscripción,\n'
             '/estado para ver el estado de su suscripción,\n'
-            '/baja para dejar de recibir los devocionales,\n'
-            '/ayuda para obtener ayuda.\n\n'
+            '/ayuda para obtener lista de comandos,'
+            '/contacto para contactar con nosotros,\n'
+            '/recuento para ver las estadísticas,\n'
+            '/baja para dejar de recibir los devocionales.\n\n'
             '¡Muchas gracias y esperamos que sea para su gran bendición!'
         )
         _persist_buffer(user.id)
@@ -536,7 +540,7 @@ def get_help(update: Update, context: CallbackContext) -> int:
         '/baja para dejar de recibir los devocionales,\n'
         '/ayuda para recibir ayuda,\n'
         '/contacto para contactarse con nosotros,\n'
-        '/stats para ver las estadisticas.',
+        '/recuento para ver las estadisticas.',
         reply_markup=ReplyKeyboardRemove()
     )
 
@@ -636,8 +640,7 @@ def get_statistics(update: Update, context: CallbackContext) -> int:
 
 def get_admin_statistics(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    subscriber = fetch_subscriber(user.id)
-    if subscriber != None:
+    if is_admin(user.id):
         by_devotional = ''
         sbd = actuary.subscriptions_by_devotional()
         stats = actuary.statistics()
@@ -656,13 +659,31 @@ def get_admin_statistics(update: Update, context: CallbackContext) -> int:
         )
     else:
         update.message.reply_text(
-            f'Lo sentimos, {user.first_name}, solo usuarios registrados '
-            'pueden ver las estadisticas.\n\n'
-            'Marque /start para suscribirse.',
+            f'Lo sentimos, {user.first_name}, solo administradores '
+            'pueden ver las estadisticas avanzadas.\n\n',
             reply_markup=ReplyKeyboardRemove()
         )
 
     return ConversationHandler.END
+
+def admin_message(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    if is_admin(user.id):
+        unformatted = admin_message_formatter(' '.join(context.args))
+        send_global_message(unformatted)
+        
+
+def admin_burst(update: Update, context: CallbackContext) -> int:
+    # admin_burst receives one argument in a format 'month-day'
+    #  i.e. sending /admin_rafaga 07-15 will send to all 
+    #  subscribers devotionals dated on July 15. 
+    user = update.message.from_user
+    if is_admin(user.id):
+        # str(int(...)) to remove prefixed zeros
+        month = str(int(context.args[0].split('-')[0]))
+        day = str(int(context.args[0].split('-')[1]))
+        sender.send(all=True, month=month, day=day)
+
 
 def contact(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
@@ -694,8 +715,10 @@ def main() -> None:
             CommandHandler('ayuda', get_help),
             CommandHandler('baja', unsubscribe),
             CommandHandler('contacto', contact),
-            CommandHandler('stats', get_statistics,
-            CommandHandler('admin_stats', get_admin_statistics)],
+            CommandHandler('recuento', get_statistics),
+            CommandHandler('admin_mensaje', admin_message, pass_args=True),
+            CommandHandler('admin_rafaga', admin_burst, pass_args=True),
+            CommandHandler('admin_recuento', get_admin_statistics)],
         states={
             START_CONVERSATION: [MessageHandler(Filters.text & ~Filters.command, start_conversation)],
             TIME_ZONE: [
@@ -772,7 +795,7 @@ def __regex_test() -> None:
 if __name__ == '__main__':
     try:
         main()
-        #special_send()
+        # special_send()
     except Exception as e:
         sender.report_exception(e)
     # __test()
