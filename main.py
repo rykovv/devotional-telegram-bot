@@ -670,7 +670,7 @@ def admin_message(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     if is_admin(user.id):
         unformatted = admin_message_formatter(' '.join(context.args))
-        send_global_message(unformatted)
+        sender.send_global_message(unformatted)
         
 
 def admin_burst(update: Update, context: CallbackContext) -> int:

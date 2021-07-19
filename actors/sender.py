@@ -122,6 +122,7 @@ def report_exception(exception):
     
 
 def _send_document(bot, subscriber_id, file_id, least_ms):
+    global _last_send_timestamp
     if file_id != None:
         while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
             pass
@@ -129,6 +130,7 @@ def _send_document(bot, subscriber_id, file_id, least_ms):
         _last_send_timestamp = dt.datetime.utcnow()
 
 def _send_message(bot, subscriber_id, msg, least_ms):
+    global _last_send_timestamp
     while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
         pass
     bot.send_message(chat_id=str(subscriber_id), text=msg, parse_mode='html')
