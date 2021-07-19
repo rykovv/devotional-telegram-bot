@@ -30,3 +30,7 @@ PREFERENCE_CHANGE_RE_PATTERN = '^(País|Hora|Devocional|Nada|Listo)$'
 
 ## Max message send retries
 MAX_SEND_RETRIES = 20
+
+## Least necessary inter-message time interval in ms posed by the Telegram Bot API
+##  see https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this
+LEAST_BOT_SEND_MS = 33

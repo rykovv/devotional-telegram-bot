@@ -16,6 +16,7 @@ import actors.composer as composer
 import actors.actuary as actuary
 
 import time
+import datetime as dt
 
 config = ConfigParser()
 config.read(consts.CONFIG_FILE_NAME)
@@ -50,10 +51,10 @@ def send(all=False, month=None, day=None):
                 msg, title, file_id = composer.compose(subscription.devotional_name, date['month'], date['day'])
 
                 # send files if available
-                if file_id != None:
-                    bot.send_document(chat_id=str(subscription.subscriber_id), document=file_id)
+                _send_document(bot, subscription.subscriber_id, file_id, consts.LEAST_BOT_SEND_MS)
+
                 # send text next to the files
-                bot.send_message(chat_id=str(subscription.subscriber_id), text=msg, parse_mode='html')
+                _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
                 
                 sent += 1
                 done = True
@@ -61,12 +62,12 @@ def send(all=False, month=None, day=None):
                 report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}')
                 time.sleep(pow(2, retries) if retries < 9 else pow(2, 8))
                 retries += 1
-                done = retries > MAX_SEND_RETRIES
+                done = retries > consts.MAX_SEND_RETRIES
 
     if sent > 0:
         actuary.add_sent(sent)
 
-    if retries > MAX_SEND_RETRIES:
+    if retries > consts.MAX_SEND_RETRIES:
         if not all:
             report_exception(f'Devotionals NOT sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
             logger.error(f'Devotionals NOT sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
@@ -93,19 +94,19 @@ def send_global_message(msg):
         done = False
         while not done:
             try:
-                bot.send_message(chat_id=str(subscription.subscriber_id), text=msg, parse_mode='html')
+                _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
                 sent += 1
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {get_current_utc_hour()} to {str(subscription.subscriber_id)}')
                 time.sleep(pow(2, retries) if retries < 9 else pow(2, 8))
                 retries += 1
-                done = retries > MAX_SEND_RETRIES
+                done = retries > consts.MAX_SEND_RETRIES
 
     if sent > 0:
         actuary.add_sent(sent)
 
-    if retries > MAX_SEND_RETRIES:
+    if retries > consts.MAX_SEND_RETRIES:
         report_exception(f'Global message has NOT been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} '
                          f'with {retries} retries.\n\nMessage content: {msg}.')
         logger.error(f'Global message has NOT been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} '
@@ -117,5 +118,18 @@ def send_global_message(msg):
 
 def report_exception(exception):
     bot = telegram.Bot(token=config['bot']['token'])
-    bot.send_message(chat_id=config['admin']['chat_id'], text=str(exception), parse_mode='html')
+    _send_message(bot, config['admin']['chat_id'], str(exception), consts.LEAST_BOT_SEND_MS)
     
+
+def _send_document(bot, subscriber_id, file_id, least_ms):
+    if file_id != None:
+        before = dt.datetime.utcnow()
+        bot.send_document(chat_id=str(subscriber_id), document=file_id)
+        while (dt.datetime.utcnow() - before) < dt.timedelta(milliseconds=least_ms):
+            pass
+
+def _send_message(bot, subscriber_id, msg, least_ms):
+    before = dt.datetime.utcnow()
+    bot.send_message(chat_id=str(subscriber_id), text=msg, parse_mode='html')
+    while (dt.datetime.utcnow() - before) < dt.timedelta(milliseconds=least_ms):
+        pass
