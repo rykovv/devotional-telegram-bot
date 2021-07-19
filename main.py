@@ -1,8 +1,6 @@
 from configparser import ConfigParser
 import re
 
-from typing import Dict
-
 from timezonefinder import TimezoneFinder
 import pytz
 import datetime
@@ -16,10 +14,6 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
-
-import threading
-import schedule
-import time
 
 from db.devotional import Devotional
 from db.subscriber import Subscriber
