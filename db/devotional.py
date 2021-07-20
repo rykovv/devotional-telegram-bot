@@ -29,7 +29,7 @@ class Devotional(Base):
     # youtube link to that devotional
     url = Column('url', String(256))
     # telegram file_id for instant sending
-    audio_file_id = Column('audio_file_id', String(128))
+    audio_file_ids = Column('audio_file_ids', JSON)
 
     def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, audio_file_id, year_day):
         self.name = name

@@ -14,7 +14,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=oIZsR82miD8",
-    "audio_file_id": "CQACAgQAAxkBAAIERWDsssFFVLXcyWKzDjvnoiRgZfWxAAJzCAACB5NpU1lVCOJ1yN2kIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIERWDsssFFVLXcyWKzDjvnoiRgZfWxAAJzCAACB5NpU1lVCOJ1yN2kIAQ"
+    ]
   },
   "2": {
     "title_date": "La lección de Belén, 2 de enero",
@@ -30,7 +32,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=7bibtCzPZYk",
-    "audio_file_id": "CQACAgQAAxkBAAIERmDsswiZs0VL7rDhgXJYASgUVBi4AAJ0CAACB5NpU5ptiDoSosSVIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIERmDsswiZs0VL7rDhgXJYASgUVBi4AAJ0CAACB5NpU5ptiDoSosSVIAQ"
+    ]
   },
   "3": {
     "title_date": "Cuando Jesús nació, 3 de enero",
@@ -48,7 +52,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=4xSxibugA_Y",
-    "audio_file_id": "CQACAgQAAxkBAAIER2Dss2UbeK4-5z1uWckhLMU1NSOuAAJ1CAACB5NpU_Gb6b7aXUc_IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIER2Dss2UbeK4-5z1uWckhLMU1NSOuAAJ1CAACB5NpU_Gb6b7aXUc_IAQ"
+    ]
   },
   "4": {
     "title_date": "La esperanza de la segunda venida, 4 de enero",
@@ -64,7 +70,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=onaYpt-J2og",
-    "audio_file_id": "CQACAgQAAxkBAAIESGDss4RI2xlY8jtfqsEg95kferrRAAJ2CAACB5NpU4uK74qlOgfAIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIESGDss4RI2xlY8jtfqsEg95kferrRAAJ2CAACB5NpU4uK74qlOgfAIAQ"
+    ]
   },
   "5": {
     "title_date": "El “leitmotiv” de las escrituras, 5 de enero",
@@ -81,7 +89,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=wakb-SdmqQE",
-    "audio_file_id": "CQACAgQAAxkBAAIESWDss62MKkDOOYzcVp8prFeAQMSzAAJ3CAACB5NpU2M430MeY0juIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIESWDss62MKkDOOYzcVp8prFeAQMSzAAJ3CAACB5NpU2M430MeY0juIAQ"
+    ]
   },
   "6": {
     "title_date": "La fe de los reformadores, 6 de enero",
@@ -99,7 +109,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=B8PqQbCoAOs",
-    "audio_file_id": "CQACAgQAAxkBAAIESmDss9MplrF83Tj6xQuUidekcAUOAAJ4CAACB5NpU5J8QJtTeJFuIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIESmDss9MplrF83Tj6xQuUidekcAUOAAJ4CAACB5NpU5J8QJtTeJFuIAQ"
+    ]
   },
   "7": {
     "title_date": "La clave de la historia, 7 de enero",
@@ -118,7 +130,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=2Mb4gtjq4uY",
-    "audio_file_id": "CQACAgQAAxkBAAIES2Dss-7BPIyBQ9Tty55EnnSjtY7CAAJ5CAACB5NpUw9zT5UhGvcmIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIES2Dss-7BPIyBQ9Tty55EnnSjtY7CAAJ5CAACB5NpUw9zT5UhGvcmIAQ"
+    ]
   },
   "8": {
     "title_date": "Desilusiones semejantes, 8 de enero",
@@ -136,7 +150,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=9yqsVLRfCwI",
-    "audio_file_id": "CQACAgQAAxkBAAIETGDstA5-6MpJRLUpf6UcnojVT18SAAJ6CAACB5NpUy7KrZ406sVlIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIETGDstA5-6MpJRLUpf6UcnojVT18SAAJ6CAACB5NpUy7KrZ406sVlIAQ"
+    ]
   },
   "9": {
     "title_date": "Hombres humildes proclaman el mensaje, 9 de enero",
@@ -152,7 +168,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=s27gyMzcsdI",
-    "audio_file_id": "CQACAgQAAxkBAAIETWDstCxrm7kvWTWRDEwEL9TrfodiAAJ7CAACB5NpUx_oVZmlsiY_IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIETWDstCxrm7kvWTWRDEwEL9TrfodiAAJ7CAACB5NpUx_oVZmlsiY_IAQ"
+    ]
   },
   "10": {
     "title_date": "La verdad triunfará, 10 de enero",
@@ -168,7 +186,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=GdEC7r-lqYc",
-    "audio_file_id": "CQACAgQAAxkBAAIETmDstEp43UZCPMNCEL3yp56sqr0IAAJ8CAACB5NpU6Dw93zBgFbYIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIETmDstEp43UZCPMNCEL3yp56sqr0IAAJ8CAACB5NpU6Dw93zBgFbYIAQ"
+    ]
   },
   "11": {
     "title_date": "Apresuremos el regreso del Señor, 11 de enero",
@@ -185,7 +205,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Ve9Jd2ZcGPA",
-    "audio_file_id": "CQACAgQAAxkBAAIET2DstGS59zGQHGMKhHNSTFXSugyAAAJ9CAACB5NpUwhu_KddBQdXIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIET2DstGS59zGQHGMKhHNSTFXSugyAAAJ9CAACB5NpUwhu_KddBQdXIAQ"
+    ]
   },
   "12": {
     "title_date": "Las últimas amonestaciones del tercer ángel, 12 de enero",
@@ -202,7 +224,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=BnIa-z-l8Gc",
-    "audio_file_id": "CQACAgQAAxkBAAIEUGDstHNKur78KB7ZMi7XXm0zNBH8AAJ-CAACB5NpU107PxPXIf6RIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEUGDstHNKur78KB7ZMi7XXm0zNBH8AAJ-CAACB5NpU107PxPXIf6RIAQ"
+    ]
   },
   "13": {
     "title_date": "Reinará para siempre, 13 de enero",
@@ -219,7 +243,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=QX3Ah_61184",
-    "audio_file_id": "CQACAgQAAxkBAAIEUWDstIqYmUp7ELcl66xaf04YteBfAAJ_CAACB5NpU0nCJqzJwnAuIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEUWDstIqYmUp7ELcl66xaf04YteBfAAJ_CAACB5NpU0nCJqzJwnAuIAQ"
+    ]
   },
   "14": {
     "title_date": "La profecía de Elías, 14 de enero",
@@ -237,7 +263,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=TTeU1rmKcKM",
-    "audio_file_id": "CQACAgQAAxkBAAIEUmDstJtxASVI9WAxfBmr5Knk7589AAKACAACB5NpU_5Dvo4z1KfaIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEUmDstJtxASVI9WAxfBmr5Knk7589AAKACAACB5NpU_5Dvo4z1KfaIAQ"
+    ]
   },
   "15": {
     "title_date": "Jesús, el centro de todo, 15 de enero",
@@ -252,7 +280,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=Ubg3KfjBU0A",
-    "audio_file_id": "CQACAgQAAxkBAAIEU2DstLFC5ibahuqp63U3YYHFDWuyAAKBCAACB5NpUyBwclqdZH0FIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEU2DstLFC5ibahuqp63U3YYHFDWuyAAKBCAACB5NpUyBwclqdZH0FIAQ"
+    ]
   },
   "16": {
     "title_date": "El campo es el mundo, 16 de enero",
@@ -271,7 +301,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=aFqOT1t4yB0",
-    "audio_file_id": "CQACAgQAAxkBAAIEVGDstMlWf1avJBf81xS2XfNgMoydAAKCCAACB5NpU8QSHMyM2-EFIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEVGDstMlWf1avJBf81xS2XfNgMoydAAKCCAACB5NpU8QSHMyM2-EFIAQ"
+    ]
   },
   "17": {
     "title_date": "Los juicios de Dios sobre la Tierra, 17 de enero",
@@ -290,7 +322,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=Qm5WROlOROo",
-    "audio_file_id": "CQACAgQAAxkBAAIEVWDstOAfTobKNl6TUcl7PpDjiftSAAKDCAACB5NpUysrsGIUYlTuIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEVWDstOAfTobKNl6TUcl7PpDjiftSAAKDCAACB5NpUysrsGIUYlTuIAQ"
+    ]
   },
   "18": {
     "title_date": "Un camino mejor y más noble, 18 de enero",
@@ -307,7 +341,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=XxFyaQBuxUE",
-    "audio_file_id": "CQACAgQAAxkBAAIEVmDstPkMvhiMJll9zrXR0yMolu6hAAKECAACB5NpU35_3l1BAAHTWCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEVmDstPkMvhiMJll9zrXR0yMolu6hAAKECAACB5NpU35_3l1BAAHTWCAE"
+    ]
   },
   "19": {
     "title_date": "Cuando suene el fuerte clamor, 19 de enero",
@@ -325,7 +361,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=jns6XcGUpM4",
-    "audio_file_id": "CQACAgQAAxkBAAIEV2DstRG0nrnRf6VnfEsLolhchmB8AAKFCAACB5NpUxwB6B74W7dlIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEV2DstRG0nrnRf6VnfEsLolhchmB8AAKFCAACB5NpUxwB6B74W7dlIAQ"
+    ]
   },
   "20": {
     "title_date": "Los fieles no fallarán, 20 de enero",
@@ -341,7 +379,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=F1Icr3vYbZU",
-    "audio_file_id": "CQACAgQAAxkBAAIEWGDstSiF19ISMFQLdQtph6F3bDRXAAKGCAACB5NpU74wIcP3dowoIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEWGDstSiF19ISMFQLdQtph6F3bDRXAAKGCAACB5NpU74wIcP3dowoIAQ"
+    ]
   },
   "21": {
     "title_date": "Requiere trabajo ganar una sola alma, 21 de enero",
@@ -359,7 +399,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=FQZVS99sEJI",
-    "audio_file_id": "CQACAgQAAxkBAAIEWWDstUSZogVt3CMTDOKohtsCYLkAA4cIAAIHk2lT-E1Ke8nfrMIgBA"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEWWDstUSZogVt3CMTDOKohtsCYLkAA4cIAAIHk2lT-E1Ke8nfrMIgBA"
+    ]
   },
   "22": {
     "title_date": "Estudiemos Daniel y el Apocalipsis, 22 de enero",
@@ -378,7 +420,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=uggDNabJRRA",
-    "audio_file_id": "CQACAgQAAxkBAAIEWmDstV72UrDj-Nm60uzSbmdetALPAAKICAACB5NpU4AkXf0qiWOFIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEWmDstV72UrDj-Nm60uzSbmdetALPAAKICAACB5NpU4AkXf0qiWOFIAQ"
+    ]
   },
   "23": {
     "title_date": "Intolerancia y persecución, 23 de enero",
@@ -394,7 +438,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=no7QunX-2G8",
-    "audio_file_id": "CQACAgQAAxkBAAIEW2DstXPJ4OmYmv5h47gJ1JxzqIBEAAKJCAACB5NpU4iRJuI6nMEBIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEW2DstXPJ4OmYmv5h47gJ1JxzqIBEAAKJCAACB5NpU4iRJuI6nMEBIAQ"
+    ]
   },
   "24": {
     "title_date": "La iglesia no caerá, 24 de enero",
@@ -412,7 +458,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=UDwdWFkFCA4",
-    "audio_file_id": "CQACAgQAAxkBAAIEXGDstYo8Lo6kmksiCUEM1YMFmVJhAAKKCAACB5NpU6NBY0wTU4XKIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEXGDstYo8Lo6kmksiCUEM1YMFmVJhAAKKCAACB5NpU6NBY0wTU4XKIAQ"
+    ]
   },
   "25": {
     "title_date": "El falso reavivamiento, 25 de enero",
@@ -427,7 +475,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=kQcoMLUoMvk",
-    "audio_file_id": "CQACAgQAAxkBAAIEXWDstaHY6FSrvNlr8eKKgSw8ruVVAAKLCAACB5NpU2kM2ucZxREPIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEXWDstaHY6FSrvNlr8eKKgSw8ruVVAAKLCAACB5NpU2kM2ucZxREPIAQ"
+    ]
   },
   "26": {
     "title_date": "Una demora presuntuosa y negligente, 26 de enero",
@@ -443,7 +493,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=cikjWBL_Cx8",
-    "audio_file_id": "CQACAgQAAxkBAAIEXmDstbUiUVAXNGdDTFwFs5lH0rShAAKMCAACB5NpU9N21yiz_GlIIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEXmDstbUiUVAXNGdDTFwFs5lH0rShAAKMCAACB5NpU9N21yiz_GlIIAQ"
+    ]
   },
   "27": {
     "title_date": "Un cielo por ganar, 27 de enero",
@@ -461,7 +513,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=s3gnwtdPU2I",
-    "audio_file_id": "CQACAgQAAxkBAAIEX2DstcXaeeOTtzgNAhGfGDmDoNhTAAKNCAACB5NpU9v_6axBd3sJIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEX2DstcXaeeOTtzgNAhGfGDmDoNhTAAKNCAACB5NpU9v_6axBd3sJIAQ"
+    ]
   },
   "28": {
     "title_date": "Se bendice a los que velan, 28 de enero",
@@ -476,7 +530,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=t9occeOT3cA",
-    "audio_file_id": "CQACAgQAAxkBAAIEYGDsteAltrt_83FN7uKIjLsFSenuAAKOCAACB5NpU4lsT1K-ByW-IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEYGDsteAltrt_83FN7uKIjLsFSenuAAKOCAACB5NpU4lsT1K-ByW-IAQ"
+    ]
   },
   "29": {
     "title_date": "Dificultades por todas partes, 29 de enero",
@@ -491,7 +547,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=6ra5D8U6v1k",
-    "audio_file_id": "CQACAgQAAxkBAAIEYWDstf4wPJiRJ9-_wj6pRBIwZtN5AAKPCAACB5NpU0S15ydm3LznIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEYWDstf4wPJiRJ9-_wj6pRBIwZtN5AAKPCAACB5NpU0S15ydm3LznIAQ"
+    ]
   },
   "30": {
     "title_date": "Se intercede en favor de las almas, 30 de enero",
@@ -507,7 +565,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=3ZSQr0EDnXs",
-    "audio_file_id": "CQACAgQAAxkBAAIEYmDsth6Kj7c_-X4HSopsgXPltdZIAAKQCAACB5NpUzH0cIZYM_kyIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEYmDsth6Kj7c_-X4HSopsgXPltdZIAAKQCAACB5NpUzH0cIZYM_kyIAQ"
+    ]
   },
   "31": {
     "title_date": "¿Lloraremos o nos regocijaremos?, 31 de enero",
@@ -524,7 +584,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=RaFs0wIoGDc",
-    "audio_file_id": "CQACAgQAAxkBAAIEY2Dstj8Th_UgUcWaDmQJuX3JHRAEAAKRCAACB5NpU2Djb9odVUAoIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEY2Dstj8Th_UgUcWaDmQJuX3JHRAEAAKRCAACB5NpU2Djb9odVUAoIAQ"
+    ]
   },
   "32": {
     "title_date": "Un momento culminante, 1 de febrero",
@@ -543,7 +605,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=JiL9ww9CsT4",
-    "audio_file_id": "CQACAgQAAxkBAAIEZGDstn7zbTJt-UcDBkJ1Z1iqvlPqAAKSCAACB5NpU7bnDC-ecHtKIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEZGDstn7zbTJt-UcDBkJ1Z1iqvlPqAAKSCAACB5NpU7bnDC-ecHtKIAQ"
+    ]
   },
   "33": {
     "title_date": "Una norma elevada, 2 de febrero",
@@ -559,7 +623,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=l29mQFDdrZo",
-    "audio_file_id": "CQACAgQAAxkBAAIEZWDstpILFWfbiAJdsilKvVocrxzEAAKTCAACB5NpU1ks2LndqEX8IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEZWDstpILFWfbiAJdsilKvVocrxzEAAKTCAACB5NpU1ks2LndqEX8IAQ"
+    ]
   },
   "34": {
     "title_date": "Él pesa las acciones, 3 de febrero",
@@ -575,7 +641,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=F-74sXxoDQo",
-    "audio_file_id": "CQACAgQAAxkBAAIEZmDstrEMUY8pd7ILdVq7y3LSSnxWAAKUCAACB5NpUxxNUFCPksoQIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEZmDstrEMUY8pd7ILdVq7y3LSSnxWAAKUCAACB5NpUxxNUFCPksoQIAQ"
+    ]
   },
   "35": {
     "title_date": "¿Soportaréis la prueba?, 4 de febrero",
@@ -592,7 +660,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Zvefs3NY5l0",
-    "audio_file_id": "CQACAgQAAxkBAAIEZ2DstwswOlaybt7NUBXpqyLjTOESAAKVCAACB5NpU7-8KAWi2PoqIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEZ2DstwswOlaybt7NUBXpqyLjTOESAAKVCAACB5NpU7-8KAWi2PoqIAQ"
+    ]
   },
   "36": {
     "title_date": "Un guía infalible, 5 de febrero",
@@ -610,7 +680,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=4x_DVF6oySw",
-    "audio_file_id": "CQACAgQAAxkBAAIEaGDstyiDl298pHg0vM6GG_ndhKgbAAKWCAACB5NpU8xX8yXv8EmXIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEaGDstyiDl298pHg0vM6GG_ndhKgbAAKWCAACB5NpU8xX8yXv8EmXIAQ"
+    ]
   },
   "37": {
     "title_date": "Listos para responder, 6 de febrero",
@@ -626,7 +698,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=sqO1SvuiLXU",
-    "audio_file_id": "CQACAgQAAxkBAAIEaWDstzsIJbe32MMi4_ek37yqYxtRAAKXCAACB5NpU0Ng5y5OUdvNIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEaWDstzsIJbe32MMi4_ek37yqYxtRAAKXCAACB5NpU0Ng5y5OUdvNIAQ"
+    ]
   },
   "38": {
     "title_date": "El festín que satisface, 7 de febrero",
@@ -643,7 +717,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=-pqBHFqNG3I",
-    "audio_file_id": "CQACAgQAAxkBAAIEamDst3uKZ14uOPKdYGNFZAddZZMvAAKYCAACB5NpU8kpOgABwYi6gCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEamDst3uKZ14uOPKdYGNFZAddZZMvAAKYCAACB5NpU8kpOgABwYi6gCAE"
+    ]
   },
   "39": {
     "title_date": "Independencia moral, 8 de febrero",
@@ -661,7 +737,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=fL8Q2PYnL0M",
-    "audio_file_id": "CQACAgQAAxkBAAIEa2Dst5RzczOzhal2vUkthTmxHRRBAAKZCAACB5NpU4xNzo6pu6UJIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEa2Dst5RzczOzhal2vUkthTmxHRRBAAKZCAACB5NpU4xNzo6pu6UJIAQ"
+    ]
   },
   "40": {
     "title_date": "¿Hay ídolos aquí?, 9 de febrero",
@@ -678,7 +756,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=UkKoVfBfg0k",
-    "audio_file_id": "CQACAgQAAxkBAAIEbGDst6lFG0pc-llHKlAIkGzgEm1KAAKaCAACB5NpU__56D6W2pfhIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEbGDst6lFG0pc-llHKlAIkGzgEm1KAAKaCAACB5NpU__56D6W2pfhIAQ"
+    ]
   },
   "41": {
     "title_date": "Escudriña tu propio corazón, 10 de febrero",
@@ -695,7 +775,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=K8EvPzm1VP8",
-    "audio_file_id": "CQACAgQAAxkBAAIEbWDst7snPav63nHNb-54JDwS1zc4AAKbCAACB5NpUx2-U1W2uzFWIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEbWDst7snPav63nHNb-54JDwS1zc4AAKbCAACB5NpUx2-U1W2uzFWIAQ"
+    ]
   },
   "42": {
     "title_date": "Preguntas escrutadoras, 11 de febrero",
@@ -714,7 +796,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=Pj-NA2FIfb8",
-    "audio_file_id": "CQACAgQAAxkBAAIEbmDst89mmprLHEmB3H_NR1tl07zxAAKcCAACB5NpU52Z8fsVr8d_IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEbmDst89mmprLHEmB3H_NR1tl07zxAAKcCAACB5NpU52Z8fsVr8d_IAQ"
+    ]
   },
   "43": {
     "title_date": "¿Te atreverás a ser diferente?, 12 de febrero",
@@ -732,7 +816,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=kt4Yi1zpvF4",
-    "audio_file_id": "CQACAgQAAxkBAAIEb2Dst-IgaJTaU0R7Lj58uSXXdqTzAAKdCAACB5NpU-xBA88cflj9IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEb2Dst-IgaJTaU0R7Lj58uSXXdqTzAAKdCAACB5NpU-xBA88cflj9IAQ"
+    ]
   },
   "44": {
     "title_date": "Desarraigad toda semilla de duda, 13 de febrero",
@@ -748,7 +834,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=_c6PgC88SAQ",
-    "audio_file_id": "CQACAgQAAxkBAAIEcGDst_vlNKt-bpGwl5EOX8DmhAyyAAKeCAACB5NpU43r7PAY1a3rIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEcGDst_vlNKt-bpGwl5EOX8DmhAyyAAKeCAACB5NpU43r7PAY1a3rIAQ"
+    ]
   },
   "45": {
     "title_date": "¿Gigantes o enanos espirituales?, 14 de febrero",
@@ -765,7 +853,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=imbnTvKsjnQ",
-    "audio_file_id": "CQACAgQAAxkBAAIEcWDsuBOG7zHB7wW1gTs6FeCdoARLAAKfCAACB5NpU0ECoqVq51XFIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEcWDsuBOG7zHB7wW1gTs6FeCdoARLAAKfCAACB5NpU0ECoqVq51XFIAQ"
+    ]
   },
   "46": {
     "title_date": "¿Sabios o insensatos?, 15 de febrero",
@@ -783,7 +873,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=eaDtAEiphC0",
-    "audio_file_id": "CQACAgQAAxkBAAIEcmDsuCltiEU6xga907zimdFI6A2oAAKgCAACB5NpU58y4nG_ewhKIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEcmDsuCltiEU6xga907zimdFI6A2oAAKgCAACB5NpU58y4nG_ewhKIAQ"
+    ]
   },
   "47": {
     "title_date": "Ahora, casi ahora mismo, 16 de febrero",
@@ -801,7 +893,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=8NWoNuPSWzE",
-    "audio_file_id": "CQACAgQAAxkBAAIEc2DsuD06wJWNt2mtAAFvfWiTRlv4ewACoQgAAgeTaVMnPX_di2-sziAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEc2DsuD06wJWNt2mtAAFvfWiTRlv4ewACoQgAAgeTaVMnPX_di2-sziAE"
+    ]
   },
   "48": {
     "title_date": "La última vigilia, 17 de febrero",
@@ -818,7 +912,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=C_B0fq2N_24",
-    "audio_file_id": "CQACAgQAAxkBAAIEdGDsuFCViASkSlXXnLAfs_rNYm0gAAKiCAACB5NpU9TSfyiOAtrAIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEdGDsuFCViASkSlXXnLAfs_rNYm0gAAKiCAACB5NpU9TSfyiOAtrAIAQ"
+    ]
   },
   "49": {
     "title_date": "La única conducta segura, 18 de febrero",
@@ -836,7 +932,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=lz2_CEIV4j8",
-    "audio_file_id": "CQACAgQAAxkBAAIEdWDsuGhLNwJbut-dLy-HULJTl3LZAAKjCAACB5NpU3W-StOyd8mzIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEdWDsuGhLNwJbut-dLy-HULJTl3LZAAKjCAACB5NpU3W-StOyd8mzIAQ"
+    ]
   },
   "50": {
     "title_date": "La fe que obra, 19 de febrero",
@@ -852,7 +950,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=A_IqifG7UdE",
-    "audio_file_id": "CQACAgQAAxkBAAIEdmDsuHz9pULECzMQif8yBalfKceIAAKkCAACB5NpU9NMizDw1rZ8IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEdmDsuHz9pULECzMQif8yBalfKceIAAKkCAACB5NpU9NMizDw1rZ8IAQ"
+    ]
   },
   "51": {
     "title_date": "Cuidado con los instrumentos de Satanás, 20 de febrero",
@@ -870,7 +970,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=FUGEawMJhO8",
-    "audio_file_id": "CQACAgQAAxkBAAIEd2DsuJd8s7XIwHf7iGSQQ-UoLQy_AAKlCAACB5NpUxzP75xLQO2QIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEd2DsuJd8s7XIwHf7iGSQQ-UoLQy_AAKlCAACB5NpUxzP75xLQO2QIAQ"
+    ]
   },
   "52": {
     "title_date": "Tentaciones disfrazadas, 21 de febrero",
@@ -888,7 +990,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=e7d0W4FDfDo",
-    "audio_file_id": "CQACAgQAAxkBAAIEeGDsuKyP4029aUfbLfUK0ylpXxZEAAKmCAACB5NpU-zhC9FTNteFIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEeGDsuKyP4029aUfbLfUK0ylpXxZEAAKmCAACB5NpU-zhC9FTNteFIAQ"
+    ]
   },
   "53": {
     "title_date": "¿Por qué se demora la venida de Jesús?, 22 de febrero",
@@ -906,7 +1010,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=aakll-jNoyk",
-    "audio_file_id": "CQACAgQAAxkBAAIEeWDsuLxlma7sfWRv-FT35RCJXXOSAAKnCAACB5NpU_yOof7FyeAmIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEeWDsuLxlma7sfWRv-FT35RCJXXOSAAKnCAACB5NpU_yOof7FyeAmIAQ"
+    ]
   },
   "54": {
     "title_date": "Una meta que alcanzar, 23 de febrero",
@@ -924,7 +1030,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=Nj8Imz1Kbs0",
-    "audio_file_id": "CQACAgQAAxkBAAIEemDsuNGTyX4psaOFYXfPrkD93CalAAKoCAACB5NpUxSIoYztL3g_IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEemDsuNGTyX4psaOFYXfPrkD93CalAAKoCAACB5NpUxSIoYztL3g_IAQ"
+    ]
   },
   "55": {
     "title_date": "No hay tiempo para hacer la obra del diablo, 24 de febrero",
@@ -941,7 +1049,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=IwgpzbyQKd4",
-    "audio_file_id": "CQACAgQAAxkBAAIEe2DsuOjkj9j8PJOX-a2mC9Tho_Q_AAKpCAACB5NpU3XxgFdvw_OHIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEe2DsuOjkj9j8PJOX-a2mC9Tho_Q_AAKpCAACB5NpU3XxgFdvw_OHIAQ"
+    ]
   },
   "56": {
     "title_date": "La última campaña de Satanás, 25 de febrero",
@@ -958,7 +1068,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=jCzjM_EpIO4",
-    "audio_file_id": "CQACAgQAAxkBAAIEfGDsuPti3SKfIPH_XrIYf1uwKJFoAAKqCAACB5NpU4QsanGhRMXCIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEfGDsuPti3SKfIPH_XrIYf1uwKJFoAAKqCAACB5NpU4QsanGhRMXCIAQ"
+    ]
   },
   "57": {
     "title_date": "En los umbrales del mundo eterno, 26 de febrero",
@@ -974,7 +1086,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=gFYVqJ0Bxw0",
-    "audio_file_id": "CQACAgQAAxkBAAIEfWDsuRmrITNfkXwgYZFD7XmzkXfIAAKrCAACB5NpUzKH95OrLxE-IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEfWDsuRmrITNfkXwgYZFD7XmzkXfIAAKrCAACB5NpUzKH95OrLxE-IAQ"
+    ]
   },
   "58": {
     "title_date": "La visión se cumplirá ciertamente, 27 de febrero",
@@ -990,7 +1104,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=v85SPe7CTow",
-    "audio_file_id": "CQACAgQAAxkBAAIEfmDsuTD-NeWQyoWd8nVvOQv_rdzbAAKsCAACB5NpU_gsD_uo40_GIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEfmDsuTD-NeWQyoWd8nVvOQv_rdzbAAKsCAACB5NpU_gsD_uo40_GIAQ"
+    ]
   },
   "59": {
     "title_date": "Seguro refugio, 28 de febrero",
@@ -1008,7 +1124,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=un_Ub8ovEAo",
-    "audio_file_id": "CQACAgQAAxkBAAIEf2DsuUNMMX932gUgCcdYeAT6ymnoAAKtCAACB5NpU1XqnYfulQTpIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEf2DsuUNMMX932gUgCcdYeAT6ymnoAAKtCAACB5NpU1XqnYfulQTpIAQ"
+    ]
   },
   "60": {
     "title_date": "Enfrentamos una crisis, 1 de marzo",
@@ -1027,7 +1145,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=4NJ-LV9lk7U",
-    "audio_file_id": "CQACAgQAAxkBAAIEgGDsuWKRrU3jSrYOpgIUzANfYr1xAAKuCAACB5NpU3KjUoPzVzgpIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEgGDsuWKRrU3jSrYOpgIUzANfYr1xAAKuCAACB5NpU3KjUoPzVzgpIAQ"
+    ]
   },
   "61": {
     "title_date": "Remedio para la enfermedad del pecado, 2 de marzo",
@@ -1044,7 +1164,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=7WKM8pwZSJo",
-    "audio_file_id": "CQACAgQAAxkBAAIEgWDsuYMOUR_FWN8vZp7Lfy3u04EMAAKvCAACB5NpU29BSX1caqQEIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEgWDsuYMOUR_FWN8vZp7Lfy3u04EMAAKvCAACB5NpU29BSX1caqQEIAQ"
+    ]
   },
   "62": {
     "title_date": "Vida nueva, 3 de marzo",
@@ -1061,7 +1183,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=6k_Eas9a90k",
-    "audio_file_id": "CQACAgQAAxkBAAIEgmDs14gYX-it1urr8xJ64VizFcK_AALDCAACB5NpU252D0eAtdbwIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEgmDs14gYX-it1urr8xJ64VizFcK_AALDCAACB5NpU252D0eAtdbwIAQ"
+    ]
   },
   "63": {
     "title_date": "Lo más importante de la vida, 4 de marzo",
@@ -1079,7 +1203,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=1sf0QjWTUHs",
-    "audio_file_id": "CQACAgQAAxkBAAIEg2Ds16Lzufr40tbcHGTP25-UHk2vAALECAACB5NpU_GQHMZfKM0yIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEg2Ds16Lzufr40tbcHGTP25-UHk2vAALECAACB5NpU_GQHMZfKM0yIAQ"
+    ]
   },
   "64": {
     "title_date": "La perla inmaculada, 5 de marzo",
@@ -1096,7 +1222,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=61qz5eADps8",
-    "audio_file_id": "CQACAgQAAxkBAAIEhGDs17V_ec0nmg5qFmH0G82LbXwHAALFCAACB5NpU3dwZgEOozABIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEhGDs17V_ec0nmg5qFmH0G82LbXwHAALFCAACB5NpU3dwZgEOozABIAQ"
+    ]
   },
   "65": {
     "title_date": "Cristo, el único salvador, 6 de marzo",
@@ -1114,7 +1242,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=Csm42fsJ68s",
-    "audio_file_id": "CQACAgQAAxkBAAIEhWDs18gmblHbZlj00N2LuqrmNCCYAALGCAACB5NpU6mdcxH4JNhYIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEhWDs18gmblHbZlj00N2LuqrmNCCYAALGCAACB5NpU6mdcxH4JNhYIAQ"
+    ]
   },
   "66": {
     "title_date": "Gustad vosotros mismos, 7 de marzo",
@@ -1133,7 +1263,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=I8uqaJ6rzfw",
-    "audio_file_id": "CQACAgQAAxkBAAIEhmDs1-HmNI7GtEZVuqr9_B9BUtSDAALHCAACB5NpU94sJIqTWdmwIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEhmDs1-HmNI7GtEZVuqr9_B9BUtSDAALHCAACB5NpU94sJIqTWdmwIAQ"
+    ]
   },
   "67": {
     "title_date": "Ciudadanos del reino, 8 de marzo",
@@ -1151,7 +1283,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=pzx8CFqTgmE",
-    "audio_file_id": "CQACAgQAAxkBAAIEh2Ds1_ph7jHKnNSHDpGWjqy13ms5AALICAACB5NpU9t8u9E7IS5rIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEh2Ds1_ph7jHKnNSHDpGWjqy13ms5AALICAACB5NpU9t8u9E7IS5rIAQ"
+    ]
   },
   "68": {
     "title_date": "Conozcamos mejor a Dios, 9 de marzo",
@@ -1169,7 +1303,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=FfsUQP2H1l0",
-    "audio_file_id": "CQACAgQAAxkBAAIEiGDs2BBasrBoOmbT7LauhVEePZC6AALJCAACB5NpU09SmNLFfzMrIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEiGDs2BBasrBoOmbT7LauhVEePZC6AALJCAACB5NpU09SmNLFfzMrIAQ"
+    ]
   },
   "69": {
     "title_date": "La meditación más excelsa, 10 de marzo",
@@ -1188,7 +1324,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=98cXablibtk",
-    "audio_file_id": "CQACAgQAAxkBAAIEiWDs2COY80GK6DNwvaCj-coPqeeDAALKCAACB5NpU5E4pjvWl4hGIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEiWDs2COY80GK6DNwvaCj-coPqeeDAALKCAACB5NpU5E4pjvWl4hGIAQ"
+    ]
   },
   "70": {
     "title_date": "Se requieren vestiduras blancas, 11 de marzo",
@@ -1205,7 +1343,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=TGjAZr-bP3M",
-    "audio_file_id": "CQACAgQAAxkBAAIEimDs2DbZKaz_U5ML4kks9_dx_xupAALLCAACB5NpU5h8Gve1nIU4IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEimDs2DbZKaz_U5ML4kks9_dx_xupAALLCAACB5NpU5h8Gve1nIU4IAQ"
+    ]
   },
   "71": {
     "title_date": "Gozo en la obediencia, 12 de marzo",
@@ -1224,7 +1364,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=orZ-3iEjNV0",
-    "audio_file_id": "CQACAgQAAxkBAAIEi2Ds2EmnA-NkSWKa9rGSTSTbC65oAALMCAACB5NpU_oD0m5CYUX0IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEi2Ds2EmnA-NkSWKa9rGSTSTbC65oAALMCAACB5NpU_oD0m5CYUX0IAQ"
+    ]
   },
   "72": {
     "title_date": "Modelados en el taller del Señor, 13 de marzo",
@@ -1241,7 +1383,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=P-5fm1LVxfE",
-    "audio_file_id": "CQACAgQAAxkBAAIEjGDs2FnPpuxh3iwczjW2IkCpgWgJAALNCAACB5NpUzEciw4r4mGhIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEjGDs2FnPpuxh3iwczjW2IkCpgWgJAALNCAACB5NpUzEciw4r4mGhIAQ"
+    ]
   },
   "73": {
     "title_date": "La salud física y el pensamiento noble, 14 de marzo",
@@ -1257,7 +1401,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=2sCk62eHaBg",
-    "audio_file_id": "CQACAgQAAxkBAAIEjWDs2GoEXNHjFa1NZd4nYmSJBSk0AALOCAACB5NpU7Lo0J5GcVbuIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEjWDs2GoEXNHjFa1NZd4nYmSJBSk0AALOCAACB5NpU7Lo0J5GcVbuIAQ"
+    ]
   },
   "74": {
     "title_date": "La siembra y la cosecha de la vida, 15 de marzo",
@@ -1274,7 +1420,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=W9XoVufxHMs",
-    "audio_file_id": "CQACAgQAAxkBAAIEjmDs2HvMlYVeAYSvLJKLu2uW8-08AALPCAACB5NpU3BdNi2xrAIbIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEjmDs2HvMlYVeAYSvLJKLu2uW8-08AALPCAACB5NpU3BdNi2xrAIbIAQ"
+    ]
   },
   "75": {
     "title_date": "El carácter que aprueba Dios, 16 de marzo",
@@ -1290,7 +1438,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=oNxWyMUEsHU",
-    "audio_file_id": "CQACAgQAAxkBAAIEj2Ds2Ixd5R4v-mIE-1l-tIxURWz2AALQCAACB5NpUySCgT9LXKVWIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEj2Ds2Ixd5R4v-mIE-1l-tIxURWz2AALQCAACB5NpUySCgT9LXKVWIAQ"
+    ]
   },
   "76": {
     "title_date": "Subamos la escalera de Pedro, 17 de marzo",
@@ -1307,7 +1457,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=STtLF7iFOvk",
-    "audio_file_id": "CQACAgQAAxkBAAIEkGDs2J-ElIplG0dLi946xgABQN_ScAAC0QgAAgeTaVOrc1PlJ9cnkiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEkGDs2J-ElIplG0dLi946xgABQN_ScAAC0QgAAgeTaVOrc1PlJ9cnkiAE"
+    ]
   },
   "77": {
     "title_date": "El aliento del alma, 18 de marzo",
@@ -1324,7 +1476,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=PDId5HzV--Y",
-    "audio_file_id": "CQACAgQAAxkBAAIEkWDs2LPM4apl0frL_IRuX_ZVDh8HAALSCAACB5NpU_lzsVJHcKk9IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEkWDs2LPM4apl0frL_IRuX_ZVDh8HAALSCAACB5NpU_lzsVJHcKk9IAQ"
+    ]
   },
   "78": {
     "title_date": "El secreto del progreso, 19 de marzo",
@@ -1341,7 +1495,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=hsXKbKEZ5Wg",
-    "audio_file_id": "CQACAgQAAxkBAAIEkmDs2MZum21SRBDPT5u3VEu2k31vAALTCAACB5NpU_uVFbEB4zFtIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEkmDs2MZum21SRBDPT5u3VEu2k31vAALTCAACB5NpU_uVFbEB4zFtIAQ"
+    ]
   },
   "79": {
     "title_date": "Fe inconmovible, 20 de marzo",
@@ -1359,7 +1515,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=T-alv6IiEec",
-    "audio_file_id": "CQACAgQAAxkBAAIEk2Ds2NuVdn5qDHEKeZK3QHCom6oqAALUCAACB5NpU0HwZqr-xMeLIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEk2Ds2NuVdn5qDHEKeZK3QHCom6oqAALUCAACB5NpU0HwZqr-xMeLIAQ"
+    ]
   },
   "80": {
     "title_date": "Pureza de corazón y vida, 21 de marzo",
@@ -1378,7 +1536,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=PXpiJVebPyQ",
-    "audio_file_id": "CQACAgQAAxkBAAIElGDs2Otaxhlqvles2VZjRwk8Fa2aAALVCAACB5NpU55cHFPI29UbIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIElGDs2Otaxhlqvles2VZjRwk8Fa2aAALVCAACB5NpU55cHFPI29UbIAQ"
+    ]
   },
   "81": {
     "title_date": "Se define la santificación bíblica, 22 de marzo",
@@ -1398,7 +1558,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=fDMbVKWmP_M",
-    "audio_file_id": "CQACAgQAAxkBAAIElWDs2P2uM5oR6MpKN4zfDRAYFZx4AALWCAACB5NpU1vd3xCwY83KIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIElWDs2P2uM5oR6MpKN4zfDRAYFZx4AALWCAACB5NpU1vd3xCwY83KIAQ"
+    ]
   },
   "82": {
     "title_date": "En guardia frente a las tretas de Satanás, 23 de marzo",
@@ -1415,7 +1577,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=_lU_6EYQAZo",
-    "audio_file_id": "CQACAgQAAxkBAAIElmDs2RDukLHFIOhgOEIXz_MJ7UvhAALXCAACB5NpU2hncjBt8lgoIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIElmDs2RDukLHFIOhgOEIXz_MJ7UvhAALXCAACB5NpU2hncjBt8lgoIAQ"
+    ]
   },
   "83": {
     "title_date": "A prueba de tentaciones, 24 de marzo",
@@ -1433,7 +1597,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=5kkMShphvXY",
-    "audio_file_id": "CQACAgQAAxkBAAIEl2Ds2SkjBJCIbluXsPWWW6jcsiRBAALYCAACB5NpU4vGfiTeYuRrIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEl2Ds2SkjBJCIbluXsPWWW6jcsiRBAALYCAACB5NpU4vGfiTeYuRrIAQ"
+    ]
   },
   "84": {
     "title_date": "¿Por qué se prolonga el tiempo de prueba?, 25 de marzo",
@@ -1450,7 +1616,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=ZFVtSlJt_cI",
-    "audio_file_id": "CQACAgQAAxkBAAIEmGDs2UIPh3H2gXzO5-EOxCi25QqlAALZCAACB5NpU89QSKaCVjOpIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEmGDs2UIPh3H2gXzO5-EOxCi25QqlAALZCAACB5NpU89QSKaCVjOpIAQ"
+    ]
   },
   "85": {
     "title_date": "Se va a tratar su caso, 26 de marzo",
@@ -1467,7 +1635,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=zCqdqDUu8MQ",
-    "audio_file_id": "CQACAgQAAxkBAAIEmWDs2VN-r3k_H_82NR0GayoHwAL_AALaCAACB5NpU0xQkJRNr4qPIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEmWDs2VN-r3k_H_82NR0GayoHwAL_AALaCAACB5NpU0xQkJRNr4qPIAQ"
+    ]
   },
   "86": {
     "title_date": "Una norma en la que podéis confiar, 27 de marzo",
@@ -1485,7 +1655,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=gJ0HPtM_IJU",
-    "audio_file_id": "CQACAgQAAxkBAAIEmmDs2Wez-eIQnKMwcTDb6_FcLE6TAALbCAACB5NpUw8_XqFTFewxIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEmmDs2Wez-eIQnKMwcTDb6_FcLE6TAALbCAACB5NpUw8_XqFTFewxIAQ"
+    ]
   },
   "87": {
     "title_date": "Las escrituras, nuestra salvaguardia, 28 de marzo",
@@ -1502,7 +1674,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=3H08sfUGIq4",
-    "audio_file_id": "CQACAgQAAxkBAAIEm2Ds2XrO2SHcM_wAAcB1heNA2RFh2wAC3AgAAgeTaVMqp-Ln58IVtiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEm2Ds2XrO2SHcM_wAAcB1heNA2RFh2wAC3AgAAgeTaVMqp-Ln58IVtiAE"
+    ]
   },
   "88": {
     "title_date": "Garantía divina de seguridad, 29 de marzo",
@@ -1520,7 +1694,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=SezbQsuwcno",
-    "audio_file_id": "CQACAgQAAxkBAAIEnGDs2ZyUG-OCnR2wDtqtxTmuB_AAA90IAAIHk2lTGEgG_JqcQcogBA"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEnGDs2ZyUG-OCnR2wDtqtxTmuB_AAA90IAAIHk2lTGEgG_JqcQcogBA"
+    ]
   },
   "89": {
     "title_date": "Una experiencia profunda y viviente, 30 de marzo",
@@ -1537,7 +1713,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=7C2e3zDUOBo",
-    "audio_file_id": "CQACAgQAAxkBAAIEnWDs2bvYYw5UwBtqGirKv0m3q2zzAALeCAACB5NpUxBhiVbs-MkDIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEnWDs2bvYYw5UwBtqGirKv0m3q2zzAALeCAACB5NpUxBhiVbs-MkDIAQ"
+    ]
   },
   "90": {
     "title_date": "“¡Preparaos, preparaos, preparaos!”, 31 de marzo",
@@ -1555,7 +1733,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=p432V7i8g44",
-    "audio_file_id": "CQACAgQAAxkBAAIEnmDs2dhYRKpW4_DcdKhNZg9bfXqmAALfCAACB5NpU892Y95t3CKyIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEnmDs2dhYRKpW4_DcdKhNZg9bfXqmAALfCAACB5NpU892Y95t3CKyIAQ"
+    ]
   },
   "91": {
     "title_date": "La mayor obra del mundo, 1 de abril",
@@ -1573,7 +1753,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=ii-xITa6p7Q",
-    "audio_file_id": "CQACAgQAAxkBAAIEn2Ds3mLTBL8FOtXVb_P-m8Cgos3tAALgCAACB5NpU6vOeg_SkT2CIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEn2Ds3mLTBL8FOtXVb_P-m8Cgos3tAALgCAACB5NpU6vOeg_SkT2CIAQ"
+    ]
   },
   "92": {
     "title_date": "El mensaje de la cruz, 2 de abril",
@@ -1592,7 +1774,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=dwOcq5SWMg8",
-    "audio_file_id": "CQACAgQAAxkBAAIEoGDs3n8SOfMtlC_62fv3IhwrdJlqAALhCAACB5NpU5oog-956gdBIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEoGDs3n8SOfMtlC_62fv3IhwrdJlqAALhCAACB5NpU5oog-956gdBIAQ"
+    ]
   },
   "93": {
     "title_date": "Motivados por el amor, 3 de abril",
@@ -1610,7 +1794,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=I6WJ7doH-s4",
-    "audio_file_id": "CQACAgQAAxkBAAIEoWDs3poX4X_pLC8yf8UuV_O_Um89AALiCAACB5NpU-KNHnBpXy5SIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEoWDs3poX4X_pLC8yf8UuV_O_Um89AALiCAACB5NpU-KNHnBpXy5SIAQ"
+    ]
   },
   "94": {
     "title_date": "El testimonio empieza por casa, 4 de abril",
@@ -1628,7 +1814,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=uc4-dT4vc8M",
-    "audio_file_id": "CQACAgQAAxkBAAIEomDs3q9eZc9R6y-JIWpIi8ZM7cDdAALjCAACB5NpU3Pc2DwXMrhVIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEomDs3q9eZc9R6y-JIWpIi8ZM7cDdAALjCAACB5NpU3Pc2DwXMrhVIAQ"
+    ]
   },
   "95": {
     "title_date": "Un mundo necesitado, 5 de abril",
@@ -1647,7 +1835,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=vLkw9u355Dg",
-    "audio_file_id": "CQACAgQAAxkBAAIEo2Ds3sLVXhaOJTCWUf2IoIK6oYVvAALkCAACB5NpU1gazNBqyVU6IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEo2Ds3sLVXhaOJTCWUf2IoIK6oYVvAALkCAACB5NpU1gazNBqyVU6IAQ"
+    ]
   },
   "96": {
     "title_date": "Enseñando de casa en casa, 6 de abril",
@@ -1667,7 +1857,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=ZWlATTPAMB8",
-    "audio_file_id": "CQACAgQAAxkBAAIEpGDs3tQHA0V3P9XV984NeD1BKqVdAALlCAACB5NpU-LQ0P7LcxI0IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEpGDs3tQHA0V3P9XV984NeD1BKqVdAALlCAACB5NpU-LQ0P7LcxI0IAQ"
+    ]
   },
   "97": {
     "title_date": "Testimonio de corazón a corazón, 7 de abril",
@@ -1683,7 +1875,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=GSzYKopVhVM",
-    "audio_file_id": "CQACAgQAAxkBAAIEpWDs3uhZ38zLDntzCniQyflg0z_MAALmCAACB5NpU9bRiQPTXrmOIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEpWDs3uhZ38zLDntzCniQyflg0z_MAALmCAACB5NpU9bRiQPTXrmOIAQ"
+    ]
   },
   "98": {
     "title_date": "¡Tocad la alarma!, 8 de abril",
@@ -1700,7 +1894,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=VgTzssZpVbg",
-    "audio_file_id": "CQACAgQAAxkBAAIEpmDs3v28z-Mk-J5o83LXT432nFD0AALnCAACB5NpU9UPLJY8Gi86IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEpmDs3v28z-Mk-J5o83LXT432nFD0AALnCAACB5NpU9UPLJY8Gi86IAQ"
+    ]
   },
   "99": {
     "title_date": "El mensaje especial de Dios para hoy, 9 de abril",
@@ -1718,7 +1914,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=gI4x0Rkb-uA",
-    "audio_file_id": "CQACAgQAAxkBAAIEp2Ds3xiI41Agzs5_A3RGyg_T0MDGAALoCAACB5NpU8Z1YudnDihbIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEp2Ds3xiI41Agzs5_A3RGyg_T0MDGAALoCAACB5NpU8Z1YudnDihbIAQ"
+    ]
   },
   "100": {
     "title_date": "Un tiempo de decisión, 10 de abril",
@@ -1737,7 +1935,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=zCMbzVp7wOQ",
-    "audio_file_id": "CQACAgQAAxkBAAIEqGDs3yzmBtzHLS7bWmVwGKEu3DI5AALpCAACB5NpU1Zw6xrnuy-lIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEqGDs3yzmBtzHLS7bWmVwGKEu3DI5AALpCAACB5NpU1Zw6xrnuy-lIAQ"
+    ]
   },
   "101": {
     "title_date": "Vivir para salvar a otros, 11 de abril",
@@ -1755,7 +1955,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=pHHVv-JM0BQ",
-    "audio_file_id": "CQACAgQAAxkBAAIEqWDs3z7N_K9g8SQdSYgryxvkOpB1AALqCAACB5NpU_AiUtO4XX3vIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEqWDs3z7N_K9g8SQdSYgryxvkOpB1AALqCAACB5NpU_AiUtO4XX3vIAQ"
+    ]
   },
   "102": {
     "title_date": "La senda de la vida, 12 de abril",
@@ -1772,7 +1974,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=QGThSjXICpw",
-    "audio_file_id": "CQACAgQAAxkBAAIEqmDs31RgfN1ul_qVtszedz5_GvqsAALrCAACB5NpU5nLk8cX4QgtIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEqmDs31RgfN1ul_qVtszedz5_GvqsAALrCAACB5NpU5nLk8cX4QgtIAQ"
+    ]
   },
   "103": {
     "title_date": "Socios de Cristo, 13 de abril",
@@ -1790,7 +1994,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=JzezO_5XdFY",
-    "audio_file_id": "CQACAgQAAxkBAAIEq2Ds32pjpdydu26uUDM1ZxgqNbQnAALsCAACB5NpU-Fc-2GepBOhIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEq2Ds32pjpdydu26uUDM1ZxgqNbQnAALsCAACB5NpU-Fc-2GepBOhIAQ"
+    ]
   },
   "104": {
     "title_date": "Representantes del salvador, 14 de abril",
@@ -1808,7 +2014,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=-odwGXigIB0",
-    "audio_file_id": "CQACAgQAAxkBAAIErGDs338cBPWte7CWhEKamePoSQwNAALtCAACB5NpU8hbqBOabVv0IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIErGDs338cBPWte7CWhEKamePoSQwNAALtCAACB5NpU8hbqBOabVv0IAQ"
+    ]
   },
   "105": {
     "title_date": "Un carácter que el mundo reconozca, 15 de abril",
@@ -1825,7 +2033,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=dSXj291hOnM",
-    "audio_file_id": "CQACAgQAAxkBAAIErWDs35aPVp8_O4czf3riUwpXtA2xAALuCAACB5NpU04u6MmNGv9IIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIErWDs35aPVp8_O4czf3riUwpXtA2xAALuCAACB5NpU04u6MmNGv9IIAQ"
+    ]
   },
   "106": {
     "title_date": "El testimonio que el mundo necesita, 16 de abril",
@@ -1842,7 +2052,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=zcw8zcqRvWo",
-    "audio_file_id": "CQACAgQAAxkBAAIErmDs367xV0gW_8TAqpU-TaNORNxPAALvCAACB5NpU28wh-ZmxhrHIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIErmDs367xV0gW_8TAqpU-TaNORNxPAALvCAACB5NpU28wh-ZmxhrHIAQ"
+    ]
   },
   "107": {
     "title_date": "Cuando Dios cubre las deficiencias, 17 de abril",
@@ -1861,7 +2073,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=4kL5Uds8ccA",
-    "audio_file_id": "CQACAgQAAxkBAAIEr2Ds38EEzj_9MRgWrUxQBFnwWM0yAALwCAACB5NpU0Mh6jlyZEh3IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEr2Ds38EEzj_9MRgWrUxQBFnwWM0yAALwCAACB5NpU0Mh6jlyZEh3IAQ"
+    ]
   },
   "108": {
     "title_date": "Predicación poderosa, 18 de abril",
@@ -1879,7 +2093,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=9v5fO7CnRsU",
-    "audio_file_id": "CQACAgQAAxkBAAIEsGDs39tgMhy_NV6hSRwOQA3eme0hAALxCAACB5NpU1MhFYGimSAiIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEsGDs39tgMhy_NV6hSRwOQA3eme0hAALxCAACB5NpU1MhFYGimSAiIAQ"
+    ]
   },
   "109": {
     "title_date": "“He aquí el cordero de Dios”, 19 de abril",
@@ -1897,7 +2113,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=jamzTbd3gQI",
-    "audio_file_id": "CQACAgQAAxkBAAIEsWDs3-4p2LJpN4gEDcyejXgVY1MMAALyCAACB5NpUzmzXhHnETFbIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEsWDs3-4p2LJpN4gEDcyejXgVY1MMAALyCAACB5NpUzmzXhHnETFbIAQ"
+    ]
   },
   "110": {
     "title_date": "El llamado de Dios a la reforma, 20 de abril",
@@ -1914,7 +2132,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=d3PiZYrWM04",
-    "audio_file_id": "CQACAgQAAxkBAAIEsmDs4ATAUv-4VocXdARgRsTIppXKAALzCAACB5NpU651fcc6k78yIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEsmDs4ATAUv-4VocXdARgRsTIppXKAALzCAACB5NpU651fcc6k78yIAQ"
+    ]
   },
   "111": {
     "title_date": "Promoved la vida sana, 21 de abril",
@@ -1931,7 +2151,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=nLToE25LgWc",
-    "audio_file_id": "CQACAgQAAxkBAAIEs2Ds4BqPeFzCPwAB75gGZ2uvpxd8HQAC9AgAAgeTaVNOmnHIVBklZiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEs2Ds4BqPeFzCPwAB75gGZ2uvpxd8HQAC9AgAAgeTaVNOmnHIVBklZiAE"
+    ]
   },
   "112": {
     "title_date": "La virtud de la abnegación, 22 de abril",
@@ -1949,7 +2171,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=q3KRlYMKYM8",
-    "audio_file_id": "CQACAgQAAxkBAAIEtGDs4DD-2Qq1BN2OrrLzPOwvOzWdAAL1CAACB5NpU7YJ4Lv2B-KvIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEtGDs4DD-2Qq1BN2OrrLzPOwvOzWdAAL1CAACB5NpU7YJ4Lv2B-KvIAQ"
+    ]
   },
   "113": {
     "title_date": "La juventud, instrumento de Dios, 23 de abril",
@@ -1967,7 +2191,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=GiYPp8Wxmqg",
-    "audio_file_id": "CQACAgQAAxkBAAIEtWDs4EZfWdLkUnxez0wCc8msc8m6AAL2CAACB5NpU8OHsUFdlm_0IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEtWDs4EZfWdLkUnxez0wCc8msc8m6AAL2CAACB5NpU8OHsUFdlm_0IAQ"
+    ]
   },
   "114": {
     "title_date": "Una obra para todas las edades, 24 de abril",
@@ -1985,7 +2211,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=SS38q6cAJKA",
-    "audio_file_id": "CQACAgQAAxkBAAIEtmDs4FasEeTj5n6qmFnK60P7nSGMAAL3CAACB5NpUyCjDQw7xyPdIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEtmDs4FasEeTj5n6qmFnK60P7nSGMAAL3CAACB5NpUyCjDQw7xyPdIAQ"
+    ]
   },
   "115": {
     "title_date": "¿Por qué hay tantos ociosos?, 25 de abril",
@@ -2003,7 +2231,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=dtocub359uY",
-    "audio_file_id": "CQACAgQAAxkBAAIEt2Ds4HDGDrcw-ep2XrNAaf3FjkpeAAL4CAACB5NpU0vEMIF-WQOZIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEt2Ds4HDGDrcw-ep2XrNAaf3FjkpeAAL4CAACB5NpU0vEMIF-WQOZIAQ"
+    ]
   },
   "116": {
     "title_date": "Todos nuestros tesoros para Dios, 26 de abril",
@@ -2022,7 +2252,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=0wN9S0AAkRs",
-    "audio_file_id": "CQACAgQAAxkBAAIEuGDs4I3wAySz7U5ng3yQIir8LFSOAAL5CAACB5NpU9Fn2kC1GjbYIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEuGDs4I3wAySz7U5ng3yQIir8LFSOAAL5CAACB5NpU9Fn2kC1GjbYIAQ"
+    ]
   },
   "117": {
     "title_date": "Una vida doble, 27 de abril",
@@ -2040,7 +2272,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=oW5qZyK63yc",
-    "audio_file_id": "CQACAgQAAxkBAAIEuWDs4Kt2gVCHrDlfA7qkGPa39nISAAL6CAACB5NpU2dNX9xoKKuKIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEuWDs4Kt2gVCHrDlfA7qkGPa39nISAAL6CAACB5NpU2dNX9xoKKuKIAQ"
+    ]
   },
   "118": {
     "title_date": "Celo equivocado, 28 de abril",
@@ -2056,7 +2290,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=9IK3ZG0rAhM",
-    "audio_file_id": "CQACAgQAAxkBAAIEumDs4MMVeUcnptCUYyxALR-qBwnIAAL7CAACB5NpUxD-tvzXp339IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEumDs4MMVeUcnptCUYyxALR-qBwnIAAL7CAACB5NpUxD-tvzXp339IAQ"
+    ]
   },
   "119": {
     "title_date": "Un fundamento firme, 29 de abril",
@@ -2074,7 +2310,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=_w1N9hGr3zY",
-    "audio_file_id": "CQACAgQAAxkBAAIEu2Ds4Ns5VVFEg8yO5RmgtQ1IsY4zAAL8CAACB5NpU2Waf2RZfP7uIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEu2Ds4Ns5VVFEg8yO5RmgtQ1IsY4zAAL8CAACB5NpU2Waf2RZfP7uIAQ"
+    ]
   },
   "120": {
     "title_date": "El cielo nos está esperando, 30 de abril",
@@ -2091,7 +2329,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Vq6nBMq_tiY",
-    "audio_file_id": "CQACAgQAAxkBAAIEvGDs4PLODyzQgBdm5y4_ttLCOgABPgAC_QgAAgeTaVOHmK8E_b7pcCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEvGDs4PLODyzQgBdm5y4_ttLCOgABPgAC_QgAAgeTaVOHmK8E_b7pcCAE"
+    ]
   },
   "121": {
     "title_date": "Dios guiará a su pueblo, 1 de mayo",
@@ -2110,7 +2350,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=JdxtKc-L-WU",
-    "audio_file_id": "CQACAgQAAxkBAAIEvWDs4QPZ_Zl8hAeV6my9BQmYFDl1AAL-CAACB5NpUxIo4npYnsorIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEvWDs4QPZ_Zl8hAeV6my9BQmYFDl1AAL-CAACB5NpUxIo4npYnsorIAQ"
+    ]
   },
   "122": {
     "title_date": "Satanás redobla sus esfuerzos, 2 de mayo",
@@ -2126,7 +2368,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=QLI_G0semrs",
-    "audio_file_id": "CQACAgQAAxkBAAIEvmDs4RfQlbYAAd1Payt9SbQ5S9Tb4wAC_wgAAgeTaVOdVGOGEBHr9SAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEvmDs4RfQlbYAAd1Payt9SbQ5S9Tb4wAC_wgAAgeTaVOdVGOGEBHr9SAE"
+    ]
   },
   "123": {
     "title_date": "Una lucha portentosa, 3 de mayo",
@@ -2145,7 +2389,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=E--eICh1TZM",
-    "audio_file_id": "CQACAgQAAxkBAAIEv2Ds4StO3hBOMtCeJP7_uGL3cP2QAAMJAAIHk2lTSedefojd62kgBA"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEv2Ds4StO3hBOMtCeJP7_uGL3cP2QAAMJAAIHk2lTSedefojd62kgBA"
+    ]
   },
   "124": {
     "title_date": "Tuercen las escrituras, 4 de mayo",
@@ -2163,7 +2409,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=QDPfGp2HGfk",
-    "audio_file_id": "CQACAgQAAxkBAAIEwGDs4T1ACI1XyBrKtToDP6n58otMAAIBCQACB5NpUw2RT0iXVI6WIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEwGDs4T1ACI1XyBrKtToDP6n58otMAAIBCQACB5NpUw2RT0iXVI6WIAQ"
+    ]
   },
   "125": {
     "title_date": "Falsas teorías acerca de Dios, 5 de mayo",
@@ -2181,7 +2429,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=6Nv1y8nV99U",
-    "audio_file_id": "CQACAgQAAxkBAAIEwWDs4VFgLewaTbZcIqY7qkXczG8oAAICCQACB5NpU7yuJwF3bSE3IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEwWDs4VFgLewaTbZcIqY7qkXczG8oAAICCQACB5NpU7yuJwF3bSE3IAQ"
+    ]
   },
   "126": {
     "title_date": "Los peligros de la falsa ciencia, 6 de mayo",
@@ -2198,7 +2448,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=6rS247su2FQ",
-    "audio_file_id": "CQACAgQAAxkBAAIEwmDs4WZZfqd3ND6rr3W7hMOHn3IiAAIDCQACB5NpU_UyKgwgo_UZIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEwmDs4WZZfqd3ND6rr3W7hMOHn3IiAAIDCQACB5NpU_UyKgwgo_UZIAQ"
+    ]
   },
   "127": {
     "title_date": "Una obra maestra de engaño, 7 de mayo",
@@ -2214,7 +2466,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=UtDsat8R4do",
-    "audio_file_id": "CQACAgQAAxkBAAIEw2Ds4XeKFsE9aYI8MGzz7nkE9JwtAAIECQACB5NpU0qAkzFewgNXIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEw2Ds4XeKFsE9aYI8MGzz7nkE9JwtAAIECQACB5NpU0qAkzFewgNXIAQ"
+    ]
   },
   "128": {
     "title_date": "Los tiempos y las sazones, 8 de mayo",
@@ -2230,7 +2484,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=-oGqEQjteeA",
-    "audio_file_id": "CQACAgQAAxkBAAIExGDs4Y9aXHxviLNvECFzJLhkzDZsAAIFCQACB5NpUz6Fy20bmPLwIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIExGDs4Y9aXHxviLNvECFzJLhkzDZsAAIFCQACB5NpUz6Fy20bmPLwIAQ"
+    ]
   },
   "129": {
     "title_date": "“Cómo fue en los días de Noé”, 9 de mayo",
@@ -2248,7 +2504,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=O_rvIJmQeG0",
-    "audio_file_id": "CQACAgQAAxkBAAIExWDs4aRrSOabRquOBGrcdayfTQWKAAIGCQACB5NpU2EVzpfGHLc_IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIExWDs4aRrSOabRquOBGrcdayfTQWKAAIGCQACB5NpU2EVzpfGHLc_IAQ"
+    ]
   },
   "130": {
     "title_date": "Un gran terror inminente, 10 de mayo",
@@ -2265,7 +2523,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=1leIY4UZeXk",
-    "audio_file_id": "CQACAgQAAxkBAAIExmDs4bk3qfvkE_Otr4oHkK8UrTR-AAIHCQACB5NpU4dFz375MoD0IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIExmDs4bk3qfvkE_Otr4oHkK8UrTR-AAIHCQACB5NpU4dFz375MoD0IAQ"
+    ]
   },
   "131": {
     "title_date": "La juventud y las drogas, 11 de mayo",
@@ -2282,7 +2542,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=dMr9CaNfODU",
-    "audio_file_id": "CQACAgQAAxkBAAIEx2Ds4ce6-sH7jxqL7CBmOR3livMRAAIICQACB5NpU0eEP3IQLzHiIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEx2Ds4ce6-sH7jxqL7CBmOR3livMRAAIICQACB5NpU0eEP3IQLzHiIAQ"
+    ]
   },
   "132": {
     "title_date": "Demostraciones del poder pagano, 12 de mayo",
@@ -2298,7 +2560,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=dJxzPpPqY-s",
-    "audio_file_id": "CQACAgQAAxkBAAIEyGDs4deeFQVfEbt40RQziWg5sUjnAAIJCQACB5NpUzDzHzSFhbnkIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEyGDs4deeFQVfEbt40RQziWg5sUjnAAIJCQACB5NpUzDzHzSFhbnkIAQ"
+    ]
   },
   "133": {
     "title_date": "Tumultos en las ciudades, 13 de mayo",
@@ -2318,7 +2582,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=wPhrnFemTqk",
-    "audio_file_id": "CQACAgQAAxkBAAIEyWDs4ehPOgILcnHUVOw818y66KwQAAIKCQACB5NpUzaOvQFXWa3PIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEyWDs4ehPOgILcnHUVOw818y66KwQAAIKCQACB5NpUzaOvQFXWa3PIAQ"
+    ]
   },
   "134": {
     "title_date": "El prejuicio racial va en aumento, 14 de mayo",
@@ -2336,7 +2602,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=W6rMLDHYc0E",
-    "audio_file_id": "CQACAgQAAxkBAAIEymDs4f-oRNNErzeQZRO9m-VewChsAAILCQACB5NpU1WRbGtDJ2NsIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEymDs4f-oRNNErzeQZRO9m-VewChsAAILCQACB5NpU1WRbGtDJ2NsIAQ"
+    ]
   },
   "135": {
     "title_date": "Evitemos las pasiones impuras, 15 de mayo",
@@ -2352,7 +2620,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=30hSN71_e-E",
-    "audio_file_id": "CQACAgQAAxkBAAIEy2Ds4hCmAlCuSpY9ibY7Gh1wLwyuAAIMCQACB5NpU4CvTwdswo7dIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEy2Ds4hCmAlCuSpY9ibY7Gh1wLwyuAAIMCQACB5NpU4CvTwdswo7dIAQ"
+    ]
   },
   "136": {
     "title_date": "Los que claman “¡paz!”, 16 de mayo",
@@ -2368,7 +2638,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=XdcuoqTdpHk",
-    "audio_file_id": "CQACAgQAAxkBAAIEzGDs4iTXAxrGYG_DxhfYN0jkyDMGAAINCQACB5NpU0IhH_okZZU3IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEzGDs4iTXAxrGYG_DxhfYN0jkyDMGAAINCQACB5NpU0IhH_okZZU3IAQ"
+    ]
   },
   "137": {
     "title_date": "Escenas, sonidos y crímenes, 17 de mayo",
@@ -2385,7 +2657,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=3AJXaQK6IH0",
-    "audio_file_id": "CQACAgQAAxkBAAIEzWDs4jhC154M_7JI9iETLuMO-MZiAAIOCQACB5NpU5o1K4tni68XIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEzWDs4jhC154M_7JI9iETLuMO-MZiAAIOCQACB5NpU5o1K4tni68XIAQ"
+    ]
   },
   "138": {
     "title_date": "Espiritismo y revolución, 18 de mayo",
@@ -2404,7 +2678,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=YXgRog55iy4",
-    "audio_file_id": "CQACAgQAAxkBAAIEzmDs4lAftFNG2XXoscXeF8PmXTW6AAIPCQACB5NpU5tH3N5wgl9pIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEzmDs4lAftFNG2XXoscXeF8PmXTW6AAIPCQACB5NpU5tH3N5wgl9pIAQ"
+    ]
   },
   "139": {
     "title_date": "Cuidado con las normas humanas, 19 de mayo",
@@ -2421,7 +2697,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Dy4IGL8eWF4",
-    "audio_file_id": "CQACAgQAAxkBAAIEz2Ds4mcaBkfTD9ptPZ38-4eIreoGAAIQCQACB5NpU8wznpf1G-qqIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIEz2Ds4mcaBkfTD9ptPZ38-4eIreoGAAIQCQACB5NpU8wznpf1G-qqIAQ"
+    ]
   },
   "140": {
     "title_date": "El diablo también puede curar, 20 de mayo",
@@ -2438,7 +2716,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=6XF3FHPdK6k",
-    "audio_file_id": "CQACAgQAAxkBAAIE0GDs4n4c5EBqWo5P6RvQHCgAAdVCzQACEQkAAgeTaVPTUvIZ60JufSAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE0GDs4n4c5EBqWo5P6RvQHCgAAdVCzQACEQkAAgeTaVPTUvIZ60JufSAE"
+    ]
   },
   "141": {
     "title_date": "Un gran terremoto, 21 de mayo",
@@ -2455,7 +2735,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=YFD71hlMXWA",
-    "audio_file_id": "CQACAgQAAxkBAAIE0WDs4pb1Fb7JwS_EdMihdbqpLR8XAAISCQACB5NpU_FvTPZU8M7rIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE0WDs4pb1Fb7JwS_EdMihdbqpLR8XAAISCQACB5NpU_FvTPZU8M7rIAQ"
+    ]
   },
   "142": {
     "title_date": "Señales en los cielos, 22 de mayo",
@@ -2472,7 +2754,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=0xVK43tyMEE",
-    "audio_file_id": "CQACAgQAAxkBAAIE0mDs4rXDd-HyCF3XY4yfGlpVCzSLAAITCQACB5NpU6bpiCVab9wDIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE0mDs4rXDd-HyCF3XY4yfGlpVCzSLAAITCQACB5NpU6bpiCVab9wDIAQ"
+    ]
   },
   "143": {
     "title_date": "Caen las estrellas del cielo, 23 de mayo",
@@ -2488,7 +2772,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=4pe-oTEfiFg",
-    "audio_file_id": "CQACAgQAAxkBAAIE02Ds4sj_fMR8eEx0vyJPrK0wq3EdAAIUCQACB5NpU4qKCW7sOCC1IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE02Ds4sj_fMR8eEx0vyJPrK0wq3EdAAIUCQACB5NpU4qKCW7sOCC1IAQ"
+    ]
   },
   "144": {
     "title_date": "El imperio otomano en la profecía, 24 de mayo",
@@ -2505,7 +2791,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Hp8VDK4V0o8",
-    "audio_file_id": "CQACAgQAAxkBAAIE1GDs4t9h0o8pohZVnh9aNSbaDtFyAAIVCQACB5NpU95_UmJ7QtWNIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE1GDs4t9h0o8pohZVnh9aNSbaDtFyAAIVCQACB5NpU95_UmJ7QtWNIAQ"
+    ]
   },
   "145": {
     "title_date": "Baja moralidad, 25 de mayo",
@@ -2524,7 +2812,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=FDkxSfRDMLU",
-    "audio_file_id": "CQACAgQAAxkBAAIE1WDs4vcCMQ9JqXv1y0bV4WnedU2SAAIWCQACB5NpU77E9V5bCYcqIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE1WDs4vcCMQ9JqXv1y0bV4WnedU2SAAIWCQACB5NpU77E9V5bCYcqIAQ"
+    ]
   },
   "146": {
     "title_date": "El fanatismo y el don de lenguas, 26 de mayo",
@@ -2541,7 +2831,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=v6XVXKkjqYQ",
-    "audio_file_id": "CQACAgQAAxkBAAIE1mDs4wQqbDYtYBmY7kjhn71U6wnwAAIXCQACB5NpUzbhur9e-VELIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE1mDs4wQqbDYtYBmY7kjhn71U6wnwAAIXCQACB5NpUzbhur9e-VELIAQ"
+    ]
   },
   "147": {
     "title_date": "Probad todas las cosas, 27 de mayo",
@@ -2559,7 +2851,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=Ub31QwQA-lk",
-    "audio_file_id": "CQACAgQAAxkBAAIE12Ds4xl7gjvPfoGY9A7QSRxssWiPAAIYCQACB5NpUwSfe7TUui3oIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE12Ds4xl7gjvPfoGY9A7QSRxssWiPAAIYCQACB5NpUwSfe7TUui3oIAQ"
+    ]
   },
   "148": {
     "title_date": "¡Falsificaciones!, 28 de mayo",
@@ -2577,7 +2871,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=xN1rKUbIkwE",
-    "audio_file_id": "CQACAgQAAxkBAAIE2GDs4yqRfzXbHIE7cHQEM2z9k4LUAAIZCQACB5NpU0IgVKcddzb7IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE2GDs4yqRfzXbHIE7cHQEM2z9k4LUAAIZCQACB5NpU0IgVKcddzb7IAQ"
+    ]
   },
   "149": {
     "title_date": "¡Cuidado con los que causan división!, 29 de mayo",
@@ -2594,7 +2890,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=h5q2ayfUV6U",
-    "audio_file_id": "CQACAgQAAxkBAAIE2WDs40A-DFBBwoBa5fc6quQEZBFnAAIaCQACB5NpUyyfYS8AATQIwiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE2WDs40A-DFBBwoBa5fc6quQEZBFnAAIaCQACB5NpUyyfYS8AATQIwiAE"
+    ]
   },
   "150": {
     "title_date": "Resultado de las falsas visiones, 30 de mayo",
@@ -2613,7 +2911,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=M1sbiAvPHo4",
-    "audio_file_id": "CQACAgQAAxkBAAIE2mDs41Vyocheoreru2oLtFDFshQnAAIbCQACB5NpUxmmmhgZREKyIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE2mDs41Vyocheoreru2oLtFDFshQnAAIbCQACB5NpUxmmmhgZREKyIAQ"
+    ]
   },
   "151": {
     "title_date": "Alistémonos, 31 de mayo",
@@ -2631,7 +2931,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=mPuDUAMmsOY",
-    "audio_file_id": "CQACAgQAAxkBAAIE22Ds42VneyhtRXqFAAFqlGYdl86WLgACHAkAAgeTaVP962fIvUrTmyAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE22Ds42VneyhtRXqFAAFqlGYdl86WLgACHAkAAgeTaVP962fIvUrTmyAE"
+    ]
   },
   "152": {
     "title_date": "Sucesos venideros claramente revelados, 1 de junio",
@@ -2650,7 +2952,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=lvbrfORYFng",
-    "audio_file_id": "CQACAgQAAxkBAAIE3GDs43--EmrN2vBp3HsxEeSIEfMiAAIdCQACB5NpU3TNv0v5dfQEIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE3GDs43--EmrN2vBp3HsxEeSIEfMiAAIdCQACB5NpU3TNv0v5dfQEIAQ"
+    ]
   },
   "153": {
     "title_date": "Preparación para lo que nos espera, 2 de junio",
@@ -2668,7 +2972,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=b4-TKaVh_DU",
-    "audio_file_id": "CQACAgQAAxkBAAIE3WDs45Q2HQnXxKtuGpOt3yWG04_AAAIeCQACB5NpU1tM82MUcwUhIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE3WDs45Q2HQnXxKtuGpOt3yWG04_AAAIeCQACB5NpU1tM82MUcwUhIAQ"
+    ]
   },
   "154": {
     "title_date": "Satanás y el conflicto final, 3 de junio",
@@ -2685,7 +2991,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Jj8VsmoFAj8",
-    "audio_file_id": "CQACAgQAAxkBAAIE3mDs46LSyBbJbQjqx7SRu1Ok8yU-AAIfCQACB5NpUxbcsxpU6wABdCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE3mDs46LSyBbJbQjqx7SRu1Ok8yU-AAIfCQACB5NpUxbcsxpU6wABdCAE"
+    ]
   },
   "155": {
     "title_date": "La estrategia del diablo, 4 de junio",
@@ -2703,7 +3011,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=C0Mk15vbrtI",
-    "audio_file_id": "CQACAgQAAxkBAAIE32Ds47o7f5fkZ4xjt5ZDUoPQ9u7EAAIgCQACB5NpU7v0rTkDdnsVIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE32Ds47o7f5fkZ4xjt5ZDUoPQ9u7EAAIgCQACB5NpU7v0rTkDdnsVIAQ"
+    ]
   },
   "156": {
     "title_date": "Se entroniza la imagen de la bestia, 5 de junio",
@@ -2720,7 +3030,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=hca7BmXuZAE",
-    "audio_file_id": "CQACAgQAAxkBAAIE4GDs489gBKWQ-AS-IpKR3czFik6NAAIhCQACB5NpU7st0YQv3ox4IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE4GDs489gBKWQ-AS-IpKR3czFik6NAAIhCQACB5NpU7st0YQv3ox4IAQ"
+    ]
   },
   "157": {
     "title_date": "La apostasía prepara el camino, 6 de junio",
@@ -2737,7 +3049,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=4fbErCks7KY",
-    "audio_file_id": "CQACAgQAAxkBAAIE4WDs4-MmK9a7ORIisUmMXwZWShiAAAIiCQACB5NpU2qv5HYgyJSnIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE4WDs4-MmK9a7ORIisUmMXwZWShiAAAIiCQACB5NpU2qv5HYgyJSnIAQ"
+    ]
   },
   "158": {
     "title_date": "El papel del espiritismo, 7 de junio",
@@ -2754,7 +3068,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=hYdvhHzFjaw",
-    "audio_file_id": "CQACAgQAAxkBAAIE4mDs4_r_09inwBQFe_IGm6LPPb-5AAIjCQACB5NpU1rZUNHBYpCWIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE4mDs4_r_09inwBQFe_IGm6LPPb-5AAIjCQACB5NpU1rZUNHBYpCWIAQ"
+    ]
   },
   "159": {
     "title_date": "Los espíritus y la ley dominical, 8 de junio",
@@ -2771,7 +3087,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=NGqdDOXW-Y8",
-    "audio_file_id": "CQACAgQAAxkBAAIE42Ds5A0AAVGr5lqrFv21xvQJTQkiHQACJAkAAgeTaVO1TjN5W2OKziAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE42Ds5A0AAVGr5lqrFv21xvQJTQkiHQACJAkAAgeTaVO1TjN5W2OKziAE"
+    ]
   },
   "160": {
     "title_date": "El falso reavivamiento, 9 de junio",
@@ -2787,7 +3105,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=r48QBNcfqV8",
-    "audio_file_id": "CQACAgQAAxkBAAIE5GDs5CXNk2mME9G8cXZVCNujgRxIAAIlCQACB5NpU72m9QRvTzvVIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE5GDs5CXNk2mME9G8cXZVCNujgRxIAAIlCQACB5NpU72m9QRvTzvVIAQ"
+    ]
   },
   "161": {
     "title_date": "El surgimiento de la imagen de la bestia, 10 de junio",
@@ -2804,7 +3124,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=3uze7fio_v0",
-    "audio_file_id": "CQACAgQAAxkBAAIE5WDs5D1FH2OAnI0PKysbFvYPrIMpAAImCQACB5NpU_b3neGU27nYIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE5WDs5D1FH2OAnI0PKysbFvYPrIMpAAImCQACB5NpU_b3neGU27nYIAQ"
+    ]
   },
   "162": {
     "title_date": "Se proclama el sábado más plenamente, 11 de junio",
@@ -2821,7 +3143,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=dW0Wswu5uNM",
-    "audio_file_id": "CQACAgQAAxkBAAIE5mDs5E1ry5FDzQbtwDEHJaTEo6dqAAInCQACB5NpUxiC3Z3oYmW6IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE5mDs5E1ry5FDzQbtwDEHJaTEo6dqAAInCQACB5NpUxiC3Z3oYmW6IAQ"
+    ]
   },
   "163": {
     "title_date": "El mensaje del segundo ángel, 12 de junio",
@@ -2838,7 +3162,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=157TJ3h8C7g",
-    "audio_file_id": "CQACAgQAAxkBAAIE52Ds5GLYMd6-vQ0N139d0vCazTNEAAIoCQACB5NpUxLPrGSz0kZfIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE52Ds5GLYMd6-vQ0N139d0vCazTNEAAIoCQACB5NpUxLPrGSz0kZfIAQ"
+    ]
   },
   "164": {
     "title_date": "¿Sábado o domingo?, 13 de junio",
@@ -2854,7 +3180,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=tNbnOvQM_kY",
-    "audio_file_id": "CQACAgQAAxkBAAIE6GDs5G7ImIJtjzx2zxBtAxkPgtNtAAIpCQACB5NpUyeIUUeO3UokIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE6GDs5G7ImIJtjzx2zxBtAxkPgtNtAAIpCQACB5NpUyeIUUeO3UokIAQ"
+    ]
   },
   "165": {
     "title_date": "¿Qué significan estos tres mensajes?, 14 de junio",
@@ -2872,7 +3200,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=I8kcwduI_as",
-    "audio_file_id": "CQACAgQAAxkBAAIE6WDs5IaMgOiJ1kqLeYMhHOFdHBACAAIqCQACB5NpU2ZvEYBkKzs5IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE6WDs5IaMgOiJ1kqLeYMhHOFdHBACAAIqCQACB5NpU2ZvEYBkKzs5IAQ"
+    ]
   },
   "166": {
     "title_date": "Guerra en los últimos días, 15 de junio",
@@ -2890,7 +3220,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=ZQ7gRM3kgeY",
-    "audio_file_id": "CQACAgQAAxkBAAIE6mDs5J5ImxmbRZWTGGhF74f0qRuwAAIrCQACB5NpUxchIPGXTE9lIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE6mDs5J5ImxmbRZWTGGhF74f0qRuwAAIrCQACB5NpUxchIPGXTE9lIAQ"
+    ]
   },
   "167": {
     "title_date": "Vivimos ya en tiempos tormentosos, 16 de junio",
@@ -2907,7 +3239,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=up6o2s2q2s4",
-    "audio_file_id": "CQACAgQAAxkBAAIE62Ds5LUSXXud-wpFLNRY-P8cGlNoAAIsCQACB5NpU3P7CXanJKxhIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE62Ds5LUSXXud-wpFLNRY-P8cGlNoAAIsCQACB5NpU3P7CXanJKxhIAQ"
+    ]
   },
   "168": {
     "title_date": "Se culpa a los hijos de Dios, 17 de junio",
@@ -2924,7 +3258,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=7fD-oOeKsGM",
-    "audio_file_id": "CQACAgQAAxkBAAIE7GDs5MZ_gJS9QRkhg1xb1YFnlCxJAAItCQACB5NpUz03a-HttNiyIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE7GDs5MZ_gJS9QRkhg1xb1YFnlCxJAAItCQACB5NpUz03a-HttNiyIAQ"
+    ]
   },
   "169": {
     "title_date": "La sabiduría necesaria, 18 de junio",
@@ -2943,7 +3279,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=UyR9xa9Q7gs",
-    "audio_file_id": "CQACAgQAAxkBAAIE7WDs5OJ7nw-RiHECuwWCDz7aiD1_AAIuCQACB5NpUypltmmZ42dZIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE7WDs5OJ7nw-RiHECuwWCDz7aiD1_AAIuCQACB5NpUypltmmZ42dZIAQ"
+    ]
   },
   "170": {
     "title_date": "Obra misionera en domingo, 19 de junio",
@@ -2961,7 +3299,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=vVCocYM1_gs",
-    "audio_file_id": "CQACAgQAAxkBAAIE7mDs5QE7-qM8mxf3MCMQXfNpVJKxAAIvCQACB5NpU-q0iSeKuU3uIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE7mDs5QE7-qM8mxf3MCMQXfNpVJKxAAIvCQACB5NpU-q0iSeKuU3uIAQ"
+    ]
   },
   "171": {
     "title_date": "La ley invalidada en Estados Unidos, 20 de junio",
@@ -2977,7 +3317,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=LvedbSQYp3o",
-    "audio_file_id": "CQACAgQAAxkBAAIE72Ds5SLQVtB9NLRtbcG3UgABj2j-DQACMAkAAgeTaVPm0Z8isGBBYCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE72Ds5SLQVtB9NLRtbcG3UgABj2j-DQACMAkAAgeTaVPm0Z8isGBBYCAE"
+    ]
   },
   "172": {
     "title_date": "La señal para salir de las ciudades, 21 de junio",
@@ -2995,7 +3337,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=chlQaJDFTH4",
-    "audio_file_id": "CQACAgQAAxkBAAIE8GDs5UIKh9fxv1RZkfZZlCSR3Xa4AAIxCQACB5NpU_Tm9OSEUmCgIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE8GDs5UIKh9fxv1RZkfZZlCSR3Xa4AAIxCQACB5NpU_Tm9OSEUmCgIAQ"
+    ]
   },
   "173": {
     "title_date": "Alimento y tierras en los últimos días, 22 de junio",
@@ -3013,7 +3357,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=JPy3Iq6PUbs",
-    "audio_file_id": "CQACAgQAAxkBAAIE8WDs5WD1W5uK7MvTR5mZAwhk5YYvAAIyCQACB5NpU_CR5ugE25J5IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE8WDs5WD1W5uK7MvTR5mZAwhk5YYvAAIyCQACB5NpU_CR5ugE25J5IAQ"
+    ]
   },
   "174": {
     "title_date": "Gremios y monopolios, 23 de junio",
@@ -3032,7 +3378,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=P1w-k4YF1tE",
-    "audio_file_id": "CQACAgQAAxkBAAIE8mDs5X0vZHh24wxLEnJXbXzcj58vAAIzCQACB5NpU0SqiAHxk7dvIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE8mDs5X0vZHh24wxLEnJXbXzcj58vAAIzCQACB5NpU0SqiAHxk7dvIAQ"
+    ]
   },
   "175": {
     "title_date": "Prohibido comprar o vender, 24 de junio",
@@ -3049,7 +3397,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=C9AbGrc2M8Q",
-    "audio_file_id": "CQACAgQAAxkBAAIE82Ds5ZpdOAjwppV9C7zXN37Qho7nAAI0CQACB5NpU9_IvqvVpoMAASAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE82Ds5ZpdOAjwppV9C7zXN37Qho7nAAI0CQACB5NpU9_IvqvVpoMAASAE"
+    ]
   },
   "176": {
     "title_date": "Trabajad las ciudades desde afuera, 25 de junio",
@@ -3068,7 +3418,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=zGp3SfEjJzA",
-    "audio_file_id": "CQACAgQAAxkBAAIE9GDs5bnRUpWqKca9LacxO1R5tbYaAAI1CQACB5NpU84UxS_PlP7aIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE9GDs5bnRUpWqKca9LacxO1R5tbYaAAI1CQACB5NpU84UxS_PlP7aIAQ"
+    ]
   },
   "177": {
     "title_date": "Alivio del sufrimiento físico, 26 de junio",
@@ -3087,7 +3439,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=EAKqZsnQqRY",
-    "audio_file_id": "CQACAgQAAxkBAAIE9WDs5dtzmEKN1KZFr0anL_wyuHREAAI2CQACB5NpU2iYTDcBA5XQIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE9WDs5dtzmEKN1KZFr0anL_wyuHREAAI2CQACB5NpU2iYTDcBA5XQIAQ"
+    ]
   },
   "178": {
     "title_date": "Se invoca la ley dominical, 27 de junio",
@@ -3103,7 +3457,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=U-yo8yfNk1g",
-    "audio_file_id": "CQACAgQAAxkBAAIE9mDs5fFkPkHgbkWT0nDTmSGKnUrHAAI3CQACB5NpU3mFI0-WYSIaIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE9mDs5fFkPkHgbkWT0nDTmSGKnUrHAAI3CQACB5NpU3mFI0-WYSIaIAQ"
+    ]
   },
   "179": {
     "title_date": "El protestantismo se une con el papado, 28 de junio",
@@ -3121,7 +3477,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=lg37cdtor5Y",
-    "audio_file_id": "CQACAgQAAxkBAAIE92Ds5hA4yBFudChDjHwVJqpdVO2rAAI4CQACB5NpU2iogNEtgRMnIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE92Ds5hA4yBFudChDjHwVJqpdVO2rAAI4CQACB5NpU2iogNEtgRMnIAQ"
+    ]
   },
   "180": {
     "title_date": "Dos clases de cristianos, 29 de junio",
@@ -3138,7 +3496,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=FNd8E-Jwt70",
-    "audio_file_id": "CQACAgQAAxkBAAIE-GDs5ixFgxSYN0nIBeUgh-vXxeteAAI5CQACB5NpUzlpK1dFpx5gIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE-GDs5ixFgxSYN0nIBeUgh-vXxeteAAI5CQACB5NpUzlpK1dFpx5gIAQ"
+    ]
   },
   "181": {
     "title_date": "Muchas voces confusas, 30 de junio",
@@ -3155,7 +3515,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=vNO4yimZ_b0",
-    "audio_file_id": "CQACAgQAAxkBAAIE-WDs5k_fAZp-UBUzR7IKwpsCxwoCAAI6CQACB5NpU0ISJJQZz9sAASAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE-WDs5k_fAZp-UBUzR7IKwpsCxwoCAAI6CQACB5NpU0ISJJQZz9sAASAE"
+    ]
   },
   "182": {
     "title_date": "La triple unión religiosa, 1 de julio",
@@ -3172,7 +3534,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=R-UirqBrP70",
-    "audio_file_id": "CQACAgQAAxkBAAIE-mDs5nCTY0CrJvuSZQQwAzk_NALaAAI7CQACB5NpUzcX5T-mnA-GIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE-mDs5nCTY0CrJvuSZQQwAzk_NALaAAI7CQACB5NpUzcX5T-mnA-GIAQ"
+    ]
   },
   "183": {
     "title_date": "Satanás y la triple unión, 2 de julio",
@@ -3187,7 +3551,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=zMJc_Mh04f8",
-    "audio_file_id": "CQACAgQAAxkBAAIE-2Ds5sRuThH3UWUvsVprATVIyurHAAI8CQACB5NpU5kVwijXDVeKIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE-2Ds5sRuThH3UWUvsVprATVIyurHAAI8CQACB5NpU5kVwijXDVeKIAQ"
+    ]
   },
   "184": {
     "title_date": "La corrupción de la verdad, 3 de julio",
@@ -3205,7 +3571,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=zlpSmWgvLaQ",
-    "audio_file_id": "CQACAgQAAxkBAAIE_GDs5t5us69WX-pa0VwZXOG1igkFAAI9CQACB5NpUzgZVuARML65IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE_GDs5t5us69WX-pa0VwZXOG1igkFAAI9CQACB5NpUzgZVuARML65IAQ"
+    ]
   },
   "185": {
     "title_date": "Los Estados Unidos en la profecía, 4 de julio",
@@ -3224,7 +3592,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=0pvjUYFQEgE",
-    "audio_file_id": "CQACAgQAAxkBAAIE_WDs5vRAZ3fsOkock_NuQRlMbGNHAAI-CQACB5NpU45_dIMcWoADIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE_WDs5vRAZ3fsOkock_NuQRlMbGNHAAI-CQACB5NpU45_dIMcWoADIAQ"
+    ]
   },
   "186": {
     "title_date": "Perseguidos por católicos y protestantes, 5 de julio",
@@ -3243,7 +3613,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=7ZXlc3weopo",
-    "audio_file_id": "CQACAgQAAxkBAAIE_mDs5xEKGB_3SVeaUeC4n6R3XcUIAAI_CQACB5NpUztR83RuyXg5IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE_mDs5xEKGB_3SVeaUeC4n6R3XcUIAAI_CQACB5NpUztR83RuyXg5IAQ"
+    ]
   },
   "187": {
     "title_date": "Perseguidos por causa de Cristo, 6 de julio",
@@ -3260,7 +3632,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=HDVCEm-q4S8",
-    "audio_file_id": "CQACAgQAAxkBAAIE_2Ds5yW-3-oUj-o4QAABjmbS5RUg_wACQAkAAgeTaVMdvZC2pPUEiCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIE_2Ds5yW-3-oUj-o4QAABjmbS5RUg_wACQAkAAgeTaVMdvZC2pPUEiCAE"
+    ]
   },
   "188": {
     "title_date": "Los perseguidores más encarnizados, 7 de julio",
@@ -3277,7 +3651,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=jedCi4GeC8M",
-    "audio_file_id": "CQACAgQAAxkBAAIFAAFg7Oc_kQeb2Op588S1u5fwoKSPfQACQQkAAgeTaVNNIouliupxcyAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFAAFg7Oc_kQeb2Op588S1u5fwoKSPfQACQQkAAgeTaVNNIouliupxcyAE"
+    ]
   },
   "189": {
     "title_date": "Traicionados por familiares y amigos, 8 de julio",
@@ -3294,7 +3670,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=JcurZEDyvUo",
-    "audio_file_id": "CQACAgQAAxkBAAIFAWDs51rSAAGAb_SI_MzNj2ns-U3V4AACQgkAAgeTaVPoatmJxai4ByAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFAWDs51rSAAGAb_SI_MzNj2ns-U3V4AACQgkAAgeTaVPoatmJxai4ByAE"
+    ]
   },
   "190": {
     "title_date": "Amenazados de muerte, 9 de julio",
@@ -3310,7 +3688,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=U6ujWMKRQb8",
-    "audio_file_id": "CQACAgQAAxkBAAIFAmDs53Kh63N0-HcPUGBE5eauu7P-AAJDCQACB5NpU6YAAZnjKOPBEiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFAmDs53Kh63N0-HcPUGBE5eauu7P-AAJDCQACB5NpU6YAAZnjKOPBEiAE"
+    ]
   },
   "191": {
     "title_date": "Mártires en los días finales, 10 de julio",
@@ -3328,7 +3708,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=WnPrFhQiSf8",
-    "audio_file_id": "CQACAgQAAxkBAAIFA2Ds54gJEV2PvP-P6v8lEDR3b5tQAAJECQACB5NpU7f1fVp7VNWDIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFA2Ds54gJEV2PvP-P6v8lEDR3b5tQAAJECQACB5NpU7f1fVp7VNWDIAQ"
+    ]
   },
   "192": {
     "title_date": "El tiempo del zarandeo, 11 de julio",
@@ -3346,7 +3728,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=3tlLmDvNCOw",
-    "audio_file_id": "CQACAgQAAxkBAAIFBGDs551I3JHZUcm_1b7sN-gg00HPAAJFCQACB5NpU0Al-8XBv3DWIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFBGDs551I3JHZUcm_1b7sN-gg00HPAAJFCQACB5NpU0Al-8XBv3DWIAQ"
+    ]
   },
   "193": {
     "title_date": "Una vislumbre del zarandeo, 12 de julio",
@@ -3363,7 +3747,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=UDUO7YegL0E",
-    "audio_file_id": "CQACAgQAAxkBAAIFBWDs57hxH4-R5qVxKGeiEC0ZHpp6AAJGCQACB5NpUzdNY4HWtMGkIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFBWDs57hxH4-R5qVxKGeiEC0ZHpp6AAJGCQACB5NpUzdNY4HWtMGkIAQ"
+    ]
   },
   "194": {
     "title_date": "Unión y separación bajo el fuerte clamor, 13 de julio",
@@ -3379,7 +3765,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=CA1012NmtSY",
-    "audio_file_id": "CQACAgQAAxkBAAIFBmDs5827jjqJVkxYhvGK2g09B3HjAAJHCQACB5NpU6WBBYsQP8nkIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFBmDs5827jjqJVkxYhvGK2g09B3HjAAJHCQACB5NpU6WBBYsQP8nkIAQ"
+    ]
   },
   "195": {
     "title_date": "La iglesia a punto de caer, 14 de julio",
@@ -3397,7 +3785,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=f6zX9KbvnvE",
-    "audio_file_id": "CQACAgQAAxkBAAIFB2Ds5-CRxY8DvzcAAdT5zIreUB7ajQACSAkAAgeTaVMe1iCoBC1FJSAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFB2Ds5-CRxY8DvzcAAdT5zIreUB7ajQACSAkAAgeTaVMe1iCoBC1FJSAE"
+    ]
   },
   "196": {
     "title_date": "La purificación de la iglesia, 15 de julio",
@@ -3412,7 +3802,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=Hlo9vDQ-2Ws",
-    "audio_file_id": "CQACAgQAAxkBAAIFCGDs5_UpS25nmMRvSykVj4M4n2unAAJJCQACB5NpU9RWXfnzz3QjIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFCGDs5_UpS25nmMRvSykVj4M4n2unAAJJCQACB5NpU9RWXfnzz3QjIAQ"
+    ]
   },
   "197": {
     "title_date": "Satanás se hace pasar por Cristo—I, 16 de julio",
@@ -3429,7 +3821,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=50U5xcdbAQQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFCWDs6Ak7YXwMMW-EcXEsZr0-y6tWAAJKCQACB5NpU_c45DVzefGhIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFCWDs6Ak7YXwMMW-EcXEsZr0-y6tWAAJKCQACB5NpU_c45DVzefGhIAQ"
+    ]
   },
   "198": {
     "title_date": "Satanás se hace pasar por Cristo—Ii, 17 de julio",
@@ -3448,7 +3842,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=vRSC0CXPYAY",
-    "audio_file_id": "CQACAgQAAxkBAAIFCmDs6B1UysY6q9dxUbt6aT9dM7QlAAJLCQACB5NpU9micR5exy9sIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFCmDs6B1UysY6q9dxUbt6aT9dM7QlAAJLCQACB5NpU9micR5exy9sIAQ"
+    ]
   },
   "199": {
     "title_date": "Milagros satánicos—I, 18 de julio",
@@ -3464,7 +3860,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=5Bge7EVO9gw",
-    "audio_file_id": "CQACAgQAAxkBAAIFC2Ds6DInAWlDdiNVOK1rRvsuMCtfAAJMCQACB5NpUwc-6CBCjvvIIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFC2Ds6DInAWlDdiNVOK1rRvsuMCtfAAJMCQACB5NpUwc-6CBCjvvIIAQ"
+    ]
   },
   "200": {
     "title_date": "Milagros satánicos—Ii, 19 de julio",
@@ -3482,7 +3880,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=cYyToAk4PkE",
-    "audio_file_id": "CQACAgQAAxkBAAIFDGDs6Em4zoUEgmDcCbESLMUMXc0EAAJNCQACB5NpU-1aodFNZ5qdIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFDGDs6Em4zoUEgmDcCbESLMUMXc0EAAJNCQACB5NpU-1aodFNZ5qdIAQ"
+    ]
   },
   "201": {
     "title_date": "La hora de prueba, 20 de julio",
@@ -3498,7 +3898,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=QEi5TZ4xLI0",
-    "audio_file_id": "CQACAgQAAxkBAAIFDWDs6GDAI5mCUFTGkU-ABbiUCqSpAAJOCQACB5NpU_tISUftqZTxIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFDWDs6GDAI5mCUFTGkU-ABbiUCqSpAAJOCQACB5NpU_tISUftqZTxIAQ"
+    ]
   },
   "202": {
     "title_date": "Señales de carácter sobrenatural, 21 de julio",
@@ -3516,7 +3918,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=RJHj8Qm5L4E",
-    "audio_file_id": "CQACAgQAAxkBAAIFDmDs6HkWOZ-FXGp34RNzeJ0ucPyWAAJPCQACB5NpU6UKLqdJm1IdIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFDmDs6HkWOZ-FXGp34RNzeJ0ucPyWAAJPCQACB5NpU6UKLqdJm1IdIAQ"
+    ]
   },
   "203": {
     "title_date": "El sello de Dios y la marca de la bestia, 22 de julio",
@@ -3535,7 +3939,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=R8XN9ZUV4pA",
-    "audio_file_id": "CQACAgQAAxkBAAIFD2Ds6I-KY_wAARWX5HGPfb5ndDv26wACUAkAAgeTaVMykHnu6APNtCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFD2Ds6I-KY_wAARWX5HGPfb5ndDv26wACUAkAAgeTaVMykHnu6APNtCAE"
+    ]
   },
   "204": {
     "title_date": "El sellamiento y la lluvia tardía, 23 de julio",
@@ -3554,7 +3960,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=l71-Th0m-jA",
-    "audio_file_id": "CQACAgQAAxkBAAIFEGDs6Kjw06E1AAGEfd1EYDVfoIxJzQACUQkAAgeTaVPN-XjR0hqVbiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFEGDs6Kjw06E1AAGEfd1EYDVfoIxJzQACUQkAAgeTaVPN-XjR0hqVbiAE"
+    ]
   },
   "205": {
     "title_date": "El remanente y el sellamiento, 24 de julio",
@@ -3571,7 +3979,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Oc1VknHFUvs",
-    "audio_file_id": "CQACAgQAAxkBAAIFEWDs6MJ4VDFmIDueBwN7bpuZ6-xGAAJSCQACB5NpU72anFjln9ieIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFEWDs6MJ4VDFmIDueBwN7bpuZ6-xGAAJSCQACB5NpU72anFjln9ieIAQ"
+    ]
   },
   "206": {
     "title_date": "Todas las naciones siguen a los Estados Unidos, 25 de julio",
@@ -3589,7 +3999,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=rUio9SMteWw",
-    "audio_file_id": "CQACAgQAAxkBAAIFEmDs6Nfmfd-B5aB2iRbvnqsyVG8-AAJTCQACB5NpU3UoGY5_LGw7IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFEmDs6Nfmfd-B5aB2iRbvnqsyVG8-AAJTCQACB5NpU3UoGY5_LGw7IAQ"
+    ]
   },
   "207": {
     "title_date": "El comienzo del fin, 26 de julio",
@@ -3606,7 +4018,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=ke3iY-u9BWw",
-    "audio_file_id": "CQACAgQAAxkBAAIFE2Ds6Ok8LYr1lfjOW9izcMaXGHNqAAJUCQACB5NpU-WbOjY_IupZIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFE2Ds6Ok8LYr1lfjOW9izcMaXGHNqAAJUCQACB5NpU-WbOjY_IupZIAQ"
+    ]
   },
   "208": {
     "title_date": "La apostasía seguida por la ruina, 27 de julio",
@@ -3623,7 +4037,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=XC6_6oYdZv0",
-    "audio_file_id": "CQACAgQAAxkBAAIFFGDs6QOHpc5oadQAAZ5kn5P4lpnRpAACVQkAAgeTaVMb0eN591Y2MCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFFGDs6QOHpc5oadQAAZ5kn5P4lpnRpAACVQkAAgeTaVMb0eN591Y2MCAE"
+    ]
   },
   "209": {
     "title_date": "El mundo contra el pueblo de Dios, 28 de julio",
@@ -3640,7 +4056,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=ibqLlMFfa8M",
-    "audio_file_id": "CQACAgQAAxkBAAIFFWDs6RQeiQLv0of_aNKTLSbgos0CAAJWCQACB5NpUxQ7t_akYqzBIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFFWDs6RQeiQLv0of_aNKTLSbgos0CAAJWCQACB5NpUxQ7t_akYqzBIAQ"
+    ]
   },
   "210": {
     "title_date": "El ángel de Apocalipsis 18, 29 de julio",
@@ -3656,7 +4074,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=cR9Qe8p7j6M",
-    "audio_file_id": "CQACAgQAAxkBAAIFFmDs6Szwh1TabmpOhKK_IYlmAjSgAAJXCQACB5NpU-yDRKFblTkXIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFFmDs6Szwh1TabmpOhKK_IYlmAjSgAAJXCQACB5NpU-yDRKFblTkXIAQ"
+    ]
   },
   "211": {
     "title_date": "La lluvia temprana y la tardía, 30 de julio",
@@ -3672,7 +4092,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=mPsW4eh0TUQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFF2Ds6U7kjZWgFXO1snJ9ls5cAleGAAJYCQACB5NpU--ehz5lWhPIIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFF2Ds6U7kjZWgFXO1snJ9ls5cAleGAAJYCQACB5NpU--ehz5lWhPIIAQ"
+    ]
   },
   "212": {
     "title_date": "Tiempo de despertar, 31 de julio",
@@ -3690,7 +4112,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=Se1XNbewZ1Q",
-    "audio_file_id": "CQACAgQAAxkBAAIFGGDs6W0ZhyEVX5Nwh89TmXSRmm-1AAJZCQACB5NpU8Le5AUgQRytIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFGGDs6W0ZhyEVX5Nwh89TmXSRmm-1AAJZCQACB5NpU8Le5AUgQRytIAQ"
+    ]
   },
   "213": {
     "title_date": "Aquí y ahora, 1 de agosto",
@@ -3706,7 +4130,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=PrMt7MngjX8",
-    "audio_file_id": "CQACAgQAAxkBAAIFGWDs6Y5YnMXQbnFlDkfT5OtGhQQUAAJaCQACB5NpUy1Sia_F-KKPIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFGWDs6Y5YnMXQbnFlDkfT5OtGhQQUAAJaCQACB5NpUy1Sia_F-KKPIAQ"
+    ]
   },
   "214": {
     "title_date": "La esencia del carácter moral, 2 de agosto",
@@ -3723,7 +4149,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=_QTHJemq23g",
-    "audio_file_id": "CQACAgQAAxkBAAIFGmDs6acY3hG9DS0MpU6Zv_fhkyzRAAJbCQACB5NpUyEG-fxefoz0IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFGmDs6acY3hG9DS0MpU6Zv_fhkyzRAAJbCQACB5NpUyEG-fxefoz0IAQ"
+    ]
   },
   "215": {
     "title_date": "El carácter, cualidad del alma, 3 de agosto",
@@ -3741,7 +4169,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=mvZH9ak8bBY",
-    "audio_file_id": "CQACAgQAAxkBAAIFG2Ds6b66we_i9AfdMaaFCoVtbvebAAJcCQACB5NpU9DXzWdXYxTPIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFG2Ds6b66we_i9AfdMaaFCoVtbvebAAJcCQACB5NpU9DXzWdXYxTPIAQ"
+    ]
   },
   "216": {
     "title_date": "Cristo, nuestro auxiliador y redentor, 4 de agosto",
@@ -3758,7 +4188,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=nYdWCgLYvSw",
-    "audio_file_id": "CQACAgQAAxkBAAIFHGDs6dTNT0pJzJ9nWoZpvUieVs8JAAJdCQACB5NpU49tDPmf4-PbIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFHGDs6dTNT0pJzJ9nWoZpvUieVs8JAAJdCQACB5NpU49tDPmf4-PbIAQ"
+    ]
   },
   "217": {
     "title_date": "Alcancemos un elevado nivel espiritual, 5 de agosto",
@@ -3776,7 +4208,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=VE98VGkCqug",
-    "audio_file_id": "CQACAgQAAxkBAAIFHWDs6fVbuk65aR4XMd61LPGlGN8rAAJeCQACB5NpU8py7n65YQPRIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFHWDs6fVbuk65aR4XMd61LPGlGN8rAAJeCQACB5NpU8py7n65YQPRIAQ"
+    ]
   },
   "218": {
     "title_date": "La cima de la perfección cristiana, 6 de agosto",
@@ -3794,7 +4228,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=kxXaEtu1IiY",
-    "audio_file_id": "CQACAgQAAxkBAAIFHmDs6gTBxP8QxC9jg9alkG6salEKAAJfCQACB5NpUxdKEBKV8YIKIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFHmDs6gTBxP8QxC9jg9alkG6salEKAAJfCQACB5NpUxdKEBKV8YIKIAQ"
+    ]
   },
   "219": {
     "title_date": "Perfección en la esfera humana, 7 de agosto",
@@ -3810,7 +4246,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=AgiZ2mmO1w8",
-    "audio_file_id": "CQACAgQAAxkBAAIFH2Ds6iUocLNTm4lhEpTLNtEup5r8AAJgCQACB5NpU-E-jr4smjOoIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFH2Ds6iUocLNTm4lhEpTLNtEup5r8AAJgCQACB5NpU-E-jr4smjOoIAQ"
+    ]
   },
   "220": {
     "title_date": "Probidad en los motivos y las acciones, 8 de agosto",
@@ -3826,7 +4264,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=ThpfdSqt7ww",
-    "audio_file_id": "CQACAgQAAxkBAAIFIGDs6jwJ0S0QmK6xZBo1r6rrC4eFAAJhCQACB5NpU76IAt5EgbUSIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFIGDs6jwJ0S0QmK6xZBo1r6rrC4eFAAJhCQACB5NpU76IAt5EgbUSIAQ"
+    ]
   },
   "221": {
     "title_date": "Para vencer los malos hábitos, 9 de agosto",
@@ -3842,7 +4282,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=k2PvZOsFszY",
-    "audio_file_id": "CQACAgQAAxkBAAIFIWDs6lSqVk83eQYxwFgcorlaxD9nAAJiCQACB5NpUwGF1k3eSiYNIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFIWDs6lSqVk83eQYxwFgcorlaxD9nAAJiCQACB5NpUwGF1k3eSiYNIAQ"
+    ]
   },
   "222": {
     "title_date": "La santificación total del hombre, 10 de agosto",
@@ -3858,7 +4300,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=YXdAtu6Q1nw",
-    "audio_file_id": "CQACAgQAAxkBAAIFImDs6my28FIzcR_HbN5wTe5gROg3AAJjCQACB5NpU1rPux_bIxygIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFImDs6my28FIzcR_HbN5wTe5gROg3AAJjCQACB5NpU1rPux_bIxygIAQ"
+    ]
   },
   "223": {
     "title_date": "En armonía con su ley, 11 de agosto",
@@ -3873,7 +4317,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=WsLom4zEWgA",
-    "audio_file_id": "CQACAgQAAxkBAAIFI2Ds6oMPqCn6ZwOEN3BZ2WPpz8iZAAJkCQACB5NpU0QT7B6ibGs_IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFI2Ds6oMPqCn6ZwOEN3BZ2WPpz8iZAAJkCQACB5NpU0QT7B6ibGs_IAQ"
+    ]
   },
   "224": {
     "title_date": "Santificación espuria, 12 de agosto",
@@ -3888,7 +4334,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=P7Y_Px8V1lU",
-    "audio_file_id": "CQACAgQAAxkBAAIFJGDs6p1jMkygG7mMKcVuyC8orwHuAAJlCQACB5NpUyL11gpMFCvBIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFJGDs6p1jMkygG7mMKcVuyC8orwHuAAJlCQACB5NpUyL11gpMFCvBIAQ"
+    ]
   },
   "225": {
     "title_date": "Impresiones, sentimientos y drogas, 13 de agosto",
@@ -3905,7 +4353,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=OnAEiWcmz1g",
-    "audio_file_id": "CQACAgQAAxkBAAIFJWDs6rNwrROq_xDFrfasgTjPus_ZAAJmCQACB5NpU5KZQ3CzL8pMIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFJWDs6rNwrROq_xDFrfasgTjPus_ZAAJmCQACB5NpU5KZQ3CzL8pMIAQ"
+    ]
   },
   "226": {
     "title_date": "Tambores, danzas y estrepito, 14 de agosto",
@@ -3921,7 +4371,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=X9FShPA0yck",
-    "audio_file_id": "CQACAgQAAxkBAAIFJmDs6tBhEid62WRPWj-wSPtAvPG7AAJnCQACB5NpUzMYncqhuWU7IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFJmDs6tBhEid62WRPWj-wSPtAvPG7AAJnCQACB5NpUzMYncqhuWU7IAQ"
+    ]
   },
   "227": {
     "title_date": "Ningún motivo para jactarse, 15 de agosto",
@@ -3938,7 +4390,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=l-kuH4l4tqI",
-    "audio_file_id": "CQACAgQAAxkBAAIFJ2Ds6uvtpsb1P0weE0xnT3xKJBSiAAJoCQACB5NpU2WCch13MX3wIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFJ2Ds6uvtpsb1P0weE0xnT3xKJBSiAAJoCQACB5NpU2WCch13MX3wIAQ"
+    ]
   },
   "228": {
     "title_date": "La salvación: una experiencia diaria, 16 de agosto",
@@ -3954,7 +4408,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=zl-cprx_Ies",
-    "audio_file_id": "CQACAgQAAxkBAAIFKGDs6wH7KMQx95SFeIs2u1QkgwWnAAJpCQACB5NpU685NYm_c8t4IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFKGDs6wH7KMQx95SFeIs2u1QkgwWnAAJpCQACB5NpU685NYm_c8t4IAQ"
+    ]
   },
   "229": {
     "title_date": "El significado de la conversión, 17 de agosto",
@@ -3972,7 +4428,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=weKJ9_wz2wU",
-    "audio_file_id": "CQACAgQAAxkBAAIFKWDs6xr8erTNynpaPQXjxUUaXiXKAAJqCQACB5NpUw22KGt6wMMZIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFKWDs6xr8erTNynpaPQXjxUUaXiXKAAJqCQACB5NpUw22KGt6wMMZIAQ"
+    ]
   },
   "230": {
     "title_date": "A quienes se concede la santificación, 18 de agosto",
@@ -3989,7 +4447,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=9lpNIxNPUZE",
-    "audio_file_id": "CQACAgQAAxkBAAIFKmDs6y0GXyEY_2WOD6DNNObszuZCAAJrCQACB5NpU_k-RoYjCOq5IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFKmDs6y0GXyEY_2WOD6DNNObszuZCAAJrCQACB5NpU_k-RoYjCOq5IAQ"
+    ]
   },
   "231": {
     "title_date": "Tocad alarma, 19 de agosto",
@@ -4006,7 +4466,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Rr90GJaM0TY",
-    "audio_file_id": "CQACAgQAAxkBAAIFK2Ds60ukPBxqoINkZI6q4ePceO9sAAJsCQACB5NpU5KTF-iSoStwIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFK2Ds60ukPBxqoINkZI6q4ePceO9sAAJsCQACB5NpU5KTF-iSoStwIAQ"
+    ]
   },
   "232": {
     "title_date": "La marca pura de la verdad, 20 de agosto",
@@ -4024,7 +4486,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=XNZkQvTrKfc",
-    "audio_file_id": "CQACAgQAAxkBAAIFLGDs61nCJEdr5nzWQnMN2H9zq7B9AAJtCQACB5NpU3LGq7h2IzHPIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFLGDs61nCJEdr5nzWQnMN2H9zq7B9AAJtCQACB5NpU3LGq7h2IzHPIAQ"
+    ]
   },
   "233": {
     "title_date": "¿Quiénes reciben el sello?, 21 de agosto",
@@ -4042,7 +4506,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=kf3yrWoz9EM",
-    "audio_file_id": "CQACAgQAAxkBAAIFLWDs63b1KXDEmiPjlc-SsC3h35H5AAJuCQACB5NpU4wdrUJRrfrJIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFLWDs63b1KXDEmiPjlc-SsC3h35H5AAJuCQACB5NpU4wdrUJRrfrJIAQ"
+    ]
   },
   "234": {
     "title_date": "El tiempo del sellamiento esta por pasar, 22 de agosto",
@@ -4059,7 +4525,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=RI08ZN8fK1Y",
-    "audio_file_id": "CQACAgQAAxkBAAIFLmDs64sn8vPpAosELn8edjQb6s6bAAJvCQACB5NpU2nn58z8mB5CIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFLmDs64sn8vPpAosELn8edjQb6s6bAAJvCQACB5NpU2nn58z8mB5CIAQ"
+    ]
   },
   "235": {
     "title_date": "Los ángeles ven la señal de Dios, 23 de agosto",
@@ -4078,7 +4546,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=iKXaAsONXmg",
-    "audio_file_id": "CQACAgQAAxkBAAIFL2Ds656uJrxn5GkdT2Mq2yK3lzARAAJwCQACB5NpU6UdiL5jvFvnIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFL2Ds656uJrxn5GkdT2Mq2yK3lzARAAJwCQACB5NpU6UdiL5jvFvnIAQ"
+    ]
   },
   "236": {
     "title_date": "La señal que distingue al pueblo de Dios, 24 de agosto",
@@ -4095,7 +4565,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=NxH8b47TIMo",
-    "audio_file_id": "CQACAgQAAxkBAAIFMGDs67UoOL9CRI_ldXRgG5k-gnT5AAJxCQACB5NpU9AjX6xpsB60IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFMGDs67UoOL9CRI_ldXRgG5k-gnT5AAJxCQACB5NpU9AjX6xpsB60IAQ"
+    ]
   },
   "237": {
     "title_date": "Importancia y gloria del sábado, 25 de agosto",
@@ -4111,7 +4583,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=GOBmXAOT4KI",
-    "audio_file_id": "CQACAgQAAxkBAAIFMWDs6-FHvY8r8IBFnHgaYH-DvzGNAAJyCQACB5NpU3_E_I5MU9ZWIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFMWDs6-FHvY8r8IBFnHgaYH-DvzGNAAJyCQACB5NpU3_E_I5MU9ZWIAQ"
+    ]
   },
   "238": {
     "title_date": "El sábado es la señal de Dios, 26 de agosto",
@@ -4129,7 +4603,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=C6zOOyyrshk",
-    "audio_file_id": "CQACAgQAAxkBAAIFMmDs7AIAAULz39-D3oGoGyJ2nb-hQAACcwkAAgeTaVMSFBoLxOldnCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFMmDs7AIAAULz39-D3oGoGyJ2nb-hQAACcwkAAgeTaVMSFBoLxOldnCAE"
+    ]
   },
   "239": {
     "title_date": "Estudiemos el tema del santuario, 27 de agosto",
@@ -4145,7 +4621,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=pJNPfKT1c8E",
-    "audio_file_id": "CQACAgQAAxkBAAIFM2Ds7GItL6yclE-S-wIcUthe39hJAAJ0CQACB5NpU3T3c1axjNajIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFM2Ds7GItL6yclE-S-wIcUthe39hJAAJ0CQACB5NpU3T3c1axjNajIAQ"
+    ]
   },
   "240": {
     "title_date": "La purificación del santuario, 28 de agosto",
@@ -4163,7 +4641,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=CWaCtkXGD5g",
-    "audio_file_id": "CQACAgQAAxkBAAIFNGDs7Hr69edcBqt2KJOAKCmDqBjTAAJ1CQACB5NpU-pbATDondn4IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFNGDs7Hr69edcBqt2KJOAKCmDqBjTAAJ1CQACB5NpU-pbATDondn4IAQ"
+    ]
   },
   "241": {
     "title_date": "Instrucción proveniente del santuario, 29 de agosto",
@@ -4180,7 +4660,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=10XgVC50Vsc",
-    "audio_file_id": "CQACAgQAAxkBAAIFNWDs7Jh0YwWiukqq3TsVY6UAAQNWMwACdgkAAgeTaVPfITwNMe_7aCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFNWDs7Jh0YwWiukqq3TsVY6UAAQNWMwACdgkAAgeTaVPfITwNMe_7aCAE"
+    ]
   },
   "242": {
     "title_date": "El juicio de los vivos, 30 de agosto",
@@ -4198,7 +4680,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=VkPJ6Jxle8k",
-    "audio_file_id": "CQACAgQAAxkBAAIFNmDs7K_eolDb34K_PKR1zraQsvokAAJ3CQACB5NpU3peRQVDsI_JIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFNmDs7K_eolDb34K_PKR1zraQsvokAAJ3CQACB5NpU3peRQVDsI_JIAQ"
+    ]
   },
   "243": {
     "title_date": "El juicio investigador, 31 de agosto",
@@ -4215,7 +4699,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=8vcYUDoCgH4",
-    "audio_file_id": "CQACAgQAAxkBAAIFN2Ds7MzDfe4esdTdonWsydrbKindAAJ4CQACB5NpU2oFscO3hiAjIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFN2Ds7MzDfe4esdTdonWsydrbKindAAJ4CQACB5NpU2oFscO3hiAjIAQ"
+    ]
   },
   "244": {
     "title_date": "Ante juzgados y concilios, 1 de septiembre",
@@ -4233,7 +4719,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=4tT6uCy68Ng",
-    "audio_file_id": "CQACAgQAAxkBAAIFOGDs7Opw4am3wlbQrzIKTY2FYnA_AAJ5CQACB5NpUyDEpIPlnqnGIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFOGDs7Opw4am3wlbQrzIKTY2FYnA_AAJ5CQACB5NpUyDEpIPlnqnGIAQ"
+    ]
   },
   "245": {
     "title_date": "Ante los grandes hombres de la Tierra, 2 de septiembre",
@@ -4250,7 +4738,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=MCAmxuw26Hk",
-    "audio_file_id": "CQACAgQAAxkBAAIFOWDs7TCc-HC4dQiANTMetoubhRwFAAJ6CQACB5NpU0PnRA3f5p5PIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFOWDs7TCc-HC4dQiANTMetoubhRwFAAJ6CQACB5NpU0PnRA3f5p5PIAQ"
+    ]
   },
   "246": {
     "title_date": "Prepárate para encontrarte con tu Dios, 3 de septiembre",
@@ -4268,7 +4758,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=mO3dkoJb6SU",
-    "audio_file_id": "CQACAgQAAxkBAAIFOmDs7U0_azV7TB7TvVmRAAFoOFLkFQACewkAAgeTaVPr0lSkRPyV7SAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFOmDs7U0_azV7TB7TvVmRAAFoOFLkFQACewkAAgeTaVPr0lSkRPyV7SAE"
+    ]
   },
   "247": {
     "title_date": "Promesa de ayuda divina, 4 de septiembre",
@@ -4284,7 +4776,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=IdL9lTK4AhM",
-    "audio_file_id": "CQACAgQAAxkBAAIFO2Ds7WCW9JxwSrw-5k099OlC-AABQwACfAkAAgeTaVPWfDah8GgEAiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFO2Ds7WCW9JxwSrw-5k099OlC-AABQwACfAkAAgeTaVPWfDah8GgEAiAE"
+    ]
   },
   "248": {
     "title_date": "¡Se acerca otro Pentecostés!, 5 de septiembre",
@@ -4301,7 +4795,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=fYQpCeOsVCE",
-    "audio_file_id": "CQACAgQAAxkBAAIFPGDs7X_dh4feV_HuMA9iA7q97p09AAJ9CQACB5NpU22gTC_ELuLFIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFPGDs7X_dh4feV_HuMA9iA7q97p09AAJ9CQACB5NpU22gTC_ELuLFIAQ"
+    ]
   },
   "249": {
     "title_date": "La batalla del armagedón, 6 de septiembre",
@@ -4318,7 +4814,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=I9Bgq4l4IBI",
-    "audio_file_id": "CQACAgQAAxkBAAIFPWDs7Z40lUAcUGdVnQ5Emt85zw-NAAJ-CQACB5NpU1Nmr4iEuFk0IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFPWDs7Z40lUAcUGdVnQ5Emt85zw-NAAJ-CQACB5NpU1Nmr4iEuFk0IAQ"
+    ]
   },
   "250": {
     "title_date": "Los acontecimientos futuros en su orden, 7 de septiembre",
@@ -4334,7 +4832,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=MbjpRKLajfk",
-    "audio_file_id": "CQACAgQAAxkBAAIFPmDs7bYucdqcuesqKJXEnnk_XSyyAAJ_CQACB5NpUwlE-_r9iCnYIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFPmDs7bYucdqcuesqKJXEnnk_XSyyAAJ_CQACB5NpUwlE-_r9iCnYIAQ"
+    ]
   },
   "251": {
     "title_date": "Breve tiempo de paz, 8 de septiembre",
@@ -4351,7 +4851,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=ijjgjNkBKqQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFP2Ds7cl-Yb_pCeTSzMFbua_gCdJBAAKACQACB5NpU59jlgNucmK7IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFP2Ds7cl-Yb_pCeTSzMFbua_gCdJBAAKACQACB5NpU59jlgNucmK7IAQ"
+    ]
   },
   "252": {
     "title_date": "El clamor por paz y seguridad, 9 de septiembre",
@@ -4369,7 +4871,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=mLY1Sus0y7A",
-    "audio_file_id": "CQACAgQAAxkBAAIFQGDs7ey4giorW6GMvsXFPcIAAb01xQACgQkAAgeTaVP3_ANHN_TgWyAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFQGDs7ey4giorW6GMvsXFPcIAAb01xQACgQkAAgeTaVP3_ANHN_TgWyAE"
+    ]
   },
   "253": {
     "title_date": "La terminación de la obra, 10 de septiembre",
@@ -4388,7 +4892,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=WDtMMO0Z2HE",
-    "audio_file_id": "CQACAgQAAxkBAAIFQWDs7ghHyRUAARyWQu9jaBu5AAGY_1oAAoIJAAIHk2lTjOQwmRrfiIEgBA"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFQWDs7ghHyRUAARyWQu9jaBu5AAGY_1oAAoIJAAIHk2lTjOQwmRrfiIEgBA"
+    ]
   },
   "254": {
     "title_date": "Dios interviene en favor de su pueblo, 11 de septiembre",
@@ -4405,7 +4911,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=qkGKYW7P9Q8",
-    "audio_file_id": "CQACAgQAAxkBAAIFQmDs7iVzbt00fB7CJI_Cn_e8kHvrAAKDCQACB5NpUw0kdLku809HIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFQmDs7iVzbt00fB7CJI_Cn_e8kHvrAAKDCQACB5NpUw0kdLku809HIAQ"
+    ]
   },
   "255": {
     "title_date": "Se termina la gracia, 12 de septiembre",
@@ -4422,7 +4930,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=NloR0V_2aVU",
-    "audio_file_id": "CQACAgQAAxkBAAIFQ2Ds7jbnsghlUbz0nq57eGigkqTGAAKECQACB5NpUxkfHFh3LrmsIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFQ2Ds7jbnsghlUbz0nq57eGigkqTGAAKECQACB5NpUxkfHFh3LrmsIAQ"
+    ]
   },
   "256": {
     "title_date": "El tiempo de gracia terminará sin advertencia, 13 de septiembre",
@@ -4439,7 +4949,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=4pe_AQSVz3I",
-    "audio_file_id": "CQACAgQAAxkBAAIFRGDs7lb-PGItfReXeKQMkifZgjBxAAKGCQACB5NpU9zQ7xHrHkEwIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFRGDs7lb-PGItfReXeKQMkifZgjBxAAKGCQACB5NpU9zQ7xHrHkEwIAQ"
+    ]
   },
   "257": {
     "title_date": "Tiempo de angustia cual nunca fue, 14 de septiembre",
@@ -4455,7 +4967,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=KweY5wl41GM",
-    "audio_file_id": "CQACAgQAAxkBAAIFRWDs7nEsX7RDGeEz9V6IPxUjhH0qAAKHCQACB5NpU5GVvylFSNovIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFRWDs7nEsX7RDGeEz9V6IPxUjhH0qAAKHCQACB5NpU5GVvylFSNovIAQ"
+    ]
   },
   "258": {
     "title_date": "Se sueltan los cuatro vientos, 15 de septiembre",
@@ -4473,7 +4987,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=ZB__wFWQTko",
-    "audio_file_id": "CQACAgQAAxkBAAIFRmDs7ooLGzbl_I311eS35RiCjkHVAAKICQACB5NpU0l1kPrLFZaWIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFRmDs7ooLGzbl_I311eS35RiCjkHVAAKICQACB5NpU0l1kPrLFZaWIAQ"
+    ]
   },
   "259": {
     "title_date": "Comienzan a caer las siete últimas plagas, 16 de septiembre",
@@ -4490,7 +5006,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Z587fBpJW0o",
-    "audio_file_id": "CQACAgQAAxkBAAIFR2Ds7qPBfdvj_yyPY0uwAhO6N8YGAAKJCQACB5NpUz_xAAFeILC9oiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFR2Ds7qPBfdvj_yyPY0uwAhO6N8YGAAKJCQACB5NpUz_xAAFeILC9oiAE"
+    ]
   },
   "260": {
     "title_date": "La promulgación del decreto de muerte, 17 de septiembre",
@@ -4507,7 +5025,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=ye6LBpA3IpU",
-    "audio_file_id": "CQACAgQAAxkBAAIFSGDs7rZ_VOF0b7PLQiakfBjnKR3LAAKKCQACB5NpU-ZoPEnCcIvnIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFSGDs7rZ_VOF0b7PLQiakfBjnKR3LAAKKCQACB5NpU-ZoPEnCcIvnIAQ"
+    ]
   },
   "261": {
     "title_date": "Señalados para la muerte, 18 de septiembre",
@@ -4526,7 +5046,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=3lwSuurQ87c",
-    "audio_file_id": "CQACAgQAAxkBAAIFSWDs7sxJwHxKD6_0IxTUTKdVEzeRAAKLCQACB5NpUzb-C8zR-AABIyAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFSWDs7sxJwHxKD6_0IxTUTKdVEzeRAAKLCQACB5NpUzb-C8zR-AABIyAE"
+    ]
   },
   "262": {
     "title_date": "Protegidos por los ángeles, 19 de septiembre",
@@ -4544,7 +5066,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=f4cuvQPpAQY",
-    "audio_file_id": "CQACAgQAAxkBAAIFSmDs7uQ6n8sadlbANByLE_0RzVHLAAKMCQACB5NpU8I7XO21pUpAIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFSmDs7uQ6n8sadlbANByLE_0RzVHLAAKMCQACB5NpU8I7XO21pUpAIAQ"
+    ]
   },
   "263": {
     "title_date": "Los impíos durante las plagas, 20 de septiembre",
@@ -4562,7 +5086,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=2ckixMiDaXg",
-    "audio_file_id": "CQACAgQAAxkBAAIFS2Ds7v2ratOJUlRB1MFGsdFHyArZAAKNCQACB5NpU8OHtR9l0n1hIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFS2Ds7v2ratOJUlRB1MFGsdFHyArZAAKNCQACB5NpU8OHtR9l0n1hIAQ"
+    ]
   },
   "264": {
     "title_date": "El tiempo de angustia de Jacob, 21 de septiembre",
@@ -4578,7 +5104,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=L3LMSCd0sps",
-    "audio_file_id": "CQACAgQAAxkBAAIFTGDs7yBQhIHDIN79uwABGHiyfMO1JgACjgkAAgeTaVO6fLS6mNJ-RSAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFTGDs7yBQhIHDIN79uwABGHiyfMO1JgACjgkAAgeTaVO6fLS6mNJ-RSAE"
+    ]
   },
   "265": {
     "title_date": "¿Por qué habrá tiempo de angustia?, 22 de septiembre",
@@ -4595,7 +5123,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=sT5pVP6xTl8",
-    "audio_file_id": "CQACAgQAAxkBAAIFTWDs7zw8y7NkHjR-_tCx8eeKSSczAAKPCQACB5NpU-7qVe69DERsIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFTWDs7zw8y7NkHjR-_tCx8eeKSSczAAKPCQACB5NpU-7qVe69DERsIAQ"
+    ]
   },
   "266": {
     "title_date": "Los ojos de Dios vigilan a su pueblo, 23 de septiembre",
@@ -4612,7 +5142,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=73sqVhhtbwQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFTmDs71chkKfdrOYoHz0AAcZl1xCO6gACkAkAAgeTaVMhHvDsGeYWDSAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFTmDs71chkKfdrOYoHz0AAcZl1xCO6gACkAkAAgeTaVMhHvDsGeYWDSAE"
+    ]
   },
   "267": {
     "title_date": "Tiempo de angustia cual nunca fue, 24 de septiembre",
@@ -4628,7 +5160,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=K9Dvf9aVs38",
-    "audio_file_id": "CQACAgQAAxkBAAIFT2Ds73NhzSg95t2UdJMy6tsn7l6lAAKRCQACB5NpU6G3FYP1V5dcIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFT2Ds73NhzSg95t2UdJMy6tsn7l6lAAKRCQACB5NpU6G3FYP1V5dcIAQ"
+    ]
   },
   "268": {
     "title_date": "El acto supremo de engaño, 25 de septiembre",
@@ -4644,7 +5178,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=Ufo4MQBE7GU",
-    "audio_file_id": "CQACAgQAAxkBAAIFUGDs75PKIi6sTyht7wuwAW4fJDUMAAKSCQACB5NpU2Ubr2xTqL7rIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFUGDs75PKIi6sTyht7wuwAW4fJDUMAAKSCQACB5NpU2Ubr2xTqL7rIAQ"
+    ]
   },
   "269": {
     "title_date": "No habrá más mártires, 26 de septiembre",
@@ -4660,7 +5196,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=SMTZrgZxJPs",
-    "audio_file_id": "CQACAgQAAxkBAAIFUWDs7907SwhuqVaWTulPRP-ynFY0AAKTCQACB5NpU0FU_mqg_UG5IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFUWDs7907SwhuqVaWTulPRP-ynFY0AAKTCQACB5NpU0FU_mqg_UG5IAQ"
+    ]
   },
   "270": {
     "title_date": "La liberación del pueblo de Dios, 27 de septiembre",
@@ -4678,7 +5216,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=kmCPN-RKLJc",
-    "audio_file_id": "CQACAgQAAxkBAAIFUmDs7_VRQ3ex1kjZtoVrUywKW_ujAAKUCQACB5NpU8uvhLdYUM7FIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFUmDs7_VRQ3ex1kjZtoVrUywKW_ujAAKUCQACB5NpU8uvhLdYUM7FIAQ"
+    ]
   },
   "271": {
     "title_date": "Librados a medianoche, 28 de septiembre",
@@ -4699,7 +5239,9 @@
     },
     "paragraphs_count": 8,
     "url": "https://www.youtube.com/watch?v=5TpZKWLtucY",
-    "audio_file_id": "CQACAgQAAxkBAAIFU2Ds8BbqkEz97TuiAabH9kNav7MXAAKVCQACB5NpU93sFq3Y4eslIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFU2Ds8BbqkEz97TuiAabH9kNav7MXAAKVCQACB5NpU93sFq3Y4eslIAQ"
+    ]
   },
   "272": {
     "title_date": "Dios trastorna la naturaleza, 29 de septiembre",
@@ -4715,7 +5257,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=971ywzcs0NE",
-    "audio_file_id": "CQACAgQAAxkBAAIFVGDs8C4sg1RTRqp7lFbIYOnGny-EAAKWCQACB5NpUwxayOpm0rxdIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFVGDs8C4sg1RTRqp7lFbIYOnGny-EAAKWCQACB5NpUwxayOpm0rxdIAQ"
+    ]
   },
   "273": {
     "title_date": "La resurrección especial, 30 de septiembre",
@@ -4733,7 +5277,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=FgcerbAlQRU",
-    "audio_file_id": "CQACAgQAAxkBAAIFVWDs8EYFjPyRrGCfY8xkhYSYmUkaAAKXCQACB5NpU7QDAvN7lt2kIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFVWDs8EYFjPyRrGCfY8xkhYSYmUkaAAKXCQACB5NpU7QDAvN7lt2kIAQ"
+    ]
   },
   "274": {
     "title_date": "La resurrección especial de los impíos, 1 de octubre",
@@ -4753,7 +5299,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=sMc1aJCvdQQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFVmDs8GEl9y-gJQcC2d0avAEc2v72AAKYCQACB5NpU2WxR1vrm-lKIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFVmDs8GEl9y-gJQcC2d0avAEc2v72AAKYCQACB5NpU2WxR1vrm-lKIAQ"
+    ]
   },
   "275": {
     "title_date": "Los elementos ardiendo serán deshechos, 2 de octubre",
@@ -4771,7 +5319,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=uruXh-SlZ5w",
-    "audio_file_id": "CQACAgQAAxkBAAIFV2DtDdMULgY6ErsuwGjy4Bn87zgIAAKjCQACB5NpU0biNgPQ9w0TIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFV2DtDdMULgY6ErsuwGjy4Bn87zgIAAKjCQACB5NpU0biNgPQ9w0TIAQ"
+    ]
   },
   "276": {
     "title_date": "Una ilustración gráfica de la séptima plaga, 3 de octubre",
@@ -4791,7 +5341,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=dC9ossEbJa4",
-    "audio_file_id": "CQACAgQAAxkBAAIFWGDtDgbwM6lAMEJY1Bcc3tN0-GmFAAKkCQACB5NpUxRJ5c_qgs2FIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFWGDtDgbwM6lAMEJY1Bcc3tN0-GmFAAKkCQACB5NpUxRJ5c_qgs2FIAQ"
+    ]
   },
   "277": {
     "title_date": "La Tierra huye de su hacedor, 4 de octubre",
@@ -4806,7 +5358,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=7Cwt3F3quzo",
-    "audio_file_id": "CQACAgQAAxkBAAIFWWDtDh5mtl_-_y1Xc2cWwK_F9jW6AAKlCQACB5NpUy_p6wh-OEE9IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFWWDtDh5mtl_-_y1Xc2cWwK_F9jW6AAKlCQACB5NpUy_p6wh-OEE9IAQ"
+    ]
   },
   "278": {
     "title_date": "La ley de Dios aparece en los cielos, 5 de octubre",
@@ -4825,7 +5379,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=1RhTRHK2P08",
-    "audio_file_id": "CQACAgQAAxkBAAIFWmDtDjB0pKafixY2omlgvpLAlwI6AAKmCQACB5NpU0vnotJiSySgIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFWmDtDjB0pKafixY2omlgvpLAlwI6AAKmCQACB5NpU0vnotJiSySgIAQ"
+    ]
   },
   "279": {
     "title_date": "Se anuncia el día y la hora, 6 de octubre",
@@ -4845,7 +5401,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=5h56ELxN19w",
-    "audio_file_id": "CQACAgQAAxkBAAIFW2DtDkJzignlNcUwx4xptuArEYeAAAKnCQACB5NpU17TfJ-hAeV5IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFW2DtDkJzignlNcUwx4xptuArEYeAAAKnCQACB5NpU17TfJ-hAeV5IAQ"
+    ]
   },
   "280": {
     "title_date": "Destellos de un dorado amanecer, 7 de octubre",
@@ -4861,7 +5419,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=R_Pz5ENffNk",
-    "audio_file_id": "CQACAgQAAxkBAAIFXGDtDleSbDc19xNWCXput82tPlSbAAKoCQACB5NpU9VB8h7elKyCIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFXGDtDleSbDc19xNWCXput82tPlSbAAKoCQACB5NpU9VB8h7elKyCIAQ"
+    ]
   },
   "281": {
     "title_date": "La segunda venida de Cristo, 8 de octubre",
@@ -4878,7 +5438,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=ZOtuvtw28HI",
-    "audio_file_id": "CQACAgQAAxkBAAIFXWDtDm9_BiaLMwOancD_K3N6RI49AAKpCQACB5NpU7FdX_z-if4DIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFXWDtDm9_BiaLMwOancD_K3N6RI49AAKpCQACB5NpU7FdX_z-if4DIAQ"
+    ]
   },
   "282": {
     "title_date": "Las cavernas de la Tierra, 9 de octubre",
@@ -4894,7 +5456,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=nlNx2fzb2ws",
-    "audio_file_id": "CQACAgQAAxkBAAIFXmDtDoaEObIu9DuP34m0pR2jjI3BAAKqCQACB5NpU5zkcLHsmvtVIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFXmDtDoaEObIu9DuP34m0pR2jjI3BAAKqCQACB5NpU5zkcLHsmvtVIAQ"
+    ]
   },
   "283": {
     "title_date": "Cristo en su segunda venida, 10 de octubre",
@@ -4911,7 +5475,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=viplb0tEbk0",
-    "audio_file_id": "CQACAgQAAxkBAAIFX2DtDpc-HuR7dJo7Al_1UoVRPBoCAAKrCQACB5NpUwvjuY3M7uLGIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFX2DtDpc-HuR7dJo7Al_1UoVRPBoCAAKrCQACB5NpUwvjuY3M7uLGIAQ"
+    ]
   },
   "284": {
     "title_date": "El juicio y la segunda venida, 11 de octubre",
@@ -4928,7 +5494,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=8pmgQtDrGhk",
-    "audio_file_id": "CQACAgQAAxkBAAIFYGDtDqnAz49yR5WPpJo0OC0MzGStAAKsCQACB5NpU5ZEoSnVuQ0lIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFYGDtDqnAz49yR5WPpJo0OC0MzGStAAKsCQACB5NpU5ZEoSnVuQ0lIAQ"
+    ]
   },
   "285": {
     "title_date": "Los que lo traspasaron, 12 de octubre",
@@ -4946,7 +5514,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=oFb99yVJTjU",
-    "audio_file_id": "CQACAgQAAxkBAAIFYWDtDrsXVmcR0APYjCtqygizxee-AAKtCQACB5NpU-XjIz8sP6AVIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFYWDtDrsXVmcR0APYjCtqygizxee-AAKtCQACB5NpU-XjIz8sP6AVIAQ"
+    ]
   },
   "286": {
     "title_date": "Los impíos se dan muerte unos a otros, 13 de octubre",
@@ -4962,7 +5532,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=e6NJhiSjkmM",
-    "audio_file_id": "CQACAgQAAxkBAAIFYmDtDtFl8KGDnHZ9Wr_ZYIzKoq0GAAKuCQACB5NpUyO6p0xp0dC-IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFYmDtDtFl8KGDnHZ9Wr_ZYIzKoq0GAAKuCQACB5NpUyO6p0xp0dC-IAQ"
+    ]
   },
   "287": {
     "title_date": "La ira del cordero, 14 de octubre",
@@ -4978,7 +5550,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=KUgELIJ5t3I",
-    "audio_file_id": "CQACAgQAAxkBAAIFY2DtDueB-MCc54772Hl_k6LJ135xAAKvCQACB5NpU6G1p7jsDF3HIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFY2DtDueB-MCc54772Hl_k6LJ135xAAKvCQACB5NpU6G1p7jsDF3HIAQ"
+    ]
   },
   "288": {
     "title_date": "Dios interviene en el armagedón, 15 de octubre",
@@ -4994,7 +5568,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=9hpT_yGuuiA",
-    "audio_file_id": "CQACAgQAAxkBAAIFZGDtDvoV-0WXUXOSrlANqYC4nzfPAAKwCQACB5NpU5x9BYbxV1rLIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFZGDtDvoV-0WXUXOSrlANqYC4nzfPAAKwCQACB5NpU5x9BYbxV1rLIAQ"
+    ]
   },
   "289": {
     "title_date": "Cómo será la batalla final, 16 de octubre",
@@ -5014,7 +5590,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=ejOtAxqxrzo",
-    "audio_file_id": "CQACAgQAAxkBAAIFZWDtDw2yJxgxrDKpWQiFRlpuij4kAAKxCQACB5NpUzqT4tbMGkpLIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFZWDtDw2yJxgxrDKpWQiFRlpuij4kAAKxCQACB5NpUzqT4tbMGkpLIAQ"
+    ]
   },
   "290": {
     "title_date": "Estad preparados, 17 de octubre",
@@ -5031,7 +5609,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=MqZDi_cdZX4",
-    "audio_file_id": "CQACAgQAAxkBAAIFZmDtDyVGvPT5K-9fuahSzihKokoyAAKyCQACB5NpU7Q3k93jpSO-IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFZmDtDyVGvPT5K-9fuahSzihKokoyAAKyCQACB5NpU7Q3k93jpSO-IAQ"
+    ]
   },
   "291": {
     "title_date": "La resurrección general de los justos, 18 de octubre",
@@ -5050,7 +5630,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=0NbuFzo1PBg",
-    "audio_file_id": "CQACAgQAAxkBAAIFZ2DtDzVRix_92Mc87EwhVlvIl_VAAAKzCQACB5NpU1bk4OKQskwCIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFZ2DtDzVRix_92Mc87EwhVlvIl_VAAAKzCQACB5NpU1bk4OKQskwCIAQ"
+    ]
   },
   "292": {
     "title_date": "La victoria de los santos que duermen, 19 de octubre",
@@ -5067,7 +5649,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=LsBN-kQDFFw",
-    "audio_file_id": "CQACAgQAAxkBAAIFaGDtD0rac9Kb1B6sv04oK0rODWlrAAK0CQACB5NpU2J5jS_oEoDiIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFaGDtD0rac9Kb1B6sv04oK0rODWlrAAK0CQACB5NpU2J5jS_oEoDiIAQ"
+    ]
   },
   "293": {
     "title_date": "Misterios de la resurrección, 20 de octubre",
@@ -5084,7 +5668,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=PoakVMDlVkQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFaWDtD2Cg2EnHf3NSWDZcYf7izlKYAAK1CQACB5NpU3Mn2q6ZfdA3IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFaWDtD2Cg2EnHf3NSWDZcYf7izlKYAAK1CQACB5NpU3Mn2q6ZfdA3IAQ"
+    ]
   },
   "294": {
     "title_date": "La vida eterna comienza ahora, 21 de octubre",
@@ -5102,7 +5688,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=aPjomFXHWEg",
-    "audio_file_id": "CQACAgQAAxkBAAIFamDtD3k5MiNFbAWoNlMIcWsT-4AFAAK2CQACB5NpUxrCa3ZPurKUIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFamDtD3k5MiNFbAWoNlMIcWsT-4AFAAK2CQACB5NpUxrCa3ZPurKUIAQ"
+    ]
   },
   "295": {
     "title_date": "Nos reconoceremos unos a otros, 22 de octubre",
@@ -5119,7 +5707,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=8Mn9sWE5_6k",
-    "audio_file_id": "CQACAgQAAxkBAAIFa2DtD4szhmQzJj2sdHe3R_VI9e-mAAK3CQACB5NpUyRa6fkYfoGAIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFa2DtD4szhmQzJj2sdHe3R_VI9e-mAAK3CQACB5NpUyRa6fkYfoGAIAQ"
+    ]
   },
   "296": {
     "title_date": "La esperanza bienaventurada, 23 de octubre",
@@ -5136,7 +5726,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=uFBBwfKxcQQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFbGDtD6SvI27OIRpmeij_p-4eq8qwAAK4CQACB5NpU2hdjK7Ups_AIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFbGDtD6SvI27OIRpmeij_p-4eq8qwAAK4CQACB5NpU2hdjK7Ups_AIAQ"
+    ]
   },
   "297": {
     "title_date": "La traslación de los justos, 24 de octubre",
@@ -5152,7 +5744,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=JCEmNN6p-UE",
-    "audio_file_id": "CQACAgQAAxkBAAIFbWDtD7w7w-LpeknjqshOK6U_n3sFAAK5CQACB5NpU-X849xBR-opIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFbWDtD7w7w-LpeknjqshOK6U_n3sFAAK5CQACB5NpU-X849xBR-opIAQ"
+    ]
   },
   "298": {
     "title_date": "La Tierra despoblada, 25 de octubre",
@@ -5168,7 +5762,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=r5K-M_2SR2w",
-    "audio_file_id": "CQACAgQAAxkBAAIFbmDtD9hCf0x6JtCyD9rUupy8ogxZAAK6CQACB5NpU0GruiH8ENxWIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFbmDtD9hCf0x6JtCyD9rUupy8ogxZAAK6CQACB5NpU0GruiH8ENxWIAQ"
+    ]
   },
   "299": {
     "title_date": "Satanás es atado, 26 de octubre",
@@ -5184,7 +5780,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=udpwsVT3n3g",
-    "audio_file_id": "CQACAgQAAxkBAAIFb2DtD_EFxnE0UcZUFvv1F8Ti-rf9AAK7CQACB5NpU2kbFfyimKlYIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFb2DtD_EFxnE0UcZUFvv1F8Ti-rf9AAK7CQACB5NpU2kbFfyimKlYIAQ"
+    ]
   },
   "300": {
     "title_date": "Las familias se reunirán, 27 de octubre",
@@ -5203,7 +5801,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=j9Z0lZo1sPY",
-    "audio_file_id": "CQACAgQAAxkBAAIFcGDtEArklqy_vw10z5LVRGXxOpclAAK8CQACB5NpU_Fxm8u3G7ywIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFcGDtEArklqy_vw10z5LVRGXxOpclAAK8CQACB5NpU_Fxm8u3G7ywIAQ"
+    ]
   },
   "301": {
     "title_date": "Coronas preparadas para los fieles, 28 de octubre",
@@ -5220,7 +5820,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=N3qj9l7DJnM",
-    "audio_file_id": "CQACAgQAAxkBAAIFcWDtEB9khVnfPiSSsNHxYR-igH_nAAK9CQACB5NpU-rpD0V8lGv8IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFcWDtEB9khVnfPiSSsNHxYR-igH_nAAK9CQACB5NpU-rpD0V8lGv8IAQ"
+    ]
   },
   "302": {
     "title_date": "Una corona para cada hijo de Dios, 29 de octubre",
@@ -5237,7 +5839,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=EnLFenKhMt8",
-    "audio_file_id": "CQACAgQAAxkBAAIFcmDtEDOfo47-JBtLaMzAbpfh0_WHAAK-CQACB5NpU82B_hcbdQ8dIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFcmDtEDOfo47-JBtLaMzAbpfh0_WHAAK-CQACB5NpU82B_hcbdQ8dIAQ"
+    ]
   },
   "303": {
     "title_date": "Nuestra redención se acerca, 30 de octubre",
@@ -5254,7 +5858,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=nRUPd1Pei-w",
-    "audio_file_id": "CQACAgQAAxkBAAIFc2DtEEOB01HxAUFK5EQRTUYPQk8IAAK_CQACB5NpU-061_yfHOB1IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFc2DtEEOB01HxAUFK5EQRTUYPQk8IAAK_CQACB5NpU-061_yfHOB1IAQ"
+    ]
   },
   "304": {
     "title_date": "Su galardón está con él, 31 de octubre",
@@ -5272,7 +5878,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=s5C2Fb0LbSc",
-    "audio_file_id": "CQACAgQAAxkBAAIFdGDtEFueVWF9D5VI0JoQaZBE_r88AALACQACB5NpU1FFGg_qhtpfIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFdGDtEFueVWF9D5VI0JoQaZBE_r88AALACQACB5NpU1FFGg_qhtpfIAQ"
+    ]
   },
   "305": {
     "title_date": "La cautividad de Satanás y sus ángeles, 1 de noviembre",
@@ -5288,7 +5896,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=zuUo_XfPo6E",
-    "audio_file_id": "CQACAgQAAxkBAAIFdWDtEG8kiww8ybTm5W-0VEbMLI_KAALBCQACB5NpU0Px8_s48ke4IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFdWDtEG8kiww8ybTm5W-0VEbMLI_KAALBCQACB5NpU0Px8_s48ke4IAQ"
+    ]
   },
   "306": {
     "title_date": "Conoceremos a nuestros ángeles guardianes, 2 de noviembre",
@@ -5305,7 +5915,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=QRZeb8xkVbc",
-    "audio_file_id": "CQACAgQAAxkBAAIFdmDtEH_TkeHmKWCABkiHbGdgzYVXAALCCQACB5NpU_B2cy-dDqNmIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFdmDtEH_TkeHmKWCABkiHbGdgzYVXAALCCQACB5NpU_B2cy-dDqNmIAQ"
+    ]
   },
   "307": {
     "title_date": "Bienvenidos a la ciudad de Dios, 3 de noviembre",
@@ -5322,7 +5934,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=jyY6jITaibo",
-    "audio_file_id": "CQACAgQAAxkBAAIFd2DtEI7jtHw3kdbz44nmZpVpY0hUAALDCQACB5NpU-Io3bdW-dxgIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFd2DtEI7jtHw3kdbz44nmZpVpY0hUAALDCQACB5NpU-Io3bdW-dxgIAQ"
+    ]
   },
   "308": {
     "title_date": "Gozo inefable, 4 de noviembre",
@@ -5340,7 +5954,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=L4IlJbSGfLk",
-    "audio_file_id": "CQACAgQAAxkBAAIFeGDtEKGfmbkl7xL1qWNzuhzNC-xTAALECQACB5NpU875QY7HfaBwIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFeGDtEKGfmbkl7xL1qWNzuhzNC-xTAALECQACB5NpU875QY7HfaBwIAQ"
+    ]
   },
   "309": {
     "title_date": "La gratitud de los redimidos, 5 de noviembre",
@@ -5357,7 +5973,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=CqW4XRRjuBc",
-    "audio_file_id": "CQACAgQAAxkBAAIFeWDtELnpBuv4u8IAAVVGwPIgm8sU2gACxQkAAgeTaVMzNzjEGIVIsCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFeWDtELnpBuv4u8IAAVVGwPIgm8sU2gACxQkAAgeTaVMzNzjEGIVIsCAE"
+    ]
   },
   "310": {
     "title_date": "¡Cuán poco nos cuesta el cielo!, 6 de noviembre",
@@ -5374,7 +5992,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=PfabQs8lzco",
-    "audio_file_id": "CQACAgQAAxkBAAIFemDtEM2LqsXwEU6bEDj-9cVV2TmrAALGCQACB5NpUyPPj4n5tqroIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFemDtEM2LqsXwEU6bEDj-9cVV2TmrAALGCQACB5NpUyPPj4n5tqroIAQ"
+    ]
   },
   "311": {
     "title_date": "¡Por fin en casa!, 7 de noviembre",
@@ -5391,7 +6011,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Jb-OmG-ekTc",
-    "audio_file_id": "CQACAgQAAxkBAAIFe2DtEOQTqG_FYGbHJI5iD1v-fhZFAALHCQACB5NpU4zPzEonbfm-IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFe2DtEOQTqG_FYGbHJI5iD1v-fhZFAALHCQACB5NpU4zPzEonbfm-IAQ"
+    ]
   },
   "312": {
     "title_date": "En el cielo nos aguardan sorpresas, 8 de noviembre",
@@ -5410,7 +6032,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=za4CneJHTEg",
-    "audio_file_id": "CQACAgQAAxkBAAIFfGDtEPbVyR0C_A02tJkL8YOi2Zr_AALICQACB5NpU8g3HKrszPVeIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFfGDtEPbVyR0C_A02tJkL8YOi2Zr_AALICQACB5NpU8g3HKrszPVeIAQ"
+    ]
   },
   "313": {
     "title_date": "Respuestas satisfactorias, 9 de noviembre",
@@ -5427,7 +6051,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=0K2UC-4AA1k",
-    "audio_file_id": "CQACAgQAAxkBAAIFfWDtEQRiMU-K22Bh7LD5z-HGpMghAALJCQACB5NpU-509K43JQmrIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFfWDtEQRiMU-K22Bh7LD5z-HGpMghAALJCQACB5NpU-509K43JQmrIAQ"
+    ]
   },
   "314": {
     "title_date": "Poned vuestra mira en las cosas de arriba, 10 de noviembre",
@@ -5444,7 +6070,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=KrkJqiT_t_0",
-    "audio_file_id": "CQACAgQAAxkBAAIFfmDtERv9ME4rvqxzjkS6B7VYcX4XAALKCQACB5NpU_IoDhOULcGCIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFfmDtERv9ME4rvqxzjkS6B7VYcX4XAALKCQACB5NpU_IoDhOULcGCIAQ"
+    ]
   },
   "315": {
     "title_date": "La recompensa de los redimidos, 11 de noviembre",
@@ -5461,7 +6089,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=f0IevDLWl-c",
-    "audio_file_id": "CQACAgQAAxkBAAIFf2DtES9IVH20RX_tAUnPKRCNEvJqAALLCQACB5NpU4oesQicE9EzIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFf2DtES9IVH20RX_tAUnPKRCNEvJqAALLCQACB5NpU4oesQicE9EzIAQ"
+    ]
   },
   "316": {
     "title_date": "Lo que ojo no vio, ni oído oyó, 12 de noviembre",
@@ -5477,7 +6107,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=v4d2OYWpv-o",
-    "audio_file_id": "CQACAgQAAxkBAAIFgGDtETyY-zjUezeKJgABSaCaNzoa-wACzAkAAgeTaVNukM1vaYjoryAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFgGDtETyY-zjUezeKJgABSaCaNzoa-wACzAkAAgeTaVNukM1vaYjoryAE"
+    ]
   },
   "317": {
     "title_date": "El fruto del árbol de la vida, 13 de noviembre",
@@ -5493,7 +6125,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=PVukXxLaDto",
-    "audio_file_id": "CQACAgQAAxkBAAIFgWDtEVDKIEQrgdoW6clssGb6yG9AAALNCQACB5NpU2URGbJodHMgIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFgWDtEVDKIEQrgdoW6clssGb6yG9AAALNCQACB5NpU2URGbJodHMgIAQ"
+    ]
   },
   "318": {
     "title_date": "El trono circundado por un arco iris, 14 de noviembre",
@@ -5510,7 +6144,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Fg_v8daXFnM",
-    "audio_file_id": "CQACAgQAAxkBAAIFgmDtEWG_m03TDV5fW6D3fPAzVUnnAALOCQACB5NpUz-Z4wABeMCOlSAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFgmDtEWG_m03TDV5fW6D3fPAzVUnnAALOCQACB5NpUz-Z4wABeMCOlSAE"
+    ]
   },
   "319": {
     "title_date": "Veremos al rey, 15 de noviembre",
@@ -5527,7 +6163,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=bJ6bNBBbTsw",
-    "audio_file_id": "CQACAgQAAxkBAAIFg2DtEXSi5M_o6bMseFqRMJ5Bqbd3AALPCQACB5NpU66_VAjxVj9OIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFg2DtEXSi5M_o6bMseFqRMJ5Bqbd3AALPCQACB5NpU66_VAjxVj9OIAQ"
+    ]
   },
   "320": {
     "title_date": "Los ciento cuarenta y cuatro mil, 16 de noviembre",
@@ -5543,7 +6181,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=YcZ-NaS_9W8",
-    "audio_file_id": "CQACAgQAAxkBAAIFhGDtEY8PRYlTlfe8WYHLqt7FsXzYAALQCQACB5NpU-RPMGQl6nBhIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFhGDtEY8PRYlTlfe8WYHLqt7FsXzYAALQCQACB5NpU-RPMGQl6nBhIAQ"
+    ]
   },
   "321": {
     "title_date": "La gran multitud de los redimidos, 17 de noviembre",
@@ -5560,7 +6200,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Fz34m7FB9b0",
-    "audio_file_id": "CQACAgQAAxkBAAIFhWDtEaiwbhO3IqSi9Xis4bBMYU9wAALRCQACB5NpU_MP5lTljw5NIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFhWDtEaiwbhO3IqSi9Xis4bBMYU9wAALRCQACB5NpU_MP5lTljw5NIAQ"
+    ]
   },
   "322": {
     "title_date": "La recompensa del ganador de almas, 18 de noviembre",
@@ -5577,7 +6219,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=Un0vJp8ZfM8",
-    "audio_file_id": "CQACAgQAAxkBAAIFhmDtEb-iqNHJ8t4nsgmVB40g8G91AALSCQACB5NpU2GIvlAqVMGXIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFhmDtEb-iqNHJ8t4nsgmVB40g8G91AALSCQACB5NpU2GIvlAqVMGXIAQ"
+    ]
   },
   "323": {
     "title_date": "Pensad en las cosas del cielo, 19 de noviembre",
@@ -5594,7 +6238,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=hs-2k73z4gk",
-    "audio_file_id": "CQACAgQAAxkBAAIFh2DtEdWzTLGF6ZSI4qR4bNQTDoSMAALUCQACB5NpU2MhYR0zB2ofIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFh2DtEdWzTLGF6ZSI4qR4bNQTDoSMAALUCQACB5NpU2MhYR0zB2ofIAQ"
+    ]
   },
   "324": {
     "title_date": "Las glorias del mundo celestial, 20 de noviembre",
@@ -5610,7 +6256,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=1n4a1JL6Mvc",
-    "audio_file_id": "CQACAgQAAxkBAAIFiGDtEe_M4W4qUguvE4pz3Q72jxxJAALVCQACB5NpUxvGKe_v28-kIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFiGDtEe_M4W4qUguvE4pz3Q72jxxJAALVCQACB5NpUxvGKe_v28-kIAQ"
+    ]
   },
   "325": {
     "title_date": "Contemplad las cosas eternas, 21 de noviembre",
@@ -5627,7 +6275,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=O253K9aq6qE",
-    "audio_file_id": "CQACAgQAAxkBAAIFiWDtEf9ma64sYhQIKSMyUZW_0_QyAALWCQACB5NpU9dj_WYMhcpfIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFiWDtEf9ma64sYhQIKSMyUZW_0_QyAALWCQACB5NpU9dj_WYMhcpfIAQ"
+    ]
   },
   "326": {
     "title_date": "Bienaventurados los que lavan sus vestiduras, 22 de noviembre",
@@ -5644,7 +6294,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=fkgfblipQDQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFimDtEg-SnYEmxyABetnVN5Pj9YvOAALXCQACB5NpU0ShTwQdY24gIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFimDtEg-SnYEmxyABetnVN5Pj9YvOAALXCQACB5NpU0ShTwQdY24gIAQ"
+    ]
   },
   "327": {
     "title_date": "El juicio durante el milenio, 23 de noviembre",
@@ -5660,7 +6312,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=RirtJBr5LTQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFi2DtEiE5Kys2FFEjzxyyAcobCOMgAALYCQACB5NpU0jHPrre53NEIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFi2DtEiE5Kys2FFEjzxyyAcobCOMgAALYCQACB5NpU0jHPrre53NEIAQ"
+    ]
   },
   "328": {
     "title_date": "Cristo regresa nuevamente a la Tierra, 24 de noviembre",
@@ -5676,7 +6330,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=oonhI7zeA6I",
-    "audio_file_id": "CQACAgQAAxkBAAIFjGDtEkC46bfp_P-uAwqAjunNc4HUAALZCQACB5NpU7CEMFT04ofJIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFjGDtEkC46bfp_P-uAwqAjunNc4HUAALZCQACB5NpU7CEMFT04ofJIAQ"
+    ]
   },
   "329": {
     "title_date": "Satanás queda libre, 25 de noviembre",
@@ -5691,7 +6347,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=-kJCHxm2a3g",
-    "audio_file_id": "CQACAgQAAxkBAAIFjWDtEmCLe89tyIyZdPMWAAG3bKszGgAC2gkAAgeTaVMAAWf5BNdkAAEvIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFjWDtEmCLe89tyIyZdPMWAAG3bKszGgAC2gkAAgeTaVMAAWf5BNdkAAEvIAQ"
+    ]
   },
   "330": {
     "title_date": "Se disponen a atacar la nueva Jerusalén, 26 de noviembre",
@@ -5707,7 +6365,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=EmZZmKosZFk",
-    "audio_file_id": "CQACAgQAAxkBAAIFjmDtEn9hNEG-CveKIMTyu5joXSurAALbCQACB5NpUz4czwcBes4fIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFjmDtEn9hNEG-CveKIMTyu5joXSurAALbCQACB5NpUz4czwcBes4fIAQ"
+    ]
   },
   "331": {
     "title_date": "El juicio final, 27 de noviembre",
@@ -5725,7 +6385,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=QKRLFbaELeE",
-    "audio_file_id": "CQACAgQAAxkBAAIFj2DtEpPg1pZGPiW8YriWlBVsRBfLAALcCQACB5NpU6qIK_ZyBlUBIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFj2DtEpPg1pZGPiW8YriWlBVsRBfLAALcCQACB5NpU6qIK_ZyBlUBIAQ"
+    ]
   },
   "332": {
     "title_date": "Toda obra será traída a juicio, 28 de noviembre",
@@ -5745,7 +6407,9 @@
     },
     "paragraphs_count": 7,
     "url": "https://www.youtube.com/watch?v=NApRUHk8Drs",
-    "audio_file_id": "CQACAgQAAxkBAAIFkGDtErCpN38GhqgnyzHrIas8wF3CAALdCQACB5NpU-b5eRR7GzNUIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFkGDtErCpN38GhqgnyzHrIas8wF3CAALdCQACB5NpU-b5eRR7GzNUIAQ"
+    ]
   },
   "333": {
     "title_date": "Cristo es el juez, 29 de noviembre",
@@ -5763,7 +6427,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=4sRlSnwmm0o",
-    "audio_file_id": "CQACAgQAAxkBAAIFkWDtEs6UgYKTbzhU-SC0E-ZOGmd6AALeCQACB5NpUz05I-kccv2YIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFkWDtEs6UgYKTbzhU-SC0E-ZOGmd6AALeCQACB5NpUz05I-kccv2YIAQ"
+    ]
   },
   "334": {
     "title_date": "Premios y castigos, 30 de noviembre",
@@ -5780,7 +6446,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=xCGLf8K9-SE",
-    "audio_file_id": "CQACAgQAAxkBAAIFkmDtEuR1rY5ZotLyEb3CiDPD95COAALfCQACB5NpUxJl1rcqSm3XIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFkmDtEuR1rY5ZotLyEb3CiDPD95COAALfCQACB5NpUxJl1rcqSm3XIAQ"
+    ]
   },
   "335": {
     "title_date": "Visión panorámica de los sufrimientos de Cristo, 1 de diciembre",
@@ -5796,7 +6464,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=d5bE-NULSd4",
-    "audio_file_id": "CQACAgQAAxkBAAIFk2DtEwQVAAEjvJjknV1oAj8-kSEUQwAC4AkAAgeTaVMfwjxvwSAldyAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFk2DtEwQVAAEjvJjknV1oAj8-kSEUQwAC4AkAAgeTaVMfwjxvwSAldyAE"
+    ]
   },
   "336": {
     "title_date": "Personajes históricos presentes en el juicio, 2 de diciembre",
@@ -5813,7 +6483,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=xSJdu7PlwZU",
-    "audio_file_id": "CQACAgQAAxkBAAIFlGDtEySBjv7mmSg3TGAnBlHflQwbAALhCQACB5NpU-Xf4DbuNinbIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFlGDtEySBjv7mmSg3TGAnBlHflQwbAALhCQACB5NpU-Xf4DbuNinbIAQ"
+    ]
   },
   "337": {
     "title_date": "Los impíos reconocen la justicia de Dios, 3 de diciembre",
@@ -5830,7 +6502,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=qfV9e2_64Oo",
-    "audio_file_id": "CQACAgQAAxkBAAIFlWDtE0WyhkVlSov72QGYf4Npe70LAALiCQACB5NpU9hYn4-f6fl3IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFlWDtE0WyhkVlSov72QGYf4Npe70LAALiCQACB5NpU9hYn4-f6fl3IAQ"
+    ]
   },
   "338": {
     "title_date": "Se reivindica el carácter de Dios, 4 de diciembre",
@@ -5845,7 +6519,9 @@
     },
     "paragraphs_count": 2,
     "url": "https://www.youtube.com/watch?v=Nn8ISuOlfAA",
-    "audio_file_id": "CQACAgQAAxkBAAIFlmDtE2U1mGOjIgsAAWKL9FbnyMtpzQAC4wkAAgeTaVPseuJ3Xzy06yAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFlmDtE2U1mGOjIgsAAWKL9FbnyMtpzQAC4wkAAgeTaVPseuJ3Xzy06yAE"
+    ]
   },
   "339": {
     "title_date": "La destrucción del pecado y los pecadores, 5 de diciembre",
@@ -5861,7 +6537,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=ykUWUzczQrI",
-    "audio_file_id": "CQACAgQAAxkBAAIFl2DtE4TyrVuJKZgRMCsvyJNtVgi5AALkCQACB5NpUwzrxwFT0-8CIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFl2DtE4TyrVuJKZgRMCsvyJNtVgi5AALkCQACB5NpUwzrxwFT0-8CIAQ"
+    ]
   },
   "340": {
     "title_date": "El único recuerdo del pecado, 6 de diciembre",
@@ -5880,7 +6558,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=4F9c1RS8H0A",
-    "audio_file_id": "CQACAgQAAxkBAAIFmGDtE6KB4hiMRFnj6IyHfzabHZdCAALlCQACB5NpUzd51NQpwD2KIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFmGDtE6KB4hiMRFnj6IyHfzabHZdCAALlCQACB5NpUzd51NQpwD2KIAQ"
+    ]
   },
   "341": {
     "title_date": "Pertenecemos a la familia real, 7 de diciembre",
@@ -5896,7 +6576,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=lUFmforstso",
-    "audio_file_id": "CQACAgQAAxkBAAIFmWDtFiJ50oYztPMMdKOJ3S46_YGsAALmCQACB5NpU_Jf1wXs2_mTIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFmWDtFiJ50oYztPMMdKOJ3S46_YGsAALmCQACB5NpU_Jf1wXs2_mTIAQ"
+    ]
   },
   "342": {
     "title_date": "Ocupación satisfactoria, 8 de diciembre",
@@ -5914,7 +6596,9 @@
     },
     "paragraphs_count": 5,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFmmDtFjh0JHMjGdJaAAEg3MOPiZ60rwAC5wkAAgeTaVMCzJasI7uVjyAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFmmDtFjh0JHMjGdJaAAEg3MOPiZ60rwAC5wkAAgeTaVMCzJasI7uVjyAE"
+    ]
   },
   "343": {
     "title_date": "Cielos nuevos y Tierra nueva, 9 de diciembre",
@@ -5932,7 +6616,9 @@
     },
     "paragraphs_count": 5,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFm2DtFlH0gxeuitbpOsYQksS5d2kYAALoCQACB5NpU-jZAeXAzSMxIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFm2DtFlH0gxeuitbpOsYQksS5d2kYAALoCQACB5NpU-jZAeXAzSMxIAQ"
+    ]
   },
   "344": {
     "title_date": "¡Nunca más habrá muerte!, 10 de diciembre",
@@ -5949,7 +6635,9 @@
     },
     "paragraphs_count": 4,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFnGDtFmpgJBG3zqUJxaOBRpAN9p_PAALpCQACB5NpUyp8jE9CV8UwIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFnGDtFmpgJBG3zqUJxaOBRpAN9p_PAALpCQACB5NpUyp8jE9CV8UwIAQ"
+    ]
   },
   "345": {
     "title_date": "La herencia de los salvados, 11 de diciembre",
@@ -5967,7 +6655,9 @@
     },
     "paragraphs_count": 5,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFnWDtFnuXrxmse97yPMgruJgs4cfRAALqCQACB5NpU05bKsrF8H8iIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFnWDtFnuXrxmse97yPMgruJgs4cfRAALqCQACB5NpU05bKsrF8H8iIAQ"
+    ]
   },
   "346": {
     "title_date": "Se restaura el jardín del Edén, 12 de diciembre",
@@ -5984,7 +6674,9 @@
     },
     "paragraphs_count": 4,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFnmDtFotMD7UksG9Q3mHLEzDwniFNAALrCQACB5NpU--RW3GtAAH7zyAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFnmDtFotMD7UksG9Q3mHLEzDwniFNAALrCQACB5NpU--RW3GtAAH7zyAE"
+    ]
   },
   "347": {
     "title_date": "Las glorias del mundo eterno, 13 de diciembre",
@@ -6004,7 +6696,9 @@
     },
     "paragraphs_count": 7,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFn2DtFqifdqo1VX13ZdsglxzTtjqoAALsCQACB5NpU2gFfGh24WsEIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFn2DtFqifdqo1VX13ZdsglxzTtjqoAALsCQACB5NpU2gFfGh24WsEIAQ"
+    ]
   },
   "348": {
     "title_date": "La nueva Jerusalén: nuestro hogar, 14 de diciembre",
@@ -6020,7 +6714,9 @@
     },
     "paragraphs_count": 3,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFoGDtFsU8beE-eRts65UUjW6VdmLBAALtCQACB5NpU8WuN2vA5dAOIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFoGDtFsU8beE-eRts65UUjW6VdmLBAALtCQACB5NpU8WuN2vA5dAOIAQ"
+    ]
   },
   "349": {
     "title_date": "La herencia inmortal, 15 de diciembre",
@@ -6037,7 +6733,9 @@
     },
     "paragraphs_count": 4,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFoWDtFtzdK_JR7zFLX4UkKKO3PIs5AALuCQACB5NpU1m-r5RaAAGMrSAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFoWDtFtzdK_JR7zFLX4UkKKO3PIs5AALuCQACB5NpU1m-r5RaAAGMrSAE"
+    ]
   },
   "350": {
     "title_date": "La iglesia triunfante, 16 de diciembre",
@@ -6053,7 +6751,9 @@
     },
     "paragraphs_count": 3,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFomDtFu4AAcI4sJQxkWO8Ic4QELwEYgAC7wkAAgeTaVODpacdsZZWWSAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFomDtFu4AAcI4sJQxkWO8Ic4QELwEYgAC7wkAAgeTaVODpacdsZZWWSAE"
+    ]
   },
   "351": {
     "title_date": "Inesperada recompensa, 17 de diciembre",
@@ -6069,7 +6769,9 @@
     },
     "paragraphs_count": 3,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFo2DtFwUAAQQozMuv_csorofNMkFvpQAC8AkAAgeTaVNpIosr1zP-hCAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFo2DtFwUAAQQozMuv_csorofNMkFvpQAC8AkAAgeTaVNpIosr1zP-hCAE"
+    ]
   },
   "352": {
     "title_date": "Actividades en la Tierra nueva, 18 de diciembre",
@@ -6086,7 +6788,9 @@
     },
     "paragraphs_count": 4,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFpGDtFxdpTkybXa-TpzFZaM5C0HA7AALxCQACB5NpU2zU1LuIUKy8IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFpGDtFxdpTkybXa-TpzFZaM5C0HA7AALxCQACB5NpU2zU1LuIUKy8IAQ"
+    ]
   },
   "353": {
     "title_date": "Música incomparable, 19 de diciembre",
@@ -6104,7 +6808,9 @@
     },
     "paragraphs_count": 5,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFpWDtFy4AAazOfNXb81Sf1l5SS4tEfAAC8gkAAgeTaVOB0SJiMbvPviAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFpWDtFy4AAazOfNXb81Sf1l5SS4tEfAAC8gkAAgeTaVOB0SJiMbvPviAE"
+    ]
   },
   "354": {
     "title_date": "El mayor honor de nuestro salvador, 20 de diciembre",
@@ -6120,7 +6826,9 @@
     },
     "paragraphs_count": 3,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFpmDtF0JxMx0Hj2xA0iwZhgRA-c2vAALzCQACB5NpU5PyX93G5pomIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFpmDtF0JxMx0Hj2xA0iwZhgRA-c2vAALzCQACB5NpU5PyX93G5pomIAQ"
+    ]
   },
   "355": {
     "title_date": "La escuela del más allá, 21 de diciembre",
@@ -6139,7 +6847,9 @@
     },
     "paragraphs_count": 6,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFp2DtF1trHlqEZjDCKnYvZKdD5BmdAAL0CQACB5NpU3cqFP8Wksg6IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFp2DtF1trHlqEZjDCKnYvZKdD5BmdAAL0CQACB5NpU3cqFP8Wksg6IAQ"
+    ]
   },
   "356": {
     "title_date": "Cristo será nuestro maestro, 22 de diciembre",
@@ -6158,7 +6868,9 @@
     },
     "paragraphs_count": 6,
     "url": null,
-    "audio_file_id": "CQACAgQAAxkBAAIFqGDtF2wRLDSliq13nJteYzWmqPOZAAL1CQACB5NpUxAR0vyksInPIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFqGDtF2wRLDSliq13nJteYzWmqPOZAAL1CQACB5NpUxAR0vyksInPIAQ"
+    ]
   },
   "357": {
     "title_date": "Nuestro estudio en los siglos futuros, 23 de diciembre",
@@ -6176,7 +6888,9 @@
     },
     "paragraphs_count": 5,
     "url": "https://www.youtube.com/watch?v=Gvnyi1Rgc4A",
-    "audio_file_id": "CQACAgQAAxkBAAIFqWDtF4DMxoUmeYf7btX3Xh7iF90MAAL2CQACB5NpU4HHqvXloI0RIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFqWDtF4DMxoUmeYf7btX3Xh7iF90MAAL2CQACB5NpU4HHqvXloI0RIAQ"
+    ]
   },
   "358": {
     "title_date": "Temas inagotables, 24 de diciembre",
@@ -6192,7 +6906,9 @@
     },
     "paragraphs_count": 3,
     "url": "https://www.youtube.com/watch?v=FikLC1LHm-A",
-    "audio_file_id": "CQACAgQAAxkBAAIFqmDtF5lVOJpFR2gdAuhJh9XNL1ECAAL3CQACB5NpU60HvX_PU7YrIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFqmDtF5lVOJpFR2gdAuhJh9XNL1ECAAL3CQACB5NpU60HvX_PU7YrIAQ"
+    ]
   },
   "359": {
     "title_date": "Nuestro tema de estudio, 25 de diciembre",
@@ -6209,7 +6925,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=uosXLjiOOEE",
-    "audio_file_id": "CQACAgQAAxkBAAIFq2DtF65kmjlnVYF6rj9vvBccDUidAAL4CQACB5NpU2RhxkXDkWriIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFq2DtF65kmjlnVYF6rj9vvBccDUidAAL4CQACB5NpU2RhxkXDkWriIAQ"
+    ]
   },
   "360": {
     "title_date": "Infinidad de mundos por visitar, 26 de diciembre",
@@ -6228,7 +6946,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=qPze0N_p1JQ",
-    "audio_file_id": "CQACAgQAAxkBAAIFrGDtF8Ii33ON6XPaL44lcBXmT9CkAAL5CQACB5NpU6qkDQKWdzI1IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFrGDtF8Ii33ON6XPaL44lcBXmT9CkAAL5CQACB5NpU6qkDQKWdzI1IAQ"
+    ]
   },
   "361": {
     "title_date": "Especulaciones con respecto a la Tierra nueva, 27 de diciembre",
@@ -6247,7 +6967,9 @@
     },
     "paragraphs_count": 6,
     "url": "https://www.youtube.com/watch?v=s-3hCKOyNx4",
-    "audio_file_id": "CQACAgQAAxkBAAIFrWDtF-CKm1Ds9cjLEwLCs75vOthHAAL6CQACB5NpU_VdlarccKs4IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFrWDtF-CKm1Ds9cjLEwLCs75vOthHAAL6CQACB5NpU_VdlarccKs4IAQ"
+    ]
   },
   "362": {
     "title_date": "El reino de amor de Cristo, 28 de diciembre",
@@ -6264,7 +6986,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=B27fvwCHVkc",
-    "audio_file_id": "CQACAgQAAxkBAAIFrmDtF__JmRIAAYXVu6xEutZKiDM1WAAC-wkAAgeTaVOrNWBgwP02aiAE"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFrmDtF__JmRIAAYXVu6xEutZKiDM1WAAC-wkAAgeTaVOrNWBgwP02aiAE"
+    ]
   },
   "363": {
     "title_date": "El sábado en el más allá, 29 de diciembre",
@@ -6281,7 +7005,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=6gpJLjdoAvw",
-    "audio_file_id": "CQACAgQAAxkBAAIFr2DtGB66AWKocNRiVOWcxyVyaEG6AAL8CQACB5NpUzoLn0-m25P5IAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFr2DtGB66AWKocNRiVOWcxyVyaEG6AAL8CQACB5NpUzoLn0-m25P5IAQ"
+    ]
   },
   "364": {
     "title_date": "Seguridad eterna, 30 de diciembre",
@@ -6298,7 +7024,9 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=h-2I8JGm7xM",
-    "audio_file_id": "CQACAgQAAxkBAAIFsGDtGD5j9_yateC979_pMO1x9TY5AAL9CQACB5NpU8RCoQcCh4LLIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFsGDtGD5j9_yateC979_pMO1x9TY5AAL9CQACB5NpU8RCoQcCh4LLIAQ"
+    ]
   },
   "365": {
     "title_date": "Lo que reserva la eternidad a los redimidos, 31 de diciembre",
@@ -6315,6 +7043,8 @@
     },
     "paragraphs_count": 4,
     "url": "https://www.youtube.com/watch?v=5vbH33Wb7Zo",
-    "audio_file_id": "CQACAgQAAxkBAAIFsWDtGFKhHX5OdaPc-9Hw0yPx9it5AAL-CQACB5NpU9nHd36Y_6uCIAQ"
+    "audio_file_id": [
+      "CQACAgQAAxkBAAIFsWDtGFKhHX5OdaPc-9Hw0yPx9it5AAL-CQACB5NpU9nHd36Y_6uCIAQ"
+    ]
   }
 }
