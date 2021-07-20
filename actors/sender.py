@@ -48,10 +48,10 @@ def send(all=False, month=None, day=None):
                     date = {'month':month, 'day':day}
                     
                 # compose a formatted message
-                msg, title, file_id = composer.compose(subscription.devotional_name, date['month'], date['day'])
+                msg, file_ids = composer.compose(subscription.devotional_name, date['month'], date['day'])
 
                 # send files if available
-                _send_document(bot, subscription.subscriber_id, file_id, consts.LEAST_BOT_SEND_MS)
+                _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
 
                 # send text next to the files
                 _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
@@ -60,7 +60,7 @@ def send(all=False, month=None, day=None):
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}')
-                time.sleep(pow(2, retries) if retries < 9 else pow(2, 8))
+                time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
                 done = retries > consts.MAX_SEND_RETRIES
 
@@ -99,7 +99,7 @@ def send_global_message(msg):
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {get_current_utc_hour()} to {str(subscription.subscriber_id)}')
-                time.sleep(pow(2, retries) if retries < 9 else pow(2, 8))
+                time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
                 done = retries > consts.MAX_SEND_RETRIES
 
@@ -121,9 +121,9 @@ def report_exception(exception):
     _send_message(bot, config['admin']['chat_id'], str(exception), consts.LEAST_BOT_SEND_MS)
     
 
-def _send_document(bot, subscriber_id, file_id, least_ms):
+def _send_document(bot, subscriber_id, file_ids, least_ms):
     global _last_send_timestamp
-    if file_id != None:
+    for file_id in file_ids:
         while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
             pass
         bot.send_document(chat_id=str(subscriber_id), document=file_id)

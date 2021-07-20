@@ -10,4 +10,4 @@ def compose(name, month, day):
     message += f'{devotional.url}'
     session.close()
 
-    return (message, devotional.title_date, devotional.audio_file_id)
+    return (message, devotional.audio_file_ids)

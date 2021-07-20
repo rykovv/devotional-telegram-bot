@@ -15,7 +15,6 @@ from telegram.ext import (
     CallbackContext,
 )
 
-from db.devotional import Devotional
 from db.subscriber import Subscriber
 from db.subscription import Subscription
 from db.statistics import Statistics
@@ -139,7 +138,7 @@ def time_zone(update: Update, context: CallbackContext) -> int:
         return TIME_ZONE
 
     buffer.subscribers[user.id].time_zone = tf.timezone_at(lat=user_location.latitude, lng=user_location.longitude)
-    print(f'User time zone is {buffer.subscribers[user.id].time_zone}')
+    logger.info(f'User {user.first_name} time zone is {buffer.subscribers[user.id].time_zone}')
     
     now_utc = pytz.utc.localize(datetime.datetime.utcnow())
     now_user = now_utc.astimezone(pytz.timezone(buffer.subscribers[user.id].time_zone))
@@ -249,7 +248,7 @@ def confirmation(update: Update, context: CallbackContext) -> int:
             '¡Ya está todo configurado! Puede siempre marcar lo siguiente:\n'
             '/ajustar para ajustar su suscripción,\n'
             '/estado para ver el estado de su suscripción,\n'
-            '/ayuda para obtener lista de comandos,'
+            '/ayuda para obtener lista de comandos,\n'
             '/contacto para contactar con nosotros,\n'
             '/recuento para ver las estadísticas,\n'
             '/baja para dejar de recibir los devocionales.\n\n'
@@ -365,7 +364,7 @@ def change_time_zone(update: Update, context: CallbackContext) -> int:
         return TIME_ZONE
 
     buffer.subscribers[user.id].time_zone = tf.timezone_at(lat=user_location.latitude, lng=user_location.longitude)
-    print(f'User time zone is {buffer.subscribers[user.id].time_zone}')
+    logger.info(f'User {user.first_name} time zone is {buffer.subscribers[user.id].time_zone}')
     
     now_utc = pytz.utc.localize(datetime.datetime.utcnow())
     now_user = now_utc.astimezone(pytz.timezone(buffer.subscribers[user.id].time_zone))
