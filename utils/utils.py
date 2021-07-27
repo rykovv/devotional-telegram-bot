@@ -83,3 +83,8 @@ def admin_message_formatter(msg):
     formatted_msg = msg.replace('#', '\n')
     formatted_msg = formatted_msg.replace(' - ', '\n - ')
     return formatted_msg
+
+def days_since_epoch(epoch):
+    start = dt.datetime.fromtimestamp(epoch)
+    now = dt.datetime.utcnow()
+    return (now - start).days

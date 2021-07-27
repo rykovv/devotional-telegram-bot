@@ -1,3 +1,4 @@
+from db.subscription import Subscription
 from db.base import Session
 from db.subscriber import Subscriber
 import actors.actuary as actuary
@@ -20,3 +21,9 @@ def process_send_exception(exception, subscription):
 
         return 'Subscriber and subscription were deleted.'
     return 'No action taken at exception.'
+
+def subscriptions_count(sid):
+    session = Session()
+    count = session.query(Subscription).filter(Subscription.subscriber_id == sid).count()
+    session.close()
+    return count

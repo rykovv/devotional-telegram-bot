@@ -8,10 +8,16 @@ from utils.utils import (
     get_current_utc_hour,
     get_send_month_day,
     get_logger,
+    days_since_epoch,
 )
-from utils.helpers import process_send_exception
+from utils.helpers import (
+    process_send_exception,
+    subscriptions_count,
+    fetch_subscriber,
+)
 
 from db.subscription import Subscription
+from db.devotional import Devotional
 
 import actors.composer as composer
 import actors.actuary as actuary
@@ -25,15 +31,13 @@ config.read(consts.CONFIG_FILE_NAME)
 logger = get_logger()
 _last_send_timestamp = dt.datetime.utcnow()
 
-def send(all=False, month=None, day=None):
+def send(all=False, month=None, day=None, chat_id=None):
     session = Session()
     if not all:
         current_hour = consts.TF_24TO12[get_current_utc_hour()]
         subscriptions = session.query(Subscription).filter(Subscription.preferred_time_utc.ilike(f'{current_hour}%')).all()
     else:
         subscriptions = session.query(Subscription).all()
-
-    # check if the subscription is available
     session.close()
 
     bot = telegram.Bot(token=config['bot']['token'])
@@ -45,21 +49,39 @@ def send(all=False, month=None, day=None):
         done = False
         while not done:
             try:
-                if month == None and day == None:
-                    date = get_send_month_day(subscription.preferred_time_utc)
-                else:
-                    date = {'month':month, 'day':day}
+                # check if the subscription is up to date
+                if not _expired_subscription(subscription):
+                    if month == None and day == None:
+                        date = get_send_month_day(subscription.preferred_time_utc)
+                    else:
+                        date = {'month':month, 'day':day}
+                        
+                    # compose a formatted message
+                    msg, file_ids = composer.compose(subscription.devotional_name, date['month'], date['day'])
+
+                    # send files if available
+                    _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
+
+                    # send text next to the files
+                    _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
                     
-                # compose a formatted message
-                msg, file_ids = composer.compose(subscription.devotional_name, date['month'], date['day'])
+                    sent += 1
+                else:
+                    subscriber_id = subscription.subscriber_id
+                    msg =   'Querido hermano/hermana,\n\n' \
+                            'Ya ha pasado un año desde que Usted está recibiendo los devocionales ' \
+                            f'{subscription.devotional_name}. Nos alegra inmensamente que ha podido ' \
+                            'disfrutar de su suscripción y nuestros esfuerzos le han ayudado.\n\n' \
+                            'Ahora llegó el momento de anular su suscripción. Si Usted desea ' \
+                            'seguir recibiendo los devocionales, puede hacerlo con una nueva ' \
+                            'suscripción marcando /start. Hemos estado trabajando para añadir más devocionales.\n\n' \
+                            '¡Un gran saludo en Cristo!\n' \
+                            'El equipo de Una Mirada de Fe y Esperanza'
+                    _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
+                    subscription.delete()
+                    if subscriptions_count(subscriber_id) == 0:
+                        fetch_subscriber(subscriber_id).delete()
 
-                # send files if available
-                _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
-
-                # send text next to the files
-                _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
-                
-                sent += 1
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}.'
@@ -134,9 +156,18 @@ def _send_document(bot, subscriber_id, file_ids, least_ms):
         bot.send_document(chat_id=str(subscriber_id), document=file_id)
         _last_send_timestamp = dt.datetime.utcnow()
 
+
 def _send_message(bot, subscriber_id, msg, least_ms):
     global _last_send_timestamp
     while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
         pass
     bot.send_message(chat_id=str(subscriber_id), text=msg, parse_mode='html')
     _last_send_timestamp = dt.datetime.utcnow()
+
+
+def _expired_subscription(subscription):
+    session = Session()
+    count = session.query(Devotional).filter(Devotional.name == subscription.devotional_name).count()
+    session.close()
+    return (days_since_epoch(subscription.creation_utc) > count)
+
