@@ -9,6 +9,7 @@ from utils.utils import (
     get_send_month_day,
     get_logger,
 )
+from utils.helpers import process_send_exception
 
 from db.subscription import Subscription
 
@@ -31,6 +32,8 @@ def send(all=False, month=None, day=None):
         subscriptions = session.query(Subscription).filter(Subscription.preferred_time_utc.ilike(f'{current_hour}%')).all()
     else:
         subscriptions = session.query(Subscription).all()
+
+    # check if the subscription is available
     session.close()
 
     bot = telegram.Bot(token=config['bot']['token'])
@@ -59,7 +62,8 @@ def send(all=False, month=None, day=None):
                 sent += 1
                 done = True
             except Exception as e:
-                report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}')
+                report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}.'
+                                 f'\nAction: {process_send_exception(e, subscription)}')
                 time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
                 done = retries > consts.MAX_SEND_RETRIES
@@ -98,7 +102,8 @@ def send_global_message(msg):
                 sent += 1
                 done = True
             except Exception as e:
-                report_exception(f'{e} sending at {get_current_utc_hour()} to {str(subscription.subscriber_id)}')
+                report_exception(f'{e} sending at {get_current_utc_hour()} to {str(subscription.subscriber_id)}.'
+                                 f'\nAction: {process_send_exception(e, subscription)}')
                 time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
                 done = retries > consts.MAX_SEND_RETRIES
