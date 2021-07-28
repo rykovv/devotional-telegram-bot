@@ -16,29 +16,30 @@ from telegram.ext import (
     CallbackContext,
 )
 
+import utils.consts as consts
+import utils.buffer as buffer
+
+from utils.utils import (
+    get_epoch, 
+    utc_offset_to_int, 
+    epoch_to_date,
+    get_logger,
+    is_admin,
+    admin_message_formatter,
+)
+from utils.helpers import (
+    fetch_subscriber,
+    persist_buffer,
+    clean_db,
+    print_subscription,
+    prepare_subscription_select,
+)
+
 from db.subscriber import Subscriber
 from db.subscription import Subscription
 from db.statistics import Statistics
 
 import db.populate
-
-from utils.utils import (
-    get_epoch, 
-    utc_offset_to_int, 
-    shift_12h_tf, 
-    epoch_to_date,
-    get_logger,
-    is_admin,
-    admin_message_formatter,
-    print_subscription
-)
-from utils.helpers import (
-    fetch_subscriber,
-    persist_buffer,
-    clean_db
-)
-import utils.buffer as buffer
-import utils.consts as consts
 
 import actors.scheduler as scheduler
 import actors.sender as sender
@@ -52,9 +53,9 @@ config.read(consts.CONFIG_FILE_NAME)
 logger = get_logger()
 
 START_FIRST_SUBSCRIPTION, ADD_NEW_SUBSCRIPTION, TIME_ZONE, PREFERRED_TIME, \
-NEW_SUBSCRIPTION_KEEP_PREFERENCES, \
+NEW_SUBSCRIPTION_KEEP_PREFERENCES, MAKE_ADJUSTMENTS, \
 DEVOTIONAL, CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, \
-CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION = range(12)
+CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION = range(13)
 
 tf = TimezoneFinder()
 
@@ -321,15 +322,15 @@ def devotional(update: Update, context: CallbackContext) -> int:
         )
         return DEVOTIONAL
 
-    if buffer.subscribers[user.id].subscribed(update.message.text):
-        update.message.reply_text(
-            f'{user.first_name}, Usted ya está suscrito/a a esta lectura. '
-            'Marque /estado para ver el estado de sus suscripciones,\n'
-            '/ajustar para cambiar las preferencias de sus suscripciones,\n'
-            '/start para hacer una nueva suscripción.',
-            reply_markup=ReplyKeyboardRemove()
-        )
-        return ConversationHandler.END
+    # if buffer.subscribers[user.id].subscribed(update.message.text):
+    #     update.message.reply_text(
+    #         f'{user.first_name}, Usted ya está suscrito/a a esta lectura. '
+    #         'Marque /estado para ver el estado de sus suscripciones,\n'
+    #         '/ajustar para cambiar las preferencias de sus suscripciones,\n'
+    #         '/start para hacer una nueva suscripción.',
+    #         reply_markup=ReplyKeyboardRemove()
+    #     )
+    #     return ConversationHandler.END
 
     buffer.subscriptions[user.id].devotional_name = update.message.text
 
@@ -597,22 +598,25 @@ def change_devotional(update: Update, context: CallbackContext) -> int:
 
     return CHANGE
 
-def make_adjustments(update: Update, context: CallbackContext) -> int:
+
+def select_subscription(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
     subscriber = fetch_subscriber(user.id)
 
-    if subscriber != None:
+    if subscriber != None and subscriber.has_subscriptions():
         buffer.add_subscriber(subscriber)
-        buffer.add_subscription(subscriber.subscriptions[0])
+
+        subscriptions_str, subscriptions_kb = prepare_subscription_select(subscriber.subscriptions)
 
         update.message.reply_text(
-            f'{user.first_name}, ¿qué le gustaría cambiar en esta ocasión?',
+            f'{user.first_name}, elija la suscripción que quiere modificar según su número:\n\n'
+            f'{subscriptions_str}',
             reply_markup=ReplyKeyboardMarkup(
-                consts.PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+                subscriptions_kb, one_time_keyboard=True, input_field_placeholder='¿1? ¿2? ...'
             ),
         )
-        return CHANGE
+        return MAKE_ADJUSTMENTS
     else:
         update.message.reply_text(
             f'Lo sentimos, pero usted tiene que suscribirse primero para hacer ajustes.\n\n'
@@ -620,6 +624,34 @@ def make_adjustments(update: Update, context: CallbackContext) -> int:
             reply_markup=ReplyKeyboardRemove()
         )
     return ConversationHandler.END
+
+
+def make_adjustments(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    if not re.match(consts.SUBSCRIPTION_SELECT_PATTERN, update.message.text):
+        subscriptions_str, subscriptions_kb = prepare_subscription_select(buffer.subscribers[user.id].subscriptions)
+
+        update.message.reply_text(
+            f'Disculpe, {user.first_name}, no le he entendido. '
+            'Por favor, elija la suscripción que quiere modificar según su número:\n\n'
+            f'{subscriptions_str}',
+            reply_markup=ReplyKeyboardMarkup(
+                subscriptions_kb, one_time_keyboard=True, input_field_placeholder='¿1? ¿2? ...'
+            ),
+        )
+        return MAKE_ADJUSTMENTS
+
+    buffer.add_subscription(buffer.subscribers[user.id].subscriptions[int(update.message.text)-1])
+
+    update.message.reply_text(
+        f'¡Ya lo tenemos! {user.first_name}, ¿qué le gustaría cambiar en esta ocasión?',
+        reply_markup=ReplyKeyboardMarkup(
+            consts.PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+        ),
+    )
+    return CHANGE
+
 
 def get_status(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
@@ -830,7 +862,7 @@ def main() -> None:
     conv_handler = ConversationHandler(
         entry_points=[
             CommandHandler('start', start), 
-            CommandHandler('ajustar', make_adjustments),
+            CommandHandler('ajustar', select_subscription),
             CommandHandler('estado', get_status),
             CommandHandler('ayuda', get_help),
             CommandHandler('baja', unsubscribe),
@@ -853,6 +885,7 @@ def main() -> None:
             DEVOTIONAL: [MessageHandler(Filters.text & ~Filters.command, devotional)], #Filters.regex('^(¡Maranata: El Señor Viene!)$')
             CONFIRMATION: [MessageHandler(Filters.text & ~Filters.command, confirmation)],
             CHANGE: [MessageHandler(Filters.text & ~Filters.command, change)],
+            MAKE_ADJUSTMENTS: [MessageHandler(Filters.text & ~Filters.command, make_adjustments)],
             CHANGE_TIME_ZONE: [
                 MessageHandler((Filters.text & ~Filters.command) | Filters.location, change_time_zone), 
                 CommandHandler('eliminar', geo_remove)

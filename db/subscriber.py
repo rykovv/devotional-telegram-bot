@@ -18,7 +18,10 @@ class Subscriber(Base):
 
     # foreign key relationship with subscriptions. on subscriber delete, 
     #   delete subscriptions in a cascade manner
-    subscriptions = relationship('Subscription', cascade='all, delete, delete-orphan', lazy='joined')
+    subscriptions = relationship('Subscription', 
+                                cascade='all, delete, delete-orphan', 
+                                lazy='joined', 
+                                order_by='asc(Subscription.creation_utc)')
 
     def __init__(self, id, time_zone=None, creation_utc=get_epoch()):
         self.id = id
@@ -45,3 +48,6 @@ class Subscriber(Base):
             if subscription.devotional_name == devotional_name:
                 return True
         return False
+
+    def has_subscriptions(self):
+        return (self.subscriptions != [])

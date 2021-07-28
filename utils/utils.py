@@ -88,6 +88,3 @@ def days_since_epoch(epoch):
     start = dt.datetime.fromtimestamp(epoch)
     now = dt.datetime.utcnow()
     return (now - start).days
-
-def print_subscription(subscription):
-    return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local}.'

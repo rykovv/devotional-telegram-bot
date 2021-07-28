@@ -36,3 +36,9 @@ MAX_RESEND_DELAY = 300
 ## Least necessary inter-message time interval in ms posed by the Telegram Bot API
 ##  see https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this
 LEAST_BOT_SEND_MS = 33
+
+## Number of subscriptions appeared by row when selecting a subscription for modifications
+SUBSCRIPTIONS_BY_ROW = 4
+
+## RE to recognize a two-digit pattern for selecting subscription to modify
+SUBSCRIPTION_SELECT_PATTERN = '^\d(\d)?$'
