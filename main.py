@@ -32,7 +32,11 @@ from utils.utils import (
     admin_message_formatter,
     print_subscription
 )
-from utils.helpers import fetch_subscriber
+from utils.helpers import (
+    fetch_subscriber,
+    persist_buffer,
+    clean_db
+)
 import utils.buffer as buffer
 import utils.consts as consts
 
@@ -320,8 +324,9 @@ def devotional(update: Update, context: CallbackContext) -> int:
     if buffer.subscribers[user.id].subscribed(update.message.text):
         update.message.reply_text(
             f'{user.first_name}, Usted ya está suscrito/a a esta lectura. '
-            'Marque /estado para ver el estado de sus suscripciones o /ajustar para '
-            'cambiar las preferencias de sus suscripciones.\n\n',
+            'Marque /estado para ver el estado de sus suscripciones,\n'
+            '/ajustar para cambiar las preferencias de sus suscripciones,\n'
+            '/start para hacer una nueva suscripción.',
             reply_markup=ReplyKeyboardRemove()
         )
         return ConversationHandler.END
@@ -367,6 +372,7 @@ def confirmation(update: Update, context: CallbackContext) -> int:
     if update.message.text == 'Sí':
         update.message.reply_text(
             '¡Ya está todo configurado! Puede siempre marcar lo siguiente:\n'
+            '/start para hacer una nueva y diferente suscripcón,\n'
             '/ajustar para ajustar su suscripción,\n'
             '/estado para ver el estado de su suscripción,\n'
             '/ayuda para obtener lista de comandos,\n'
@@ -375,7 +381,7 @@ def confirmation(update: Update, context: CallbackContext) -> int:
             '/baja para dejar de recibir los devocionales.\n\n'
             '¡Muchas gracias y esperamos que sea para su gran bendición!'
         )
-        _persist_buffer(user.id)
+        persist_buffer(user.id)
         buffer.clean(user.id)
     elif update.message.text == 'No':
         update.message.reply_text(
@@ -718,7 +724,7 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
             'Esperamos que vuelva pronto...',
             reply_markup=ReplyKeyboardRemove()
         )
-        _clean_db(user.id)
+        clean_db(user.id)
         buffer.clean(user.id)
     elif update.message.text == 'No':
         update.message.reply_text(
@@ -874,46 +880,9 @@ def main() -> None:
     # kill devotional scheduler
     scheduler.stop()
 
-def special_send():
-    sender.send_global_message(
-        'Queridos hermanos, \n\nPedimos disculpas por la demora en el envío de la matutina de hoy. '
-        'Hemos corregido este error y estamos constantemente mejorando nuestra aplicación.\n\n'
-        'El equipo de Una Mirada de Fe y Esperanza')
-    sender.send(True)
-
-def _persist_buffer(userid):
-    if userid in buffer.subscribers:
-        buffer.subscribers[userid].persist()
-        actuary.set_last_registered()
-    if userid in buffer.subscriptions:
-        buffer.subscriptions[userid].persist()
-        actuary.set_last_subscribed()
-
-def _clean_db(userid):
-    if userid in buffer.subscriptions:
-        buffer.subscriptions[userid].delete()
-    if userid in buffer.subscribers:
-        buffer.subscribers[userid].delete()
-
-def __test():
-    from utils.consts import TF_24TO12
-    for i in range(24):
-        print(TF_24TO12[i], shift_12h_tf(TF_24TO12[i], -700))
-
-def __regex_test() -> None:
-    pattern = '^\d(\d)?(a|p)+m$'
-    test_string = '5pm'
-    result = re.match(pattern, test_string)
-
-    if result:
-        print("Search successful.")
-    else:
-        print("Search unsuccessful.")
 
 if __name__ == '__main__':
     try:
         main()
-        # special_send()
     except Exception as e:
         sender.report_exception(e)
-    # __test()

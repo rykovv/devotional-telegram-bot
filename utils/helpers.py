@@ -2,6 +2,7 @@ from db.subscription import Subscription
 from db.base import Session
 from db.subscriber import Subscriber
 import actors.actuary as actuary
+import utils.buffer as buffer
 
 def fetch_subscriber(id):
     session = Session()
@@ -27,3 +28,17 @@ def subscriptions_count(sid):
     count = session.query(Subscription).filter(Subscription.subscriber_id == sid).count()
     session.close()
     return count
+
+def persist_buffer(userid):
+    if userid in buffer.subscribers:
+        buffer.subscribers[userid].persist()
+        actuary.set_last_registered()
+    if userid in buffer.subscriptions:
+        buffer.subscriptions[userid].persist()
+        actuary.set_last_subscribed()
+
+def clean_db(userid):
+    if userid in buffer.subscriptions:
+        buffer.subscriptions[userid].delete()
+    if userid in buffer.subscribers:
+        buffer.subscribers[userid].delete()
