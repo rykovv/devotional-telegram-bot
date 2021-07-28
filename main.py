@@ -1,5 +1,6 @@
 from configparser import ConfigParser
 import re
+from sqlalchemy.sql.sqltypes import TIME
 
 from timezonefinder import TimezoneFinder
 import pytz
@@ -29,6 +30,7 @@ from utils.utils import (
     get_logger,
     is_admin,
     admin_message_formatter,
+    print_subscription
 )
 from utils.helpers import fetch_subscriber
 import utils.buffer as buffer
@@ -45,9 +47,10 @@ config.read(consts.CONFIG_FILE_NAME)
 
 logger = get_logger()
 
-START_CONVERSATION, TIME_ZONE, PREFERRED_TIME, \
+START_FIRST_SUBSCRIPTION, ADD_NEW_SUBSCRIPTION, TIME_ZONE, PREFERRED_TIME, \
+NEW_SUBSCRIPTION_KEEP_PREFERENCES, \
 DEVOTIONAL, CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, \
-CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION = range(10)
+CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION = range(12)
 
 tf = TimezoneFinder()
 
@@ -62,20 +65,28 @@ def start(update: Update, context: CallbackContext) -> int:
 
         update.message.reply_text(
             f'¡Hola, {user.first_name}! Soy el bot del ministerio Una Mirada de Fe y Esperanza. '
-            'Mi función es enviar devocionales de su elección a su hora preferida. '
+            'Mi función es enviar devocionales o lecturas de su elección a su hora preferida. '
             'Vamos a tener una pequeña conversación para apuntar el devocional de su elección y su hora preferida.\n\n'
-            '¿Quere recibir las matutinas?',
+            '¿Quere recibir las matutinas/lecturas?',
             reply_markup=ReplyKeyboardMarkup(
                 consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
             ),
         )
-        return START_CONVERSATION
+        return START_FIRST_SUBSCRIPTION
     else:
         buffer.add_subscriber(subscriber)
-        return make_adjustments(update, context)
+        if subscriber.subscriptions != []:
+            update.message.reply_text(
+                f'¡Me alegra verle de vuelta, {user.first_name}!\n\n'
+                '¿Quere hacer una nueva suscripción?',
+                reply_markup=ReplyKeyboardMarkup(
+                    consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+                ),
+            )
+        return ADD_NEW_SUBSCRIPTION
         
 
-def start_conversation(update: Update, context: CallbackContext) -> int:
+def start_first_subscription(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
     if not re.match(consts.YES_NO_RE_PATTERN, update.message.text):
@@ -86,14 +97,15 @@ def start_conversation(update: Update, context: CallbackContext) -> int:
                 consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
             ),
         )
-        return START_CONVERSATION
+        return START_FIRST_SUBSCRIPTION
 
     if update.message.text == 'Sí':
         update.message.reply_text(
             'Para enviar las matutinas a su hora de preferencia, necesitamos saber su zona horaria. '
             'Para ello me puede enviar su ubicación. '
             'Nosotros no guardamos sus datos, solo extraemos la zona horaria.\n\n'
-            'Si no quiere hacerlo marque /saltar. En tal caso su matutina le llegaría a las 10pm PST del día anterior.',
+            'Si no quiere hacerlo marque /saltar. En tal caso su matutina le llegaría a las '
+            '10pm Pacific Standard Time (PST) del día anterior.',
             reply_markup=ReplyKeyboardRemove(),
         )
         return TIME_ZONE
@@ -106,6 +118,106 @@ def start_conversation(update: Update, context: CallbackContext) -> int:
 
     return ConversationHandler.END
 
+
+def add_new_subscription(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    if not re.match(consts.YES_NO_RE_PATTERN, update.message.text):
+        update.message.reply_text(
+            f'Disculpe {user.first_name}, no le he entendido.'
+            '¿Quere hacer una nueva suscripción? (Sí/No)',
+            reply_markup=ReplyKeyboardMarkup(
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+            ),
+        )
+        return ADD_NEW_SUBSCRIPTION
+
+    if update.message.text == 'Sí':
+        update.message.reply_text(
+            f'¡Estupendo, {user.first_name}! ¿Quiere mantener las preferencias de envío de su última suscripción? '
+            'La puede ver abajo: \n\n'
+            f'{print_subscription(buffer.subscribers[user.id].subscriptions[-1])}',
+            reply_markup=ReplyKeyboardMarkup(
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+            ),
+        )
+        return NEW_SUBSCRIPTION_KEEP_PREFERENCES
+    elif update.message.text == 'No':
+        buffer.clean(user.id)
+
+        update.message.reply_text(
+            'De acuerdo. ¡Esperamos verle de vuelta pronto!', reply_markup=ReplyKeyboardRemove()
+        )
+
+    return ConversationHandler.END
+
+
+def new_subscription_keep_preferences(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    if not re.match(consts.YES_NO_RE_PATTERN, update.message.text):
+        update.message.reply_text(
+            f'Disculpe {user.first_name}, no le he entendido.'
+            '¿Quere mantener las preferencias de envío de su última suscripción? (Sí/No)\n\n'
+            f'{print_subscription(buffer.subscribers[user.id].subscriptions[-1])}',
+            reply_markup=ReplyKeyboardMarkup(
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+            ),
+        )
+        return NEW_SUBSCRIPTION_KEEP_PREFERENCES
+
+    last_subscription = buffer.subscribers[user.id].subscriptions[-1]
+    if update.message.text == 'Sí':
+        buffer.add_subscription(Subscription(subscriber_id=last_subscription.subscriber_id, \
+                                             preferred_time_local=last_subscription.preferred_time_local, \
+                                             utc_offset=last_subscription.utc_offset, \
+                                             creation_utc=get_epoch()))
+        if not buffer.subscribers[user.id].skipped_timezone():
+            update.message.reply_text(
+                f'De acuerdo. Ya sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone} y '
+                f'quiere recibir el devocional a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
+                '¿Qué devocional/lectura querría recibir? Estamos trabajando para añadir más libros.',
+                reply_markup=ReplyKeyboardMarkup(
+                    consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
+                ),
+            )
+        else:
+            update.message.reply_text(
+                f'De acuerdo. Ya sabemos que usted no ha indicado su zona horaria anteriormente y '
+                f'por lo tanto va a recibir el devocional a la(s) {buffer.subscriptions[user.id].preferred_time_local} del PST.\n\n'
+                '¿Qué devocional/lectura querría recibir? Estamos trabajando para añadir más libros.',
+                reply_markup=ReplyKeyboardMarkup(
+                    consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
+                ),
+            )
+        return DEVOTIONAL
+    elif update.message.text == 'No':
+        if buffer.subscribers[user.id].skipped_timezone():
+            update.message.reply_text(
+                f'{user.first_name}, para poder enviarle el devocional a su hora preferida necesitamos extraer su zona horaria '
+                'y la forma más conveniente es hacerlo a través de su ubicación. '
+                'Usted no nos ha enviado su ubicación anteriormente. Para poder extraer su zona horaria mándenos su '
+                'ubicación o marque /saltar para seguir con la última configuración.', 
+                reply_markup=ReplyKeyboardRemove()
+            )
+            return TIME_ZONE
+        else:
+            buffer.add_subscription(Subscription(subscriber_id=last_subscription.subscriber_id, \
+                                             preferred_time_local=last_subscription.preferred_time_local, \
+                                             utc_offset=last_subscription.utc_offset, \
+                                             creation_utc=get_epoch()))
+            update.message.reply_text(
+                'No hay problema, hemos pensado de que podría querer elegir una hora diferente.\n\n'
+                '¿A qué hora querría recibir el devocional? (am - mañana, pm - tarde)', 
+                reply_markup=ReplyKeyboardMarkup(
+                    consts.HOUR_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿La hora para esta lectura?'
+                ),
+            )
+            return PREFERRED_TIME
+
+    return ConversationHandler.END
+
+
 def geo_skip(update: Update, context: CallbackContext) -> int:
     """Skips the location and asks for info about the user."""
     user = update.message.from_user
@@ -115,7 +227,7 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700, creation_utc=get_epoch()))
 
     update.message.reply_text(
-        f'¡{user.first_name}, no hay problema. Usted recibirá la matutina a las 10pm PST del día anterior. '
+        f'¡{user.first_name}, no hay problema. Usted recibirá la matutina/lectura a las 10pm PST del día anterior. '
         '¡Nos queda un paso para terminar!\n\n'
         '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
         reply_markup=ReplyKeyboardMarkup(
@@ -148,14 +260,14 @@ def time_zone(update: Update, context: CallbackContext) -> int:
     if not buffer.subscribers[user.id].skipped_timezone():
         update.message.reply_text(
             f'¡Estupendo! Ya sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone}.\n\n'
-            '¿A qué hora querría recibir el devocional? (am - mañana, pm - tarde)',
+            '¿A qué hora querría recibir el devocional/la lectura? (am - mañana, pm - tarde)',
             reply_markup=ReplyKeyboardMarkup(
                 consts.HOUR_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Cuál es su hora preferida?'
             ),
         )
     else:
         update.message.reply_text(
-            '¡Estupendo! Usted recibirá las matutinas a las 10pm PST del día anterior.\n\n'
+            '¡Estupendo! Usted recibirá las matutinas a las 10pm Pacific Standard Time (PST) del día anterior.\n\n'
             '¿Qué devocional querría recibir?',
             reply_markup=ReplyKeyboardMarkup(
                 consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Maranata?'
@@ -184,7 +296,7 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
         f'¡{user.first_name}, nos queda un paso para terminar! '
         f'Ya sabemos que su zona horaria es {buffer.subscribers[user.id].time_zone} y '
         f'quiere recibir el devocional a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
-        '¿Qué devocional querría recibir? Estamos trabajando para añadir más devocionales.',
+        '¿Qué devocional/lectura querría recibir? Estamos trabajando para añadir más material.',
         reply_markup=ReplyKeyboardMarkup(
             consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
         ),
@@ -198,12 +310,21 @@ def devotional(update: Update, context: CallbackContext) -> int:
     if not re.match(consts.DEVOTIONALS_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
-            '¿Qué devocional querría recibir?',
+            '¿Qué devocional/lectura querría recibir?',
             reply_markup=ReplyKeyboardMarkup(
                 consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Maranata?'
             ),
         )
         return DEVOTIONAL
+
+    if buffer.subscribers[user.id].subscribed(update.message.text):
+        update.message.reply_text(
+            f'{user.first_name}, Usted ya está suscrito/a a esta lectura. '
+            'Marque /estado para ver el estado de sus suscripciones o /ajustar para '
+            'cambiar las preferencias de sus suscripciones.\n\n',
+            reply_markup=ReplyKeyboardRemove()
+        )
+        return ConversationHandler.END
 
     buffer.subscriptions[user.id].devotional_name = update.message.text
 
@@ -713,7 +834,11 @@ def main() -> None:
             CommandHandler('admin_rafaga', admin_burst, pass_args=True),
             CommandHandler('admin_recuento', get_admin_statistics)],
         states={
-            START_CONVERSATION: [MessageHandler(Filters.text & ~Filters.command, start_conversation)],
+            START_FIRST_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, start_first_subscription)],
+            ADD_NEW_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, add_new_subscription)],
+            NEW_SUBSCRIPTION_KEEP_PREFERENCES: [
+                MessageHandler(Filters.text & ~Filters.command, new_subscription_keep_preferences),
+                CommandHandler('saltar', geo_skip)],
             TIME_ZONE: [
                 MessageHandler((Filters.text & ~Filters.command) | Filters.location, time_zone), 
                 CommandHandler('saltar', geo_skip)
