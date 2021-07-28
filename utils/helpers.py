@@ -55,7 +55,7 @@ def print_subscription(subscription: Subscription) -> str:
     return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local}.'
 
 
-def prepare_subscription_select(subscriptions):
+def prepare_subscriptions_reply(subscriptions, str_only=False, kb_only=False):
     subscriptions_str = ''
     subscriptions_kb = []
     for i, subscription in enumerate(subscriptions):
@@ -65,4 +65,4 @@ def prepare_subscription_select(subscriptions):
         else:
             subscriptions_kb[i//consts.SUBSCRIPTIONS_BY_ROW].append(str(i+1))
 
-    return subscriptions_str, subscriptions_kb
+    return (subscriptions_str if str_only else (subscriptions_kb if kb_only else subscriptions_str, subscriptions_kb))
