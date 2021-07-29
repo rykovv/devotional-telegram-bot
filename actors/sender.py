@@ -161,10 +161,21 @@ def _send_document(bot, subscriber_id, file_ids, least_ms):
 
 def _send_message(bot, subscriber_id, msg, least_ms):
     global _last_send_timestamp
-    while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
-        pass
-    bot.send_message(chat_id=str(subscriber_id), text=msg, parse_mode='html')
-    _last_send_timestamp = dt.datetime.utcnow()
+    to_send = len(msg)
+    i = 0
+    while to_send > 0:
+        if to_send > telegram.constants.MAX_MESSAGE_LENGTH:
+            while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
+                pass
+            bot.send_message(chat_id=str(subscriber_id), text=msg[i*telegram.constants.MAX_MESSAGE_LENGTH:(i+1)*telegram.constants.MAX_MESSAGE_LENGTH], parse_mode='html')
+            _last_send_timestamp = dt.datetime.utcnow()
+        else:
+            while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
+                pass
+            bot.send_message(chat_id=str(subscriber_id), text=msg[i*telegram.constants.MAX_MESSAGE_LENGTH:], parse_mode='html')
+            _last_send_timestamp = dt.datetime.utcnow()
+        to_send -= telegram.constants.MAX_MESSAGE_LENGTH
+        i += 1
 
 
 def _expired_subscription(subscription):
@@ -172,4 +183,3 @@ def _expired_subscription(subscription):
     count = session.query(Devotional).filter(Devotional.name == subscription.devotional_name).count()
     session.close()
     return (days_since_epoch(subscription.creation_utc) > count)
-
