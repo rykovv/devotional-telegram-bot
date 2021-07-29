@@ -288,7 +288,7 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
     if not re.match(consts.HOUR_RE_PATTERN, update.message.text):
         update.message.reply_text(
             f'Disculpe {user.first_name}, no le he entendido.'
-            '¿A qué hora querría recibir el devocional? (am - mañana, pm - tarde)',
+            '¿A qué hora querría recibir la lectura? (am - mañana, pm - tarde)',
             reply_markup=ReplyKeyboardMarkup(
                 consts.HOUR_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Cuál es su hora preferida?'
             ),
@@ -380,7 +380,7 @@ def confirmation(update: Update, context: CallbackContext) -> int:
             '/ayuda para obtener lista de comandos,\n'
             '/contacto para contactar con nosotros,\n'
             '/recuento para ver las estadísticas,\n'
-            '/baja para dejar de recibir los devocionales.\n\n'
+            '/baja para dejar de recibir los materiales.\n\n'
             '¡Muchas gracias y esperamos que sea para su gran bendición!'
         )
         persist_buffer(user.id)
@@ -445,7 +445,7 @@ def change(update: Update, context: CallbackContext) -> int:
             )
             return CHANGE
         return CHANGE_PREFERRED_TIME
-    elif update.message.text == 'Devocional':
+    elif update.message.text == 'Lectura':
         subscriptions = buffer.subscriptions[user.id]
         update.message.reply_text(
             f'{user.first_name}, hasta encontes sabía que Usted quería recibir el material {subscriptions.devotional_name}\n\n'
@@ -593,7 +593,7 @@ def change_devotional(update: Update, context: CallbackContext) -> int:
         )
     else:
         update.message.reply_text(
-            f'¡Bien! Actualmente sé que va a recibir el devocional {subscriptions.devotional_name} '
+            f'¡Bien! Actualmente sé que va a recibir el material {subscriptions.devotional_name} '
             ' las 10pm PST del día anterior.\n\n'
             '¿Desea cambiar algo más?',
             reply_markup=ReplyKeyboardMarkup(
@@ -690,7 +690,7 @@ def get_help(update: Update, context: CallbackContext) -> int:
         '/ayuda para recibir ayuda,\n'
         '/contacto para contactarse con nosotros,\n'
         '/recuento para ver las estadísticas,\n'
-        '/baja para dejar de recibir los devocionales.\n',
+        '/baja para dejar de recibir los materiales.\n',
         reply_markup=ReplyKeyboardRemove()
     )
 

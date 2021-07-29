@@ -14,6 +14,7 @@ config = ConfigParser()
 config.read(consts.CONFIG_FILE_NAME)
 
 MARANATHA_FILE = f'{config["content"]["folder"]}/json/es_MSV76.json'
+CS_FILE = f'{config["content"]["folder"]}/json/es_CS.json'
 
 def populate_devotional_maranatha():
     session = Session()
@@ -45,4 +46,36 @@ def populate_devotional_maranatha():
         logger.info('¡Maranata: El Señor Viene! devotional is aready in the db.')
     session.close()
 
+
+def populate_book_conflict_of_ages():
+    session = Session()
+    if not session.query(Devotional).filter(Devotional.name == 'El Conflicto de los Siglos').count() == 43:
+        chapters = {}
+
+        with open(CS_FILE, 'rb') as fp:
+            chapters = json.load(fp)
+
+        for k, v in chapters.items():
+            session.add(
+                Devotional(
+                    name='El Conflicto de los Siglos', \
+                    title_date=None, \
+                    title=v['title'], \
+                    verse=v['chapter'], \
+                    date=None, \
+                    month=None, \
+                    day=k, \
+                    paragraphs_count=v['paragraphs_count'], \
+                    paragraphs=v['paragraphs'], \
+                    url=v['url'], \
+                    audio_file_id=v['audio_file_id'], \
+                    year_day=None
+                )
+            )
+            session.commit()
+    else:
+        logger.info('El Conflicto de los Siglos book is aready in the db.')
+    session.close()
+
 populate_devotional_maranatha()
+populate_book_conflict_of_ages()
