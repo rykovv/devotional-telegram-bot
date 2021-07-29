@@ -4,7 +4,7 @@ from db.base import Session
 
 def compose(name, month, day, cron_day):
     if name == '¡Maranata: El Señor Viene!':
-        message, audio_id = compose_devotional_message(name, month, day)
+        message, audio_id = compose_devotional_message(name, day, month)
     elif name == 'El Conflicto de los Siglos':
         message, audio_id = compose_book_message(name, str(cron_day+1))
     
@@ -54,5 +54,12 @@ def compose_book_message(name, day):
         # telegram file_id capturing
         if devotional.audio_file_ids != None:
             audio_id = devotional.audio_file_ids
+    else:
+        message =   'Querido hermano/a,\n\n' \
+                    'Lamentablemente, esta lectura ha llegado a su fin. ' \
+                    'Usted ya ha recibido todos los capítulos y no hay nada más que enviar.\n\n' \
+                    'Esperamos mucho que haya sido de bendición espíritual.\n' \
+                    'Que el Señor le bendiga,\n' \
+                    'El equipo de Una Mirada de Fe y Esperanza'
 
     return (message, audio_id)

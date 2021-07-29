@@ -30,6 +30,7 @@ def subscriptions_by_devotional():
     session = Session()
     sbd = {}
     devotionals = session.query(Devotional.name).distinct().all()[0]
+    print(devotionals)
     for devotional in devotionals:
         sbd[devotional] = session.query(Subscription).filter(Subscription.devotional_name == devotional).count()
     session.close()
