@@ -46,7 +46,7 @@ def compose_book_message(name, day):
     if devotional != []:
         devotional = devotional[0]
         # text portion composition
-        message = f'\U0001F4C5<b> {devotional.verse}</b>\n\U0001F4C3 <b>{devotional.title}</b>\n\n'
+        message = f'\U0001F4D6<b> {devotional.verse}</b>\n\U0001F4C3 <b>{devotional.title}</b>\n\n'
         for k, v in devotional.paragraphs.items():
             message += (v + '\n\n')
         # video url tailing
