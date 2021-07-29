@@ -57,7 +57,9 @@ def send(all=False, month=None, day=None, chat_id=None):
                         date = {'month':month, 'day':day}
                         
                     # compose a formatted message
-                    msg, file_ids = composer.compose(subscription.devotional_name, date['month'], date['day'])
+                    msg, file_ids = composer.compose(subscription.devotional_name, 
+                                                    date['month'], date['day'],
+                                                    days_since_epoch(subscription.creation_utc))
 
                     # send files if available
                     _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
