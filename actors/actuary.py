@@ -29,9 +29,9 @@ def geo_skipped():
 def subscriptions_by_devotional():
     session = Session()
     sbd = {}
-    devotionals = session.query(Devotional.name).distinct().all()[0]
-    print(devotionals)
+    devotionals = session.query(Devotional.name).distinct().all()
     for devotional in devotionals:
+        devotional = devotional[0]
         sbd[devotional] = session.query(Subscription).filter(Subscription.devotional_name == devotional).count()
     session.close()
     return sbd
