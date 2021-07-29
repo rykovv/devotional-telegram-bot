@@ -13,7 +13,7 @@ class Devotional(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     
     # devotional name
-    name = Column('name', String(128))
+    name = Column('name', String(256))
 
     # month and day corresponding to the devotional
     title_date = Column('title_day', String(512))
