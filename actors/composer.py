@@ -3,11 +3,15 @@ from db.base import Session
 
 
 def compose(name, month, day, cron_day):
+    message = ''
+    audio_id = []
     if name == '¡Maranata: El Señor Viene!':
         message, audio_id = compose_devotional_message(name, day, month)
     elif name == 'El Conflicto de los Siglos':
         message, audio_id = compose_book_message(name, str(cron_day+1))
-    
+    else:
+        raise Exception(f'Unknown devotional option: name={name}, month={month}, day={day}, cron_day={cron_day}')
+
     return (message, audio_id)
 
 

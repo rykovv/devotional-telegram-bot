@@ -31,7 +31,7 @@ class Devotional(Base):
     # telegram file_id for instant sending
     audio_file_ids = Column('audio_file_ids', JSON)
 
-    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, audio_file_id, year_day):
+    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, audio_file_ids, year_day):
         self.name = name
         self.title_date = title_date
         self.title = title
@@ -42,5 +42,5 @@ class Devotional(Base):
         self.paragraphs_count = paragraphs_count
         self.paragraphs = paragraphs
         self.url = url
-        self.audio_file_id = audio_file_id
+        self.audio_file_ids = audio_file_ids
         self.year_day = year_day

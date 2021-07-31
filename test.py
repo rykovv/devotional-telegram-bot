@@ -1,6 +1,8 @@
+from main import devotional
 import re
 import utils.consts as consts
 from utils.utils import shift_12h_tf
+import actors.composer as composer
 
 
 def test_shift_12h_tf():
@@ -28,3 +30,13 @@ def test_subscription_select_pattern():
         print("Search successful.")
     else:
         print("Search unsuccessful.")
+
+def test_composer():
+    # compose a formatted message
+    msg, file_ids = composer.compose(name=consts.DEVOTIONALS_KEYBOARD[0][0], 
+                                    month=7, day=30,
+                                    cron_day=2)
+
+    # send files if available
+    print(file_ids, type(file_ids))
+    print(msg)

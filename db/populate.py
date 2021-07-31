@@ -37,7 +37,7 @@ def populate_devotional_maranatha():
                     paragraphs_count=v['paragraphs_count'], \
                     paragraphs=v['paragraphs'], \
                     url=v['url'], \
-                    audio_file_id=v['audio_file_id'], \
+                    audio_file_ids=v['audio_file_ids'], \
                     year_day=k
                 )
             )
@@ -68,7 +68,7 @@ def populate_book_conflict_of_ages():
                     paragraphs_count=v['paragraphs_count'], \
                     paragraphs=v['paragraphs'], \
                     url=v['url'], \
-                    audio_file_id=v['audio_file_id'], \
+                    audio_file_ids=v['audio_file_ids'], \
                     year_day=None
                 )
             )

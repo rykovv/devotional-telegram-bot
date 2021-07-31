@@ -62,6 +62,7 @@ def send(all=False, month=None, day=None, chat_id=None):
                                                     days_since_epoch(subscription.creation_utc))
 
                     # send files if available
+                    print(file_ids, type(file_ids))
                     _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
 
                     # send text next to the files
