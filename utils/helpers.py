@@ -1,3 +1,4 @@
+from sqlalchemy.sql.sqltypes import Boolean
 from db.base import Session
 from db.subscription import Subscription
 from db.subscriber import Subscriber
@@ -51,15 +52,18 @@ def clean_db(userid) -> None:
         buffer.subscribers[userid].delete()
 
 
-def print_subscription(subscription: Subscription) -> str:
-    return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local}.'
+def print_subscription(subscription: Subscription, skipped: Boolean) -> str:
+    if skipped:
+        return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local} PST del día anterior.'
+    else:
+        return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local}.'
 
 
-def prepare_subscriptions_reply(subscriptions, str_only=False, kb_only=False):
+def prepare_subscriptions_reply(subscriptions, str_only=False, kb_only=False, skipped=False):
     subscriptions_str = ''
     subscriptions_kb = []
     for i, subscription in enumerate(subscriptions):
-        subscriptions_str += f'{i+1}. {print_subscription(subscription)}\n'
+        subscriptions_str += f'{i+1}. {print_subscription(subscription, skipped)}\n'
         if i % consts.SUBSCRIPTIONS_BY_ROW == 0:
             subscriptions_kb.append([str(i+1)])
         else:

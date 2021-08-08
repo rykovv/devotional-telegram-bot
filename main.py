@@ -611,7 +611,7 @@ def select_subscription(update: Update, context: CallbackContext) -> int:
     if subscriber != None and subscriber.has_subscriptions():
         buffer.add_subscriber(subscriber)
 
-        subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(subscriber.subscriptions)
+        subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(subscriber.subscriptions, skipped=subscriber.skipped_timezone())
 
         update.message.reply_text(
             f'{user.first_name}, elija la suscripción que quiere modificar según su número:\n\n'
@@ -634,7 +634,7 @@ def make_adjustments(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
     if not re.match(consts.SUBSCRIPTION_SELECT_PATTERN, update.message.text):
-        subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(buffer.subscribers[user.id].subscriptions)
+        subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(buffer.subscribers[user.id].subscriptions, skipped=buffer.subscribers[user.id].skipped_timezone())
 
         update.message.reply_text(
             f'Disculpe, {user.first_name}, no le he entendido. '
@@ -667,7 +667,7 @@ def get_status(update: Update, context: CallbackContext) -> int:
         if subscriber.skipped_timezone():
             tz = 'desconocida'
 
-        subscriptions_str = prepare_subscriptions_reply(subscriber.subscriptions, str_only=True)
+        subscriptions_str = prepare_subscriptions_reply(subscriber.subscriptions, str_only=True, skipped=subscriber.skipped_timezone())
             
         update.message.reply_text(
             'Aquí tiene el estado de sus suscripciones:\n\n'
