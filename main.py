@@ -663,11 +663,15 @@ def get_status(update: Update, context: CallbackContext) -> int:
     subscriber = fetch_subscriber(user.id)
 
     if subscriber != None and subscriber.has_subscriptions():
+        tz = subscriber.time_zone
+        if subscriber.skipped_timezone():
+            tz = 'desconocida'
+
         subscriptions_str = prepare_subscriptions_reply(subscriber.subscriptions, str_only=True)
-        
+            
         update.message.reply_text(
             'Aquí tiene el estado de sus suscripciones:\n\n'
-            f'Su zona horaria es {subscriber.time_zone}.\n\n'
+            f'Su zona horaria es {tz}.\n\n'
             f'{subscriptions_str}\n'
             'Para hacer algún cambio marque /ajustar.'
         )
