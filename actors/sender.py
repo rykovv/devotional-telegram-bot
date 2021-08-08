@@ -52,7 +52,11 @@ def send(all=False, month=None, day=None, chat_id=None):
                 # check if the subscription is up to date
                 if not _expired_subscription(subscription):
                     if month == None and day == None:
-                        date = get_send_month_day(subscription.preferred_time_utc)
+                        # 5am- UTC is 10pm PST previous day. When skipped_timezone, should send next day
+                        if subscription.preferred_time_utc == '5am-' and fetch_subscriber(subscription.subscriber_id).skipped_timezone():
+                            date = get_send_month_day(subscription.preferred_time_utc, skipped=True)
+                        else:
+                            date = get_send_month_day(subscription.preferred_time_utc)
                     else:
                         date = {'month':month, 'day':day}
                         
@@ -62,7 +66,6 @@ def send(all=False, month=None, day=None, chat_id=None):
                                                     days_since_epoch(subscription.creation_utc))
 
                     # send files if available
-                    print(file_ids, type(file_ids))
                     _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
 
                     # send text next to the files

@@ -56,10 +56,10 @@ def shift_12h_tf(tfrom, offset):
 def get_current_utc_hour():
     return dt.datetime.utcnow().hour
 
-def get_send_month_day(preferred_time):
+def get_send_month_day(preferred_time, skipped=False):
     sendutc = dt.datetime.utcnow()
     
-    if preferred_time[-1] == '-':
+    if preferred_time[-1] == '-' and not skipped:
         sendutc -= dt.timedelta(days=1)
     elif preferred_time[-1] == '+':
         sendutc += dt.timedelta(days=1)
