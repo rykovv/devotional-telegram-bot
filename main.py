@@ -524,7 +524,6 @@ def geo_remove(update: Update, context: CallbackContext) -> int:
     for subscription in subscriber.subscriptions:
         subscription.update_preferred_time_local('10pm')
         subscription.update_utc_offset(-700)
-    subscriber.persist()
 
     update.message.reply_text(
         f'¡Hecho! He eliminado su zona horaria. A partir de ahora recibirá todas sus suscripciones a las 10pm PST del día anterior.\n\n'
