@@ -1,3 +1,4 @@
+from sqlalchemy.sql.operators import op
 from db.base import Base
 
 from sqlalchemy.dialects.postgresql import UUID
@@ -25,13 +26,14 @@ class Devotional(Base):
     paragraphs_count = Column('paragraphs_count', Numeric)
     paragraphs = Column('paragraphs', JSON)
     year_day = Column('year_day', Numeric)
+    optional = Column('optional', String(128))
 
     # youtube link to that devotional
     url = Column('url', String(256))
     # telegram file_id for instant sending
     audio_file_ids = Column('audio_file_ids', JSON)
 
-    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, audio_file_ids, year_day):
+    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, audio_file_ids, year_day, optional):
         self.name = name
         self.title_date = title_date
         self.title = title
@@ -44,3 +46,8 @@ class Devotional(Base):
         self.url = url
         self.audio_file_ids = audio_file_ids
         self.year_day = year_day
+        self.optional = optional
+
+    def questions_range(self):
+        snums = self.optional.split('-')
+        return range(int(snums[0]), int(snums[1])+1)

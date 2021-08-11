@@ -42,3 +42,6 @@ SUBSCRIPTIONS_BY_ROW = 4
 
 ## RE to recognize a two-digit pattern for selecting subscription to modify
 SUBSCRIPTION_SELECT_PATTERN = '^\d(\d)?$'
+
+## number of question options appeared per row during quiz taking
+QUESTIONS_BY_ROW = 2
