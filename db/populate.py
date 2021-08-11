@@ -15,6 +15,8 @@ config.read(consts.CONFIG_FILE_NAME)
 
 MARANATHA_FILE = f'{config["content"]["folder"]}/json/es_MSV76.json'
 CS_FILE = f'{config["content"]["folder"]}/json/es_CS.json'
+CS_STUDY_FILE = f'{config["content"]["folder"]}/json/es_CS_study.json'
+CS_QUIZ_FILE = f'{config["content"]["folder"]}/json/es_CS_quiz.json'
 
 def populate_devotional_maranatha():
     session = Session()
@@ -47,7 +49,7 @@ def populate_devotional_maranatha():
     session.close()
 
 
-def populate_book_conflict_of_ages():
+def populate_book_great_controversy():
     session = Session()
     if not session.query(Devotional).filter(Devotional.name == 'El Conflicto de los Siglos').count() == 43:
         chapters = {}
@@ -77,5 +79,36 @@ def populate_book_conflict_of_ages():
         logger.info('El Conflicto de los Siglos book is aready in the db.')
     session.close()
 
+def populate_study_great_controversy():
+    session = Session()
+    if not session.query(Devotional).filter(Devotional.name == 'El Tiempo de Estar Preparado').count() == 1:
+        chapters = {}
+
+        with open(CS_FILE, 'rb') as fp:
+            chapters = json.load(fp)
+
+        for k, v in chapters.items():
+            session.add(
+                Devotional(
+                    name='El Conflicto de los Siglos', \
+                    title_date=None, \
+                    title=v['title'], \
+                    verse=v['chapter'], \
+                    date=None, \
+                    month=None, \
+                    day=k, \
+                    paragraphs_count=v['paragraphs_count'], \
+                    paragraphs=v['paragraphs'], \
+                    url=v['url'], \
+                    audio_file_ids=v['audio_file_ids'], \
+                    year_day=None
+                )
+            )
+            session.commit()
+    else:
+        logger.info('El Conflicto de los Siglos book is aready in the db.')
+    session.close()
+
 populate_devotional_maranatha()
-populate_book_conflict_of_ages()
+populate_book_great_controversy()
+populate_study_great_controversy()
