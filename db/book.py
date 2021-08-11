@@ -15,7 +15,7 @@ class Book(Base):
     name = Column('name', String(256))
 
     # chapter number
-    chapter_number = Column('chapter_number', String(5))
+    chapter_number = Column('chapter_number', Numeric)
     # chapter title
     chapter_title = Column('chapter_title', String(768))
     # chapter paragraphs count
@@ -23,21 +23,21 @@ class Book(Base):
     # chapter paragraphs, actual content
     paragraphs = Column('paragraphs', JSON)
 
-    # url to a media content for that chapter (i.e. youtube)
-    url = Column('url', String(512))
-    # list of telegram file_ids for instant telegram sending
-    audio_file_ids = Column('audio_file_ids', JSON)
+    # dict with urls to a media content for that chapter (i.e. youtube)
+    urls = Column('urls', JSON)
+    # dict of telegram file_ids for instant telegram sending
+    telegram_file_ids = Column('telegram_file_ids', JSON)
 
     # optional field for any future adaptions
     optional = Column('optional', JSON)
 
-    def __init__(self, id, name, chapter_number, title, paragraphs_count, paragraphs, url, audio_file_ids, optional):
+    def __init__(self, id, name, chapter_number, chapter_title, paragraphs_count, paragraphs, urls, telegram_file_ids, optional):
         self.id = id
         self.name = name
         self.chapter_number = chapter_number
-        self.title = title
+        self.chapter_title = chapter_title
         self.paragraphs_count = paragraphs_count
         self.paragraphs = paragraphs
-        self.url = url
-        self.audio_file_ids = audio_file_ids
+        self.urls = urls
+        self.telegram_file_ids = telegram_file_ids
         self.optional = optional

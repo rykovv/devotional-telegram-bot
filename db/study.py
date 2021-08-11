@@ -33,8 +33,8 @@ class Study(Base):
 
     # list of urls to media content for that study day (i.e. youtube)
     urls = Column('urls', JSON)
-    # list of telegram file_ids for instant telegram sending
-    audio_file_ids = Column('audio_file_ids', JSON)
+    # dict of telegram file_ids for instant telegram sending
+    telegram_file_ids = Column('telegram_file_ids', JSON)
 
     # optional field for any future adaptions
     optional = Column('optional', JSON)
@@ -51,8 +51,8 @@ class Study(Base):
                 paragraphs_count, 
                 paragraphs,
                 questions, 
-                url, 
-                audio_file_ids, 
+                urls, 
+                telegram_file_ids, 
                 optional
     ):
         self.id = id
@@ -65,8 +65,8 @@ class Study(Base):
         self.paragraphs_count = paragraphs_count
         self.paragraphs = paragraphs
         self.questions = questions
-        self.url = url
-        self.audio_file_ids = audio_file_ids
+        self.urls = urls
+        self.telegram_file_ids = telegram_file_ids
         self.optional = optional
 
     def questions_range(self):

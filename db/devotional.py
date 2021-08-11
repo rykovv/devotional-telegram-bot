@@ -16,24 +16,49 @@ class Devotional(Base):
     # devotional name
     name = Column('name', String(256))
 
-    # month and day corresponding to the devotional
+    # written in original language month and day
     title_date = Column('title_day', String(512))
+    # day title
     title = Column('title', String(768))
+    # written date in original language
     date = Column('date', String(128))
-    month = Column('month', String(3))
-    day = Column('day', String(3))
+    # month parsed from the date
+    month = Column('month', Numeric)
+    # day parsed from the day
+    day = Column('day', Numeric)
+    # day Bible verse
     verse = Column('verse', String(1024))
+    # paragraphs count in a devotional
     paragraphs_count = Column('paragraphs_count', Numeric)
+    # devotional text, actual content
     paragraphs = Column('paragraphs', JSON)
+    # year day of the devotional
     year_day = Column('year_day', Numeric)
-    optional = Column('optional', String(128))
 
-    # youtube link to that devotional
-    url = Column('url', String(256))
-    # telegram file_id for instant sending
-    audio_file_ids = Column('audio_file_ids', JSON)
+    # dict with urs for different resources, i.e. YouTube
+    urls = Column('urls', JSON)
+    # dict of telegram file_ids for instant telegram sending
+    telegram_file_ids = Column('telegram_file_ids', JSON)
 
-    def __init__(self, name, title_date, title, date, month, day, verse, paragraphs_count, paragraphs, url, audio_file_ids, year_day, optional):
+    # optional JSON field for possible extentions and adaptions
+    optional = Column('optional', JSON)
+
+    def __init__(
+        self, 
+        name, 
+        title_date, 
+        title, 
+        date, 
+        month, 
+        day, 
+        verse, 
+        paragraphs_count, 
+        paragraphs, 
+        urls, 
+        telegram_file_ids, 
+        year_day, 
+        optional
+    ):
         self.name = name
         self.title_date = title_date
         self.title = title
@@ -43,11 +68,7 @@ class Devotional(Base):
         self.verse = verse
         self.paragraphs_count = paragraphs_count
         self.paragraphs = paragraphs
-        self.url = url
-        self.audio_file_ids = audio_file_ids
+        self.urls = urls
+        self.telegram_file_ids = telegram_file_ids
         self.year_day = year_day
         self.optional = optional
-
-    def questions_range(self):
-        snums = self.optional.split('-')
-        return range(int(snums[0]), int(snums[1])+1)
