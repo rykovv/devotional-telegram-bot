@@ -31,8 +31,7 @@ class Book(Base):
     # optional field for any future adaptions
     optional = Column('optional', JSON)
 
-    def __init__(self, id, name, chapter_number, chapter_title, paragraphs_count, paragraphs, urls, telegram_file_ids, optional):
-        self.id = id
+    def __init__(self, name, chapter_number, chapter_title, paragraphs_count, paragraphs, urls, telegram_file_ids, optional=None):
         self.name = name
         self.chapter_number = chapter_number
         self.chapter_title = chapter_title

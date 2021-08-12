@@ -28,6 +28,8 @@ class Study(Base):
     paragraphs_count = Column('paragraphs_count', Numeric)
     # chapter paragraphs, actual content
     paragraphs = Column('paragraphs', JSON)
+    # paragraphs range within the chapter
+    chapter_paragraphs = Column('chapter_paragraphs', String(10))
     # questions range related to a study day
     questions = Column('questions', String(10))
 
@@ -40,22 +42,22 @@ class Study(Base):
     optional = Column('optional', JSON)
 
 
-    def __init__(self, 
-                id, 
-                book_name, 
-                study_name, 
-                chapter_number, 
-                chapter_title, 
-                day,
-                verse,
-                paragraphs_count, 
-                paragraphs,
-                questions, 
-                urls, 
-                telegram_file_ids, 
-                optional
+    def __init__(
+        self, 
+        book_name, 
+        study_name, 
+        chapter_number, 
+        chapter_title, 
+        day,
+        verse,
+        paragraphs_count, 
+        paragraphs,
+        chapter_paragraphs,
+        questions, 
+        urls, 
+        telegram_file_ids, 
+        optional=None
     ):
-        self.id = id
         self.book_name = book_name
         self.study_name = study_name
         self.chapter_number = chapter_number
@@ -64,6 +66,7 @@ class Study(Base):
         self.verse = verse
         self.paragraphs_count = paragraphs_count
         self.paragraphs = paragraphs
+        self.chapter_paragraphs = chapter_paragraphs
         self.questions = questions
         self.urls = urls
         self.telegram_file_ids = telegram_file_ids

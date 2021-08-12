@@ -15,17 +15,17 @@ class Quiz(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     # subscription id. All quizzes are related to some subscription. 
     #   Subscruotion represents a study/reading
-    subscription_id = Column(Numeric, ForeignKey('subscriptions.id'))
+    subscription_id = Column(UUID(as_uuid=True), ForeignKey('subscriptions.id'))
     # Book name to which a quiz is related
     book_name = Column('book_name', String(256), nullable=False)
     # Study name to which a quiz is related
     study_name = Column('study_name', String(256))
     # study day related to a quiz
-    day = Column('day', String(3), nullable=False)
+    day = Column('day', Numeric, nullable=False)
     # chapter on which a quiz has been based
-    chapter = Column('chapter', String(64))
+    chapter = Column('chapter', Numeric)
     # numbers of questions within chapter
-    questions_range = Column('chapter', String(10))
+    questions = Column('questions', String(10))
 
     # correct answers counter
     correct = Column('correct', Numeric, default=0)
@@ -45,8 +45,7 @@ class Quiz(Base):
     current_question = 0
 
 
-    def __init__(self, id, subscription_id, book_name, study_name, day, chapter, questions_range, total, chapter_quiz, completion_utc):
-        self.id = id
+    def __init__(self, subscription_id, book_name, study_name, day, chapter, questions_range, total, chapter_quiz, completion_utc):
         self.subscription_id = subscription_id
         self.book_name = book_name
         self.study_name = study_name
