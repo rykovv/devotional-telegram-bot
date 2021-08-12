@@ -52,7 +52,7 @@ def clean_db(userid) -> None:
         buffer.subscribers[userid].delete()
 
 
-def print_subscription(subscription: Subscription, skipped: Boolean) -> str:
+def print_subscription(subscription: Subscription, skipped: Boolean = False) -> str:
     if skipped:
         return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local} PST del día anterior.'
     else:
