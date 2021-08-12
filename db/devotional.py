@@ -57,7 +57,7 @@ class Devotional(Base):
         urls, 
         telegram_file_ids, 
         year_day, 
-        optional
+        optional=None
     ):
         self.name = name
         self.title_date = title_date
