@@ -19,6 +19,12 @@ from telegram.ext import (
 import utils.consts as consts
 import utils.buffer as buffer
 
+from db.subscriber import Subscriber
+from db.subscription import Subscription
+from db.statistics import Statistics
+
+import db.populate
+
 from utils.utils import (
     get_epoch, 
     utc_offset_to_int, 
@@ -34,12 +40,6 @@ from utils.helpers import (
     print_subscription,
     prepare_subscriptions_reply,
 )
-
-from db.subscriber import Subscriber
-from db.subscription import Subscription
-from db.statistics import Statistics
-
-import db.populate
 
 import actors.scheduler as scheduler
 import actors.sender as sender
