@@ -1,0 +1,1 @@
+TelegramKeyboard = list[list[str]]
