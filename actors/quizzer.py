@@ -5,34 +5,34 @@ from db.subscription import Subscription
 from db.quiz import Quiz
 from db.question import Question
 from db.subscription import Subscription
-from db.devotional import Devotional
+from db.study import Study
 
 from actors import composer
 
 from utils import buffer
 from utils.utils import days_since_epoch
+from utils.types import TelegramKeyboard
 
-def start_quiz(subscriber_id: int, subscription: Subscription) -> str:
+
+def start_quiz(subscriber_id: int, subscription: Subscription) -> tuple(str, TelegramKeyboard):
     subscription_day = days_since_epoch(subscription.creation_utc)
     
     session = Session()
-    devotional = session \
-        .query(Devotional) \
+    study = session \
+        .query(Study) \
         .filter( \
-            Devotional.name == subscription.devotional_name, 
-            Devotional.day == str(days_since_epoch(subscription.creation_utc))) \
+            Study.book_name == subscription.devotional_name, 
+            Study.day == days_since_epoch(subscription.creation_utc)) \
         .all()[0]
-    chapter = devotional.verse.split(' ')[1]
     days_in_chapter = session \
-        .query(Devotional) \
+        .query(Study) \
         .filter(
-            Devotional.name == subscription.devotional_name, 
-            Devotional.verse==f'Capítulo {chapter}') \
+            Study.book_name == subscription.devotional_name, 
+            Study.chapter==study.chapter) \
         .count()
-    inchapter_quizzes = session.query(Quiz).filter(Quiz.chapter == chapter).count()
+    inchapter_quizzes = session.query(Quiz).filter(Quiz.chapter == study.chapter).count()
     session.close()
 
-    questions_range = devotional.optional
     # if days_in_chapter == inchapter_quizzes:
     #    questions_range = random list of 10 questions between the first and the last question of the chapter
 
@@ -43,22 +43,23 @@ def start_quiz(subscriber_id: int, subscription: Subscription) -> str:
             book_name=subscription.devotional_name, 
             study_name='El Tiempo de Estar Preparado',
             day=subscription_day,
-            questions_range=questions_range,
-            chapter=chapter,
-            total=len(devotional.questions_range()),
+            questions_range=study.questions,
+            chapter=study.chapter,
+            total=len(study.questions_range()),
             chapter_quiz=(days_in_chapter == inchapter_quizzes)
         )
     )
 
+    question_str, telegram_keyboard = next_question(subscriber_id)
     preface =   'Querído hermano/a, º\n\n' \
                 f'Usted empieza el cuestionario asociado al día {subscription_day}. ' \
-                f'Está compuesto de {len(devotional.questions_range())} preguntas. ' \
+                f'Está compuesto de {len(study.questions_range())} preguntas. ' \
                 f'¡Empecemos!\n\n' \
-                f'{next_question(subscriber_id)}'
+                f'{question_str}'
 
-    return preface
+    return preface, telegram_keyboard
 
-def next_question(subscriber_id: int, prev_response: str) -> tuple(str, list[list[str]]):
+def next_question(subscriber_id: int, prev_response: str = None) -> tuple(str, TelegramKeyboard):
     question_str = ''
     
     questions_range = buffer.quizzes[subscriber_id].get_questions_range()
@@ -85,6 +86,8 @@ def next_question(subscriber_id: int, prev_response: str) -> tuple(str, list[lis
         question_str += f'Pregunta {buffer.quizzes[subscriber_id].current_question+1} de {buffer.quizzes[subscriber_id].total}\n\n' \
                         f'{question.question}\n\n' \
                         f'{question.make_str_options()}'
+        buffer.quizzes[subscriber_id].current_question += 1
+        
         return question_str, question.make_telegram_keyboard()
     else:
         buffer.quizzes[subscriber_id].make_knowledge()
@@ -108,10 +111,10 @@ def quiz_report(subscriber_id: int) -> tuple(str, bool):
     
     session = Session()
     days_in_chapter = session \
-        .query(Devotional) \
+        .query(Study) \
         .filter(
-            Devotional.name == buffer.quizzes[subscriber_id].book_name, 
-            Devotional.verse == f'Capítulo {buffer.quizzes[subscriber_id].chapter}') \
+            Study.book_name == buffer.quizzes[subscriber_id].book_name, 
+            Study.chapter_number == buffer.quizzes[subscriber_id].chapter) \
         .count()
     inchapter_quizzes = session.query(Quiz).filter(Quiz.chapter == buffer.quizzes[subscriber_id].chapter).count()
     session.close()
