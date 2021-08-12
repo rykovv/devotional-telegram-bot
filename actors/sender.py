@@ -155,12 +155,16 @@ def report_exception(exception):
     
 
 def _send_document(bot, subscriber_id, file_ids, least_ms):
-    global _last_send_timestamp
-    for file_id in file_ids:
-        while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
-            pass
-        bot.send_document(chat_id=str(subscriber_id), document=file_id)
-        _last_send_timestamp = dt.datetime.utcnow()
+    # do not send documents in test deployment, they are binded to the production bot
+    if config['deployment']['build'] != 'test':
+        global _last_send_timestamp
+        # send files without order. see json structure for order
+        for file_id_list in file_ids.values():
+            for file_id in file_id_list:
+                while (dt.datetime.utcnow() - _last_send_timestamp) < dt.timedelta(milliseconds=least_ms):
+                    pass
+                bot.send_document(chat_id=str(subscriber_id), document=file_id)
+                _last_send_timestamp = dt.datetime.utcnow()
 
 
 def _send_message(bot, subscriber_id, msg, least_ms):
