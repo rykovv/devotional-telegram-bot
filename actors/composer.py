@@ -1,37 +1,40 @@
-from db.devotional import Devotional
 from db.base import Session
 
+from db.devotional import Devotional
+from db.book import Book
+from db.study import Study
+
+from utils.consts import MATERIAL_TYPES
 
 def compose(name, month, day, cron_day):
-    message = ''
-    audio_id = []
-    if name == '¡Maranata: El Señor Viene!':
-        message, audio_id = compose_devotional_message(name, day, month)
-    elif name == 'El Conflicto de los Siglos':
-        message, audio_id = compose_book_message(name, str(cron_day+1))
+    if MATERIAL_TYPES[name] == 'Devotional':
+        message, file_ids = compose_devotional_message(name, day, month)
+    elif MATERIAL_TYPES[name] == 'Book':
+        message, file_ids = compose_book_message(name, cron_day+1)
+    elif MATERIAL_TYPES[name] == 'Study':
+        message, file_ids = compose_study_message(name, cron_day+1)
     else:
-        raise Exception(f'Unknown devotional option: name={name}, month={month}, day={day}, cron_day={cron_day}')
+        raise Exception(f'Unknown devotional option: name={name}, month={month}, day={day}, cron_day={cron_day+1}')
 
-    return (message, audio_id)
+    return message, file_ids
 
 
 def compose_devotional_message(name, day, month):
     session = Session()
-    devotional = session.query(Devotional).filter(Devotional.name == name, Devotional.month == str(month), Devotional.day == str(day)).all()
+    devotional = session.query(Devotional).filter(Devotional.name == name, Devotional.month == month, Devotional.day == day).all()
     session.close()
-    audio_id = []
-    if devotional != []:
+    try:
         devotional = devotional[0]
         # text portion composition
         message = f'\U0001F4C5<b> {devotional.date}</b>\n\U0001F4C3 <b>{devotional.title}</b>\n\n <i>\U0001F4D6 {devotional.verse}</i>\n\n'
-        for k, v in devotional.paragraphs.items():
-            message += (v + '\n\n')
-        # video url tailing
-        message += f'{devotional.url}'
-        # telegram file_id capturing
-        if devotional.audio_file_ids != None:
-            audio_id = devotional.audio_file_ids
-    else:
+        for paragraph in devotional.paragraphs:
+            message += (paragraph + '\n\n')
+        # urls tailing
+        for source, url in devotional.urls.items():
+            message += f'{source}: {url}\n'
+
+        return message, devotional.telegram_file_ids
+    except:
         message =   'Querido hermano/a,\n\n' \
                     'Lamentablemente, esta matutina originalmente no tiene este día. ' \
                     'Mañana Usted va a recibir el devocional del día. ' \
@@ -39,31 +42,55 @@ def compose_devotional_message(name, day, month):
                     'Pedimos nuestras disculpas,\n' \
                     'El equipo de Una Mirada de Fe y Esperanza'
 
-    return (message, audio_id)
+        return message, {}
 
 
 def compose_book_message(name, day):
     session = Session()
-    devotional = session.query(Devotional).filter(Devotional.name == name, Devotional.day == str(day)).all()
+    chapter = session.query(Book).filter(Book.name == name, Book.chapter_number == day).all()
     session.close()
-    audio_id = []
-    if devotional != []:
-        devotional = devotional[0]
+    try:
+        chapter = chapter[0]
         # text portion composition
-        message = f'\U0001F4D6<b> {devotional.verse}</b>\n\U0001F4C3 <b>{devotional.title}</b>\n\n'
-        for k, v in devotional.paragraphs.items():
-            message += (v + '\n\n')
+        message = f'\U0001F4D6<b> Capítulo {chapter.chapter_number}</b>\n\U0001F4C3 <b>{chapter.chapter_title}</b>\n\n'
+        for paragraph in chapter.paragraphs:
+            message += (paragraph + '\n\n')
         # video url tailing
-        message += f'{devotional.url}'
-        # telegram file_id capturing
-        if devotional.audio_file_ids != None:
-            audio_id = devotional.audio_file_ids
-    else:
+        for source, url in chapter.urls.items():
+            message += f'{source}: {url}'
+        
+        return message, chapter.telegram_file_ids
+    except:
         message =   'Querido hermano/a,\n\n' \
                     'Lamentablemente, esta lectura ha llegado a su fin. ' \
                     'Usted ya ha recibido todos los capítulos y no hay nada más que enviar.\n\n' \
                     'Esperamos mucho que haya sido de bendición espíritual.\n' \
-                    'Que el Señor le bendiga,\n' \
+                    '¡Felicidades por terminar la lectura!\n' \
                     'El equipo de Una Mirada de Fe y Esperanza'
 
-    return (message, audio_id)
+        return message, {}
+
+def compose_study_message(name, day):
+    session = Session()
+    study = session.query(Study).filter(Study.book_name == name, Study.day == day).all()
+    session.close()
+    try:
+        study = study[0]
+        # text portion composition
+        message =   f'\U0001F4C5 <b>Día {study.day}</b>\n\U0001F4C3 <b>{study.chapter_title}, párrafos {study.chapter_paragraphs}</b>\n\n' \
+                    f'<i>\U0001F4D6 {study.verse}</i>\n\n'
+        for paragraph in study.paragraphs:
+            message += (paragraph + '\n\n')
+        # urls tailing
+        for source, url in study.urls.items():
+            message += f'{source}: {url}\n'
+
+        return message, study.telegram_file_ids
+    except:
+        message =   'Querido hermano/a,\n\n' \
+                    'Usted ya ha recibido todos los días de este estudio y no hay nada más que enviar.\n\n' \
+                    'Esperamos mucho que haya sido de bendición espíritual para Usted.\n' \
+                    '¡Felicidades por terminar el estudio!\n' \
+                    'El equipo de Una Mirada de Fe y Esperanza'
+
+        return message, {}
