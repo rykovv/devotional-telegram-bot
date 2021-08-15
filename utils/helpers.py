@@ -1,11 +1,17 @@
+from db.question import Question
 from sqlalchemy.sql.sqltypes import Boolean
+from sqlalchemy.sql import func
 from db.base import Session
 from db.subscription import Subscription
 from db.subscriber import Subscriber
+from db.study import Study
+from db.quiz import Quiz
+from db.question import Question
 import actors.actuary as actuary
 
 import utils.buffer as buffer
 import utils.consts as consts
+from utils.utils import extract_material_name
 
 
 def fetch_subscriber(id) -> Subscriber:
@@ -15,6 +21,17 @@ def fetch_subscriber(id) -> Subscriber:
 
     return subscriber
 
+def fetch_question(subscriber_id, questions_range, question_range_index) -> Question:
+    session = Session()
+    question = session \
+        .query(Question) \
+        .filter(
+            Question.book_name == buffer.quizzes[subscriber_id].book_name,
+            Question.chapter_number == buffer.quizzes[subscriber_id].chapter,
+            Question.number == questions_range[question_range_index]) \
+        .all()[0]
+    session.close()
+    return question
 
 def process_send_exception(exception, subscription) -> str:
     if str(exception) == 'Forbidden: bot was blocked by the user':
@@ -70,3 +87,33 @@ def prepare_subscriptions_reply(subscriptions, str_only=False, kb_only=False, sk
             subscriptions_kb[i//consts.SUBSCRIPTIONS_BY_ROW].append(str(i+1))
 
     return (subscriptions_str if str_only else (subscriptions_kb if kb_only else subscriptions_str, subscriptions_kb))
+
+def average_study_knowledge(subscriber_id: int):
+    session = Session()
+    average_by_day = session \
+        .query(func.avg(Quiz.knowledge)) \
+        .filter(
+            Quiz.subscription_id == buffer.quizzes[subscriber_id].subscription_id, 
+            Quiz.chapter_quiz == False).scalar()
+    # average_by_chapter = session \
+    #     .query(func.avg(Quiz.knowledge)) \
+    #     .filter(
+    #         Quiz.subscription_id == buffer.quizzes[subscriber_id].subscription_id, 
+    #         Quiz.chapter_quiz == True).scalar()
+    session.close()
+    # print(average_by_chapter, average_by_day, type(average_by_day))
+
+    # if average_by_chapter == None:
+    #     print(f'by_day : {average_by_day}, by_chapter : {average_by_chapter}, total : {average_by_day*consts.QUIZ_DAY_PONDERATION}')
+    #     return average_by_day
+    # else:
+    #     print(f'by_day : {average_by_day}, by_chapter : {average_by_chapter}, total : {average_by_day*consts.QUIZ_DAY_PONDERATION + average_by_chapter*consts.QUIZ_CHAPTER_PONDERATION}')
+    #     return (average_by_day*consts.QUIZ_DAY_PONDERATION + average_by_chapter*consts.QUIZ_CHAPTER_PONDERATION)
+    return average_by_day
+
+
+def chapter_questions_count(study: Study) -> int:
+    session = Session()
+    count = session.query(Question).filter(Question.book_name == study.book_name, Question.chapter_number == study.chapter_number).count()
+    session.close()
+    return count
