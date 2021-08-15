@@ -55,7 +55,7 @@ def populate_devotional_maranatha():
 
 def populate_book_great_controversy():
     session = Session()
-    if session.query(Book).filter(Book.name == 'Libro: El Conflicto de los Siglos').count() != consts.GREAT_CONTROVERSY_CHAPTERS_COUNT:
+    if session.query(Book).filter(Book.name == 'El Conflicto de los Siglos').count() != consts.GREAT_CONTROVERSY_CHAPTERS_COUNT:
         chapters = []
 
         with open(CS_FILE, 'rb') as fp:
@@ -80,7 +80,7 @@ def populate_book_great_controversy():
 
 def populate_study_great_controversy():
     session = Session()
-    if session.query(Study).filter(Study.book_name == 'Estudio: El Conflicto de los Siglos').count() != consts.GREAT_CONTROVERSY_STUDY_DAYS_COUNT:
+    if session.query(Study).filter(Study.book_name == 'El Conflicto de los Siglos').count() != consts.GREAT_CONTROVERSY_STUDY_DAYS_COUNT:
         studies = []
 
         with open(CS_STUDY_FILE, 'rb') as fp:
