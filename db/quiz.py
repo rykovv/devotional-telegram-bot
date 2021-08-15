@@ -43,14 +43,28 @@ class Quiz(Base):
 
     # local variable
     current_question = 0
+    questions_range = []
 
 
-    def __init__(self, subscription_id, book_name, study_name, day, chapter, questions_range, total, chapter_quiz, completion_utc):
+    def __init__(
+        self, 
+        subscription_id, 
+        book_name, 
+        study_name, 
+        day, 
+        chapter, 
+        questions, 
+        questions_range, 
+        total, 
+        chapter_quiz, 
+        completion_utc
+    ):
         self.subscription_id = subscription_id
         self.book_name = book_name
         self.study_name = study_name
         self.day = day
         self.chapter = chapter
+        self.questions = questions
         self.questions_range = questions_range
         self.total = total
         self.chapter_quiz = chapter_quiz
@@ -86,7 +100,3 @@ class Quiz(Base):
         self.completion_utc = get_epoch()
         
         return int(self.knowledge*100)
-
-    def get_questions_range(self) -> list[int]:
-        snums = self.questions_range.split('-')
-        return range(int(snums[0]), int(snums[1])+1)
