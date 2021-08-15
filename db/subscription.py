@@ -28,7 +28,7 @@ class Subscription(Base):
 
     # this relatoin is necessary for cascade drop on subscription removing.
     #   however, it is not necessary to load all the quizzes every time.
-    quizzes = relationship('Quiz', cascade='all, delete, delete-orphan', lazy='noload')
+    quizzes = relationship('Quiz', cascade='all, delete, delete-orphan')
 
     # -700 is PST to UTC offset (in summer)
     def __init__(self, subscriber_id, devotional_name=None, preferred_time_local='10pm', utc_offset=-700, creation_utc=get_epoch()):
