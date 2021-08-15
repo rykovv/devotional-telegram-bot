@@ -68,7 +68,7 @@ class Question(Base):
 
     def make_telegram_keyboard(self) -> TelegramKeyboard:
         kb = []
-        for i in range(self.options):
+        for i in range(len(self.options)):
             if i % QUESTIONS_BY_ROW == 0:
                 kb.append([ascii_lowercase[i]])
             else:
