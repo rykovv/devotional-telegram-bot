@@ -1,4 +1,5 @@
 from configparser import ConfigParser
+from db.base import Session
 import re
 from sqlalchemy.sql.sqltypes import TIME
 
@@ -44,6 +45,7 @@ from utils.helpers import (
 import actors.scheduler as scheduler
 import actors.sender as sender
 import actors.actuary as actuary
+import actors.quizzer as quizzer
 
 
 # Setup the config
@@ -53,9 +55,9 @@ config.read(consts.CONFIG_FILE_NAME)
 logger = get_logger()
 
 START_FIRST_SUBSCRIPTION, ADD_NEW_SUBSCRIPTION, TIME_ZONE, PREFERRED_TIME, \
-NEW_SUBSCRIPTION_KEEP_PREFERENCES, MAKE_ADJUSTMENTS, \
-DEVOTIONAL, CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, \
-CHANGE_PREFERRED_TIME, CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION = range(13)
+NEW_SUBSCRIPTION_KEEP_PREFERENCES, MAKE_ADJUSTMENTS, DEVOTIONAL, \
+CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, CHANGE_PREFERRED_TIME, \
+CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION, QUIZ = range(14)
 
 tf = TimezoneFinder()
 
@@ -852,6 +854,44 @@ def contact(update: Update, context: CallbackContext) -> int:
 
     return ConversationHandler.END
 
+def take_quiz(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    if quizzer.quiz_finished(user.id):
+        reply_msg, last_quiz = quizzer.quiz_report(user.id, update.message.text)
+
+        update.message.reply_text(
+            reply_msg,
+            reply_markup=ReplyKeyboardRemove(),
+        )
+
+        return ConversationHandler.END
+    elif quizzer.quiz_started(user.id):
+        reply_msg, reply_kb = quizzer.next_question(user.id, update.message.text)
+        update.message.reply_text(
+            reply_msg,
+            reply_markup=ReplyKeyboardMarkup(
+                reply_kb, one_time_keyboard=False, input_field_placeholder='¿Tu respuesta?'
+            ),
+        )
+        return QUIZ
+    else:
+        session = Session()
+        study_subscriptions = session.query(Subscription).filter(Subscription.devotional_name.ilike(f'Estudio%')).all()
+        session.close()
+        if len(study_subscriptions) > 0:
+            reply_msg, reply_kb = quizzer.start_quiz(user.id, study_subscriptions[0])
+
+            update.message.reply_text(
+            reply_msg,
+            reply_markup=ReplyKeyboardMarkup(
+                reply_kb, one_time_keyboard=False, input_field_placeholder='¿Tu respuesta?'
+            ),
+        )
+
+        return QUIZ
+
+
 def main() -> None:
     """Run the bot."""
     # Create the Updater and pass it your bot's token.
@@ -872,7 +912,9 @@ def main() -> None:
             CommandHandler('recuento', get_statistics),
             CommandHandler('admin_mensaje', admin_message, pass_args=True),
             CommandHandler('admin_rafaga', admin_burst, pass_args=True),
-            CommandHandler('admin_recuento', get_admin_statistics)],
+            CommandHandler('admin_recuento', get_admin_statistics),
+            CommandHandler('cuestionario', take_quiz)
+        ],
         states={
             START_FIRST_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, start_first_subscription)],
             ADD_NEW_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, add_new_subscription)],
@@ -897,6 +939,7 @@ def main() -> None:
             CHANGE_PREFERRED_TIME: [MessageHandler(Filters.text & ~Filters.command, change_preferred_time)],
             CHANGE_DEVOTIONAL: [MessageHandler(Filters.text & ~Filters.command, change_devotional)],
             UNSUBSCRIPTION_CONFIRMATION: [MessageHandler(Filters.text & ~Filters.command, unsubscription_confirmation)],
+            QUIZ: [MessageHandler(Filters.text & ~Filters.command, take_quiz)],
         },
         fallbacks=[CommandHandler('cancelar', cancelar)],
     )
