@@ -22,7 +22,7 @@ class Quiz(Base):
     study_name = Column('study_name', String(256))
     # study day related to a quiz
     day = Column('day', Numeric, nullable=False)
-    # chapter on which a quiz has been based
+    # chapter number on which a quiz has been based
     chapter = Column('chapter', Numeric)
     # numbers of questions within chapter
     questions = Column('questions', String(10))
@@ -56,6 +56,9 @@ class Quiz(Base):
         self.chapter_quiz = chapter_quiz
         self.completion_utc = completion_utc
         self.current_question = 0
+        self.correct = 0
+        self.wrong = 0
+        self.knowledge = .0
 
     def persist(self):
         session = Session()
@@ -70,29 +73,17 @@ class Quiz(Base):
         session.close()
 
     def finished(self) -> bool:
-        return (self.current_question < self.total)
+        return (self.current_question >= self.total)
 
     def add_correct(self):
-        session = Session()
         self.correct += 1
-        session.add(self)
-        session.commit()
-        session.close()
-
+        
     def add_wrong(self):
-        session = Session()
         self.wrong += 1
-        session.add(self)
-        session.commit()
-        session.close()
-
+        
     def make_knowledge(self) -> int:
-        session = Session()
-        self.knowledge = self.correct/self.total
+        self.knowledge = (self.correct/self.total)*100
         self.completion_utc = get_epoch()
-        session.add(self)
-        session.commit()
-        session.close()
         
         return int(self.knowledge*100)
 
