@@ -73,7 +73,6 @@ def send(all=False, month=None, day=None, chat_id=None):
                     
                     sent += 1
                 else:
-                    subscriber_id = subscription.subscriber_id
                     msg =   'Querido hermano/hermana,\n\n' \
                             'Ya ha pasado un año desde que Usted está recibiendo los devocionales ' \
                             f'{subscription.devotional_name}. Nos alegra inmensamente que ha podido ' \
@@ -85,8 +84,6 @@ def send(all=False, month=None, day=None, chat_id=None):
                             'El equipo de Una Mirada de Fe y Esperanza'
                     _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
                     subscription.delete()
-                    if subscriptions_count(subscriber_id) == 0:
-                        fetch_subscriber(subscriber_id).delete()
 
                 done = True
             except Exception as e:

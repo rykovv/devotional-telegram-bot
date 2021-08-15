@@ -82,14 +82,13 @@ def start(update: Update, context: CallbackContext) -> int:
         return START_FIRST_SUBSCRIPTION
     else:
         buffer.add_subscriber(subscriber)
-        if subscriber.subscriptions != []:
-            update.message.reply_text(
-                f'¡Me alegro verle de vuelta, {user.first_name}!\n\n'
-                '¿Quiere hacer una nueva suscripción?',
-                reply_markup=ReplyKeyboardMarkup(
-                    consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
-                ),
-            )
+        update.message.reply_text(
+            f'¡Me alegro verle de vuelta, {user.first_name}!\n\n'
+            '¿Quiere hacer una nueva suscripción?',
+            reply_markup=ReplyKeyboardMarkup(
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+            ),
+        )
         return ADD_NEW_SUBSCRIPTION
         
 
@@ -140,15 +139,40 @@ def add_new_subscription(update: Update, context: CallbackContext) -> int:
         return ADD_NEW_SUBSCRIPTION
 
     if update.message.text == 'Sí':
-        update.message.reply_text(
-            f'¡Estupendo, {user.first_name}! ¿Quiere mantener las preferencias de envío de su última suscripción? '
-            'La puede ver abajo: \n\n'
-            f'{print_subscription(buffer.subscribers[user.id].subscriptions[-1])}',
-            reply_markup=ReplyKeyboardMarkup(
-                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
-            ),
-        )
-        return NEW_SUBSCRIPTION_KEEP_PREFERENCES
+        if buffer.subscribers[user.id].has_subscriptions():
+            update.message.reply_text(
+                f'¡Estupendo, {user.first_name}! ¿Quiere mantener las preferencias de envío de su última suscripción? '
+                'La puede ver abajo: \n\n'
+                f'{print_subscription(buffer.subscribers[user.id].subscriptions[-1])}',
+                reply_markup=ReplyKeyboardMarkup(
+                    consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿Sí?'
+                ),
+            )
+            return NEW_SUBSCRIPTION_KEEP_PREFERENCES
+        else:
+            if not buffer.subscribers[user.id].skipped_timezone():
+                update.message.reply_text(
+                    f'Recuerdo que su zona horaria era {buffer.subscribers[user.id].time_zone}.\n\n'
+                    '¿A qué hora querría recibir el material? (am - mañana, pm - tarde)',
+                    reply_markup=ReplyKeyboardMarkup(
+                        consts.HOUR_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Cuál es su hora preferida?'
+                    ),
+                )
+                now_utc = pytz.utc.localize(datetime.datetime.utcnow())
+                now_user = now_utc.astimezone(pytz.timezone(buffer.subscribers[user.id].time_zone))
+                buffer.add_subscription(Subscription(subscriber_id=user.id, utc_offset=utc_offset_to_int(now_user.isoformat()[-6:]), creation_utc=get_epoch()))
+                return PREFERRED_TIME
+            else:
+                update.message.reply_text(
+                    '¡De acuerdo! Recuerdo que Usted no había indicado su zona horaria y por lo tanto recibiría '
+                    'las matutinas/lecturas a las 10pm Pacific Standard Time (PST) del día anterior.\n\n'
+                    '¿Qué devocional/lectura querría recibir?',
+                    reply_markup=ReplyKeyboardMarkup(
+                        consts.DEVOTIONALS_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Maranata?'
+                    ),
+                )
+                buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700, creation_utc=get_epoch()))
+                return DEVOTIONAL
     elif update.message.text == 'No':
         buffer.clean(user.id)
 
@@ -980,7 +1004,7 @@ def main() -> None:
             CHANGE_DEVOTIONAL: [MessageHandler(Filters.text & ~Filters.command, change_devotional)],
             UNSUBSCRIPTION_CONFIRMATION: [MessageHandler(Filters.text & ~Filters.command, unsubscription_confirmation)],
             QUIZ: [MessageHandler(Filters.text & ~Filters.command, take_quiz)],
-            MATERIAL_UNSUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, material_unsubscription_confirmation)],
+            MATERIAL_UNSUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, material_unsubscription_confirmation)]
         },
         fallbacks=[CommandHandler('cancelar', cancelar)],
     )
