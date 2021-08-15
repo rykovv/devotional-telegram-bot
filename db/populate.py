@@ -64,7 +64,7 @@ def populate_book_great_controversy():
         for chapter in chapters:
             session.add(
                 Book(
-                    name='Libro: El Conflicto de los Siglos', \
+                    name='El Conflicto de los Siglos', \
                     chapter_number=chapter['chapter_number'], \
                     chapter_title=chapter['chapter_title'], \
                     paragraphs_count=chapter['paragraphs_count'], \
@@ -89,7 +89,7 @@ def populate_study_great_controversy():
         for study in studies:
             session.add(
                 Study(
-                    book_name='Estudio: El Conflicto de los Siglos', \
+                    book_name='El Conflicto de los Siglos', \
                     study_name='El Tiempo de Estar Preparado', \
                     chapter_number=study['chapter_number'], \
                     chapter_title=study['chapter_title'], \
