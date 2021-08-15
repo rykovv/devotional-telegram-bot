@@ -93,8 +93,7 @@ def average_study_knowledge(subscriber_id: int):
     average_by_day = session \
         .query(func.avg(Quiz.knowledge)) \
         .filter(
-            Quiz.subscription_id == buffer.quizzes[subscriber_id].subscription_id, 
-            Quiz.chapter_quiz == False).scalar()
+            Quiz.subscription_id == buffer.quizzes[subscriber_id].subscription_id).scalar()
     # average_by_chapter = session \
     #     .query(func.avg(Quiz.knowledge)) \
     #     .filter(

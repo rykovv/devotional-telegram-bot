@@ -92,3 +92,8 @@ def days_since_epoch(epoch):
 def extract_material_name(subscription_name: str) -> str:
     category_name = subscription_name.split(':')
     return category_name[0] if len(category_name) < 2 else category_name[1].strip()
+
+# make inclusive range from str, e.g. 1-3 -> [1,2,3]
+def make_inclusive_range(str) -> list[int]:
+    snums = str.split('-')
+    return range(int(snums[0]), int(snums[1])+1)
