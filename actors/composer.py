@@ -5,6 +5,7 @@ from db.book import Book
 from db.study import Study
 
 from utils.consts import MATERIAL_TYPES
+from utils.utils import extract_material_name
 
 def compose(name, month, day, cron_day):
     if MATERIAL_TYPES[name] == 'Devotional':
@@ -21,7 +22,7 @@ def compose(name, month, day, cron_day):
 
 def compose_devotional_message(name, day, month):
     session = Session()
-    devotional = session.query(Devotional).filter(Devotional.name == name, Devotional.month == month, Devotional.day == day).all()
+    devotional = session.query(Devotional).filter(Devotional.name == extract_material_name(name), Devotional.month == month, Devotional.day == day).all()
     session.close()
     try:
         devotional = devotional[0]
@@ -47,7 +48,7 @@ def compose_devotional_message(name, day, month):
 
 def compose_book_message(name, day):
     session = Session()
-    chapter = session.query(Book).filter(Book.name == name, Book.chapter_number == day).all()
+    chapter = session.query(Book).filter(Book.name == extract_material_name(name), Book.chapter_number == day).all()
     session.close()
     try:
         chapter = chapter[0]
@@ -72,7 +73,7 @@ def compose_book_message(name, day):
 
 def compose_study_message(name, day):
     session = Session()
-    study = session.query(Study).filter(Study.book_name == name, Study.day == day).all()
+    study = session.query(Study).filter(Study.book_name == extract_material_name(name), Study.day == day).all()
     session.close()
     try:
         study = study[0]
