@@ -57,7 +57,7 @@ logger = get_logger()
 START_FIRST_SUBSCRIPTION, ADD_NEW_SUBSCRIPTION, TIME_ZONE, PREFERRED_TIME, \
 NEW_SUBSCRIPTION_KEEP_PREFERENCES, MAKE_ADJUSTMENTS, DEVOTIONAL, \
 CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, CHANGE_PREFERRED_TIME, \
-CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION, QUIZ = range(14)
+CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION, QUIZ, MATERIAL_UNSUBSCRIPTION = range(15)
 
 tf = TimezoneFinder()
 
@@ -457,6 +457,16 @@ def change(update: Update, context: CallbackContext) -> int:
             ),
         )
         return CHANGE_DEVOTIONAL
+    elif update.message.text == 'Baja':
+        subscriptions = buffer.subscriptions[user.id]
+        update.message.reply_text(
+            f'{user.first_name}, '
+            f'¿está seguro/a que no quiere recibir más el material {subscriptions.devotional_name}?',
+            reply_markup=ReplyKeyboardMarkup(
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder=':('
+            ),
+        )
+        return MATERIAL_UNSUBSCRIPTION
     elif update.message.text == 'Nada' or update.message.text == 'Listo':
         subscriptions = buffer.subscriptions[user.id]
         if not buffer.subscribers[user.id].skipped_timezone():
@@ -722,14 +732,13 @@ def unsubscribe(update: Update, context: CallbackContext) -> int:
     
     if subscriber != None:
         buffer.add_subscriber(fetch_subscriber(user.id))
-        buffer.add_subscription(buffer.subscribers[user.id].subscriptions[0])
 
         update.message.reply_text(
             f'{user.first_name}, me da mucha lástima que se vaya...\n\n'
             'Puede escribirnos marcando /contacto si algo se podría mejorar.\n\n'
             '¿Está completamente seguro?',
             reply_markup=ReplyKeyboardMarkup(
-                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿No?'
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder=':('
             ),
         )
         return UNSUBSCRIPTION_CONFIRMATION
@@ -755,7 +764,7 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
 
     if update.message.text == 'Sí':
         update.message.reply_text(
-            'De acuerdo. Su suscripción ha sido eliminada.\n\n'
+            'De acuerdo. Todas sus suscripciones han sido eliminadas.\n\n'
             'Espero que vuelva pronto...',
             reply_markup=ReplyKeyboardRemove()
         )
@@ -765,6 +774,36 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
     elif update.message.text == 'No':
         update.message.reply_text(
             '¡Me alegra saber su cambio de opinión! Si puedo ayudar con algo, marque /ayuda.',
+            reply_markup=ReplyKeyboardRemove()
+        )
+
+    return ConversationHandler.END
+
+def material_unsubscription_confirmation(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    if not re.match(consts.YES_NO_RE_PATTERN, update.message.text):
+        update.message.reply_text(
+            f'Disculpe {user.first_name}, no le he entendido.'
+            '¿Está completamante seguro?',
+            reply_markup=ReplyKeyboardMarkup(
+                consts.YES_NO_KEYBOARD, one_time_keyboard=False, input_field_placeholder='¿No?'
+            ),
+        )
+        return MATERIAL_UNSUBSCRIPTION
+
+    if update.message.text == 'Sí':
+        update.message.reply_text(
+            'De acuerdo. Su suscripción ha sido eliminada.\n\n'
+            'Si puedo ayudar con algo más marque /ayuda o /ajustar',
+            reply_markup=ReplyKeyboardRemove()
+        )
+        buffer.subscriptions[user.id].delete()
+        buffer.clean(user.id)
+        actuary.add_unsubscribed()
+    elif update.message.text == 'No':
+        update.message.reply_text(
+            '¡Me alegra saber su cambio de opinión! Si puedo ayudar con algo marque /ayuda o /ajustar',
             reply_markup=ReplyKeyboardRemove()
         )
 
@@ -941,6 +980,7 @@ def main() -> None:
             CHANGE_DEVOTIONAL: [MessageHandler(Filters.text & ~Filters.command, change_devotional)],
             UNSUBSCRIPTION_CONFIRMATION: [MessageHandler(Filters.text & ~Filters.command, unsubscription_confirmation)],
             QUIZ: [MessageHandler(Filters.text & ~Filters.command, take_quiz)],
+            MATERIAL_UNSUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, material_unsubscription_confirmation)],
         },
         fallbacks=[CommandHandler('cancelar', cancelar)],
     )
