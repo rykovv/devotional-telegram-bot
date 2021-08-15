@@ -764,7 +764,8 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
         actuary.add_unsubscribed()
     elif update.message.text == 'No':
         update.message.reply_text(
-            '¡Me alegra saber su cambio de opinión! Si puedo ayudar con algo, marque /ayuda.'
+            '¡Me alegra saber su cambio de opinión! Si puedo ayudar con algo, marque /ayuda.',
+            reply_markup=ReplyKeyboardRemove()
         )
 
     return ConversationHandler.END

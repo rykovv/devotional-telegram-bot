@@ -11,7 +11,6 @@ import actors.actuary as actuary
 
 import utils.buffer as buffer
 import utils.consts as consts
-from utils.utils import extract_material_name
 
 
 def fetch_subscriber(id) -> Subscriber:
@@ -70,10 +69,17 @@ def clean_db(userid) -> None:
 
 
 def print_subscription(subscription: Subscription, skipped: Boolean = False) -> str:
+    material_type = consts.MATERIAL_TYPES[subscription.devotional_name]
+    if material_type == 'Devotional':
+        item = 'devocional'
+    elif material_type == 'Book':
+        item = 'capítulo'
+    elif material_type == 'Study':
+        item = 'estudio'
     if skipped:
-        return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local} PST del día anterior.'
+        return f'{subscription.devotional_name}, 1 {item} cada día a la(s) {subscription.preferred_time_local} PST del día anterior.'
     else:
-        return f'{subscription.devotional_name} cada día a la(s) {subscription.preferred_time_local}.'
+        return f'{subscription.devotional_name}, 1 {item} cada día a la(s) {subscription.preferred_time_local}.'
 
 
 def prepare_subscriptions_reply(subscriptions, str_only=False, kb_only=False, skipped=False):
