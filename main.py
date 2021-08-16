@@ -616,6 +616,26 @@ def change_devotional(update: Update, context: CallbackContext) -> int:
         )
         return CHANGE_DEVOTIONAL
     
+    session = Session()
+    material_duplicate = session \
+        .query(Subscription) \
+        .filter(
+            Subscription.subscriber_id == user.id,
+            Subscription.devotional_name == update.message.text
+        ) \
+        .all()
+    session.close()
+
+    if len(material_duplicate) > 0:
+        update.message.reply_text(
+            'Usted ya está suscrito/a a este material. Por favor, '
+            'cambie otra preferencia.',
+            reply_markup=ReplyKeyboardMarkup(
+                consts.CONT_PREFERENCE_CHANGE_KEYBOARD, one_time_keyboard=True, input_field_placeholder='¿Qué cambio?'
+            ),
+        )
+        return CHANGE
+
     subscriptions = buffer.subscriptions[user.id]
     subscriptions.devotional_name = update.message.text
 
