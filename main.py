@@ -647,17 +647,20 @@ def select_subscription(update: Update, context: CallbackContext) -> int:
 
     if subscriber != None and subscriber.has_subscriptions():
         buffer.add_subscriber(subscriber)
+        
+        if len(subscriber.subscriptions) > 1:
+            subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(subscriber.subscriptions, skipped=subscriber.skipped_timezone())
 
-        subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(subscriber.subscriptions, skipped=subscriber.skipped_timezone())
-
-        update.message.reply_text(
-            f'{user.first_name}, elija la suscripción que quiere modificar según su número:\n\n'
-            f'{subscriptions_str}',
-            reply_markup=ReplyKeyboardMarkup(
-                subscriptions_kb, one_time_keyboard=True, input_field_placeholder='¿1? ¿2? ...'
-            ),
-        )
-        return MAKE_ADJUSTMENTS
+            update.message.reply_text(
+                f'{user.first_name}, elija la suscripción que quiere modificar según su número:\n\n'
+                f'{subscriptions_str}',
+                reply_markup=ReplyKeyboardMarkup(
+                    subscriptions_kb, one_time_keyboard=True, input_field_placeholder='¿1? ¿2? ...'
+                ),
+            )
+            return MAKE_ADJUSTMENTS
+        else:
+            return make_adjustments(update, context)
     else:
         update.message.reply_text(
             f'Lo siento, pero usted tiene que suscribirse primero para hacer ajustes.\n\n'
@@ -670,20 +673,22 @@ def select_subscription(update: Update, context: CallbackContext) -> int:
 def make_adjustments(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
-    if not re.match(consts.SUBSCRIPTION_SELECT_PATTERN, update.message.text):
-        subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(buffer.subscribers[user.id].subscriptions, skipped=buffer.subscribers[user.id].skipped_timezone())
+    if len(buffer.subscribers[user.id].subscriptions) > 1:
+        if not re.match(consts.SUBSCRIPTION_SELECT_PATTERN, update.message.text):
+            subscriptions_str, subscriptions_kb = prepare_subscriptions_reply(buffer.subscribers[user.id].subscriptions, skipped=buffer.subscribers[user.id].skipped_timezone())
 
-        update.message.reply_text(
-            f'Disculpe, {user.first_name}, no le he entendido. '
-            'Por favor, elija la suscripción que quiere modificar según su número:\n\n'
-            f'{subscriptions_str}',
-            reply_markup=ReplyKeyboardMarkup(
-                subscriptions_kb, one_time_keyboard=True, input_field_placeholder='¿1? ¿2? ...'
-            ),
-        )
-        return MAKE_ADJUSTMENTS
-
-    buffer.add_subscription(buffer.subscribers[user.id].subscriptions[int(update.message.text)-1])
+            update.message.reply_text(
+                f'Disculpe, {user.first_name}, no le he entendido. '
+                'Por favor, elija la suscripción que quiere modificar según su número:\n\n'
+                f'{subscriptions_str}',
+                reply_markup=ReplyKeyboardMarkup(
+                    subscriptions_kb, one_time_keyboard=True, input_field_placeholder='¿1? ¿2? ...'
+                ),
+            )
+            return MAKE_ADJUSTMENTS
+        buffer.add_subscription(buffer.subscribers[user.id].subscriptions[int(update.message.text)-1])
+    else:
+        buffer.add_subscription(buffer.subscribers[user.id].subscriptions[0])
 
     update.message.reply_text(
         f'¡Ya lo tengo! {user.first_name}, ¿qué le gustaría cambiar en esta ocasión?',
