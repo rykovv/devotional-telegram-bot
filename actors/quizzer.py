@@ -71,12 +71,11 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
 
     question_str, telegram_keyboard = next_question(subscriber_id)
     if not chaper_quiz:
-        preface =   f'📝 Cuestionario asociado al día {subscription_day} '
+        preface =   f'📝 Cuestionario del día {subscription_day}\n'
     else:
-        preface =   f'📝 Cuestionario general del capíluto {study.chapter_number} '
+        preface =   f'📝 Cuestionario del capíluto {study.chapter_number}\n'
                     
-    preface +=  f'está compuesto de {total_questions} preguntas.\n' \
-                f'🏁 ¡Empecemos! 🏁\n\n' \
+    preface +=  f'🏁 ¡Empecemos! 🏁\n\n' \
                 f'{question_str}'
 
     return preface, telegram_keyboard
@@ -86,15 +85,6 @@ def next_question(subscriber_id: int, prev_response: str = None):
 
     questions_range = buffer.quizzes[subscriber_id].questions_range
     question_str += _process_question(prev_response, subscriber_id, questions_range, buffer.quizzes[subscriber_id].current_question)
-    # if not prev_response in [None, '']:
-    #     prev_question = fetch_question(subscriber_id, questions_range, buffer.quizzes[subscriber_id].current_question-1)
-    #     if prev_question.test_response(prev_response):
-    #         question_str += '✅ Correcto\n\n'
-    #         buffer.quizzes[subscriber_id].add_correct()
-    #     else:
-    #         question_str += '❌ Incorrecto\n\n'
-    #         buffer.quizzes[subscriber_id].add_wrong()
-    #     question_str += f'\U0001F4D6 {prev_question.reference}\n\n'
 
     if not quiz_finished(subscriber_id):
         question = fetch_question(subscriber_id, questions_range, buffer.quizzes[subscriber_id].current_question)
@@ -105,8 +95,6 @@ def next_question(subscriber_id: int, prev_response: str = None):
         buffer.quizzes[subscriber_id].current_question += 1
         return question_str, question.make_telegram_keyboard()
     else:
-        # buffer.quizzes[subscriber_id].make_knowledge()
-        # buffer.quizzes[subscriber_id].persist()
         return None
 
 # returns a bool value indicating if current
@@ -127,9 +115,9 @@ def quiz_report(subscriber_id: int, last_respone: str):
     session.commit()
 
     if not buffer.quizzes[subscriber_id].chapter_quiz:
-        report =    f'🙌 El cuestionario del día {buffer.quizzes[subscriber_id].day} completado con éxito.\n\n'
+        report +=    f'🙌 El cuestionario del día {buffer.quizzes[subscriber_id].day} completado con éxito 🙌\n\n'
     else:
-        report =    f'🙌 El cuestionario general del capítulo {buffer.quizzes[subscriber_id].chapter} completado con éxito.\n\n'
+        report +=    f'🙌 El cuestionario general del capítulo {buffer.quizzes[subscriber_id].chapter} completado con éxito 🙌\n\n'
 
     report +=   '🎌 Informe 🎌\n' \
                 f'✅ Respuestas correctas: {buffer.quizzes[subscriber_id].correct} de {buffer.quizzes[subscriber_id].total}\n' \
