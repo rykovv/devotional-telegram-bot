@@ -40,6 +40,7 @@ from utils.helpers import (
     clean_db,
     print_subscription,
     prepare_subscriptions_reply,
+    persisted_subscription
 )
 
 import actors.scheduler as scheduler
@@ -817,12 +818,15 @@ def material_unsubscription_confirmation(update: Update, context: CallbackContex
         return MATERIAL_UNSUBSCRIPTION
 
     if update.message.text == 'Sí':
+        removed_canceled = 'cancelada'
+        if persisted_subscription(buffer.subscriptions[user.id]):
+            buffer.subscriptions[user.id].delete()
+            removed_canceled = 'elimindada'
         update.message.reply_text(
-            'De acuerdo. Su suscripción ha sido eliminada.\n\n'
+            f'De acuerdo. Su suscripción ha sido {removed_canceled}.\n\n'
             'Si puedo ayudar con algo más marque /ayuda o /ajustar',
             reply_markup=ReplyKeyboardRemove()
         )
-        buffer.subscriptions[user.id].delete()
         buffer.clean(user.id)
         actuary.add_unsubscribed()
     elif update.message.text == 'No':

@@ -38,6 +38,7 @@ class Subscription(Base):
         self.utc_offset = utc_offset
         self.preferred_time_utc = shift_12h_tf(preferred_time_local, utc_offset)
         self.creation_utc = creation_utc
+        self.id = uuid.uuid4()
 
     def update_utc_offset(self, offset):
         session = Session()

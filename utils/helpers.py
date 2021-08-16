@@ -1,3 +1,4 @@
+from utils.decorators import with_session
 from db.question import Question
 from sqlalchemy.sql.sqltypes import Boolean
 from sqlalchemy.sql import func
@@ -122,3 +123,13 @@ def chapter_questions_count(study: Study) -> int:
     count = session.query(Question).filter(Question.book_name == study.book_name, Question.chapter_number == study.chapter_number).count()
     session.close()
     return count
+
+def get_preference_keyboard(subscriber: Subscriber):
+    pass
+
+
+def persisted_subscription(subscription: Subscription) -> bool:
+    session = Session()
+    ret = session.query(Subscription).filter(Subscription.id == subscription.id).all()
+    session.close()
+    return len(ret) == 1
