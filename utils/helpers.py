@@ -1,3 +1,4 @@
+from utils.utils import days_since_epoch, extract_material_name
 from utils.decorators import with_session
 from db.question import Question
 from sqlalchemy.sql.sqltypes import Boolean
@@ -95,6 +96,19 @@ def prepare_subscriptions_reply(subscriptions, str_only=False, kb_only=False, sk
 
     return (subscriptions_str if str_only else (subscriptions_kb if kb_only else subscriptions_str, subscriptions_kb))
 
+def prepare_studies_reply(studies: Subscription):
+    studies_str = ''
+    studies_kb = []
+    for i, study in enumerate(studies):
+        studies_str += f'{i+1}. {extract_material_name(study.devotional_name)}, día {days_since_epoch(study.creation_utc)+1}\n'
+        if i % consts.SUBSCRIPTIONS_BY_ROW == 0:
+            studies_kb.append([str(i+1)])
+        else:
+            studies_kb[i//consts.SUBSCRIPTIONS_BY_ROW].append(str(i+1))
+
+    return studies_str, studies_kb
+
+
 def average_study_knowledge(subscriber_id: int):
     session = Session()
     average_by_day = session \
@@ -123,9 +137,6 @@ def chapter_questions_count(study: Study) -> int:
     count = session.query(Question).filter(Question.book_name == study.book_name, Question.chapter_number == study.chapter_number).count()
     session.close()
     return count
-
-def get_preference_keyboard(subscriber: Subscriber):
-    pass
 
 
 def persisted_subscription(subscription: Subscription) -> bool:

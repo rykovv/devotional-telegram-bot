@@ -40,7 +40,8 @@ from utils.helpers import (
     clean_db,
     print_subscription,
     prepare_subscriptions_reply,
-    persisted_subscription
+    persisted_subscription,
+    prepare_studies_reply
 )
 
 import actors.scheduler as scheduler
@@ -58,7 +59,8 @@ logger = get_logger()
 START_FIRST_SUBSCRIPTION, ADD_NEW_SUBSCRIPTION, TIME_ZONE, PREFERRED_TIME, \
 NEW_SUBSCRIPTION_KEEP_PREFERENCES, MAKE_ADJUSTMENTS, DEVOTIONAL, \
 CONFIRMATION, CHANGE, CHANGE_TIME_ZONE, CHANGE_PREFERRED_TIME, \
-CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION, QUIZ, MATERIAL_UNSUBSCRIPTION = range(15)
+CHANGE_DEVOTIONAL, UNSUBSCRIPTION_CONFIRMATION, QUIZ, \
+MATERIAL_UNSUBSCRIPTION, PROCESS_SELECT_STUDY_QUIZ = range(16)
 
 tf = TimezoneFinder()
 
@@ -927,6 +929,63 @@ def contact(update: Update, context: CallbackContext) -> int:
 
     return ConversationHandler.END
 
+def select_study_quiz(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    session = Session()
+    study_subscriptions = session \
+        .query(Subscription) \
+        .filter(
+            Subscription.subscriber_id == user.id,
+            Subscription.devotional_name.ilike(f'Estudio%')) \
+        .all()
+    session.close()
+
+    if len(study_subscriptions) == 0:
+        update.message.reply_text(
+            f'{user.first_name}, Usted no está suscrito/a a ningún estudio. ¡Marque /start para hacerlo!',
+            reply_markup=ReplyKeyboardRemove()
+        )
+        return ConversationHandler.END
+    elif len(study_subscriptions) == 1:
+        return take_quiz(update, context)
+    else:
+        studies_str, studies_kb = prepare_studies_reply(study_subscriptions)
+        update.message.reply_text(
+            f'{user.first_name}, por favor, elija el estudio:\n\n'
+            f'{studies_str}',
+            reply_markup=ReplyKeyboardMarkup(
+                studies_kb, one_time_keyboard=False, input_field_placeholder='El Tiempo de Estar Preparado'
+            ),
+        )
+        return PROCESS_SELECT_STUDY_QUIZ
+
+def process_study_quiz_select(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+
+    session = Session()
+    study_subscriptions = session \
+        .query(Subscription) \
+        .filter(
+            Subscription.subscriber_id == user.id,
+            Subscription.devotional_name.ilike(f'Estudio%')) \
+        .all()
+    session.close()
+
+    if not re.match(consts.STUDY_SELECT_PATTERN, update.message.text):
+        studies_str, studies_kb = prepare_studies_reply(study_subscriptions)
+        update.message.reply_text(
+            f'Disculpe, {user.first_name}, no le he entendido. '
+            f'{user.first_name}, por favor, elija el estudio para generar el cuestionario correspondiente:\n\n'
+            f'{studies_str}',
+            reply_markup=ReplyKeyboardMarkup(
+                studies_kb, one_time_keyboard=False, input_field_placeholder='El Tiempo de Estar Preparado'
+            ),
+        )
+        return PROCESS_SELECT_STUDY_QUIZ
+    buffer.add_subscription(study_subscriptions[int(update.message.text)-1])
+    return take_quiz(update, context)
+
 def take_quiz(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
@@ -949,21 +1008,16 @@ def take_quiz(update: Update, context: CallbackContext) -> int:
         )
         return QUIZ
     else:
-        session = Session()
-        study_subscriptions = session.query(Subscription).filter(Subscription.devotional_name.ilike(f'Estudio%')).all()
-        session.close()
-        if len(study_subscriptions) > 0:
-            reply_msg, reply_kb = quizzer.start_quiz(user.id, study_subscriptions[0])
+        reply_msg, reply_kb = quizzer.start_quiz(user.id, buffer.subscriptions[user.id])
 
-            update.message.reply_text(
+        update.message.reply_text(
             reply_msg,
             reply_markup=ReplyKeyboardMarkup(
                 reply_kb, one_time_keyboard=False, input_field_placeholder='¿Tu respuesta?'
             ),
         )
-
         return QUIZ
-
+        
 
 def main() -> None:
     """Run the bot."""
@@ -986,7 +1040,7 @@ def main() -> None:
             CommandHandler('admin_mensaje', admin_message, pass_args=True),
             CommandHandler('admin_rafaga', admin_burst, pass_args=True),
             CommandHandler('admin_recuento', get_admin_statistics),
-            CommandHandler('cuestionario', take_quiz)
+            CommandHandler('cuestionario', select_study_quiz)
         ],
         states={
             START_FIRST_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, start_first_subscription)],
@@ -1013,7 +1067,8 @@ def main() -> None:
             CHANGE_DEVOTIONAL: [MessageHandler(Filters.text & ~Filters.command, change_devotional)],
             UNSUBSCRIPTION_CONFIRMATION: [MessageHandler(Filters.text & ~Filters.command, unsubscription_confirmation)],
             QUIZ: [MessageHandler(Filters.text & ~Filters.command, take_quiz)],
-            MATERIAL_UNSUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, material_unsubscription_confirmation)]
+            MATERIAL_UNSUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, material_unsubscription_confirmation)],
+            PROCESS_SELECT_STUDY_QUIZ: [MessageHandler(Filters.text & ~Filters.command, process_study_quiz_select)]
         },
         fallbacks=[CommandHandler('cancelar', cancelar)],
     )
