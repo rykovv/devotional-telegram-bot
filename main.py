@@ -1,4 +1,6 @@
 from configparser import ConfigParser
+
+from sqlalchemy.orm import session
 from db.base import Session
 import re
 from sqlalchemy.sql.sqltypes import TIME
@@ -41,7 +43,8 @@ from utils.helpers import (
     print_subscription,
     prepare_subscriptions_reply,
     persisted_subscription,
-    prepare_studies_reply
+    prepare_studies_reply,
+    delete_subscriber
 )
 
 import actors.scheduler as scheduler
@@ -783,7 +786,7 @@ def unsubscribe(update: Update, context: CallbackContext) -> int:
     subscriber = fetch_subscriber(user.id)
     
     if subscriber != None:
-        buffer.add_subscriber(fetch_subscriber(user.id))
+        # buffer.add_subscriber(fetch_subscriber(user.id))
 
         update.message.reply_text(
             f'{user.first_name}, me da mucha lástima que se vaya...\n\n'
@@ -820,7 +823,8 @@ def unsubscription_confirmation(update: Update, context: CallbackContext) -> int
             'Espero que vuelva pronto...',
             reply_markup=ReplyKeyboardRemove()
         )
-        clean_db(user.id)
+        delete_subscriber(user.id)
+        # clean_db(user.id)
         buffer.clean(user.id)
         actuary.add_unsubscribed()
     elif update.message.text == 'No':
@@ -968,6 +972,7 @@ def select_study_quiz(update: Update, context: CallbackContext) -> int:
         )
         return ConversationHandler.END
     elif len(study_subscriptions) == 1:
+        buffer.add_subscription(study_subscriptions[0])
         return take_quiz(update, context)
     else:
         studies_str, studies_kb = prepare_studies_reply(study_subscriptions)

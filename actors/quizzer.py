@@ -21,7 +21,8 @@ from utils.types import TelegramKeyboard
 from utils.helpers import (
     fetch_question, 
     average_study_knowledge,
-    chapter_questions_count
+    chapter_questions_count,
+    most_recent_quiz
 )
 import utils.consts as consts
 from utils.decorators import with_session
@@ -42,10 +43,11 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
             Study.book_name == extract_material_name(subscription.devotional_name), 
             Study.chapter_number==study.chapter_number) \
         .count()
-    inchapter_quizzes = session.query(Quiz).filter(Quiz.chapter == study.chapter_number).count()
     session.close()
+    mrq = most_recent_quiz(subscription)
 
-    chaper_quiz = days_in_chapter == inchapter_quizzes
+    # TODO: Chapter quiz MUST BE TESTED
+    chaper_quiz = mrq != None and days_in_chapter == mrq.day
     if chaper_quiz:
         total_questions = min(consts.CHAPTER_QUIZ_TOTAL_QUESTIONS, chapter_questions_count(study))
         questions_range = rand.sample(range(1, chapter_questions_count(study)+1), total_questions)
@@ -130,15 +132,16 @@ def quiz_report(subscriber_id: int, last_respone: str):
             Study.book_name == buffer.quizzes[subscriber_id].book_name, 
             Study.chapter_number == buffer.quizzes[subscriber_id].chapter) \
         .count()
-    inchapter_quizzes = session.query(Quiz).filter(Quiz.chapter == buffer.quizzes[subscriber_id].chapter).count()
     session.close()
+    mrq = most_recent_quiz(buffer.subscriptions[subscriber_id])
 
-    last_quiz = days_in_chapter==inchapter_quizzes
-    if last_quiz:
+    last_quiz = mrq != None and days_in_chapter == mrq.day
+    if last_quiz and not buffer.quizzes[subscriber_id].chapter_quiz:
         report +=   f'\n\nÉste fue el último cuestionario del capítulo {buffer.quizzes[subscriber_id].chapter}. ' \
                     'Ahora Usted está listo/a para empezar el cuestionario ' \
                     'del capítulo entero. ¡Marque 👉 /cuestionario 👈 para empezar!'
-
+    else:
+        report +=   '\n\nSi quiere repetir la prueba con más preguntas marque 👉 /cuestionario 👈 de nuevo.'
     
     buffer.delete_quiz(subscriber_id)
 

@@ -1,8 +1,8 @@
 from utils.utils import days_since_epoch, extract_material_name
-from utils.decorators import with_session
 from db.question import Question
 from sqlalchemy.sql.sqltypes import Boolean
 from sqlalchemy.sql import func
+from sqlalchemy.orm import subqueryload
 from db.base import Session
 from db.subscription import Subscription
 from db.subscriber import Subscriber
@@ -68,6 +68,13 @@ def clean_db(userid) -> None:
         buffer.subscriptions[userid].delete()
     if userid in buffer.subscribers:
         buffer.subscribers[userid].delete()
+
+
+def delete_subscriber(subscriber_id: int):
+    with Session() as session:
+        subscriber = session.query(Subscriber).get(subscriber_id)
+        session.delete(subscriber)
+        session.commit()
 
 
 def print_subscription(subscription: Subscription, skipped: Boolean = False) -> str:
@@ -137,6 +144,45 @@ def chapter_questions_count(study: Study) -> int:
     count = session.query(Question).filter(Question.book_name == study.book_name, Question.chapter_number == study.chapter_number).count()
     session.close()
     return count
+
+def study_days_in_chapter(subscription: Subscription) -> int:
+    session = Session()
+    study = session \
+        .query(Study) \
+        .filter( \
+            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.day == days_since_epoch(subscription.creation_utc)+1) \
+        .all()[0]
+    days_in_chapter = session \
+        .query(Study) \
+        .filter(
+            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.chapter_number==study.chapter_number) \
+        .count()
+    session.close()
+
+    return days_in_chapter
+
+
+def most_recent_quiz(subscription: Subscription) -> Quiz:
+    session = Session()
+    mrq = session \
+        .query(Quiz) \
+        .filter(
+            Quiz.subscription_id == subscription.id) \
+        .order_by(
+            Quiz.completion_utc.desc()) \
+        .limit(1) \
+        .all()
+    session.close()
+    return mrq[0] if len(mrq) == 1 else None
+
+
+def chapter_quiz_ready(subscription: Subscription) -> bool:
+    # last day quiz of the chapter can be deduced
+    days_in_chapter = study_days_in_chapter(subscription)
+    mrq = most_recent_quiz(subscription)
+    return False if mrq == None else mrq.day == days_in_chapter
 
 
 def persisted_subscription(subscription: Subscription) -> bool:
