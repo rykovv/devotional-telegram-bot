@@ -1,6 +1,6 @@
 from db.base import Base, Session
 
-from sqlalchemy import Column, String, Integer, Numeric
+from sqlalchemy import Column, String, Numeric
 from sqlalchemy.orm import relationship
 
 from utils.utils import get_epoch

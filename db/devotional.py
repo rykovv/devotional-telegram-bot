@@ -5,7 +5,6 @@ from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
 from sqlalchemy import Column, String, Numeric
-from sqlalchemy.orm import relationship
 from sqlalchemy.types import JSON
 
 class Devotional(Base):

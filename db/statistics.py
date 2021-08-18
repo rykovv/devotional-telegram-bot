@@ -1,8 +1,7 @@
-from db.base import Base, Session
+from db.base import Base
 
 from sqlalchemy import Column, Numeric
 
-from utils.utils import get_epoch
 from utils.consts import STATISTICS_UNIQUE_ID
 
 class Statistics(Base):

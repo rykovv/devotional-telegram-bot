@@ -5,7 +5,6 @@ from sqlalchemy.sql.functions import random
 from db.base import Session
 from db.subscription import Subscription
 from db.quiz import Quiz
-from db.question import Question
 from db.subscription import Subscription
 from db.study import Study
 

@@ -1,9 +1,7 @@
 from configparser import ConfigParser
 
-from sqlalchemy.orm import session
 from db.base import Session
 import re
-from sqlalchemy.sql.sqltypes import TIME
 
 from timezonefinder import TimezoneFinder
 import pytz

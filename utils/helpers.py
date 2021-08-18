@@ -2,7 +2,6 @@ from utils.utils import days_since_epoch, extract_material_name
 from db.question import Question
 from sqlalchemy.sql.sqltypes import Boolean
 from sqlalchemy.sql import func
-from sqlalchemy.orm import subqueryload
 from db.base import Session
 from db.subscription import Subscription
 from db.subscriber import Subscriber
