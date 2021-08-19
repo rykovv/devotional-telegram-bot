@@ -463,7 +463,7 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "¿Qué oportunidad fue ofrecida a los cristanos cuando los judíos persiguieron al ejército de Cestio mientras se estaban retirando?",
+    "question" : "¿Qué oportunidad fue ofrecida a los cristianos cuando los judíos persiguieron al ejército de Cestio mientras se estaban retirando?",
     "question_number" : 33,
     "options" : [
       "Pudieron salir a predicar en la ciudad",
@@ -491,7 +491,7 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "¿Adónde escaparon los cristanos para estar a salvo?",
+    "question" : "¿Adónde escaparon los cristianos para estar a salvo?",
     "question_number" : 35,
     "options" : [
       "A la ciudad de Pella, en tierra de Perea, allende el Jordán",
@@ -679,7 +679,7 @@
 
 
 
-  
+
   {
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
@@ -699,16 +699,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "Los paganos fueron falsamente acusados de ser causa de hambres, pestes y terremotos.",
     "question_number" : 2,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Los cristianos eran inculpados calumniosamente de los más espantosos crímenes y eran señalados como la causa de las mayores calamidades: hambres, pestes y terremotos. CS 38.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -729,22 +727,20 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "Los cristianos que sufrieron el martirio son vistos como conquistadores por Cristo.",
     "question_number" : 4,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Y los que sufrían el martirio por su fe quedaban asegurados para Cristo y tenidos por él como conquistadores. CS 40.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "¿Qué bien ha salido de los padecimientos de los primeros cristanos?",
+    "question" : "¿Qué bien ha salido de los padecimientos de los primeros cristianos?",
     "question_number" : 5,
     "options" : [
       "Se hicieron más duros para resistir los falsos ataques del enemigo",
@@ -759,16 +755,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "La memoria de vida y testimonio de los mártires no eran una constante atestación de la verdad.",
     "question_number" : 6,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "El ejemplo que daban en vida y su testimonio al morir eran una constante atestación de la verdad. CS 40.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -789,16 +783,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "La prosperidad temporal y los honores del mundo fueron la nueva trampa de Satanás cuando acabaron las persecuciones.",
     "question_number" : 8,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "El gran adversario se esforzó entonces por obtener con artificios lo que no consiguiera por la violencia. Cesó la persecución y la reemplazaron las peligrosas seducciones de la prosperidad temporal y del honor mundano. CS 40.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -819,16 +811,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "La mayoría de los cristianos no aceptaron bajar sus estandartes para unirse con el paganismo.",
     "question_number" : 10,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "La mayoría de los cristianos consintieron al fin en arriar su bandera, y se realizó la unión del cristianismo con el paganismo. CS 40.5"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -849,16 +839,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "Siempre había solo un grupo entre los que seguían a Cristo: los verdaderos y fieles estidiosos de la vida del Maestro.",
     "question_number" : 12,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Entre los que profesan el cristianismo ha habido siempre dos categorías de personas: la de los que estudian la vida del Salvador y se afanan por corregir sus defectos y asemejarse al que es nuestro modelo; y la de aquellos que rehuyen las verdades sencillas y prácticas que ponen de manifiesto sus errores. CS 41.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -879,16 +867,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "¿Quiénes fueron infieles a la iglesia primitiva?",
     "question_number" : 14,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Simón el Mago",
+      "Ananías y Safira",
+      "Tabita",
+      "Timoteo"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Ananías y Safira fueron engañadores que pretendían hacer un sacrificio completo delante de Dios, cuando en realidad guardaban para sí con avaricia parte de la ofrenda. CS 41.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -909,16 +897,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "Los cristianos apóstotas junto con sus compañeros semipaganos se opusieron a la verdadera fe cristiana.",
     "question_number" : 16,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Los que habían sido una vez defensores de la fe cristiana eran los que mejor sabían cómo combatirla, y estos cristianos apóstatas, junto con sus compañeros semipaganos, dirigieron sus ataques contra los puntos más esenciales de las doctrinas de Cristo. CS 42.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -939,16 +925,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "Lo doctrina de libertad religiosa nunca fue llamada como herejía.",
     "question_number" : 18,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "A la doctrina de la libertad religiosa se la llamó herejía, y sus sostenedores fueron aborrecidos y proscritos. CS 42.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -969,16 +953,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "Los cristianos han de asegurar paz y unidad mientras son consisitentes con la antigua ley ceremonial judía.",
     "question_number" : 20,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Para asegurar la paz y la unidad estaban dispuestos a cualquier concesión que no contrariase su fidelidad a Dios, pero les parecía que sacrificar un principio por amor a la paz era pagar un precio demasiado alto. CS 42.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -999,16 +981,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "¿Cómo el Evangelio puede ser el mensaje de paz y también de espada?",
     "question_number" : 22,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Porque el que lo acepta tiene que forzosamente cumplir con la Ley para tener paz",
+      "El Evangelio trae la harmonía y paz en la tierra, sin embargo revela y condena los pecados",
+      "El Evangelio ha traido por muchos siglos solo la espada (literalmente)",
+      "Al arrepentirse la persona obtiene el perdón y la paz de Dios no importe lo que haga después"
     ],
-    "correct_option" : "d",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "El cristianismo es un sistema que, de ser recibido y practicado, derramaría paz, armonía y dicha por toda la tierra. La religión de Cristo unirá en estrecha fraternidad a todos los que acepten sus enseñanzas. La misión de Jesús consistió en reconciliar a los hombres con Dios, y así a unos con otros; pero el mundo en su mayoría se halla bajo el dominio de Satanás, el enemigo más encarnizado de Cristo. El evangelio presenta a los hombres principios de vida que contrastan por completo con sus hábitos y deseos, y por esto se rebelan contra él. Aborrecen la pureza que pone de manifiesto y condena sus pecados, y persiguen y dan muerte a quienes los instan a reconocer sus sagrados y justos requerimientos. CS 43.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1029,16 +1011,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 2,
-    "question" : "",
+    "question" : "Hoy día no hay persecución de la iglesia porque adapta estándares y no despierta mucha oposición del mundo.",
     "question_number" : 24,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "El único motivo es que la iglesia se ha conformado a las reglas del mundo y por lo tanto no despierta oposición. CS 45.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1055,9 +1035,6 @@
     "correct_option" : "b",
     "reference" : "Revivan la fe y el poder de la iglesia primitiva, y el espíritu de persecución revivirá también y el fuego de la persecución volverá a encenderse. CS 45.2"
   },
-
-
-
 
 
 
@@ -1089,8 +1066,6 @@
     "question" : "",
     "question_number" : 2,
     "options" : [
-      "",
-      "",
       "",
       ""
     ],
