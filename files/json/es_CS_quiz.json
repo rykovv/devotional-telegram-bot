@@ -198,16 +198,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "No había ninguna manifestación del poder sobrenatural durante la dedicación del templo de Herodes.",
     "question_number" : 14,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Pero el segundo templo no igualó al primero en magnificencia ni fue santificado por las señales visibles de la presencia divina con que lo fuera el templo de Salomón, ni hubo tampoco manifestaciones de poder sobrenatural que dieran realce a su dedicación. CS 23.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -228,16 +226,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Los discípulos no creyeron que la destrucción de Jerusalén coincidiría con los sucesos de la venida personal de Cristo.",
     "question_number" : 16,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Los discípulos creyeron que la destrucción de Jerusalén coincidiría con los sucesos de la venida personal de Cristo revestido de gloria temporal para ocupar el trono de un imperio universal, para castigar a los judíos impenitentes y libertar a la nación del yugo romano. CS 24.4"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -258,16 +254,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "La profecía del Señor (Mateo 24) tenía un doble segnificado: anunciaba la ruina de Jerusalén y presagiaba los horrores del gran día final.",
     "question_number" : 18,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "La profecía del Señor entrañaba un doble significado: al par que anunciaba la ruina de Jerusalén presagiaba también los horrores del gran día final. CS 25.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -288,16 +282,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "El aviso de la fuga de los cristianos de Jerusalén y Judea debía ser lentamente aprovechado.",
     "question_number" : 20,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Tanto en tierra de Judea como en la propia ciudad de Jerusalén el aviso de la fuga debía ser aprovechado en el acto. CS 25.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -318,16 +310,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Los habitantes de Jerusalén odiaban a Cristo porque su pureza y santidad revelaba su iniquidad.",
     "question_number" : 22,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "La pureza de Cristo y su santidad hacían resaltar la iniquidad de ellos; por eso le aborrecían y le señalaban como el causante de todas las desgracias que les habían sobrevenido como consecuencia de su maldad. CS 26.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -348,16 +338,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "La destrucción de Jerusalén fue pospuesta por 40 años porque los romanos estaban en Guerra con Galos.",
     "question_number" : 24,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Había todavía muchos judíos que ignoraban lo que habían sido el carácter y la obra de Cristo. Y los hijos no habían tenido las oportunidades ni visto la luz que sus padres habían rechazado. CS 27.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -378,16 +366,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Cuando la protección de Dios fue quitada de los judíos impenitentes Satanás se hizo la cabeza de su nación.",
     "question_number" : 26,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Dios les retiró entonces su protección y dio rienda suelta a Satanás y a sus ángeles, y la nación cayó bajo el dominio del caudillo que ella misma se había elegido. CS 27.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -408,16 +394,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Israel aún contaba con la protección de Dios después de que habían rechazado a Cristo.",
     "question_number" : 28,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Pero Israel había despreciado la protección de Dios, y no había ya defensa alguna para él. CS 28.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -438,16 +422,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Algunos cristianos perecieron durante la destrucción de Jerusalén.",
     "question_number" : 30,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Ni un solo cristiano pereció en la destrucción de Jerusalén. CS 29.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -468,16 +450,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Cestio Galo abandonó el sitio de Jerusalén porque los cristianos tenían que huir de Jerusalén aún.",
     "question_number" : 32,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Empero la previsora misericordia de Dios había dispuesto los acontecimientos para bien de los suyos. Ya estaba dada la señal a los cristianos que aguardaban el cumplimiento de las palabras de Jesús, y en aquel momento se les ofrecía una oportunidad que debían aprovechar para huir, conforme a las indicaciones dadas por el Maestro. CS 29.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -498,16 +478,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Muchos judíos junto con cristianos estaban esparcidos por Israel y eso ayudó a los cristianos escapar del país sin dificultades.",
     "question_number" : 34,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "En la época del sitio, los judíos habían acudido numerosos a Jerusalén para celebrar la fiesta de los tabernáculos y así fue como los cristianos esparcidos por todo el país pudieron escapar sin dificultad. CS 29.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -528,16 +506,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "El espíritu de necia resistencia contra los romanos no tardó en traer males incalculables a la desdichada ciudad de Jerusalén.",
     "question_number" : 36,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Pero este éxito aparente (al perseguir a los romanos tras su retirada) no les acarreó sino perjuicios, pues despertó en ellos un espíritu de necia resistencia contra los romanos, que no tardó en traer males incalculables a la desdichada ciudad. CS 30.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -558,16 +534,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Nungún romano violaría la santidad del templo, según Tito, si los judíos estaban dispuestos a luchar en cualquier otro lugar.",
     "question_number" : 38,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Antes de hacer la tentativa de apoderarse de esa fortaleza, (Tito) dirigió un fervoroso llamamiento a los jefes judíos para que no le obligasen a profanar con sangre el lugar sagrado. Si querían salir a pelear en cualquier otro sitio, ningún romano violaría la santidad del templo. CS 31.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -588,16 +562,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "La aceptación abierta de los judíos del poder de Satanás hizo que la protección de Dios se retire.",
     "question_number" : 40,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Por la tenacidad con que rechazaron el amor y la misericordia de Dios, los judíos le hicieron retirar su protección, y Satanás pudo regirlos como quiso. CS 33.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -618,16 +590,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "La humanidad no pasa completamente al poder de Satanás por el poder restrictivo de Dios.",
     "question_number" : 42,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Es el poder restrictivo de Dios lo que impide que el hombre caiga completamente bajo el dominio de Satanás. CS 34.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -648,16 +618,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "Dios es no un verdugo para con los transgresores de su Ley.",
     "question_number" : 44,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Dios no asume nunca para con el pecador la actitud de un verdugo que ejecuta la sentencia contra la transgresión; sino que abandona a su propia suerte a los que rechazan su misericordia, para que recojan los frutos de lo que sembraron sus propias manos. CS 34.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -678,16 +646,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 1,
-    "question" : "",
+    "question" : "La presencia de Dios no impone ningún peligro a los pecadores.",
     "question_number" : 46,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Debido a su vida pecaminosa los hombres se han apartado tanto del Señor y tanto ha degenerado su naturaleza con el mal, que la manifestación de la gloria del Señor es para ellos un fuego consumidor. CS 35.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -713,9 +679,7 @@
 
 
 
-
-
-
+  
   {
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
