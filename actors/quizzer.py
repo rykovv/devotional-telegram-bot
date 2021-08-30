@@ -1,6 +1,5 @@
 import random as rand
 
-from sqlalchemy.sql.base import prefix_anon_map
 from sqlalchemy.sql.functions import random
 from db.base import Session
 from db.subscription import Subscription
@@ -8,7 +7,7 @@ from db.quiz import Quiz
 from db.subscription import Subscription
 from db.study import Study
 
-from actors import composer
+import actors.actuary as actuary
 
 from utils import buffer
 from utils.utils import (
@@ -24,7 +23,7 @@ from utils.helpers import (
     most_recent_quiz
 )
 import utils.consts as consts
-from utils.decorators import with_session
+
 
 def start_quiz(subscriber_id: int, subscription: Subscription):
     subscription_day = days_since_epoch(subscription.creation_utc)+1
@@ -81,6 +80,7 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
 
     return preface, telegram_keyboard
 
+
 def next_question(subscriber_id: int, prev_response: str = None):
     question_str = ''
 
@@ -98,10 +98,12 @@ def next_question(subscriber_id: int, prev_response: str = None):
     else:
         return None
 
+
 # returns a bool value indicating if current
 #   quiz is done
 def quiz_finished(subscriber_id: int) -> bool:
     return subscriber_id in buffer.quizzes and buffer.quizzes[subscriber_id].finished()
+
 
 # returns a tuple of str (1) current quiz report when
 #   it is done, and (2) if this is the last quiz
@@ -144,7 +146,10 @@ def quiz_report(subscriber_id: int, last_respone: str):
     
     buffer.delete_quiz(subscriber_id)
 
+    actuary.add_quiz()
+
     return report, last_quiz
+
 
 def quiz_started(subscriber_id : int):
     return subscriber_id in buffer.quizzes

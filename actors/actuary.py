@@ -78,5 +78,11 @@ def add_unsubscribed():
     session.commit()
     session.close()
 
+def add_quiz():
+    session = Session()
+    stats = session.query(Statistics).get(STATISTICS_UNIQUE_ID)
+    stats.quizzes += 1
+    session.commit()
+    session.close()
 
 statistics_setup()

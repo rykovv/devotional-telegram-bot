@@ -17,6 +17,9 @@ class Statistics(Base):
     sent = Column('sent', Numeric, default=0)
     # Number of unsubscribed usres
     unsubscribed = Column('unsubscribed', Numeric, default=0)
+    # Number of completed quizzes
+    quizzes = Column('quizzes', Numeric, default=0)
+    
 
     def __init__(self, id=STATISTICS_UNIQUE_ID):
         self.id = id
