@@ -1041,6 +1041,10 @@ def take_quiz(update: Update, context: CallbackContext) -> int:
         )
         return QUIZ
         
+# TODO: Add /support command
+# TODO: Add possibility of anonimous quizzes
+# TODO: Add Friday sunset times
+# TODO: Add weekly inspirational verses
 
 def main() -> None:
     """Run the bot."""

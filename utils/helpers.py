@@ -68,7 +68,8 @@ def clean_db(userid) -> None:
     if userid in buffer.subscribers:
         buffer.subscribers[userid].delete()
 
-
+# this function may be useful when a fast sudden subscriber deletion may take place
+#   and sqlalchemy lazy loading would not have enough time to load all relationships  
 def delete_subscriber(subscriber_id: int):
     with Session() as session:
         subscriber = session.query(Subscriber).get(subscriber_id)
