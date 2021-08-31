@@ -49,7 +49,6 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
     session.close()
     mrq = most_recent_quiz(subscription)
 
-    # TODO: Chapter quiz MUST BE TESTED
     chapter_quiz = mrq != None and days_in_chapter == mrq.day
     if chapter_quiz:
         total_questions = min(consts.CHAPTER_QUIZ_TOTAL_QUESTIONS, chapter_questions_count(study))
