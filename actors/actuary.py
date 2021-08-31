@@ -7,6 +7,7 @@ from db.statistics import Statistics
 
 from utils.consts import STATISTICS_UNIQUE_ID
 from utils.utils import get_epoch
+import utils.consts as consts
 
 def subscribers():
     session = Session()
@@ -26,11 +27,10 @@ def geo_skipped():
     session.close()
     return count
 
-def subscriptions_by_devotional():
-    session = Session()
+def subscriptions_by_material():
     sbd = {}
-    devotionals = session.query(Devotional.name).distinct().all()
-    for devotional in devotionals:
+    session = Session()
+    for devotional in consts.DEVOTIONALS_KEYBOARD:
         devotional = devotional[0]
         sbd[devotional] = session.query(Subscription).filter(Subscription.devotional_name == devotional).count()
     session.close()

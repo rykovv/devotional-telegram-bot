@@ -872,7 +872,7 @@ def get_statistics(update: Update, context: CallbackContext) -> int:
     subscriber = fetch_subscriber(user.id)
     if subscriber != None:
         by_devotional = ''
-        sbd = actuary.subscriptions_by_devotional()
+        sbd = actuary.subscriptions_by_material()
         stats = actuary.statistics()
         for s, c in sbd.items():
             by_devotional += f'  {s} : {c}\n'
@@ -896,7 +896,7 @@ def get_admin_statistics(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     if is_admin(user.id):
         by_devotional = ''
-        sbd = actuary.subscriptions_by_devotional()
+        sbd = actuary.subscriptions_by_material()
         stats = actuary.statistics()
         for s, c in sbd.items():
             by_devotional += f'  {s} : {c}\n'
