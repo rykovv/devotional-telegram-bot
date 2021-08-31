@@ -139,9 +139,13 @@ def average_study_knowledge(subscriber_id: int):
     return average_by_day
 
 
-def chapter_questions_count(study: Study) -> int:
+def chapter_questions_count(study: Study, chapter_number: int = None) -> int:
     session = Session()
-    count = session.query(Question).filter(Question.book_name == study.book_name, Question.chapter_number == study.chapter_number).count()
+    count = session.query(Question) \
+        .filter(
+            Question.book_name == study.book_name, 
+            Question.chapter_number == (study.chapter_number if chapter_number == None else chapter_number)) \
+        .count()
     session.close()
     return count
 
@@ -190,3 +194,8 @@ def persisted_subscription(subscription: Subscription) -> bool:
     ret = session.query(Subscription).filter(Subscription.id == subscription.id).all()
     session.close()
     return len(ret) == 1
+
+def get_study_subscription_by_acronym(study_subscriptions: list[Subscription], acronym: str) -> Subscription:
+    study = filter(lambda s: s.devotional_name == f'Estudio: {consts.BOOKS_ACRONYMS_LUT[acronym.upper()]}', study_subscriptions)
+    study = list(study)
+    return study[0] if len(study) == 1 else None

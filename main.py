@@ -42,7 +42,8 @@ from utils.helpers import (
     prepare_subscriptions_reply,
     persisted_subscription,
     prepare_studies_reply,
-    delete_subscriber
+    delete_subscriber,
+    get_study_subscription_by_acronym
 )
 
 import actors.scheduler as scheduler
@@ -905,6 +906,7 @@ def get_admin_statistics(update: Update, context: CallbackContext) -> int:
             f'{by_devotional}'
             f'Sin ubicación : {actuary.geo_skipped()}\n'
             f'Enviado : {stats.sent}\n'
+            f'Cuestionarios: {stats.quizzes}\n'
             f'Dieron de baja : {stats.unsubscribed}\n'
             f'Último registrado : {epoch_to_date(stats.last_registered)}\n'
             f'Último suscrito : {epoch_to_date(stats.last_subscribed)}',
@@ -962,6 +964,40 @@ def select_study_quiz(update: Update, context: CallbackContext) -> int:
             Subscription.devotional_name.ilike(f'Estudio%')) \
         .all()
     session.close()
+
+    # Possible input: 
+    #   /cuestionario CS día 1
+    #   /cuestionario CS capítulo 1
+    if len(context.args) == 3 and (context.args[0].upper() in consts.AVAILABLE_BOOKS_ACRONYMS) and \
+        context.args[1] in consts.QUIZ_SPECIFIERS and context.args[2].isdigit():
+        
+        study_subscription = get_study_subscription_by_acronym(study_subscriptions, context.args[0])
+        if study_subscription == None:
+            update.message.reply_text(
+                f'{user.first_name}, Usted no está suscrito/a al estudio del libro {consts.BOOKS_ACRONYMS_LUT[context.args[0].upper()]}.\n\n'
+                '¡Marque /start para hacerlo!',
+                reply_markup=ReplyKeyboardRemove()
+            )
+            return ConversationHandler.END
+        else:
+            buffer.add_subscription(study_subscription)
+            reply_msg, reply_kb = quizzer.start_independent_quiz(user.id, study_subscription, context.args[1], int(context.args[2]))
+            update.message.reply_text(
+                reply_msg,
+                reply_markup=ReplyKeyboardMarkup(
+                    reply_kb, one_time_keyboard=False, input_field_placeholder='¿Tu respuesta?'
+                ),
+            )
+            return QUIZ
+    elif len(context.args) > 0:
+        update.message.reply_text(
+            f'El uso correcto:\n\n'
+            '/cuestionario <siglas del libro> día/capítulo <número>, por ejemplo\n'
+            '/cuestionario CS día 1\n/cuestionario CS capítulo 5\n\n'
+            'Cuestionarios diponibles para el libro El Conflicto de los Siglos - siglas - CS.',
+            reply_markup=ReplyKeyboardRemove()
+        )
+        return ConversationHandler.END
 
     if len(study_subscriptions) == 0:
         update.message.reply_text(
@@ -1032,6 +1068,16 @@ def take_quiz(update: Update, context: CallbackContext) -> int:
         return QUIZ
     else:
         reply_msg, reply_kb = quizzer.start_quiz(user.id, buffer.subscriptions[user.id])
+
+        if reply_msg == None and reply_kb == None:
+            update.message.reply_text(
+                'Lo sentimos, no hay ningún cuestionario para ese día. '
+                'Si Usted está seguro/a que es un error, por favor repórtelo a @vrykov, el responsable '
+                'miembro del equipo de Una Mirada de Fe y Esperanza. ¡Muchas gracias!',
+                reply_markup=ReplyKeyboardRemove()
+            )
+            buffer.clean(user.id)
+            return ConversationHandler.END 
 
         update.message.reply_text(
             reply_msg,

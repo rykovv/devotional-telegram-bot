@@ -66,6 +66,13 @@ MATERIAL_TYPES = {
     'Estudio: El Conflicto de los Siglos'   : 'Study'
 }
 
+## Dictionary with books acronyms in Spanish
+BOOKS_ACRONYMS_LUT = {
+    'CS' : 'El Conflicto de los Siglos'
+}
+## Available book acronyms
+AVAILABLE_BOOKS_ACRONYMS = ['CS']
+
 ## Quiz related
 ### Number of questions in a chapter quiz
 CHAPTER_QUIZ_TOTAL_QUESTIONS = 10
@@ -75,3 +82,7 @@ DAY_QUIZ_TOTAL_QUESTIONS = 5
 QUIZ_DAY_PONDERATION = .3
 ### persentage of average chapter quizzes counted for general knowledge
 QUIZ_CHAPTER_PONDERATION = .7
+### Independent quiz day constant
+QUIZ_INDEPEPENDENT_DAY = 999
+### Acceptable independent quiz specifires
+QUIZ_SPECIFIERS = ['dia', 'capitulo', 'día', 'capítulo']

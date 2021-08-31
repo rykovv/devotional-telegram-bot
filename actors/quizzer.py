@@ -33,8 +33,13 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
         .query(Study) \
         .filter( \
             Study.book_name == extract_material_name(subscription.devotional_name), 
-            Study.day == days_since_epoch(subscription.creation_utc)+1) \
-        .all()[0]
+            Study.day == subscription_day) \
+        .all()
+    if len(study) == 0:
+        session.close()
+        return None, None
+    else:
+        study = study[0]
     days_in_chapter = session \
         .query(Study) \
         .filter(
@@ -45,8 +50,8 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
     mrq = most_recent_quiz(subscription)
 
     # TODO: Chapter quiz MUST BE TESTED
-    chaper_quiz = mrq != None and days_in_chapter == mrq.day
-    if chaper_quiz:
+    chapter_quiz = mrq != None and days_in_chapter == mrq.day
+    if chapter_quiz:
         total_questions = min(consts.CHAPTER_QUIZ_TOTAL_QUESTIONS, chapter_questions_count(study))
         questions_range = rand.sample(range(1, chapter_questions_count(study)+1), total_questions)
     else:
@@ -64,13 +69,13 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
             questions_range=questions_range,
             chapter=study.chapter_number,
             total=total_questions,
-            chapter_quiz=chaper_quiz,
+            chapter_quiz=chapter_quiz,
             completion_utc=None
         )
     )
 
     question_str, telegram_keyboard = next_question(subscriber_id)
-    if not chaper_quiz:
+    if not chapter_quiz:
         preface =   f'📝 Cuestionario del día {subscription_day}\n'
     else:
         preface =   f'📝 Cuestionario del capíluto {study.chapter_number}\n'
@@ -80,6 +85,56 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
 
     return preface, telegram_keyboard
 
+def start_independent_quiz(subscriber_id: int, subscription: Subscription, day_chapter: str, number: int):
+    if day_chapter == 'día' or day_chapter == 'dia':
+        chapter_quiz = False
+    elif day_chapter == 'capítulo' or day_chapter == 'capitulo':
+        chapter_quiz = True
+    
+    session = Session()
+    # Study.day can hold any value if it is chapter_quiz. No day-related data are used.
+    study = session \
+        .query(Study) \
+        .filter( \
+            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.day == (number if not chapter_quiz else 1)) \
+        .all()[0]
+    session.close()
+
+    if chapter_quiz:
+        chqc = chapter_questions_count(study, number)
+        total_questions = min(consts.CHAPTER_QUIZ_TOTAL_QUESTIONS, chqc)
+        questions_range = rand.sample(range(1, chqc+1), total_questions)
+    else:
+        total_questions = min(consts.DAY_QUIZ_TOTAL_QUESTIONS, len(make_inclusive_range(study.questions)))
+        questions_range = rand.sample(make_inclusive_range(study.questions), total_questions)
+
+    buffer.add_quiz(
+        subscriber_id, 
+        Quiz(
+            subscription_id=subscription.id, 
+            book_name=extract_material_name(subscription.devotional_name), 
+            study_name=study.study_name,
+            day=consts.QUIZ_INDEPEPENDENT_DAY,
+            questions=study.questions,
+            questions_range=questions_range,
+            chapter=(number if chapter_quiz else study.chapter_number),
+            total=total_questions,
+            chapter_quiz=chapter_quiz,
+            completion_utc=None
+        )
+    )
+
+    question_str, telegram_keyboard = next_question(subscriber_id)
+    if not chapter_quiz:
+        preface =   f'📝 Cuestionario del día {number}\n'
+    else:
+        preface =   f'📝 Cuestionario del capíluto {number}\n'
+                    
+    preface +=  f'🏁 ¡Empecemos! 🏁\n\n' \
+                f'{question_str}'
+
+    return preface, telegram_keyboard
 
 def next_question(subscriber_id: int, prev_response: str = None):
     question_str = ''
