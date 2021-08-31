@@ -1,0 +1,3 @@
+On quiz statistics integration run next database commands:
+
+alter table statistics add column quizzes numeric default 0;
