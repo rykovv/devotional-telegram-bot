@@ -32,7 +32,7 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
     study = session \
         .query(Study) \
         .filter( \
-            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.book_name == extract_material_name(subscription.title), 
             Study.day == subscription_day) \
         .all()
     if len(study) == 0:
@@ -43,7 +43,7 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
     days_in_chapter = session \
         .query(Study) \
         .filter(
-            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.book_name == extract_material_name(subscription.title), 
             Study.chapter_number==study.chapter_number) \
         .count()
     session.close()
@@ -61,7 +61,7 @@ def start_quiz(subscriber_id: int, subscription: Subscription):
         subscriber_id, 
         Quiz(
             subscription_id=subscription.id, 
-            book_name=extract_material_name(subscription.devotional_name), 
+            book_name=extract_material_name(subscription.title), 
             study_name='El Tiempo de Estar Preparado',
             day=subscription_day,
             questions=study.questions,
@@ -95,7 +95,7 @@ def start_independent_quiz(subscriber_id: int, subscription: Subscription, day_c
     study = session \
         .query(Study) \
         .filter( \
-            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.book_name == extract_material_name(subscription.title), 
             Study.day == (number if not chapter_quiz else 1)) \
         .all()[0]
     session.close()
@@ -112,7 +112,7 @@ def start_independent_quiz(subscriber_id: int, subscription: Subscription, day_c
         subscriber_id, 
         Quiz(
             subscription_id=subscription.id, 
-            book_name=extract_material_name(subscription.devotional_name), 
+            book_name=extract_material_name(subscription.title), 
             study_name=study.study_name,
             day=consts.QUIZ_INDEPEPENDENT_DAY,
             questions=study.questions,

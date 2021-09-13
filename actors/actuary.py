@@ -30,9 +30,9 @@ def geo_skipped():
 def subscriptions_by_material():
     sbd = {}
     session = Session()
-    for devotional in consts.DEVOTIONALS_KEYBOARD:
-        devotional = devotional[0]
-        sbd[devotional] = session.query(Subscription).filter(Subscription.devotional_name == devotional).count()
+    for subscription_title in consts.DEVOTIONALS_KEYBOARD:
+        subscription_title = subscription_title[0]
+        sbd[subscription_title] = session.query(Subscription).filter(Subscription.title == subscription_title).count()
     session.close()
     return sbd
 

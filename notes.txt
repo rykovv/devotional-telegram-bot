@@ -1,3 +1,6 @@
 On quiz statistics integration run next database commands:
 
 alter table statistics add column quizzes numeric default 0;
+update table subscriptions set devotional_name 'Devocional: ¡Maranata: El Señor Viene!' where devotional_name = '¡Maranata: El Señor Viene!';
+update table subscriptions set devotional_name 'Libro: El Conflicto de los Siglos' where devotional_name = 'El Conflicto de los Siglos';
+alter table subscriptions rename column devotional_name to title

@@ -7,22 +7,22 @@ from db.study import Study
 from utils.consts import MATERIAL_TYPES
 from utils.utils import extract_material_name
 
-def compose(name, month, day, cron_day):
-    if MATERIAL_TYPES[name] == 'Devotional':
-        message, file_ids = compose_devotional_message(name, day, month)
-    elif MATERIAL_TYPES[name] == 'Book':
-        message, file_ids = compose_book_message(name, cron_day+1)
-    elif MATERIAL_TYPES[name] == 'Study':
-        message, file_ids = compose_study_message(name, cron_day+1)
+def compose(subscription_title, month, day, cron_day):
+    if MATERIAL_TYPES[subscription_title] == 'Devotional':
+        message, file_ids = compose_devotional_message(subscription_title, day, month)
+    elif MATERIAL_TYPES[subscription_title] == 'Book':
+        message, file_ids = compose_book_message(subscription_title, cron_day+1)
+    elif MATERIAL_TYPES[subscription_title] == 'Study':
+        message, file_ids = compose_study_message(subscription_title, cron_day+1)
     else:
-        raise Exception(f'Unknown devotional option: name={name}, month={month}, day={day}, cron_day={cron_day+1}')
+        raise Exception(f'Unknown material option: title={subscription_title}, month={month}, day={day}, cron_day={cron_day+1}')
 
     return message, file_ids
 
 
-def compose_devotional_message(name, day, month):
+def compose_devotional_message(subscription_title, day, month):
     session = Session()
-    devotional = session.query(Devotional).filter(Devotional.name == extract_material_name(name), Devotional.month == month, Devotional.day == day).all()
+    devotional = session.query(Devotional).filter(Devotional.name == extract_material_name(subscription_title), Devotional.month == month, Devotional.day == day).all()
     session.close()
     try:
         devotional = devotional[0]
@@ -46,9 +46,9 @@ def compose_devotional_message(name, day, month):
         return message, {}
 
 
-def compose_book_message(name, day):
+def compose_book_message(subscription_title, day):
     session = Session()
-    chapter = session.query(Book).filter(Book.name == extract_material_name(name), Book.chapter_number == day).all()
+    chapter = session.query(Book).filter(Book.name == extract_material_name(subscription_title), Book.chapter_number == day).all()
     session.close()
     try:
         chapter = chapter[0]
@@ -71,9 +71,9 @@ def compose_book_message(name, day):
 
         return message, {}
 
-def compose_study_message(name, day):
+def compose_study_message(subscription_title, day):
     session = Session()
-    study = session.query(Study).filter(Study.book_name == extract_material_name(name), Study.day == day).all()
+    study = session.query(Study).filter(Study.book_name == extract_material_name(subscription_title), Study.day == day).all()
     session.close()
     try:
         study = study[0]

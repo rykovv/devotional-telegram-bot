@@ -78,7 +78,7 @@ def delete_subscriber(subscriber_id: int):
 
 
 def print_subscription(subscription: Subscription, skipped: Boolean = False) -> str:
-    material_type = consts.MATERIAL_TYPES[subscription.devotional_name]
+    material_type = consts.MATERIAL_TYPES[subscription.title]
     if material_type == 'Devotional':
         item = 'devocional'
     elif material_type == 'Book':
@@ -86,9 +86,9 @@ def print_subscription(subscription: Subscription, skipped: Boolean = False) -> 
     elif material_type == 'Study':
         item = 'estudio'
     if skipped:
-        return f'{subscription.devotional_name}, 1 {item} cada día a la(s) {subscription.preferred_time_local} PST del día anterior.'
+        return f'{subscription.title}, 1 {item} cada día a la(s) {subscription.preferred_time_local} PST del día anterior.'
     else:
-        return f'{subscription.devotional_name}, 1 {item} cada día a la(s) {subscription.preferred_time_local}.'
+        return f'{subscription.title}, 1 {item} cada día a la(s) {subscription.preferred_time_local}.'
 
 
 def prepare_subscriptions_reply(subscriptions, str_only=False, kb_only=False, skipped=False):
@@ -107,7 +107,7 @@ def prepare_studies_reply(studies: Subscription):
     studies_str = ''
     studies_kb = []
     for i, study in enumerate(studies):
-        studies_str += f'{i+1}. {extract_material_name(study.devotional_name)}, día {days_since_epoch(study.creation_utc)+1}\n'
+        studies_str += f'{i+1}. {extract_material_name(study.title)}, día {days_since_epoch(study.creation_utc)+1}\n'
         if i % consts.SUBSCRIPTIONS_BY_ROW == 0:
             studies_kb.append([str(i+1)])
         else:
@@ -154,13 +154,13 @@ def study_days_in_chapter(subscription: Subscription) -> int:
     study = session \
         .query(Study) \
         .filter( \
-            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.book_name == extract_material_name(subscription.title), 
             Study.day == days_since_epoch(subscription.creation_utc)+1) \
         .all()[0]
     days_in_chapter = session \
         .query(Study) \
         .filter(
-            Study.book_name == extract_material_name(subscription.devotional_name), 
+            Study.book_name == extract_material_name(subscription.title), 
             Study.chapter_number==study.chapter_number) \
         .count()
     session.close()
@@ -196,6 +196,6 @@ def persisted_subscription(subscription: Subscription) -> bool:
     return len(ret) == 1
 
 def get_study_subscription_by_acronym(study_subscriptions: list[Subscription], acronym: str) -> Subscription:
-    study = filter(lambda s: s.devotional_name == f'Estudio: {consts.BOOKS_ACRONYMS_LUT[acronym.upper()]}', study_subscriptions)
+    study = filter(lambda s: s.title == f'Estudio: {consts.BOOKS_ACRONYMS_LUT[acronym.upper()]}', study_subscriptions)
     study = list(study)
     return study[0] if len(study) == 1 else None

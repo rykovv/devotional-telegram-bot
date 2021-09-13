@@ -43,9 +43,9 @@ class Subscriber(Base):
         session.commit()
         session.close()
 
-    def subscribed(self, devotional_name):
+    def subscribed(self, title):
         for subscription in self.subscriptions:
-            if subscription.devotional_name == devotional_name:
+            if subscription.title == title:
                 return True
         return False
 

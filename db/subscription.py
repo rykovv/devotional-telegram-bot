@@ -14,12 +14,12 @@ class Subscription(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
 
     subscriber_id = Column(Numeric, ForeignKey('subscribers.id'))
-    # selected devotional name
-    devotional_name = Column('devotional_name', String(128))
+    # subscription title for the selected material
+    title = Column('title', String(128))
     
-    # subscriber-defined preffered time to receive devotionals
+    # subscriber-defined preffered time to receive readings
     preferred_time_local = Column('preferred_time_local', String(10))
-    # system-translated preffered time to send devotionals
+    # system-translated preffered time to send readings
     preferred_time_utc = Column('preferred_time_utc', String(10))
     # utc offset respect bot's location
     utc_offset = Column('utc_offset', Integer)
@@ -31,9 +31,9 @@ class Subscription(Base):
     quizzes = relationship('Quiz', cascade='all, delete, delete-orphan')
 
     # -700 is PST to UTC offset (in summer)
-    def __init__(self, subscriber_id, devotional_name=None, preferred_time_local='10pm', utc_offset=-700, creation_utc=get_epoch()):
+    def __init__(self, subscriber_id, title=None, preferred_time_local='10pm', utc_offset=-700, creation_utc=get_epoch()):
         self.subscriber_id = subscriber_id
-        self.devotional_name = devotional_name
+        self.title = title
         self.preferred_time_local = preferred_time_local
         self.utc_offset = utc_offset
         self.preferred_time_utc = shift_12h_tf(preferred_time_local, utc_offset)

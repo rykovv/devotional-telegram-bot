@@ -25,9 +25,9 @@ maranatha12 = Devotional(name='Maranatha!', month=1, day=2, link='link2', text=N
 lift_him_up = Devotional(name='Lift Him Up!', month=1, day=1, link='link3', text=None, title=None)
 
 # create subscriptions
-pedro_subscription = Subscription(subscriber_id=pedro.id, devotional_name='Maranatha!', preferred_time='7am', creation_utc=get_epoch())
-tobias_subscription = Subscription(subscriber_id=tobias.id, devotional_name='Maranatha!', preferred_time='11am', creation_utc=get_epoch())
-naara_subscription = Subscription(subscriber_id=naara.id, devotional_name='Lift Him Up!', preferred_time='10pm', creation_utc=get_epoch())
+pedro_subscription = Subscription(subscriber_id=pedro.id, title='Maranatha!', preferred_time='7am', creation_utc=get_epoch())
+tobias_subscription = Subscription(subscriber_id=tobias.id, title='Maranatha!', preferred_time='11am', creation_utc=get_epoch())
+naara_subscription = Subscription(subscriber_id=naara.id, title='Lift Him Up!', preferred_time='10pm', creation_utc=get_epoch())
 
 # persistance
 session.add(pedro)

@@ -5,6 +5,7 @@ from db.base import Session
 
 import utils.consts as consts
 from utils.utils import (
+    extract_material_name,
     get_current_utc_hour,
     get_send_month_day,
     get_logger,
@@ -18,6 +19,8 @@ from utils.helpers import (
 
 from db.subscription import Subscription
 from db.devotional import Devotional
+from db.book import Book
+from db.study import Study
 
 import actors.composer as composer
 import actors.actuary as actuary
@@ -61,7 +64,7 @@ def send(all=False, month=None, day=None, chat_id=None):
                         date = {'month':month, 'day':day}
                         
                     # compose a formatted message
-                    msg, file_ids = composer.compose(subscription.devotional_name, 
+                    msg, file_ids = composer.compose(subscription.title, 
                                                     date['month'], date['day'],
                                                     days_since_epoch(subscription.creation_utc))
 
@@ -75,7 +78,7 @@ def send(all=False, month=None, day=None, chat_id=None):
                 else:
                     msg =   'Querido hermano/hermana,\n\n' \
                             'Ya ha pasado un año desde que Usted está recibiendo los devocionales ' \
-                            f'{subscription.devotional_name}. Nos alegra inmensamente que ha podido ' \
+                            f'{subscription.title}. Nos alegra inmensamente que ha podido ' \
                             'disfrutar de su suscripción y nuestros esfuerzos le han ayudado.\n\n' \
                             'Ahora llegó el momento de anular su suscripción. Si Usted desea ' \
                             'seguir recibiendo los devocionales, puede hacerlo con una nueva ' \
@@ -185,6 +188,13 @@ def _send_message(bot, subscriber_id, msg, least_ms):
 
 def _expired_subscription(subscription):
     session = Session()
-    count = session.query(Devotional).filter(Devotional.name == subscription.devotional_name).count()
+    count = 999
+    material_name = extract_material_name(subscription.title)
+    if consts.MATERIAL_TYPES[subscription.title] == 'Devotional':
+        count = session.query(Devotional).filter(Devotional.name == material_name).count()
+    elif consts.MATERIAL_TYPES[subscription.title] == 'Book':
+        count = session.query(Book).filter(Book.name == material_name).count()
+    elif consts.MATERIAL_TYPES[subscription.title] == 'Study':
+        count = session.query(Study).filter(Study.book_name == material_name).count()
     session.close()
-    return (days_since_epoch(subscription.creation_utc) > count)
+    return (days_since_epoch(subscription.creation_utc)+1 > count)
