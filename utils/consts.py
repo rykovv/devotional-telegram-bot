@@ -33,7 +33,7 @@ CONT_PREFERENCE_CHANGE_KEYBOARD = [['País'], ['Hora'], ['Lectura'], ['Baja', 'L
 PREFERENCE_CHANGE_RE_PATTERN = '^(País|Hora|Lectura|Baja|Nada|Listo)$'
 
 ## Max message send retries
-MAX_SEND_RETRIES = 20
+MAX_SEND_RETRIES = 3
 ## Max reachable delay in seconds between successive message resendings
 MAX_RESEND_DELAY = 300
 
