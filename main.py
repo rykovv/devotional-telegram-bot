@@ -1088,8 +1088,11 @@ def take_quiz(update: Update, context: CallbackContext) -> int:
         return QUIZ
         
 # TODO: Add /support command
-# TODO: Add Friday sunset times
+# TODO: Add Friday sunset times (SunTime library - pip3 install suntime)
 # TODO: Add weekly inspirational verses
+# TODO: Add 365 daily promises subscription
+# TODO: Add 365 daily counsels from Ellen G. White
+# TODO: Fix scheduler to fit summer and winter time change
 
 def main() -> None:
     """Run the bot."""
@@ -1099,7 +1102,7 @@ def main() -> None:
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
+    # Add conversation handlers
     conv_handler = ConversationHandler(
         entry_points=[
             CommandHandler('start', start), 
