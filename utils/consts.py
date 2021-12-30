@@ -16,11 +16,12 @@ YES_NO_KEYBOARD = [['Sí'],['No']]
 YES_NO_RE_PATTERN = '^(Sí|No)$'
 ### Available devotionals keyboard
 DEVOTIONALS_KEYBOARD = [
-    ['Devocional: ¡Maranata: El Señor Viene!'], 
+    ['Devocional: ¡Maranata: El Señor Viene!'],
+    ['Devocional: A Fin de Conocerle'],
     ['Libro: El Conflicto de los Siglos'], 
     ['Estudio: El Conflicto de los Siglos']
 ]
-DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Libro: El Conflicto de los Siglos|Estudio: El Conflicto de los Siglos)$'
+DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Devocional: A Fin de Conocerle|Libro: El Conflicto de los Siglos|Estudio: El Conflicto de los Siglos)$'
 ### Pick up hours for sending devotional
 HOUR_KEYBOARD = [['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
                  ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
@@ -54,6 +55,7 @@ QUESTIONS_BY_ROW = 2
 ## [chapters, days] counts for materials
 ### Maranatha: The Lord is Coming!
 MARANATHA_DAYS_COUNT = 365
+AFC_DAYS_COUNT = 365
 ### Great Controversy
 GREAT_CONTROVERSY_CHAPTERS_COUNT = 43
 GREAT_CONTROVERSY_STUDY_DAYS_COUNT = 1
@@ -62,6 +64,7 @@ GREAT_CONTROVERSY_QUESTIONS_COUNT = 13
 ## Dictionary with material types
 MATERIAL_TYPES = {
     'Devocional: ¡Maranata: El Señor Viene!': 'Devotional',
+    'Devocional: A Fin de Conocerle'        : 'Devotional',
     'Libro: El Conflicto de los Siglos'     : 'Book',
     'Estudio: El Conflicto de los Siglos'   : 'Study'
 }
