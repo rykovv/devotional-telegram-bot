@@ -112,8 +112,9 @@ def start_first_subscription(update: Update, context: CallbackContext) -> int:
 
     if update.message.text == 'Sí':
         update.message.reply_text(
+            '✅->⭕->⭕->⭕->⭕\n'
             'Para enviar las matutinas a su hora de preferencia, necesito saber su zona horaria. '
-            'Para ello me puede enviar su ubicación. '
+            'Para ello envíeme su ubicación. '
             'Respeto mucho su privacidad y no guardo sus datos, solo extraigo la zona horaria de la ubicación.\n\n'
             'Si no quiere hacerlo marque /saltar. En tal caso su matutina/lectura le llegaría a las '
             '10pm Pacific Standard Time (PST) del día anterior.',
@@ -146,6 +147,7 @@ def add_new_subscription(update: Update, context: CallbackContext) -> int:
     if update.message.text == 'Sí':
         if buffer.subscribers[user.id].has_subscriptions():
             update.message.reply_text(
+                '✅->⭕->⭕->⭕->⭕\n'
                 f'¡Estupendo, {user.first_name}! ¿Quiere mantener las preferencias de envío de su última suscripción? '
                 'La puede ver abajo: \n\n'
                 f'{print_subscription(buffer.subscribers[user.id].subscriptions[-1])}',
@@ -157,6 +159,7 @@ def add_new_subscription(update: Update, context: CallbackContext) -> int:
         else:
             if not buffer.subscribers[user.id].skipped_timezone():
                 update.message.reply_text(
+                    '✅->✅->⭕->⭕->⭕\n'
                     f'Recuerdo que su zona horaria era {buffer.subscribers[user.id].time_zone}.\n\n'
                     '¿A qué hora querría recibir el material? (am - mañana, pm - tarde)',
                     reply_markup=ReplyKeyboardMarkup(
@@ -169,6 +172,7 @@ def add_new_subscription(update: Update, context: CallbackContext) -> int:
                 return PREFERRED_TIME
             else:
                 update.message.reply_text(
+                    '✅->✅->✅->⭕->⭕\n'
                     '¡De acuerdo! Recuerdo que Usted no había indicado su zona horaria y por lo tanto recibiría '
                     'las matutinas/lecturas a las 10pm Pacific Standard Time (PST) del día anterior.\n\n'
                     '¿Qué devocional/lectura querría recibir?',
@@ -210,6 +214,7 @@ def new_subscription_keep_preferences(update: Update, context: CallbackContext) 
                                              creation_utc=get_epoch()))
         if not buffer.subscribers[user.id].skipped_timezone():
             update.message.reply_text(
+                '✅->✅->✅->⭕->⭕\n'
                 f'De acuerdo. Ya sé que su zona horaria es {buffer.subscribers[user.id].time_zone} y '
                 f'Usted quiere recibir el devocional/lectura a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
                 '¿Qué material querría recibir? Estamos trabajando para añadir más libros.',
@@ -219,6 +224,7 @@ def new_subscription_keep_preferences(update: Update, context: CallbackContext) 
             )
         else:
             update.message.reply_text(
+                '✅->✅->✅->⭕->⭕\n'
                 f'De acuerdo. Sé que usted no había indicado su zona horaria anteriormente y '
                 f'por lo tanto va a recibir el material a la(s) {buffer.subscriptions[user.id].preferred_time_local} del PST.\n\n'
                 '¿Qué devocional/lectura querría recibir? Estamos trabajando para añadir más libros.',
@@ -230,6 +236,7 @@ def new_subscription_keep_preferences(update: Update, context: CallbackContext) 
     elif update.message.text == 'No':
         if buffer.subscribers[user.id].skipped_timezone():
             update.message.reply_text(
+                '✅->⭕->⭕->⭕->⭕\n'
                 f'{user.first_name}, para poder enviarle el devocional/lectura a su hora preferida necesito saber su zona horaria '
                 'y la forma más conveniente de hacerlo es a través de su ubicación. '
                 'Usted no me ha enviado su ubicación anteriormente. Para poder extraer su zona horaria mándeme su '
@@ -243,6 +250,7 @@ def new_subscription_keep_preferences(update: Update, context: CallbackContext) 
                                              utc_offset=last_subscription.utc_offset, \
                                              creation_utc=get_epoch()))
             update.message.reply_text(
+                '✅->✅->⭕->⭕->⭕\n'
                 'No hay problema, mis creadores han pensado en que podría querer elegir una hora diferente.\n\n'
                 '¿A qué hora querría recibir el material? (am - mañana, pm - tarde)', 
                 reply_markup=ReplyKeyboardMarkup(
@@ -263,6 +271,7 @@ def geo_skip(update: Update, context: CallbackContext) -> int:
     buffer.add_subscription(Subscription(subscriber_id=user.id, preferred_time_local='10pm', utc_offset=-700, creation_utc=get_epoch()))
 
     update.message.reply_text(
+        '✅->✅->✅->⭕->⭕\n'
         f'¡{user.first_name}, no hay problema. Usted recibirá el material a las 10pm PST del día anterior. '
         '¡Nos queda un paso para terminar!\n\n'
         '¿Qué devocional/lectura querría recibir? Estamos trabajando para añadir más libros.',
@@ -295,6 +304,7 @@ def time_zone(update: Update, context: CallbackContext) -> int:
 
     if not buffer.subscribers[user.id].skipped_timezone():
         update.message.reply_text(
+            '✅->✅->⭕->⭕->⭕\n'
             f'¡Estupendo! Ya sé que su zona horaria es {buffer.subscribers[user.id].time_zone}.\n\n'
             '¿A qué hora querría recibir el material? (am - mañana, pm - tarde)',
             reply_markup=ReplyKeyboardMarkup(
@@ -303,6 +313,7 @@ def time_zone(update: Update, context: CallbackContext) -> int:
         )
     else:
         update.message.reply_text(
+            '✅->✅->✅->⭕->⭕\n'
             '¡Estupendo! Usted recibirá las matutinas/lecturas a las 10pm Pacific Standard Time (PST) del día anterior.\n\n'
             '¿Qué devocional/lectura querría recibir?',
             reply_markup=ReplyKeyboardMarkup(
@@ -329,6 +340,7 @@ def preferred_time(update: Update, context: CallbackContext) -> int:
     buffer.subscriptions[user.id].update_preferred_time_local(update.message.text)
 
     update.message.reply_text(
+        '✅->✅->✅->⭕->⭕\n'
         f'¡{user.first_name}, nos queda un paso para terminar! '
         f'Ya sé que su zona horaria es {buffer.subscribers[user.id].time_zone} y '
         f'quiere recibir el material a la(s) {buffer.subscriptions[user.id].preferred_time_local}.\n\n'
@@ -368,6 +380,7 @@ def devotional(update: Update, context: CallbackContext) -> int:
 
     if not buffer.subscribers[user.id].skipped_timezone():
         update.message.reply_text(
+            '✅->✅->✅->✅->⭕\n'
             '¡Ya estamos listos! Ya sé que ' 
             f'su zona horaria es {buffer.subscribers[user.id].time_zone} y '
             f'quiere recibir el material {buffer.subscriptions[user.id].title} '
@@ -379,6 +392,7 @@ def devotional(update: Update, context: CallbackContext) -> int:
         )
     else:
         update.message.reply_text(
+            '✅->✅->✅->✅->⭕\n'
             '¡Ya estamos listos! Ya sé que ' 
             f'Usted quiere recibir el material {buffer.subscriptions[user.id].title} a las 10pm PST (Pacific Standard Time) del día anterior.\n\n'
             '¿Es correcto?',
@@ -404,6 +418,7 @@ def confirmation(update: Update, context: CallbackContext) -> int:
 
     if update.message.text == 'Sí':
         update.message.reply_text(
+            '✅->✅->✅->✅->✅\n' if not persisted_subscription(buffer.subscriptions[user.id]) else ''
             '¡Ya está todo configurado! Puede marcar los siguientes comandos:\n'
             '/start para hacer una nueva y diferente suscripcón,\n'
             '/ajustar para ajustar su suscripción,\n'
