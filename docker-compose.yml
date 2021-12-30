@@ -7,6 +7,7 @@ services:
             - postgres
         volumes:
             - ./config.ini:/devotional-telegram-bot/config.ini
+            - ./es_AFC.json:/devotional-telegram-bot/files/json/es_AFC.json
 
     postgres:
         restart: always
