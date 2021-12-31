@@ -417,8 +417,9 @@ def confirmation(update: Update, context: CallbackContext) -> int:
         return CONFIRMATION
 
     if update.message.text == 'Sí':
+        status_bar = '✅->✅->✅->✅->✅\n' if not persisted_subscription(buffer.subscriptions[user.id]) else ''
         update.message.reply_text(
-            '✅->✅->✅->✅->✅\n' if not persisted_subscription(buffer.subscriptions[user.id]) else ''
+            f'{status_bar}'
             '¡Ya está todo configurado! Puede marcar los siguientes comandos:\n'
             '/start para hacer una nueva y diferente suscripcón,\n'
             '/ajustar para ajustar su suscripción,\n'
