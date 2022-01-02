@@ -2,6 +2,7 @@ from db.devotional import Devotional
 from db.book import Book
 from db.study import Study
 from db.question import Question
+from db.bible import Bible
 
 from db.base import Session, engine, Base
 import json
@@ -22,6 +23,7 @@ AFC_FILE = f'{config["content"]["folder"]}/json/es_AFC.json'
 CS_FILE = f'{config["content"]["folder"]}/json/es_CS.json'
 CS_STUDY_FILE = f'{config["content"]["folder"]}/json/es_CS_study.json'
 CS_QUIZ_FILE = f'{config["content"]["folder"]}/json/es_CS_quiz.json'
+BIBLE_FILE = f'{config["content"]["folder"]}/json/es_rvr.json'
 
 def populate_devotional_maranatha():
     session = Session()
@@ -165,8 +167,43 @@ def populate_great_controversy_study_questions():
         logger.info('[QUESTIONS] El Conflicto de los Siglos is aready in the db.')
     session.close()
 
+def populate_bible():
+    session = Session()
+    if session.query(Bible).count() == 0:
+        bible = []
+
+        with open(BIBLE_FILE, 'rb') as fp:
+            bible = json.load(fp)
+
+        verse_book_number = 1
+        verse_bible_number = 1
+        for book_number, book in enumerate(bible):
+            for chapter_number, chapter in enumerate(book['chapters']):
+                for verse_number, verse in enumerate(chapter):
+                    session.add(
+                        Bible(
+                            book_name=consts.BIBLE_BOOKS_ACRONYMS_LUT[book['abbrev']], \
+                            book_number=book_number+1, \
+                            book_abbr=book['abbrev'], \
+                            chapter_number=chapter_number+1, \
+                            verse_chapter_number=verse_number+1, \
+                            verse_book_number=verse_book_number, \
+                            verse_bible_number=verse_bible_number, \
+                            verse=verse
+                        )
+                    )
+                    verse_book_number += 1
+                    verse_bible_number += 1
+            verse_book_number = 1
+        session.commit()
+    else:
+        logger.info('[BIBLE] La Biblia Reina Valera 1960 is aready in the db.')
+    session.close()
+
+
 populate_devotional_maranatha()
 populate_book_great_controversy()
 populate_study_great_controversy()
 populate_great_controversy_study_questions()
 populate_devotional_that_i_may_know_him()
+populate_bible()
