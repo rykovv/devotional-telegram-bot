@@ -60,6 +60,8 @@ AFC_DAYS_COUNT = 365
 GREAT_CONTROVERSY_CHAPTERS_COUNT = 43
 GREAT_CONTROVERSY_STUDY_DAYS_COUNT = 1
 GREAT_CONTROVERSY_QUESTIONS_COUNT = 13
+BIBLE_VERSES_COUNT = 31102
+BIBLE_WHITE_MARGIN_COUNT = 3000
 
 ## Dictionary with material types
 MATERIAL_TYPES = {
@@ -72,6 +74,74 @@ MATERIAL_TYPES = {
 ## Dictionary with books acronyms in Spanish
 BOOKS_ACRONYMS_LUT = {
     'CS' : 'El Conflicto de los Siglos'
+}
+BIBLE_BOOKS_ACRONYMS_LUT = {
+    'gn' : 'Génesis',
+    'ex' : 'Éxodo',
+    'lv' : 'Levítico',
+    'nm' : 'Números',
+    'dt' : 'Deuteronomio',
+    'js' : 'Josué',
+    'jud': 'Jueces',
+    'rt' : 'Rut',
+    '1sm': '1 de Samuel',
+    '2sm': '2 de Samuel',
+    '1kgs':'1 de Reyes',
+    '2kgs':'2 de Reyes',
+    '1ch': '1 de Crónicas',
+    '2ch': '2 de Crónicas',
+    'ezr': 'Esdras',
+    'ne' : 'Nehemías',
+    'et' : 'Ester',
+    'job': 'Job',
+    'ps' : 'Salmos',
+    'prv': 'Proverbios',
+    'ec' : 'Eclesiastés',
+    'so' : 'El Cantar de los Cantares',
+    'is' : 'Isaías',
+    'jr' : 'Jeremías',
+    'lm' : 'Lamentaciones',
+    'ez' : 'Ezequiel',
+    'dn' : 'Daniel',
+    'ho' : 'Oseas',
+    'jl' : 'Joel',
+    'am' : 'Amós',
+    'ob' : 'Abdías',
+    'jn' : 'Jonás',
+    'mi' : 'Miqueas',
+    'na' : 'Nahúm',
+    'hk' : 'Habacuc',
+    'zp' : 'Sofonías',
+    'hg' : 'Ageo',
+    'zc' : 'Zacarías',
+    'ml' : 'Malaqías',
+    'mt' : 'Mateo',
+    'mk' : 'Marcos',
+    'lk' : 'Lucas',
+    'jo' : 'Juan',
+    'act': 'Hechos',
+    'rm' : 'Romanos',
+    '1co': '1 de Corintios',
+    '2co': '2 de Corintios',
+    'gl' : 'Gálatas',
+    'eph': 'Efesios',
+    'ph' : 'Filipenses',
+    'cl' : 'Colosenses',
+    '1ts': '1 de Tesalonisenses',
+    '2ts': '2 de Tesalonisenses',
+    '1tm': '1 de Timoteo',
+    '2tm': '2 de Timoteo',
+    'tt' : 'Tito',
+    'phm': 'Filemón',
+    'hb' : 'Hebreos',
+    'jm' : 'Santiago',
+    '1pe': '1 de Pedro',
+    '2pe': '2 de Pedro',
+    '1jo': '1 de Juan',
+    '2jo': '2 de Juan',
+    '3jo': '3 de Juan',
+    'jd' : 'Judas',
+    're' : 'Apocalipsis'
 }
 ## Available book acronyms
 AVAILABLE_BOOKS_ACRONYMS = ['CS']
