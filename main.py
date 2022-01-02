@@ -1,4 +1,7 @@
+import random
 from configparser import ConfigParser
+
+from sqlalchemy.orm import session
 
 from db.base import Session
 import re
@@ -25,6 +28,8 @@ from db.subscription import Subscription
 from db.statistics import Statistics
 
 import db.populate
+
+from db.bible import Bible
 
 from utils.utils import (
     get_epoch, 
@@ -1102,6 +1107,25 @@ def take_quiz(update: Update, context: CallbackContext) -> int:
             ),
         )
         return QUIZ
+
+def get_prophetic_verse(update: Update, context: CallbackContext) -> int:
+    prophectic_verse = random.randint(1, (consts.BIBLE_VERSES_COUNT+1) + consts.BIBLE_WHITE_MARGIN_COUNT)
+    if prophectic_verse <= consts.BIBLE_VERSES_COUNT:
+        session = Session()
+        verse = session.query(Bible).filter(Bible.verse_bible_number == prophectic_verse).first()
+        session.close()
+        update.message.reply_text(
+            f'{verse.verse}\n\n'
+            f'{verse.book_name} {verse.chapter_number}:{verse.verse_chapter_number}',
+            reply_markup=ReplyKeyboardRemove()
+        )
+    else:
+        update.message.reply_text(
+            'Versículo vacío.',
+            reply_markup=ReplyKeyboardRemove()
+        )
+
+    return ConversationHandler.END
         
 # TODO: Add /support command
 # TODO: Add Friday sunset times (SunTime library - pip3 install suntime)
@@ -1131,7 +1155,8 @@ def main() -> None:
             CommandHandler('admin_mensaje', admin_message, pass_args=True),
             CommandHandler('admin_rafaga', admin_burst, pass_args=True),
             CommandHandler('admin_recuento', get_admin_statistics),
-            CommandHandler('cuestionario', select_study_quiz, pass_args=True)
+            CommandHandler('cuestionario', select_study_quiz, pass_args=True),
+            CommandHandler('versiculo', get_prophetic_verse)
         ],
         states={
             START_FIRST_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, start_first_subscription)],
