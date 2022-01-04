@@ -85,6 +85,8 @@ def print_subscription(subscription: Subscription, skipped: Boolean = False) -> 
         item = 'capítulo'
     elif material_type == 'Study':
         item = 'estudio'
+    elif material_type == 'Promise':
+        item = 'promesa'
     if skipped:
         return f'{subscription.title}, 1 {item} cada día a la(s) {subscription.preferred_time_local} PST del día anterior.'
     else:
