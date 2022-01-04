@@ -1,8 +1,9 @@
-from main import devotional
 import re
 import utils.consts as consts
 from utils.utils import shift_12h_tf
 import actors.composer as composer
+import random
+import json
 
 
 def test_shift_12h_tf():
@@ -40,3 +41,31 @@ def test_composer():
     # send files if available
     print(file_ids, type(file_ids))
     print(msg)
+
+def promises_proc():
+    promises = []
+    promises_up = []
+    with open('files/json/es_365_promises.json', 'rb') as fp:
+        promises = json.load(fp)
+    random.seed(1)
+    random_order = random.sample(range(1, len(promises)+1), len(promises))
+    for i, promise in enumerate(promises, start=1):
+        promises_up.append({
+            "original_order" : i,
+            "verse_bible_reference" : promise["verse_bible_reference"],
+            "random_order" : random_order[i-1]
+        })
+    with open('files/json/es_365_promises_up.json', 'wb+') as fp:
+        fp.write(json.dumps(promises_up, ensure_ascii=False, indent = 2, separators=(',', ': ')).encode('utf-8'))
+
+def bible_verse_reference_parse(ref):
+    s = ref.split(':')
+    book = ' '.join(s[0].split(' ')[:-1])
+    chapter = int(s[0].split(' ')[-1])
+    verses = []
+    for v in s[1].split(','):
+        if v.find('-') >= 0:
+            verses.append([int(v.split('-')[0]), int(v.split('-')[1])])
+        else:
+            verses.append([int(v)])
+    return book, chapter, verses
