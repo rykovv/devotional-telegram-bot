@@ -2,7 +2,6 @@ import random
 from configparser import ConfigParser
 
 from sqlalchemy.orm import session
-from actors.composer import compose_prophetic_verse
 
 from db.base import Session
 import re
@@ -30,7 +29,7 @@ from db.statistics import Statistics
 
 import db.populate
 
-from db.bible import Bible
+import actors.composer as composer
 
 from utils.utils import (
     get_epoch, 
@@ -1013,7 +1012,7 @@ def select_study_quiz(update: Update, context: CallbackContext) -> int:
             return QUIZ
     elif len(context.args) > 0:
         update.message.reply_text(
-            f'El uso correcto:\n\n'
+            'El uso correcto:\n\n'
             '/cuestionario <siglas del libro> día/capítulo <número>, por ejemplo\n'
             '/cuestionario CS día 1\n/cuestionario CS capítulo 5\n\n'
             'Cuestionarios diponibles para el libro El Conflicto de los Siglos - siglas - CS.',
@@ -1111,7 +1110,26 @@ def take_quiz(update: Update, context: CallbackContext) -> int:
 
 def get_prophetic_verse(update: Update, context: CallbackContext) -> int:
     prophectic_verse = random.randint(1, (consts.BIBLE_VERSES_COUNT+1) + consts.BIBLE_WHITE_MARGIN_COUNT)
-    ret_content = compose_prophetic_verse(prophectic_verse)
+    ret_content = composer.compose_prophetic_verse(prophectic_verse)
+
+    update.message.reply_text(
+        ret_content,
+        reply_markup=ReplyKeyboardRemove()
+    )
+    
+    return ConversationHandler.END
+
+def get_bible(update: Update, context: CallbackContext) -> int:
+    ret_content = None
+    if len(context.args) > 1:
+        ret_content = composer.compose_bible(' '.join(context.args))
+    
+    if ret_content == None:
+        ret_content =   'El uso correcto:\n\n' \
+                        '/biblia Génesis 1 (capítulo completo)\n' \
+                        '/biblia Isaias 40:31 (un versículo)\n' \
+                        '/biblia 1 corintios 1:1-6 (secuencia continua)\n' \
+                        '/biblia apocalipsis 14:1-7,12 (secuencia(s) descontinua(s))\n'
 
     update.message.reply_text(
         ret_content,
@@ -1149,7 +1167,8 @@ def main() -> None:
             CommandHandler('admin_rafaga', admin_burst, pass_args=True),
             CommandHandler('admin_recuento', get_admin_statistics),
             CommandHandler('cuestionario', select_study_quiz, pass_args=True),
-            CommandHandler('versiculo', get_prophetic_verse)
+            CommandHandler('versiculo', get_prophetic_verse),
+            CommandHandler('biblia', get_bible, pass_args=True)
         ],
         states={
             START_FIRST_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, start_first_subscription)],
