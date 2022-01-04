@@ -1149,9 +1149,8 @@ def get_support(update: Update, context: CallbackContext) -> int:
         'Nosotros aboradmos los gastos por nuestra cuenta y su apoyo sería de mucha ayuda. '\
         'Pagamos los servidores de la transmisión 24/7 y el del bot. No contamos el tiempo que ponemos '
         'crear el contenido y mejorar los servicios.\n\n'
-        'Puede usar este enlace para hacer una donación:\n'
-        'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SLAQPDWEPKMLJ&source=url\n\n'
-        'Así como puede usar los siguinetes datos para hacer un giro:\n\n'
+        '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SLAQPDWEPKMLJ&source=url">Hacer una donación</a>\n\n'
+        'Alternativamente puede usar los siguinetes datos para hacer un giro:\n\n'
         'Wells Fargo Bank\n'
         'Número de cuenta: 5745050020\n'
         'Ruta: 121000248\n'
@@ -1159,6 +1158,7 @@ def get_support(update: Update, context: CallbackContext) -> int:
         'SWIFT (para envíos en moneda extranjera): WFBIUS6WFFX\n'
         'Nombre del titular: Selva Violeta Balbuena\n\n'
         '¡Que nuestro Señor Jesucristo le colme de bendiciones!',
+        parse_mode='html',
         reply_markup=ReplyKeyboardRemove()
     )
 
