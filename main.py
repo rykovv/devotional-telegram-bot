@@ -2,6 +2,7 @@ import random
 from configparser import ConfigParser
 
 from sqlalchemy.orm import session
+from actors.composer import compose_prophetic_verse
 
 from db.base import Session
 import re
@@ -1110,21 +1111,13 @@ def take_quiz(update: Update, context: CallbackContext) -> int:
 
 def get_prophetic_verse(update: Update, context: CallbackContext) -> int:
     prophectic_verse = random.randint(1, (consts.BIBLE_VERSES_COUNT+1) + consts.BIBLE_WHITE_MARGIN_COUNT)
-    if prophectic_verse <= consts.BIBLE_VERSES_COUNT:
-        session = Session()
-        verse = session.query(Bible).filter(Bible.verse_bible_number == prophectic_verse).first()
-        session.close()
-        update.message.reply_text(
-            f'{verse.verse}\n\n'
-            f'{verse.book_name} {verse.chapter_number}:{verse.verse_chapter_number}',
-            reply_markup=ReplyKeyboardRemove()
-        )
-    else:
-        update.message.reply_text(
-            'Versículo vacío.',
-            reply_markup=ReplyKeyboardRemove()
-        )
+    ret_content = compose_prophetic_verse(prophectic_verse)
 
+    update.message.reply_text(
+        ret_content,
+        reply_markup=ReplyKeyboardRemove()
+    )
+    
     return ConversationHandler.END
         
 # TODO: Add /support command

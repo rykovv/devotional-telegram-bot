@@ -3,8 +3,9 @@ from db.base import Session
 from db.devotional import Devotional
 from db.book import Book
 from db.study import Study
+from db.bible import Bible
 
-from utils.consts import MATERIAL_TYPES
+from utils.consts import MATERIAL_TYPES, BIBLE_VERSES_COUNT
 from utils.utils import extract_material_name
 
 def compose(subscription_title, month, day, cron_day):
@@ -95,3 +96,13 @@ def compose_study_message(subscription_title, day):
                     'El equipo de Una Mirada de Fe y Esperanza'
 
         return message, {}
+
+def compose_prophetic_verse(verse_bible_number : int) -> str:
+    if verse_bible_number <= BIBLE_VERSES_COUNT:
+        session = Session()
+        verse = session.query(Bible).filter(Bible.verse_bible_number == verse_bible_number).first()
+        session.close()
+        return  f'{verse.verse}\n\n' \
+                f'{verse.book_name} {verse.chapter_number}:{verse.verse_chapter_number}'
+    else: 
+        return 'Versículo vacío.'
