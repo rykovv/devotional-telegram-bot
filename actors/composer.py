@@ -5,8 +5,8 @@ from db.book import Book
 from db.study import Study
 from db.bible import Bible
 
-from utils.consts import MATERIAL_TYPES, BIBLE_VERSES_COUNT
-from utils.utils import extract_material_name
+from utils.consts import MATERIAL_TYPES, BIBLE_VERSES_COUNT, BIBLE_BOOKS_ACRONYMS_LUT
+from utils.utils import extract_material_name, parse_bible_reference, match_bible_book
 
 def compose(subscription_title, month, day, cron_day):
     if MATERIAL_TYPES[subscription_title] == 'Devotional':
@@ -106,3 +106,70 @@ def compose_prophetic_verse(verse_bible_number : int) -> str:
                 f'{verse.book_name} {verse.chapter_number}:{verse.verse_chapter_number}'
     else: 
         return 'Versículo vacío.'
+
+def compose_bible(input_bible_reference: str, header_ref: bool = True) -> str:
+    parsed = parse_bible_reference(input_bible_reference)
+    ret = None
+    if parsed != None:
+        session = Session()
+        # case 1 - whole chapter
+        # TODO: Fix sending long chapters 
+        if len(parsed[2]) == 0:
+            if header_ref:
+                ret = f'📖 {BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}\n\n'
+            else:
+                ret = ''
+            verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1]).all()
+            if len(verses) > 0:
+                for verse in verses:
+                    ret += f'[{verse.verse_chapter_number}] {verse.verse}\n'
+            else:
+                ret += '😞El capítulo no existe.'
+        # case 2 - just a verse
+        elif len(parsed[2]) == 1 and len(parsed[2][0]) == 1:
+            if header_ref:
+                ret = f'📖 {BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}:{parsed[2][0][0]}\n\n'
+            else:
+                ret = ''
+            verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number == parsed[2][0][0]).first()
+            if verses != None:
+                ret += f'{verses.verse}'
+            else:
+                ret += '😞El versículo no existe'
+        # case 3 - continuous sequence
+        elif len(parsed[2]) == 1 and len(parsed[2][0]) == 2:
+            if header_ref:
+                ret = f'📖 {BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}:{parsed[2][0][0]}-{parsed[2][0][1]}\n\n'
+            else:
+                ret = ''
+            verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number >= parsed[2][0][0], Bible.verse_chapter_number <= parsed[2][0][1]).all()
+            if len(verses) > 0:
+                for verse in verses:
+                    ret += f'[{verse.verse_chapter_number}] {verse.verse}\n'
+            else:
+                ret += '😞La secuencia no existe.'
+        # case 4 - discontinuous sequence(s)
+        # TODO: Fix repeating sequences
+        else:
+            if header_ref:
+                ret = f'📖 {input_bible_reference}\n\n'
+            else:
+                ret = ''
+            for seq in parsed[2]:
+                if len(seq) == 1:
+                    verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number == seq[0]).first()
+                    if verses != None:
+                        ret += f'[{verses.verse_chapter_number}] {verses.verse}\n'
+                    else:
+                        ret += f'😞[{seq[0]}] El versículo no existe\n'
+                elif len(seq) == 2:
+                    verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number >= seq[0], Bible.verse_chapter_number <= seq[1]).all()
+                    if len(verses) > 0:
+                        for verse in verses:
+                            ret += f'[{verse.verse_chapter_number}] {verse.verse}\n'
+                    else:
+                        ret += f'😞[{seq[0]}-{seq[1]}] La secuencia no existe.\n'
+        session.close()
+    
+    return ret
+    
