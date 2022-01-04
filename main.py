@@ -1137,8 +1137,29 @@ def get_bible(update: Update, context: CallbackContext) -> int:
     )
     
     return ConversationHandler.END
+
+def get_support(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    update.message.reply_text(
+        f'¡Hola, {user.first_name}! Muchas gracias por haber pensado en apoyar nuestro ministerio. '\
+        'Nosotros aboradmos los gastos por nuestra cuenta y su apoyo sería de mucha ayuda. '\
+        'Pagamos los servidores de la transmisión 24/7 y el del bot. No contamos el tiempo que ponemos '
+        'crear el contenido y mejorar los servicios.\n\n'
+        'Puede usar este enlace para hacer una donación:\n'
+        'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SLAQPDWEPKMLJ&source=url\n\n'
+        'Así como puede usar los siguinetes datos para hacer un giro:\n\n'
+        'Wells Fargo Bank\n'
+        'Número de cuenta: 5745050020\n'
+        'Ruta: 121000248\n'
+        'SWIFT (para envíos en dólares): WFBIUS6S\n'
+        'SWIFT (para envíos en moneda extranjera): WFBIUS6WFFX\n'
+        'Nombre del titular: Selva Violeta Balbuena\n\n'
+        '¡Que nuestro Señor Jesucristo le colme de bendiciones!',
+        reply_markup=ReplyKeyboardRemove()
+    )
+
+    return ConversationHandler.END
         
-# TODO: Add /support command
 # TODO: Add Friday sunset times (SunTime library - pip3 install suntime)
 # TODO: Add weekly inspirational verses
 # TODO: Add 365 daily counsels from Ellen G. White
@@ -1167,7 +1188,8 @@ def main() -> None:
             CommandHandler('admin_recuento', get_admin_statistics),
             CommandHandler('cuestionario', select_study_quiz, pass_args=True),
             CommandHandler('versiculo', get_prophetic_verse),
-            CommandHandler('biblia', get_bible, pass_args=True)
+            CommandHandler('biblia', get_bible, pass_args=True),
+            CommandHandler('apoyar', get_support),
         ],
         states={
             START_FIRST_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, start_first_subscription)],
