@@ -1141,7 +1141,6 @@ def get_bible(update: Update, context: CallbackContext) -> int:
 # TODO: Add /support command
 # TODO: Add Friday sunset times (SunTime library - pip3 install suntime)
 # TODO: Add weekly inspirational verses
-# TODO: Add 365 daily promises subscription
 # TODO: Add 365 daily counsels from Ellen G. White
 # TODO: Fix scheduler to fit summer and winter time change
 
