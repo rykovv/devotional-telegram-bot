@@ -1133,6 +1133,7 @@ def get_bible(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text(
         ret_content,
+        parse_mode='html',
         reply_markup=ReplyKeyboardRemove()
     )
     
