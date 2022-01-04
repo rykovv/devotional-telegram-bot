@@ -34,7 +34,7 @@ def test_subscription_select_pattern():
 
 def test_composer():
     # compose a formatted message
-    msg, file_ids = composer.compose(name=consts.DEVOTIONALS_KEYBOARD[0][0], 
+    msg, file_ids = composer.compose(subscription_title=consts.DEVOTIONALS_KEYBOARD[0][0], 
                                     month=7, day=30,
                                     cron_day=2)
 
@@ -69,3 +69,11 @@ def bible_verse_reference_parse(ref):
         else:
             verses.append([int(v)])
     return book, chapter, verses
+
+def test_promises():
+    for i in range(367):
+        msg, file_ids = composer.compose(subscription_title=consts.DEVOTIONALS_KEYBOARD[3][0], 
+                                    month=7, day=30,
+                                    cron_day=i+1)
+        if msg[0] == '😞':
+            print(i, msg)

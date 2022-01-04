@@ -1,9 +1,11 @@
+from sqlalchemy.orm import session
 from db.base import Session
 
 from db.devotional import Devotional
 from db.book import Book
 from db.study import Study
 from db.bible import Bible
+from db.promise import Promise
 
 from utils.consts import MATERIAL_TYPES, BIBLE_VERSES_COUNT, BIBLE_BOOKS_ACRONYMS_LUT
 from utils.utils import extract_material_name, parse_bible_reference, match_bible_book
@@ -15,6 +17,8 @@ def compose(subscription_title, month, day, cron_day):
         message, file_ids = compose_book_message(subscription_title, cron_day+1)
     elif MATERIAL_TYPES[subscription_title] == 'Study':
         message, file_ids = compose_study_message(subscription_title, cron_day+1)
+    elif MATERIAL_TYPES[subscription_title] == 'Promise':
+        message, file_ids = compose_promise_message(subscription_title, cron_day+1)
     else:
         raise Exception(f'Unknown material option: title={subscription_title}, month={month}, day={day}, cron_day={cron_day+1}')
 
@@ -116,60 +120,75 @@ def compose_bible(input_bible_reference: str, header_ref: bool = True) -> str:
         # TODO: Fix sending long chapters 
         if len(parsed[2]) == 0:
             if header_ref:
-                ret = f'📖 {BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}\n\n'
+                ret = f'📖 <b>{BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}</b>\n\n'
             else:
                 ret = ''
             verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1]).all()
             if len(verses) > 0:
                 for verse in verses:
-                    ret += f'[{verse.verse_chapter_number}] {verse.verse}\n'
+                    ret += f'[{verse.verse_chapter_number}] <i>{verse.verse}</i>\n'
             else:
                 ret += '😞El capítulo no existe.'
         # case 2 - just a verse
         elif len(parsed[2]) == 1 and len(parsed[2][0]) == 1:
             if header_ref:
-                ret = f'📖 {BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}:{parsed[2][0][0]}\n\n'
+                ret = f'📖 <b>{BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}:{parsed[2][0][0]}</b>\n\n'
             else:
                 ret = ''
             verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number == parsed[2][0][0]).first()
             if verses != None:
-                ret += f'{verses.verse}'
+                ret += f'<i>{verses.verse}</i>'
             else:
                 ret += '😞El versículo no existe'
         # case 3 - continuous sequence
         elif len(parsed[2]) == 1 and len(parsed[2][0]) == 2:
             if header_ref:
-                ret = f'📖 {BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}:{parsed[2][0][0]}-{parsed[2][0][1]}\n\n'
+                ret = f'📖 <b>{BIBLE_BOOKS_ACRONYMS_LUT[match_bible_book(parsed[0])]} {parsed[1]}:{parsed[2][0][0]}-{parsed[2][0][1]}</b>\n\n'
             else:
                 ret = ''
             verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number >= parsed[2][0][0], Bible.verse_chapter_number <= parsed[2][0][1]).all()
             if len(verses) > 0:
                 for verse in verses:
-                    ret += f'[{verse.verse_chapter_number}] {verse.verse}\n'
+                    ret += f'[{verse.verse_chapter_number}] <i>{verse.verse}</i>\n'
             else:
                 ret += '😞La secuencia no existe.'
         # case 4 - discontinuous sequence(s)
         # TODO: Fix repeating sequences
         else:
             if header_ref:
-                ret = f'📖 {input_bible_reference}\n\n'
+                ret = f'📖 <b>{input_bible_reference}</b>\n\n'
             else:
                 ret = ''
             for seq in parsed[2]:
                 if len(seq) == 1:
                     verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number == seq[0]).first()
                     if verses != None:
-                        ret += f'[{verses.verse_chapter_number}] {verses.verse}\n'
+                        ret += f'[{verses.verse_chapter_number}] <i>{verses.verse}</i>\n'
                     else:
                         ret += f'😞[{seq[0]}] El versículo no existe\n'
                 elif len(seq) == 2:
                     verses = session.query(Bible).filter(Bible.book_abbr == match_bible_book(parsed[0]), Bible.chapter_number == parsed[1], Bible.verse_chapter_number >= seq[0], Bible.verse_chapter_number <= seq[1]).all()
                     if len(verses) > 0:
                         for verse in verses:
-                            ret += f'[{verse.verse_chapter_number}] {verse.verse}\n'
+                            ret += f'[{verse.verse_chapter_number}] <i>{verse.verse}</i>\n'
                     else:
                         ret += f'😞[{seq[0]}-{seq[1]}] La secuencia no existe.\n'
         session.close()
     
     return ret
     
+def compose_promise_message(subscription_title: str, day: int) -> str:
+    session = Session()
+    promise = session.query(Promise).filter(Promise.random_order == day).first()
+    session.close()
+    if promise != None:
+        bible_text = compose_bible(promise.verse_bible_reference, header_ref=False)
+
+    if promise != None and bible_text != None:
+        ret = f'🌼 <b>La promesa del día {day}</b> 📆\n\n' \
+              f'📖 {bible_text}\n' \
+              f'{promise.verse_bible_reference} ❤️'
+    else:
+        ret = '😞Disculpe, hubo un error al construir el mensaje. Apreciamos que nos lo comunique para que lo resolvemos rápido.'
+
+    return ret, {}

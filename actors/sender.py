@@ -2,6 +2,7 @@ from configparser import ConfigParser
 
 import telegram
 from db.base import Session
+from db.promise import Promise
 
 import utils.consts as consts
 from utils.utils import (
@@ -196,5 +197,7 @@ def _expired_subscription(subscription):
         count = session.query(Book).filter(Book.name == material_name).count()
     elif consts.MATERIAL_TYPES[subscription.title] == 'Study':
         count = session.query(Study).filter(Study.book_name == material_name).count()
+    elif consts.MATERIAL_TYPES[subscription.title] == 'Promise':
+        count = session.query(Promise).count()
     session.close()
     return (days_since_epoch(subscription.creation_utc)+1 > count)
