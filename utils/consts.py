@@ -18,10 +18,11 @@ YES_NO_RE_PATTERN = '^(Sí|No)$'
 DEVOTIONALS_KEYBOARD = [
     ['Devocional: ¡Maranata: El Señor Viene!'],
     ['Devocional: A Fin de Conocerle'],
-    ['Libro: El Conflicto de los Siglos'], 
-    ['Estudio: El Conflicto de los Siglos']
+    ['Libro: El Conflicto de los Siglos'] 
+    #['Estudio: El Conflicto de los Siglos'] # still in development
 ]
-DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Devocional: A Fin de Conocerle|Libro: El Conflicto de los Siglos|Estudio: El Conflicto de los Siglos)$'
+DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Devocional: A Fin de Conocerle|Libro: El Conflicto de los Siglos)$'
+#DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Devocional: A Fin de Conocerle|Libro: El Conflicto de los Siglos|Estudio: El Conflicto de los Siglos)$' #Estudio: El Conflicto de los Siglos
 ### Pick up hours for sending devotional
 HOUR_KEYBOARD = [['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
                  ['12am', '1pm', '2pm', '3pm'], ['4pm', '5pm', '6pm', '7pm'], ['8pm', '9pm', '10pm', '11pm']]
@@ -67,8 +68,8 @@ BIBLE_WHITE_MARGIN_COUNT = 3000
 MATERIAL_TYPES = {
     'Devocional: ¡Maranata: El Señor Viene!': 'Devotional',
     'Devocional: A Fin de Conocerle'        : 'Devotional',
-    'Libro: El Conflicto de los Siglos'     : 'Book',
-    'Estudio: El Conflicto de los Siglos'   : 'Study'
+    'Libro: El Conflicto de los Siglos'     : 'Book'
+    #'Estudio: El Conflicto de los Siglos'   : 'Study' # still in development
 }
 
 ## Dictionary with books acronyms in Spanish
@@ -84,12 +85,12 @@ BIBLE_BOOKS_ACRONYMS_LUT = {
     'js' : 'Josué',
     'jud': 'Jueces',
     'rt' : 'Rut',
-    '1sm': '1 de Samuel',
-    '2sm': '2 de Samuel',
-    '1kgs':'1 de Reyes',
-    '2kgs':'2 de Reyes',
-    '1ch': '1 de Crónicas',
-    '2ch': '2 de Crónicas',
+    '1sm': '1 Samuel',
+    '2sm': '2 Samuel',
+    '1kgs':'1 Reyes',
+    '2kgs':'2 Reyes',
+    '1ch': '1 Crónicas',
+    '2ch': '2 Crónicas',
     'ezr': 'Esdras',
     'ne' : 'Nehemías',
     'et' : 'Ester',
@@ -115,31 +116,32 @@ BIBLE_BOOKS_ACRONYMS_LUT = {
     'hg' : 'Ageo',
     'zc' : 'Zacarías',
     'ml' : 'Malaqías',
+    
     'mt' : 'Mateo',
     'mk' : 'Marcos',
     'lk' : 'Lucas',
     'jo' : 'Juan',
     'act': 'Hechos',
     'rm' : 'Romanos',
-    '1co': '1 de Corintios',
-    '2co': '2 de Corintios',
+    '1co': '1 Corintios',
+    '2co': '2 Corintios',
     'gl' : 'Gálatas',
     'eph': 'Efesios',
     'ph' : 'Filipenses',
     'cl' : 'Colosenses',
-    '1ts': '1 de Tesalonisenses',
-    '2ts': '2 de Tesalonisenses',
-    '1tm': '1 de Timoteo',
-    '2tm': '2 de Timoteo',
+    '1ts': '1 Tesalonisenses',
+    '2ts': '2 Tesalonisenses',
+    '1tm': '1 Timoteo',
+    '2tm': '2 Timoteo',
     'tt' : 'Tito',
     'phm': 'Filemón',
     'hb' : 'Hebreos',
     'jm' : 'Santiago',
-    '1pe': '1 de Pedro',
-    '2pe': '2 de Pedro',
-    '1jo': '1 de Juan',
-    '2jo': '2 de Juan',
-    '3jo': '3 de Juan',
+    '1pe': '1 Pedro',
+    '2pe': '2 Pedro',
+    '1jo': '1 Juan',
+    '2jo': '2 Juan',
+    '3jo': '3 Juan',
     'jd' : 'Judas',
     're' : 'Apocalipsis'
 }
