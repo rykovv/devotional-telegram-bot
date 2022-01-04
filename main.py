@@ -778,6 +778,9 @@ def get_help(update: Update, context: CallbackContext) -> int:
         '/estado para ver el estado de sus suscripciones,\n'
         '/ajustar para ajustar sus suscripciones,\n'
         '/ayuda para recibir ayuda,\n'
+        '/biblia para leer la Biblia\n'
+        '/versiculo para recibir un versículo aleatorio\n'
+        '/apoyar para apoyar el ministerio\n'
         '/contacto para contactarse con nosotros,\n'
         '/recuento para ver las estadísticas,\n'
         '/baja para dejar de recibir los materiales.\n',

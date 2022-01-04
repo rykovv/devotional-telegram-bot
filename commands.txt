@@ -1,0 +1,10 @@
+/start - Nueva suscripción
+/estado - Estado de sus suscripciones
+/ajustar - Preferencias de sus suscripciones
+/ayuda - Lista de comandos
+/biblia - Leer la Biblia
+/versiculo - Versiculo aleatorio
+/apoyar - Apoyar el ministerio
+/contacto - Contactar con nosotros
+/recuento - Estadísticas
+/baja - Dejar de recibir los materiales
