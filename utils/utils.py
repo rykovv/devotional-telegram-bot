@@ -6,6 +6,9 @@ import logging
 
 import utils.consts as consts
 
+from fuzzywuzzy import fuzz
+import utils.consts as consts
+
 config = ConfigParser()
 config.read(consts.CONFIG_FILE_NAME)
 
@@ -100,3 +103,30 @@ def extract_material_type(subscription_title: str) -> str:
 def make_inclusive_range(str) -> list[int]:
     snums = str.split('-')
     return range(int(snums[0]), int(snums[1])+1)
+
+def similarity(str1 : str, str2 : str) -> float:
+    return fuzz.token_set_ratio(str1, str2)
+
+# returns abbrev
+def match_bible_book(input_str : str) -> str:
+    sim_scores = [similarity(input_str, book_name) for book_name in consts.BIBLE_BOOKS_ACRONYMS_LUT.values()]
+    return list(consts.BIBLE_BOOKS_ACRONYMS_LUT.keys())[sim_scores.index(max(sim_scores))]
+
+# verses = [[1, 4],[10]]
+def parse_bible_reference(verse_bible_reference : str):
+    try:
+        s = verse_bible_reference.split(':')
+        book = ' '.join(s[0].split(' ')[:-1])
+        chapter = int(s[0].split(' ')[-1])
+        verses = []
+        if len(s) > 1:
+            for v in s[1].split(','):
+                if v.find('-') >= 0:
+                    verses.append([int(v.split('-')[0]), int(v.split('-')[1])])
+                else:
+                    verses.append([int(v)])
+    except Exception as ex:
+        print(ex)
+        return None
+
+    return book, chapter, verses
