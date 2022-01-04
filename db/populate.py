@@ -3,6 +3,7 @@ from db.book import Book
 from db.study import Study
 from db.question import Question
 from db.bible import Bible
+from db.promise import Promise
 
 from db.base import Session, engine, Base
 import json
@@ -24,6 +25,7 @@ CS_FILE = f'{config["content"]["folder"]}/json/es_CS.json'
 CS_STUDY_FILE = f'{config["content"]["folder"]}/json/es_CS_study.json'
 CS_QUIZ_FILE = f'{config["content"]["folder"]}/json/es_CS_quiz.json'
 BIBLE_FILE = f'{config["content"]["folder"]}/json/es_rvr.json'
+PROMISES_FILE = f'{config["content"]["folder"]}/json/es_365_promises.json'
 
 def populate_devotional_maranatha():
     session = Session()
@@ -201,9 +203,32 @@ def populate_bible():
     session.close()
 
 
+def populate_promises():
+    session = Session()
+    if session.query(Promise).count() == 0:
+        promises = []
+
+        with open(PROMISES_FILE, 'rb') as fp:
+            promises = json.load(fp)
+
+        for promise in promises:
+            session.add(
+                Promise(
+                    original_order=promise['original_order'],
+                    random_order=promise['random_order'],
+                    verse_bible_reference=promise['verse_bible_reference'].lower()
+                )
+            )
+        session.commit()
+    else:
+        logger.info('[PROMISES] 365 Daily Promises is aready in the db.')
+    session.close()
+
+
 populate_devotional_maranatha()
 populate_book_great_controversy()
 populate_study_great_controversy()
 populate_great_controversy_study_questions()
 populate_devotional_that_i_may_know_him()
 populate_bible()
+populate_promises()
