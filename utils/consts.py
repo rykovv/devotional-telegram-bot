@@ -18,10 +18,11 @@ YES_NO_RE_PATTERN = '^(Sí|No)$'
 DEVOTIONALS_KEYBOARD = [
     ['Devocional: ¡Maranata: El Señor Viene!'],
     ['Devocional: A Fin de Conocerle'],
-    ['Libro: El Conflicto de los Siglos'] 
+    ['Libro: El Conflicto de los Siglos'],
+    ['Promesas: 365 Promesas Bíblicas para Cada Día']
     #['Estudio: El Conflicto de los Siglos'] # still in development
 ]
-DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Devocional: A Fin de Conocerle|Libro: El Conflicto de los Siglos)$'
+DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Devocional: A Fin de Conocerle|Libro: El Conflicto de los Siglos|Promesas: 365 Promesas Bíblicas para Cada Día)$'
 #DEVOTIONALS_RE_PATTERN = '^(Devocional: ¡Maranata: El Señor Viene!|Devocional: A Fin de Conocerle|Libro: El Conflicto de los Siglos|Estudio: El Conflicto de los Siglos)$' #Estudio: El Conflicto de los Siglos
 ### Pick up hours for sending devotional
 HOUR_KEYBOARD = [['12pm', '1am', '2am', '3am'], ['4am', '5am', '6am', '7am'], ['8am', '9am', '10am', '11am'],
@@ -66,9 +67,10 @@ BIBLE_WHITE_MARGIN_COUNT = 3000
 
 ## Dictionary with material types
 MATERIAL_TYPES = {
-    'Devocional: ¡Maranata: El Señor Viene!': 'Devotional',
-    'Devocional: A Fin de Conocerle'        : 'Devotional',
-    'Libro: El Conflicto de los Siglos'     : 'Book'
+    'Devocional: ¡Maranata: El Señor Viene!'        : 'Devotional',
+    'Devocional: A Fin de Conocerle'                : 'Devotional',
+    'Libro: El Conflicto de los Siglos'             : 'Book',
+    'Promesas: 365 Promesas Bíblicas para Cada Día' : 'Promise'
     #'Estudio: El Conflicto de los Siglos'   : 'Study' # still in development
 }
 
@@ -116,7 +118,7 @@ BIBLE_BOOKS_ACRONYMS_LUT = {
     'hg' : 'Ageo',
     'zc' : 'Zacarías',
     'ml' : 'Malaqías',
-    
+
     'mt' : 'Mateo',
     'mk' : 'Marcos',
     'lk' : 'Lucas',
