@@ -60,8 +60,12 @@ class Subscription(Base):
         session.commit()
         session.close()
 
-    def delete(self):
+    def delete(self, id = None):
         session = Session()
-        session.delete(self)
+        if id == None:
+            session.delete(self)
+        else:
+            subscription = session.query(Subscription).get(id)
+            session.delete(subscription)
         session.commit()
         session.close()

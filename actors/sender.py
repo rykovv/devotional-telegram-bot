@@ -87,7 +87,8 @@ def send(all=False, month=None, day=None, chat_id=None):
                             '¡Un gran saludo en Cristo!\n' \
                             'El equipo de Una Mirada de Fe y Esperanza'
                     _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
-                    subscription.delete()
+                    
+                    subscription.delete(id=subscription.id)
 
                 done = True
             except Exception as e:
