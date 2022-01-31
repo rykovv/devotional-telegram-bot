@@ -109,7 +109,7 @@ def send(all=False, month=None, day=None, chat_id=None):
             logger.error(f'Devotionals have NOT been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
     else:
         if not all:
-            logger.info(f'Devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
+            logger.info(f'{sent} devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
         else:
             logger.info(f'Devotionals have been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
         
