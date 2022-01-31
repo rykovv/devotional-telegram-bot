@@ -1169,6 +1169,20 @@ def get_support(update: Update, context: CallbackContext) -> int:
     )
 
     return ConversationHandler.END
+
+def get_admin_options(update: Update, context: CallbackContext) -> int:
+    user = update.message.from_user
+    if is_admin(user.id):
+        update.message.reply_text(
+            '/admin_recuento - Estadísticas avanzadas\n'
+            '/admin_mensaje <mensaje> - Mensaje a todos usuarios registrados.\n'
+            '  \'#\' reemplazado con \'\\n\'\n'
+            '  \' - \' reemplazado con \'\\n - \'\n'
+            '/admin_rafaga <mes>-<día> - Reenviar las suscripciones de la fecha indicada a todos los usuarios.',
+            reply_markup=ReplyKeyboardRemove()
+        )
+
+    return ConversationHandler.END
         
 # TODO: Add Friday sunset times (SunTime library - pip3 install suntime)
 # TODO: Add weekly inspirational verses
@@ -1200,6 +1214,7 @@ def main() -> None:
             CommandHandler('versiculo', get_prophetic_verse),
             CommandHandler('biblia', get_bible, pass_args=True),
             CommandHandler('apoyar', get_support),
+            CommandHandler('admin', get_admin_options),
         ],
         states={
             START_FIRST_SUBSCRIPTION: [MessageHandler(Filters.text & ~Filters.command, start_first_subscription)],
