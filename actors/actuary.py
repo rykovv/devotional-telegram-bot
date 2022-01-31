@@ -50,17 +50,23 @@ def statistics():
     session.close()
     return stats
 
-def set_last_registered():
+def set_last_registered(epoch = None):
     session = Session()
     stats = session.query(Statistics).get(STATISTICS_UNIQUE_ID)
-    stats.last_registered = get_epoch()
+    if epoch != None and stats.last_registered < epoch:
+        stats.last_registered = epoch
+    else:
+        stats.last_registered = get_epoch()
     session.commit()
     session.close()
 
-def set_last_subscribed():
+def set_last_subscribed(epoch = None):
     session = Session()
     stats = session.query(Statistics).get(STATISTICS_UNIQUE_ID)
-    stats.last_subscribed = get_epoch()
+    if epoch != None and stats.last_subscribed < epoch:
+        stats.last_subscribed = epoch
+    else:
+        stats.last_subscribed = get_epoch()
     session.commit()
     session.close()
 

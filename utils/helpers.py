@@ -56,10 +56,10 @@ def subscriptions_count(sid) -> int:
 def persist_buffer(userid) -> None:
     if userid in buffer.subscribers:
         buffer.subscribers[userid].persist()
-        actuary.set_last_registered()
+        actuary.set_last_registered(epoch=buffer.subscribers[userid].creation_utc)
     if userid in buffer.subscriptions:
         buffer.subscriptions[userid].persist()
-        actuary.set_last_subscribed()
+        actuary.set_last_subscribed(epoch=buffer.subscriptions[userid].creation_utc)
 
 
 def clean_db(userid) -> None:
