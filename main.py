@@ -931,6 +931,8 @@ def get_admin_statistics(update: Update, context: CallbackContext) -> int:
             f'Sin ubicación : {actuary.geo_skipped()}\n'
             f'Enviado : {stats.sent}\n'
             f'Cuestionarios: {stats.quizzes}\n'
+            f'Biblia: {stats.bible_queries}\n'
+            f'Versículo profético: {stats.prophetic_queries}\n'
             f'Dieron de baja : {stats.unsubscribed}\n'
             f'Último registrado : {epoch_to_date(stats.last_registered)}\n'
             f'Último suscrito : {epoch_to_date(stats.last_subscribed)}',
@@ -1119,6 +1121,8 @@ def get_prophetic_verse(update: Update, context: CallbackContext) -> int:
         ret_content,
         reply_markup=ReplyKeyboardRemove()
     )
+
+    actuary.add_prophetic_query()
     
     return ConversationHandler.END
 
@@ -1139,6 +1143,8 @@ def get_bible(update: Update, context: CallbackContext) -> int:
         parse_mode='html',
         reply_markup=ReplyKeyboardRemove()
     )
+
+    actuary.add_bible_query()
     
     return ConversationHandler.END
 
@@ -1151,7 +1157,7 @@ def get_support(update: Update, context: CallbackContext) -> int:
         'crear el contenido y mejorar los servicios.\n\n'
         '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SLAQPDWEPKMLJ&source=url">Hacer una donación</a>\n\n'
         'Alternativamente puede usar los siguinetes datos para hacer un giro:\n\n'
-        'Wells Fargo Bank\n'
+        'Nombre del Banco: Wells Fargo Bank\n'
         'Número de cuenta: 5745050020\n'
         'Ruta: 121000248\n'
         'SWIFT (para envíos en dólares): WFBIUS6S\n'

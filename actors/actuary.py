@@ -85,4 +85,19 @@ def add_quiz():
     session.commit()
     session.close()
 
+def add_bible_query():
+    session = Session()
+    stats = session.query(Statistics).get(STATISTICS_UNIQUE_ID)
+    stats.bible_queries += 1
+    session.commit()
+    session.close()
+
+def add_prophetic_query():
+    session = Session()
+    stats = session.query(Statistics).get(STATISTICS_UNIQUE_ID)
+    stats.prophetic_queries += 1
+    session.commit()
+    session.close()
+
+
 statistics_setup()

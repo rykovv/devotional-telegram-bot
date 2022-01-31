@@ -19,6 +19,10 @@ class Statistics(Base):
     unsubscribed = Column('unsubscribed', Numeric, default=0)
     # Number of completed quizzes
     quizzes = Column('quizzes', Numeric, default=0)
+    # Number of Bible queries
+    bible_queries = Column('bible_queries', Numeric, default=0)
+    # Number of prophetic verse queries
+    prophetic_queries = Column('prophetic_queries', Numeric, default=0)
     
 
     def __init__(self, id=STATISTICS_UNIQUE_ID):
