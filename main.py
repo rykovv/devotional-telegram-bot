@@ -1188,6 +1188,7 @@ def get_admin_options(update: Update, context: CallbackContext) -> int:
 # TODO: Add weekly inspirational verses
 # TODO: Add 365 daily counsels from Ellen G. White
 # TODO: Fix scheduler to fit summer and winter time change
+# TODO: Fix /admin_rafaga to send subscriptions with the time prior to the execution
 
 def main() -> None:
     """Run the bot."""
