@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.9
 LABEL maintainer = "Vladislav Rykov <rykovinternational@gmail.com>"
 COPY devotional-telegram-bot /devotional-telegram-bot
 WORKDIR devotional-telegram-bot
