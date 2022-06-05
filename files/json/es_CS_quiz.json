@@ -1063,14 +1063,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "La obra engañosa y blasfema del misterio de iniquidad se desarrolla poco a poco, primero solapadamente y a hurtadillas, y después con más desembozo, conforme va cobrando fuerza y dominio sobre los espíritus de los hombres.",
     "question_number" : 2,
     "options" : [
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Poco a poco, primero solapadamente y a hurtadillas, y después con más desembozo, conforme iba cobrando fuerza y dominio sobre los espíritus de los hombres,  “el misterio de iniquidad” hizo progresar su obra engañosa y blasfema. CS 47.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1091,16 +1091,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Cómo ha cambiado la iglesia cuando las persecuciones habían cesado?",
     "question_number" : 4,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Se hizo más fuerte y sus doctrinas fueron fortalecidas",
+      "Bajó en su número de filegreses por los numerosos martirios",
+      "Dejó a un lado la humilde sencillez de Cristo y de sus apóstoles",
+      "La verdad se expandió y hasta el mismo imperador la aceptó"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "c",
+    "reference" : "Mas habiendo cesado la persecución y habiendo penetrado el cristianismo en las cortes y palacios, la iglesia dejó a un lado la humilde sencillez de Cristo y de sus apóstoles por la pompa y el orgullo de los sacerdotes y gobernantes paganos. CS 47.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1121,16 +1121,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Qué es lo que resultó en el desarrollo del \"hombre de pecado\"?",
     "question_number" : 6,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "La fuerte espiritualidad de la iglesia",
+      "Los intentenos fallidos de Satanás a destruir la iglesia",
+      "No había ningún desarrollo de este tipo",
+      "La avenencia entre el paganismo y el cristianismo"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "d",
+    "reference" : "Esta avenencia entre el paganismo y el cristianismo dio por resultado el desarrollo del “hombre de pecado” predicho en la profecía como oponiéndose a Dios y ensalzándose a sí mismo sobre Dios. CS 48.1"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1151,16 +1151,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Qué quería conseguir Satanás cuando tentó a Cristo en el desierto ofreciéndole todos los reinos del mundo?",
     "question_number" : 8,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Hacer transigir a Cristo",
+      "Que Cristo reina el mundo",
+      "Afligir el alma de Cristo",
+      "Enfocar el ministerio de Cristo"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Satanás se había esforzado una vez por hacer transigir a Cristo. Vino adonde estaba el Hijo de Dios en el desierto para tentarle, y mostrándole todos los reinos del mundo y su gloria, ofreció entregárselo todo con tal que reconociera la supremacía del príncipe de las tinieblas. CS 48.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1181,16 +1181,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "Una de las principales doctrinas del romanismo enseña que el papa no fue investido de suprema autoridad sobre los obispos y los pastores de todo el mundo.",
     "question_number" : 10,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Una de las principales doctrinas del romanismo enseña que el papa es cabeza visible de la iglesia universal de Cristo, y que fue investido de suprema autoridad sobre los obispos y los pastores de todas las partes del mundo. CS 48.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1209,16 +1207,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Qué necesita Satanás de los hombres para mantener su poder sobre ellos?",
     "question_number" : 12,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Leer la Biblia y orar",
+      "Que ignoren las Santas Escrituras",
+      "Que miren las películas de Hollywood",
+      "Nungúna opción es correcta"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Para mantener su poder sobre los hombres y establecer la autoridad del usurpador papal, Satanás necesita que ellos ignoren las Santas Escrituras. CS 49.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1239,16 +1237,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Qué necesitaba hacer la Iglesia Católica para incorporar la idolatría oficialmente?",
     "question_number" : 14,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Solo añadir a la Ley de Dios un mandamiento al respecto",
+      "Convencer a los cristianos que la idolatría es buena",
+      "Eliminar de la Ley de Dios el segundo mandamiento",
+      "Ponerse de acuerdo el papa, los cardenales, etc, sin cambiar nada"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "c",
+    "reference" : "Para remate de su obra sacrílega, Roma se atrevió a borrar de la ley de Dios el segundo mandamiento, que prohibe la adoración de las imágenes y a dividir en dos el último mandamiento para conservar el número de estos. CS 49.4"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1269,16 +1267,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Cómo la Iglesia Católica justificó el cambio del Sábado?",
     "question_number" : 16,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Declarando domingo el día de fiesta en honor a la resurrección de Cristo",
+      "El domingo siempre fue el día de adoración en la iglesia",
+      "El domingo fue más llamativo para los gentiles de por sí",
+      "Simplemente lo hizo, sin ninguna justificación"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Para llamar la atención de las gentes hacia el domingo, fue declarado día de fiesta en honor de la resurrección de Cristo. Se celebraban servicios religiosos en ese día; no obstante se lo consideraba como día de recreo, y seguía guardándose piadosamente el sábado. CS 50.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1299,16 +1297,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Por qué el séptimo día fue sacrificado como el descanso para el hombre?",
     "question_number" : 18,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Porque fue el memorial de la obra de creación y dirigía los pensamientos hacia el Creador",
+      "Porque todo ya estaba creado y no había nada que hacer",
+      "Porque el ser humano necesitaba descansar y lo mejor fue asignalar un día para eso",
+      "Todas las opciones son correctas"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Como monumento conmemorativo de la obra de la creación fue santificado el día séptimo como día de descanso para el hombre. Estaba destinado a recordar siempre a los hombres que el Dios viviente es fuente de toda existencia y objeto de reverencia y adoración. CS 51.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1329,16 +1327,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "El advenimiento de la iglesia romana al poder marcó el principio de la Edad Media.",
     "question_number" : 20,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "El advenimiento de la iglesia romana al poder marcó el principio de la Edad Media. CS 52.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1357,16 +1353,16 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "¿Qué enseña la Iglesia Católica sobre como apaciguar la ira de Dios y asegurarse su favor?",
     "question_number" : 22,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "La justificacón por la fe es el único camino de salvación",
+      "Las obras son el fruto de salvación, no viceversa",
+      "Todas las opciones son correctas",
+      "Tener al papa como el mediador entre Dios y el pueblo, y hacer más buenas obras"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "d",
+    "reference" : "Se le enseñó que el papa era su mediador terrenal y que nadie podía acercarse a Dios sino por medio de él, y andando el tiempo se le enseñó también que para los fieles el papa ocupaba el lugar de Dios y que por lo tanto debían obedecerle implícitamente. CS 52.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1387,16 +1383,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "Durante la edad media el pueblo podía evitar ir a los sensuales y corrompidos sacerdotes e ir directamente a la Biblia para encontrar las respuestas.",
     "question_number" : 24,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Mientras que los sacerdotes y los obispos eran amantes de los placeres, sensuales y corrompidos, solo podía esperarse del pueblo que acudía a ellos en busca de dirección, que siguiera sumido en la ignorancia y en los vicios. CS 54.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1417,16 +1411,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "la inmortalidad natural del hombre y en su estado consciente después de la muerte fueron la base sobre la cual Roma estableció la invocación de los santos y la adoración de la virgen María.",
     "question_number" : 26,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "Uno de los principales fue la creencia en la inmortalidad natural del hombre y en su estado consciente después de la muerte. Esta doctrina fue la base sobre la cual Roma estableció la invocación de los santos y la adoración de la virgen María. CS 55.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1447,16 +1439,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "El purgatorio es un lugar donde los que no merecieron entrar en el cielo se quedan para el sufrimiento eterno.",
     "question_number" : 28,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "b",
+    "reference" : "Con esta herejía Roma afirma la existencia de un lugar de tormento, en el que las almas de los que no han merecido eterna  condenación han de ser castigadas por sus pecados, y de donde, una vez limpiadas de impureza, son admitidas en el cielo CS 55.3"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1477,16 +1467,14 @@
     "book_name" : "El Conflcto de los Siglos",
     "study_name" : "El Tiempo de Estar Preparado",
     "chapter" : 3,
-    "question" : "",
+    "question" : "La institución bíblica de la Cena del Señor fue sustituida por el sacrificio idolátrico de la misa.",
     "question_number" : 30,
     "options" : [
-      "",
-      "",
-      "",
-      ""
+      "Verdadero",
+      "Falso"
     ],
-    "correct_option" : "",
-    "reference" : ""
+    "correct_option" : "a",
+    "reference" : "La institución bíblica de la Cena del Señor fue sustituida por el sacrificio idolátrico de la misa. CS 56.2"
   },
   {
     "book_name" : "El Conflcto de los Siglos",
@@ -1502,21 +1490,6 @@
     ],
     "correct_option" : "c",
     "reference" : "Las Sagradas Escrituras eran casi desconocidas no solo de las gentes sino de los mismo sacerdotes. A semejanza de los antiguos fariseos, los caudillos papales aborrecían la luz que habría revelado sus pecados. Rechazada la ley de Dios, modelo de justicia, ejercieron poderío sin límites y practicaron desenfrenadamente los vicios. Prevalecieron el fraude, la avaricia y el libertinaje. Los hombres no retrocedieron ante ningún crimen que pudiese darles riquezas o posición. Los palacios de los papas y de los prelados eran teatro de los más viles excesos. Algunos de los pontífices reinantes se hicieron reos de crímenes tan horrorosos que los gobernantes civiles tuvieron que procurar deponer a dichos dignatarios de la iglesia como monstruos demasiado viles para ser tolerados. CS 57.1"
-  },
-  {
-    "book_name" : "El Conflcto de los Siglos",
-    "study_name" : "El Tiempo de Estar Preparado",
-    "chapter" : 3,
-    "question" : "",
-    "question_number" : 32,
-    "options" : [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct_option" : "",
-    "reference" : ""
   },
 
 
@@ -1542,10 +1515,440 @@
     ],
     "correct_option" : "",
     "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 2,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 3,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 4,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 5,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 6,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 7,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 8,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 9,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 10,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 11,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 12,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 13,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 14,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 15,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 16,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 17,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 18,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 19,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 20,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 21,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 22,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 23,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 24,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 25,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 26,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 27,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 28,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 29,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 30,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 31,
+    "options" : [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correct_option" : "",
+    "reference" : ""
+  },
+  {
+    "book_name" : "El Conflcto de los Siglos",
+    "study_name" : "El Tiempo de Estar Preparado",
+    "chapter" : 4,
+    "question" : "",
+    "question_number" : 32,
+    "options" : [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct_option" : "",
+    "reference" : ""
   }
-
-
-
 
 
 
