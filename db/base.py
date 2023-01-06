@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 from configparser import ConfigParser
 
-CONFIG_FILE_NAME = 'config.ini'
+from utils.consts import CONFIG_FILE_NAME
 
 config = ConfigParser()
 config.read(CONFIG_FILE_NAME)

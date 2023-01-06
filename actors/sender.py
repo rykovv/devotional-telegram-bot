@@ -16,6 +16,7 @@ from utils.helpers import (
     process_send_exception,
     subscriptions_count,
     fetch_subscriber,
+    delete_subscription,
 )
 
 from db.subscription import Subscription
@@ -88,7 +89,7 @@ def send(all=False, month=None, day=None, chat_id=None):
                             'El equipo de Una Mirada de Fe y Esperanza'
                     _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
                     
-                    subscription.delete(id=subscription.id)
+                    delete_subscription(subscription.id)
 
                 done = True
             except Exception as e:

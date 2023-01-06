@@ -74,18 +74,6 @@ class Quiz(Base):
         self.wrong = 0
         self.knowledge = .0
 
-    def persist(self):
-        session = Session()
-        session.add(self)
-        session.commit()
-        session.close()
-
-    def delete(self):
-        session = Session()
-        session.delete(self)
-        session.commit()
-        session.close()
-
     def finished(self) -> bool:
         return (self.current_question >= self.total)
 

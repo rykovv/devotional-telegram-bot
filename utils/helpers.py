@@ -13,6 +13,8 @@ import actors.actuary as actuary
 import utils.buffer as buffer
 import utils.consts as consts
 
+from utils.decorators import make_session_scope
+
 
 def fetch_subscriber(id) -> Subscriber:
     session = Session()
@@ -38,8 +40,8 @@ def process_send_exception(exception, subscription) -> str:
         session = Session()
         subscriber = session.query(Subscriber).get(subscription.subscriber_id)
         session.close()
-        subscription.delete()
-        subscriber.delete()
+        delete_subscription(subscription.id)
+        delete_subscriber(subscriber.id)
         actuary.add_unsubscribed()
 
         return 'Subscriber and subscription were deleted.'
@@ -54,19 +56,20 @@ def subscriptions_count(sid) -> int:
 
 
 def persist_buffer(userid) -> None:
-    if userid in buffer.subscribers:
-        buffer.subscribers[userid].persist()
-        actuary.set_last_registered(epoch=buffer.subscribers[userid].creation_utc)
-    if userid in buffer.subscriptions:
-        buffer.subscriptions[userid].persist()
-        actuary.set_last_subscribed(epoch=buffer.subscriptions[userid].creation_utc)
+    with make_session_scope() as session:
+        if userid in buffer.subscribers:
+            buffer.subscribers[userid].persist(session)
+            actuary.set_last_registered(epoch=buffer.subscribers[userid].creation_utc)
+        if userid in buffer.subscriptions:
+            buffer.subscriptions[userid].persist(session)
+            actuary.set_last_subscribed(epoch=buffer.subscriptions[userid].creation_utc)
 
 
 def clean_db(userid) -> None:
     if userid in buffer.subscriptions:
-        buffer.subscriptions[userid].delete()
+        delete_subscription( buffer.subscriptions[userid].id )
     if userid in buffer.subscribers:
-        buffer.subscribers[userid].delete()
+        delete_subscriber(userid)
 
 # this function may be useful when a fast sudden subscriber deletion may take place
 #   and sqlalchemy lazy loading would not have enough time to load all relationships  
@@ -76,6 +79,11 @@ def delete_subscriber(subscriber_id: int):
         session.delete(subscriber)
         session.commit()
 
+def delete_subscription(subscription_id: int):
+    with Session() as session:
+        subscription = session.query(Subscription).get(subscription_id)
+        session.delete(subscription)
+        session.commit()
 
 def print_subscription(subscription: Subscription, skipped: Boolean = False) -> str:
     material_type = consts.MATERIAL_TYPES[subscription.title]

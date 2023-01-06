@@ -34,12 +34,15 @@ def run_continuously(interval=1):
     continuous_thread.start()
 
 # Start the background thread
-def run(task, interval=1):
+def run(tasks, interval=1):
+    for task in tasks:
+        task['every'].do(task['task'])
+    
     # Schedule devotional sending every hour at 00th minute
-    if config['deployment']['build'] == 'production':
-        schedule.every().hour.at(':00').do(task)
-    elif config['deployment']['build'] == 'test':
-        schedule.every(30).seconds.do(task)
+    # if config['deployment']['build'] == 'production':
+    #     schedule.every().hour.at(':00').do(task)
+    # elif config['deployment']['build'] == 'test':
+    #     schedule.every(30).seconds.do(task)
         
     run_continuously(interval)
 

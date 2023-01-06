@@ -41,31 +41,21 @@ class Subscription(Base):
         self.id = uuid.uuid4()
 
     def update_utc_offset(self, offset):
-        session = Session()
         self.utc_offset = offset
         self.preferred_time_utc = shift_12h_tf(self.preferred_time_local, self.utc_offset)
-        session.commit()
-        session.close()
-
+        
     def update_preferred_time_local(self, new_time):
-        session = Session()
         self.preferred_time_local = new_time
         self.preferred_time_utc = shift_12h_tf(self.preferred_time_local, self.utc_offset)
-        session.commit()
-        session.close()
+        
+    # def persist(self, session):
+    #     # session.add(self)
+    #     session.merge(self)
 
-    def persist(self):
-        session = Session()
-        session.add(self)
-        session.commit()
-        session.close()
-
-    def delete(self, id = None):
-        session = Session()
-        if id == None:
-            session.delete(self)
-        else:
-            subscription = session.query(Subscription).get(id)
-            session.delete(subscription)
-        session.commit()
-        session.close()
+    # def delete(self, session, id = None):
+    #     if id == None:
+    #         session.merge(self)
+    #         session.delete(self)
+    #     else:
+    #         subscription = session.query(Subscription).get(id)
+    #         session.delete(subscription)
