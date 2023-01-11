@@ -5,6 +5,7 @@ import uuid
 
 from sqlalchemy import Column, String, Integer, Numeric, ForeignKey
 from sqlalchemy.orm import relationship
+from sqlalchemy import inspect
 
 from utils.utils import get_epoch, shift_12h_tf
 
@@ -41,31 +42,21 @@ class Subscription(Base):
         self.id = uuid.uuid4()
 
     def update_utc_offset(self, offset):
-        session = Session()
         self.utc_offset = offset
         self.preferred_time_utc = shift_12h_tf(self.preferred_time_local, self.utc_offset)
-        session.commit()
-        session.close()
 
     def update_preferred_time_local(self, new_time):
-        session = Session()
         self.preferred_time_local = new_time
         self.preferred_time_utc = shift_12h_tf(self.preferred_time_local, self.utc_offset)
-        session.commit()
-        session.close()
 
-    def persist(self):
-        session = Session()
+    def persist(self, session):
         session.add(self)
         session.commit()
-        session.close()
 
-    def delete(self, id = None):
-        session = Session()
+    def delete(self, session, id = None):
         if id == None:
             session.delete(self)
         else:
             subscription = session.query(Subscription).get(id)
             session.delete(subscription)
         session.commit()
-        session.close()

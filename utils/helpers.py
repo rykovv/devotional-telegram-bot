@@ -2,7 +2,7 @@ from utils.utils import days_since_epoch, extract_material_name
 from db.question import Question
 from sqlalchemy.sql.sqltypes import Boolean
 from sqlalchemy.sql import func
-from db.base import Session
+from db.base import Session, main_session
 from db.subscription import Subscription
 from db.subscriber import Subscriber
 from db.study import Study
@@ -15,11 +15,16 @@ import utils.consts as consts
 
 
 def fetch_subscriber(id) -> Subscriber:
+    subscriber = main_session.query(Subscriber).get(id)
+
+    return subscriber
+
+def subscriber_exists(id) -> bool:
     session = Session()
     subscriber = session.query(Subscriber).get(id)
     session.close()
 
-    return subscriber
+    return subscriber != None
 
 def fetch_question(subscriber_id, questions_range, question_range_index) -> Question:
     session = Session()
@@ -33,13 +38,25 @@ def fetch_question(subscriber_id, questions_range, question_range_index) -> Ques
     session.close()
     return question
 
+def fetch_study_subscriptions(user_id):
+    session = Session()
+    study_subscriptions = session \
+        .query(Subscription) \
+        .filter(
+            Subscription.subscriber_id == user_id,
+            Subscription.title.ilike(f'Estudio%')) \
+        .all()
+    session.close()
+
+    return study_subscriptions
+
 def process_send_exception(exception, subscription) -> str:
     if str(exception) == 'Forbidden: bot was blocked by the user':
         session = Session()
         subscriber = session.query(Subscriber).get(subscription.subscriber_id)
         session.close()
-        subscription.delete()
-        subscriber.delete()
+        subscription.delete(main_session)
+        subscriber.delete(main_session)
         actuary.add_unsubscribed()
 
         return 'Subscriber and subscription were deleted.'
@@ -55,18 +72,18 @@ def subscriptions_count(sid) -> int:
 
 def persist_buffer(userid) -> None:
     if userid in buffer.subscribers:
-        buffer.subscribers[userid].persist()
+        buffer.subscribers[userid].persist(main_session)
         actuary.set_last_registered(epoch=buffer.subscribers[userid].creation_utc)
     if userid in buffer.subscriptions:
-        buffer.subscriptions[userid].persist()
+        buffer.subscriptions[userid].persist(main_session)
         actuary.set_last_subscribed(epoch=buffer.subscriptions[userid].creation_utc)
 
 
 def clean_db(userid) -> None:
     if userid in buffer.subscriptions:
-        buffer.subscriptions[userid].delete()
+        buffer.subscriptions[userid].delete(main_session)
     if userid in buffer.subscribers:
-        buffer.subscribers[userid].delete()
+        buffer.subscribers[userid].delete(main_session)
 
 # this function may be useful when a fast sudden subscriber deletion may take place
 #   and sqlalchemy lazy loading would not have enough time to load all relationships  

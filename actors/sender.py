@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 
 import telegram
-from db.base import Session
+from db.base import Session, main_session
 from db.promise import Promise
 
 import utils.consts as consts
@@ -42,7 +42,6 @@ def send(all=False, month=None, day=None, chat_id=None):
         subscriptions = session.query(Subscription).filter(Subscription.preferred_time_utc.ilike(f'{current_hour}%')).all()
     else:
         subscriptions = session.query(Subscription).all()
-    session.close()
 
     bot = telegram.Bot(token=config['bot']['token'])
     
@@ -88,7 +87,7 @@ def send(all=False, month=None, day=None, chat_id=None):
                             'El equipo de Una Mirada de Fe y Esperanza'
                     _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
                     
-                    subscription.delete(id=subscription.id)
+                    subscription.delete(session, id=subscription.id)
 
                 done = True
             except Exception as e:
@@ -97,6 +96,8 @@ def send(all=False, month=None, day=None, chat_id=None):
                 time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
                 done = retries > consts.MAX_SEND_RETRIES
+            finally:
+                session.close()
 
     if sent > 0:
         actuary.add_sent(sent)

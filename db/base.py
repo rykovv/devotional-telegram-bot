@@ -13,3 +13,5 @@ engine = create_engine(f'postgresql://{config["database"]["user"]}:{config["data
 Session = sessionmaker(bind = engine)
 
 Base = declarative_base()
+
+main_session = Session()

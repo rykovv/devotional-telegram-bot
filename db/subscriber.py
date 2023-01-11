@@ -1,6 +1,7 @@
 from db.base import Base, Session
 
 from sqlalchemy import Column, String, Numeric
+from sqlalchemy import inspect
 from sqlalchemy.orm import relationship
 
 from utils.utils import get_epoch
@@ -31,17 +32,13 @@ class Subscriber(Base):
     def skipped_timezone(self):
         return self.time_zone == 'skipped'
 
-    def persist(self):
-        session = Session()
+    def persist(self, session):
         session.add(self)
         session.commit()
-        session.close()
 
-    def delete(self):
-        session = Session()
+    def delete(self, session):
         session.delete(self)
         session.commit()
-        session.close()
 
     def subscribed(self, title):
         for subscription in self.subscriptions:

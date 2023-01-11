@@ -39,17 +39,7 @@ from utils.utils import (
     is_admin,
     admin_message_formatter,
 )
-from utils.helpers import (
-    fetch_subscriber,
-    persist_buffer,
-    clean_db,
-    print_subscription,
-    prepare_subscriptions_reply,
-    persisted_subscription,
-    prepare_studies_reply,
-    delete_subscriber,
-    get_study_subscription_by_acronym
-)
+from utils.helpers import *
 
 import actors.scheduler as scheduler
 import actors.sender as sender
@@ -626,6 +616,7 @@ def change_preferred_time(update: Update, context: CallbackContext) -> int:
 
     return CHANGE
 
+
 def change_devotional(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
@@ -874,7 +865,7 @@ def material_unsubscription_confirmation(update: Update, context: CallbackContex
     if update.message.text == 'Sí':
         removed_canceled = 'cancelada'
         if persisted_subscription(buffer.subscriptions[user.id]):
-            buffer.subscriptions[user.id].delete()
+            buffer.subscriptions[user.id].delete(main_session)
             removed_canceled = 'eliminada'
         update.message.reply_text(
             f'De acuerdo. Su suscripción ha sido {removed_canceled}.\n\n'
@@ -893,8 +884,8 @@ def material_unsubscription_confirmation(update: Update, context: CallbackContex
 
 def get_statistics(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
-    subscriber = fetch_subscriber(user.id)
-    if subscriber != None:
+    
+    if subscriber_exists(user.id) != None:
         by_devotional = ''
         sbd = actuary.subscriptions_by_material()
         stats = actuary.statistics()
@@ -982,14 +973,7 @@ def contact(update: Update, context: CallbackContext) -> int:
 def select_study_quiz(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
-    session = Session()
-    study_subscriptions = session \
-        .query(Subscription) \
-        .filter(
-            Subscription.subscriber_id == user.id,
-            Subscription.title.ilike(f'Estudio%')) \
-        .all()
-    session.close()
+    study_subscriptions = fetch_study_subscriptions(user.id)
 
     # Possible input: 
     #   /cuestionario CS día 1
@@ -1048,14 +1032,7 @@ def select_study_quiz(update: Update, context: CallbackContext) -> int:
 def process_study_quiz_select(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
 
-    session = Session()
-    study_subscriptions = session \
-        .query(Subscription) \
-        .filter(
-            Subscription.subscriber_id == user.id,
-            Subscription.title.ilike(f'Estudio%')) \
-        .all()
-    session.close()
+    study_subscriptions = fetch_study_subscriptions(user.id)
 
     if not re.match(consts.STUDY_SELECT_PATTERN, update.message.text):
         studies_str, studies_kb = prepare_studies_reply(study_subscriptions)

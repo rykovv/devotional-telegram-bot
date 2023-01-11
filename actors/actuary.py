@@ -53,7 +53,7 @@ def statistics():
 def set_last_registered(epoch = None):
     session = Session()
     stats = session.query(Statistics).get(STATISTICS_UNIQUE_ID)
-    if epoch != None and stats.last_registered < epoch:
+    if epoch != None and stats.last_registered <= epoch:
         stats.last_registered = epoch
     else:
         stats.last_registered = get_epoch()
@@ -63,7 +63,7 @@ def set_last_registered(epoch = None):
 def set_last_subscribed(epoch = None):
     session = Session()
     stats = session.query(Statistics).get(STATISTICS_UNIQUE_ID)
-    if epoch != None and stats.last_subscribed < epoch:
+    if epoch != None and stats.last_subscribed <= epoch:
         stats.last_subscribed = epoch
     else:
         stats.last_subscribed = get_epoch()
