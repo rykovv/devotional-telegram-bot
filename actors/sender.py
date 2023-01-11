@@ -69,7 +69,8 @@ def send(all=False, month=None, day=None, chat_id=None):
                                                     days_since_epoch(subscription.creation_utc))
 
                     # send files if available
-                    _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
+                    if subscription.title.startswith('Devocional'):
+                        _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
 
                     # send text next to the files
                     _send_message(bot, subscription.subscriber_id, msg, consts.LEAST_BOT_SEND_MS)
