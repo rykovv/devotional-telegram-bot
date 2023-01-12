@@ -12,7 +12,7 @@ import actors.actuary as actuary
 
 import utils.buffer as buffer
 import utils.consts as consts
-
+from utils.utils import get_send_month_day
 
 def fetch_subscriber(id) -> Subscriber:
     subscriber = main_session.query(Subscriber).get(id)
@@ -218,3 +218,14 @@ def get_study_subscription_by_acronym(study_subscriptions: list[Subscription], a
     study = filter(lambda s: s.title == f'Estudio: {consts.BOOKS_ACRONYMS_LUT[acronym.upper()]}', study_subscriptions)
     study = list(study)
     return study[0] if len(study) == 1 else None
+
+
+def check_send_date(subscription : Subscription, month : int, day : int) -> dict:
+    if month == None and day == None:
+        # 5am- UTC is 10pm PST previous day. When skipped_timezone, should send next day
+        if subscription.preferred_time_utc == '5am-' and fetch_subscriber(subscription.subscriber_id).skipped_timezone():
+            date = get_send_month_day(subscription.preferred_time_utc, skipped=True)
+        else:
+            date = get_send_month_day(subscription.preferred_time_utc)
+
+    return date

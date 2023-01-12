@@ -16,6 +16,7 @@ from utils.helpers import (
     process_send_exception,
     subscriptions_count,
     fetch_subscriber,
+    check_send_date,
 )
 
 from db.subscription import Subscription
@@ -47,6 +48,7 @@ def send(all=False, month=None, day=None, chat_id=None):
     
     sent = 0
     retries = 0
+    date = {'month' : month, 'day' : day}
     # must assure max sending of 30 messages per second, that's 33.33ms per message
     for subscription in subscriptions:
         done = False
@@ -54,14 +56,7 @@ def send(all=False, month=None, day=None, chat_id=None):
             try:
                 # check if the subscription is up to date
                 if not _expired_subscription(subscription):
-                    if month == None and day == None:
-                        # 5am- UTC is 10pm PST previous day. When skipped_timezone, should send next day
-                        if subscription.preferred_time_utc == '5am-' and fetch_subscriber(subscription.subscriber_id).skipped_timezone():
-                            date = get_send_month_day(subscription.preferred_time_utc, skipped=True)
-                        else:
-                            date = get_send_month_day(subscription.preferred_time_utc)
-                    else:
-                        date = {'month':month, 'day':day}
+                    date = check_send_date(subscription, month, day)
                         
                     # compose a formatted message
                     msg, file_ids = composer.compose(subscription.title, 
