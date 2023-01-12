@@ -60,32 +60,32 @@ def populate_devotional_maranatha():
 def populate_devotional_that_i_may_know_him():
     session = Session()
     # TODO: Uncomment if clause when the devotional links are complete
-    # if session.query(Devotional).filter(Devotional.name == 'A Fin de Conocerle').count() != consts.AFC_DAYS_COUNT:
-    devotionals = []
+    if session.query(Devotional).filter(Devotional.name == 'A Fin de Conocerle').count() != consts.AFC_DAYS_COUNT:
+        devotionals = []
 
-    with open(AFC_FILE, 'rb') as fp:
-        devotionals = json.load(fp)
+        with open(AFC_FILE, 'rb') as fp:
+            devotionals = json.load(fp)
 
-    for i, devotional in enumerate(devotionals):
-        session.add(
-            Devotional(
-                name='A Fin de Conocerle', \
-                title_date=devotional['title_date'], \
-                title=devotional['title'], \
-                date=devotional['date'], \
-                month=devotional['month'], \
-                day=devotional['day'], \
-                verse=devotional['verse'], \
-                paragraphs_count=devotional['paragraphs_count'], \
-                paragraphs=devotional['paragraphs'], \
-                urls=devotional['urls'], \
-                telegram_file_ids=devotional['telegram_file_ids'], \
-                year_day=i+1
+        for i, devotional in enumerate(devotionals):
+            session.add(
+                Devotional(
+                    name='A Fin de Conocerle', \
+                    title_date=devotional['title_date'], \
+                    title=devotional['title'], \
+                    date=devotional['date'], \
+                    month=devotional['month'], \
+                    day=devotional['day'], \
+                    verse=devotional['verse'], \
+                    paragraphs_count=devotional['paragraphs_count'], \
+                    paragraphs=devotional['paragraphs'], \
+                    urls=devotional['urls'], \
+                    telegram_file_ids=devotional['telegram_file_ids'], \
+                    year_day=i+1
+                )
             )
-        )
-        session.commit()
-    # else:
-    #     logger.info('[DEVOTIONAL] A Fin de Conocerle devotional is aready in the db.')
+            session.commit()
+    else:
+        logger.info('[DEVOTIONAL] A Fin de Conocerle devotional is aready in the db.')
     session.close()
 
 def populate_book_great_controversy():
