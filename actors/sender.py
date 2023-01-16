@@ -88,12 +88,12 @@ def send(all=False, month=None, day=None, chat_id=None):
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}.'
-                                 f'\nAction: {process_send_exception(e, subscription)}')
+                                 f'\nAction: {process_send_exception(e, subscription, session)}')
                 time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
                 done = retries > consts.MAX_SEND_RETRIES
-            finally:
-                session.close()
+                
+    session.close()
 
     if sent > 0:
         actuary.add_sent(sent)
@@ -114,7 +114,6 @@ def send(all=False, month=None, day=None, chat_id=None):
 def send_global_message(msg):
     session = Session()
     subscriptions = session.query(Subscription).all()
-    session.close()
 
     bot = telegram.Bot(token=config['bot']['token'])
     
@@ -130,10 +129,12 @@ def send_global_message(msg):
                 done = True
             except Exception as e:
                 report_exception(f'{e} sending at {get_current_utc_hour()} to {str(subscription.subscriber_id)}.'
-                                 f'\nAction: {process_send_exception(e, subscription)}')
+                                 f'\nAction: {process_send_exception(e, subscription, session)}')
                 time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
                 done = retries > consts.MAX_SEND_RETRIES
+
+    session.close()
 
     if sent > 0:
         actuary.add_sent(sent)

@@ -50,13 +50,11 @@ def fetch_study_subscriptions(user_id):
 
     return study_subscriptions
 
-def process_send_exception(exception, subscription) -> str:
+def process_send_exception(exception, subscription, session) -> str:
     if str(exception) == 'Forbidden: bot was blocked by the user':
-        session = Session()
         subscriber = session.query(Subscriber).get(subscription.subscriber_id)
-        session.close()
-        subscription.delete(main_session)
-        subscriber.delete(main_session)
+        subscription.delete(session)
+        subscriber.delete(session)
         actuary.add_unsubscribed()
 
         return 'Subscriber and subscription were deleted.'
