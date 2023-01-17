@@ -12,7 +12,9 @@ import actors.actuary as actuary
 
 import utils.buffer as buffer
 import utils.consts as consts
-from utils.utils import get_send_month_day
+from utils.utils import get_send_month_day, get_logger
+
+logger = get_logger()
 
 def fetch_subscriber(id) -> Subscriber:
     subscriber = main_session.query(Subscriber).get(id)
@@ -58,7 +60,7 @@ def process_send_exception(exception, subscription, session):
         subscription.delete(session)
         subscriber.delete(session)
         actuary.add_unsubscribed()
-        print('Subscription and subscriber deleted: id {subscription.id}, subscriber_id {subscription.subscriber_id}, title {subscription.title}')
+        logger.info('Subscription and subscriber deleted: id {subscription.id}, subscriber_id {subscription.subscriber_id}, title {subscription.title}')
         
         return 'Subscriber and subscription were deleted.', True
     return 'No action taken at exception.', False
