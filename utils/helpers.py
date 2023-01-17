@@ -53,7 +53,7 @@ def fetch_study_subscriptions(user_id):
 # Processes exception by exception message, provides a short report
 #   on action taken and boolean if the send loop done for the subscription 
 def process_send_exception(exception, subscription, session):
-    if str(exception) == 'Forbidden: bot was blocked by the user':
+    if str(exception) in consts.USER_DEACTIVATING_EXCEPTIONS:
         subscriber = session.query(Subscriber).get(subscription.subscriber_id)
         subscription.delete(session)
         subscriber.delete(session)

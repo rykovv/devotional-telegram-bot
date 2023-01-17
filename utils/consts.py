@@ -163,3 +163,6 @@ QUIZ_CHAPTER_PONDERATION = .7
 QUIZ_INDEPEPENDENT_DAY = 999
 ### Acceptable independent quiz specifires
 QUIZ_SPECIFIERS = ['dia', 'capitulo', 'día', 'capítulo']
+
+### Exception messages that trigger users and their subscriptions to be removed.
+USER_DEACTIVATING_EXCEPTIONS = ['Forbidden: user is deactivated', 'Forbidden: bot was blocked by the user']
