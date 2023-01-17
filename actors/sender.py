@@ -87,11 +87,14 @@ def send(all=False, month=None, day=None, chat_id=None):
 
                 done = True
             except Exception as e:
+                action_taken, done = process_send_exception(e, subscription, session)
                 report_exception(f'{e} sending at {date} to {str(subscription.subscriber_id)}.'
-                                 f'\nAction: {process_send_exception(e, subscription, session)}')
+                                 f'\nAction: {action_taken}')
                 time.sleep(pow(2, retries) if retries < 9 else consts.MAX_RESEND_DELAY)
                 retries += 1
-                done = retries > consts.MAX_SEND_RETRIES
+                
+                if not done:
+                    done = retries > consts.MAX_SEND_RETRIES
                 
     session.close()
 

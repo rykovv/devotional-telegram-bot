@@ -50,15 +50,18 @@ def fetch_study_subscriptions(user_id):
 
     return study_subscriptions
 
-def process_send_exception(exception, subscription, session) -> str:
+# Processes exception by exception message, provides a short report
+#   on action taken and boolean if the send loop done for the subscription 
+def process_send_exception(exception, subscription, session):
     if str(exception) == 'Forbidden: bot was blocked by the user':
         subscriber = session.query(Subscriber).get(subscription.subscriber_id)
         subscription.delete(session)
         subscriber.delete(session)
         actuary.add_unsubscribed()
-
-        return 'Subscriber and subscription were deleted.'
-    return 'No action taken at exception.'
+        print('Subscription and subscriber deleted: id {subscription.id}, subscriber_id {subscription.subscriber_id}, title {subscription.title}')
+        
+        return 'Subscriber and subscription were deleted.', True
+    return 'No action taken at exception.', False
 
 
 def subscriptions_count(sid) -> int:
