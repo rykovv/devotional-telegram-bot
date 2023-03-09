@@ -73,6 +73,10 @@ MATERIAL_TYPES = {
     'Promesas: 365 Promesas para Cada Día'  : 'Promise'
     #'Estudio: El Conflicto de los Siglos'   : 'Study' # still in development
 }
+LIST_OF_DEVOTIONALS = [
+    '¡Maranata: El Señor Viene!',
+    'A Fin de Conocerle',
+]
 
 ## Dictionary with books acronyms in Spanish
 BOOKS_ACRONYMS_LUT = {
