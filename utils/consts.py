@@ -74,8 +74,8 @@ MATERIAL_TYPES = {
     #'Estudio: El Conflicto de los Siglos'   : 'Study' # still in development
 }
 LIST_OF_DEVOTIONALS = [
-    '¡Maranata: El Señor Viene!',
-    'A Fin de Conocerle',
+    'Devocional: ¡Maranata: El Señor Viene!',
+    'Devocional: A Fin de Conocerle',
 ]
 
 ## Dictionary with books acronyms in Spanish

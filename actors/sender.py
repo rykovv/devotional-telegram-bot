@@ -63,7 +63,7 @@ def send(all=False, month=None, day=None, chat_id=None):
                                                     date['month'], date['day'],
                                                     days_since_epoch(subscription.creation_utc))
 
-                    # send files if available
+                    # send files if available and if not a devotional
                     if not subscription.title in consts.LIST_OF_DEVOTIONALS:
                         _send_document(bot, subscription.subscriber_id, file_ids, consts.LEAST_BOT_SEND_MS)
 
@@ -159,6 +159,7 @@ def report_exception(exception):
 
 def _send_document(bot, subscriber_id, file_ids, least_ms):
     # do not send documents in test deployment, they are binded to the production bot
+    print('tried to send doc')
     if config['deployment']['build'] != 'test':
         global _last_send_timestamp
         # send files without order. see json structure for order
