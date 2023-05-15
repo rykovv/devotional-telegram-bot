@@ -1,5 +1,6 @@
 import threading
 import time
+import functools
 
 from configparser import ConfigParser
 
@@ -11,9 +12,31 @@ config.read(consts.CONFIG_FILE_NAME)
 
 cease_continuous_run = threading.Event()
 
+
+def scheduler_catch_exception(cancel_on_failure: bool = False):
+    """ Decorator for catching exceptions for scheduled tasks.
+
+    Args:
+        cancel_on_failure (bool, optional): Cancel scheduler on failure. Defaults to False.
+    """
+    def catch_exceptions_decorator(job_func):
+        @functools.wraps(job_func)
+        def wrapper(*args, **kwargs):
+            try:
+                return job_func(*args, **kwargs)
+            except:
+                import traceback
+                print(traceback.format_exc())
+                if cancel_on_failure:
+                    return schedule.CancelJob
+        return wrapper
+    return catch_exceptions_decorator
+
+
 def run_continuously(interval=1):
     """Continuously run, while executing pending jobs at each
     elapsed time interval.
+    
     @return cease_continuous_run: threading. Event which can
     be set to cease continuous run. Please note that it is
     *intended behavior that run_continuously() does not run
@@ -32,6 +55,7 @@ def run_continuously(interval=1):
 
     continuous_thread = ScheduleThread()
     continuous_thread.start()
+
 
 # Start the background thread
 def run(task, function, interval=1):

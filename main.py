@@ -1232,8 +1232,8 @@ def main() -> None:
     updater.start_polling()
 
     # Start running scheduler in background 
-    scheduler.run(sender.send)
-    scheduler.run(doctor.health_check)
+    scheduler.run(sender.send, function='send')
+    scheduler.run(doctor.health_check, function='health_check')
     
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
