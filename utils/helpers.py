@@ -1,3 +1,5 @@
+import traceback
+
 from utils.utils import days_since_epoch, extract_material_name
 from db.question import Question
 from sqlalchemy.sql.sqltypes import Boolean
@@ -56,13 +58,19 @@ def fetch_study_subscriptions(user_id):
 #   on action taken and boolean if the send loop done for the subscription 
 def process_send_exception(exception, subscription, session):
     if str(exception) in consts.USER_DEACTIVATING_EXCEPTIONS:
-        subscriber = session.query(Subscriber).get(subscription.subscriber_id)
-        subscription.delete(session)
-        subscriber.delete(session)
-        actuary.add_unsubscribed()
-        logger.info('Subscription and subscriber deleted: id {subscription.id}, subscriber_id {subscription.subscriber_id}, title {subscription.title}')
-        
-        return 'Subscriber and subscription were deleted.', True
+        ret_str = 'Subscriber and subscription were deleted.'
+        try:
+            subscriber = session.query(Subscriber).get(subscription.subscriber_id)
+            subscription.delete(session)
+            subscriber.delete(session)
+            actuary.add_unsubscribed()
+            logger.info('Subscription and subscriber deleted: id {subscription.id}, subscriber_id {subscription.subscriber_id}, title {subscription.title}')
+        except Exception as e:
+            tb = ''.join(traceback.format_exception(None, e, e.__traceback__))
+            logger.error(f'Entered exception handler in "helpers.process_send_exception" with following traceback:\n{tb}')
+            ret_str = f'Tried to delete subscription and subscriber, but something went wrong: {e}'
+
+        return ret_str, True
     return 'No action taken at exception.', False
 
 

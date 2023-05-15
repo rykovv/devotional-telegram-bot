@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 
 import telegram
-from db.base import Session, main_session
+from db.base import Session
 from db.promise import Promise
 
 import utils.consts as consts
@@ -159,7 +159,6 @@ def report_exception(exception):
 
 def _send_document(bot, subscriber_id, file_ids, least_ms):
     # do not send documents in test deployment, they are binded to the production bot
-    print('tried to send doc')
     if config['deployment']['build'] != 'test':
         global _last_send_timestamp
         # send files without order. see json structure for order
