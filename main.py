@@ -45,6 +45,7 @@ import actors.scheduler as scheduler
 import actors.sender as sender
 import actors.actuary as actuary
 import actors.quizzer as quizzer
+import actors.doctor as doctor
 
 
 # Setup the config
@@ -1232,6 +1233,7 @@ def main() -> None:
 
     # Start running scheduler in background 
     scheduler.run(sender.send)
+    scheduler.run(doctor.health_check)
     
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since

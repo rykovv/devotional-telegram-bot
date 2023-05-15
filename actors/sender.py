@@ -36,6 +36,8 @@ config.read(consts.CONFIG_FILE_NAME)
 logger = get_logger()
 _last_send_timestamp = dt.datetime.utcnow()
 
+last_send_ts = None
+
 def send(all=False, month=None, day=None, chat_id=None):
     session = Session()
     if not all:
@@ -112,7 +114,8 @@ def send(all=False, month=None, day=None, chat_id=None):
             logger.info(f'{sent} devotionals sent at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
         else:
             logger.info(f'Devotionals have been sent to all users at {consts.TF_24TO12[get_current_utc_hour()]} with {retries} retries.')
-        
+
+    last_send_ts = dt.datetime.now()
 
 def send_global_message(msg):
     session = Session()
