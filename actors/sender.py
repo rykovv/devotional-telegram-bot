@@ -162,6 +162,7 @@ def send_global_message(msg):
 
 def report_exception(exception):
     bot = telegram.Bot(token=config['bot']['token'])
+    logger.error(f'Reporting exception: {str(exception)}.')
     _send_message(bot, config['admin']['chat_id'], str(exception), consts.LEAST_BOT_SEND_MS)
     
 

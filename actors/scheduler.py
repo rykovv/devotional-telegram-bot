@@ -6,6 +6,7 @@ from configparser import ConfigParser
 
 import schedule
 import utils.consts as consts
+from utils.utils import get_logger
 
 config = ConfigParser()
 config.read(consts.CONFIG_FILE_NAME)
@@ -24,9 +25,11 @@ def scheduler_catch_exception(cancel_on_failure: bool = False):
         def wrapper(*args, **kwargs):
             try:
                 return job_func(*args, **kwargs)
-            except:
+            except Exception as e:
                 import traceback
-                print(traceback.format_exc())
+                logger = get_logger()
+                tb = ''.join(traceback.format_exception(None, e, e.__traceback__))
+                logger.error(f'Entered exception hander for one of the threads with following traceback:\n{tb}')
                 if cancel_on_failure:
                     return schedule.CancelJob
         return wrapper
@@ -36,7 +39,7 @@ def scheduler_catch_exception(cancel_on_failure: bool = False):
 def run_continuously(interval=1):
     """Continuously run, while executing pending jobs at each
     elapsed time interval.
-    
+
     @return cease_continuous_run: threading. Event which can
     be set to cease continuous run. Please note that it is
     *intended behavior that run_continuously() does not run
