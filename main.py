@@ -927,7 +927,9 @@ def get_admin_statistics(update: Update, context: CallbackContext) -> int:
             f'Versículo profético: {stats.prophetic_queries}\n'
             f'Dieron de baja : {stats.unsubscribed}\n'
             f'Último registrado : {epoch_to_date(stats.last_registered)}\n'
-            f'Último suscrito : {epoch_to_date(stats.last_subscribed)}',
+            f'Último suscrito : {epoch_to_date(stats.last_subscribed)}\n'
+            f'Último enviado : {doctor.last_send_ts}\n'
+            f'Último doctor check : {doctor.last_health_check}',
             reply_markup=ReplyKeyboardRemove()
         )
     else:
@@ -1232,8 +1234,11 @@ def main() -> None:
     updater.start_polling()
 
     # Start running scheduler in background 
-    scheduler.run(sender.send, function='send')
-    scheduler.run(doctor.health_check, function='health_check')
+    tasks = {
+        'send' : sender.send,
+        'health_check' : doctor.health_check
+    }
+    scheduler.run(tasks)
     
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since

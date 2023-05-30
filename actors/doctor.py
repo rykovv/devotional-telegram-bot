@@ -1,13 +1,16 @@
 from datetime import datetime, timedelta
 
 from actors.sender import last_send_ts, report_exception
-from actors.scheduler import scheduler_catch_exception
+from actors.scheduler import catch_exceptions_decorator
 
 last_health_check = None
 last_send_none_ts = None
 
-@scheduler_catch_exception
+# @scheduler_catch_exception
+@catch_exceptions_decorator
 def health_check():
+    global last_send_none_ts, last_health_check
+
     if last_send_ts is not None:
         past = datetime.now() - last_send_ts
         if past > timedelta(hours=1, minutes=10):

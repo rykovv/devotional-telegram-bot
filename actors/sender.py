@@ -27,7 +27,7 @@ from db.study import Study
 import actors.composer as composer
 import actors.actuary as actuary
 
-from actors.scheduler import scheduler_catch_exception
+from actors.scheduler import catch_exceptions_decorator
 
 import time
 import datetime as dt
@@ -41,8 +41,11 @@ _last_send_timestamp = dt.datetime.utcnow()
 last_send_ts = None
 
 
-@scheduler_catch_exception
+# @scheduler_catch_exception
+@catch_exceptions_decorator
 def send(all=False, month=None, day=None, chat_id=None):
+    global last_send_ts
+    
     session = Session()
     if not all:
         current_hour = consts.TF_24TO12[get_current_utc_hour()]
