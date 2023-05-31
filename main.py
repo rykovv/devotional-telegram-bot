@@ -928,7 +928,7 @@ def get_admin_statistics(update: Update, context: CallbackContext) -> int:
             f'Dieron de baja : {stats.unsubscribed}\n'
             f'Último registrado : {epoch_to_date(stats.last_registered)}\n'
             f'Último suscrito : {epoch_to_date(stats.last_subscribed)}\n'
-            f'Último enviado : {doctor.last_send_ts}\n'
+            f'Último enviado : {sender.last_send_ts}\n'
             f'Último doctor check : {doctor.last_health_check}',
             reply_markup=ReplyKeyboardRemove()
         )

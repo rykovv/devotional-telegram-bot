@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
-from actors.sender import last_send_ts, report_exception
+import actors.sender as sender
+from actors.sender import report_exception
 from actors.scheduler import catch_exceptions_decorator
 
 last_health_check = None
@@ -11,8 +12,8 @@ last_send_none_ts = None
 def health_check():
     global last_send_none_ts, last_health_check
 
-    if last_send_ts is not None:
-        past = datetime.now() - last_send_ts
+    if sender.last_send_ts is not None:
+        past = datetime.now() - sender.last_send_ts
         if past > timedelta(hours=1, minutes=10):
             # failed send thread detected
             report_exception(f'{past} past last send time. Probably sender.send() broke. Last sent: {last_send_ts}')
