@@ -59,7 +59,6 @@ def populate_devotional_maranatha():
 
 def populate_devotional_that_i_may_know_him():
     session = Session()
-    # TODO: Uncomment if clause when the devotional links are complete
     if session.query(Devotional).filter(Devotional.name == 'A Fin de Conocerle').count() != consts.AFC_DAYS_COUNT:
         devotionals = []
 
