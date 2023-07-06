@@ -215,7 +215,7 @@ def populate_promises():
                 Promise(
                     original_order=promise['original_order'],
                     random_order=promise['random_order'],
-                    verse_bible_reference=promise['verse_bible_reference'].lower()
+                    verse_bible_reference=promise['verse_bible_reference']
                 )
             )
         session.commit()
